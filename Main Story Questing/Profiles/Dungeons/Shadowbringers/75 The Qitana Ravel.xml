@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Qitana Ravel
+  Authors: DomesticWarlord86
+	Version: 1.0
+	
+	Zone Id: 823 
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>The Qitana Ravel</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	
+	<If condition="not DutyManager.InInstance">
+		<JoinSupportDuty DutyId="651"/>	<!-- The Qitana Ravel -->
+	</If>
+	
+	<If condition="DutyManager.InInstance">
+	
+		<LoadDungeonAssist />
+
+		<!-- Arrive at the Divine Threshold: 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Arrive at the Divine Threshold: 0/1" />
+			<MoveTo XYZ="-0.2921236, 5.349999, 328.725" />
+			<Grind GrindRef="ClearToThreshold" While="DistanceSqrTo('-0.2921236, 5.349999, 328.725') &gt; 5"/> <!-- Clear to first boss -->
+		</If>
+		
+		<!-- Clear the Divine Threshold: 0/1 -->
+		<!--
+		Sun Toss - SideStep
+		Heat Up - Follow NPC
+		Stonefist - Direct attack to tank
+		Lozatl's Scorn - Follow Npc 
+		Lozatl's Fury - Follow Npc
+		
+		2007457 - Possible statue
+		-->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Clear the Divine Threshold: 0/1" />
+			<MoveTo XYZ="-0.2921236, 5.349999, 328.725" />
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Lozatl -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-0.01531982,5.325378,300.9841" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+		</If>
+		
+		<!-- Arrive in Shadowed Hollow: 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Arrive in Shadowed Hollow: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>			
+			</If>				
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="133.0739,-8.743469,187.6401" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="46.98242,-11.00183,78.99597" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+			<MoveTo XYZ="61.70953, -21, -24.52484" Distance="1"/>
+			<If condition="GetInstanceTodo(2) == 0">
+				<Grind GrindRef="SecondBoss" While="not GetInstanceTodo(3) == 1"/> <!-- Batsquatch -->	
+			</If>
+		</If>	
+		
+		<!-- Clear Shadowed Hollow: 0/1 -->
+		<!--
+			Soundwave - Follow NPC
+			Subsonics - AoE - Nothing to do
+			Ripper fang - direct attack to tank
+		-->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+			<Log Message="Clear Shadowed Hollow: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>			
+			</If>						
+			<MoveTo XYZ="61.70953, -21, -24.52484" />
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Batsquatch -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="61.69214,-21.01172,-45.02942" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+		</If>
+		
+		<!-- Arrive at the Song of Ox'Gatorl: 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+			<Log Message="Arrive at the Song of Ox'Gatorl: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>			
+			</If>				
+			<If condition="IsOnSubMap(3023)">
+				<MoveTo XYZ="38.81961, -22.1, -164.7668" />
+				<MoveTo XYZ="31.9047, -70.33002, -216.4169" usemesh="false" />
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="41.79443,-60.01379,-302.7238" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-6.973389,-57.02301,-424.7654" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>						
+			<MoveTo XYZ="16.87401, -57.62357, -433.1554" />
+			<MoveTo XYZ="17.28839, -77, -520.2258" usemesh="false" />
+			<WaitTimer WaitTime="3"/>
+		</If>		
+		
+		<!-- Defeat Eros: 0/1 -->
+		<!--
+			Hound of Heaven - Spread WIDE
+			Viper Poison - Spread
+			Inhale
+			Heaving Breath - Follow NPC
+			Rend - damage to tank
+			Confessions of Faith - stack
+		-->
+		<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+			<Log Message="Defeat Eros: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700"/>	
+				<If condition="IsOnSubMap(3023)">
+					<MoveTo XYZ="38.81961, -22.1, -164.7668" />
+					<MoveTo XYZ="31.9047, -70.33002, -216.4169" usemesh="false" />
+				</If>						
+				<MoveTo XYZ="16.87401, -57.62357, -433.1554" />
+				<MoveTo XYZ="17.28839, -77, -520.2258" usemesh="false" />				
+			</If>			
+			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Eros -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="16.98328,-77.01239,-552.0256" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+		</If>		
+		
+		<While condition="DutyManager.InInstance and IsDutyEnded()">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>		
+		
+  </If>
+	
+	
+	<LLoadProfile Path="../../../Start.xml"/>
+
+	</Order>
+  <GrindAreas>
+    <GrindArea name="ClearToThreshold">
+      <Hotspots>	
+        <Hotspot Radius="200" XYZ="-0.2921236, 5.349999, 328.725" name="Name"/>					
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8214" Weight="1"/> <!-- Ronkan Idol -->
+        <TargetMob Id="8215" Weight="1"/> <!-- Ronkan Vessel -->
+        <TargetMob Id="8221" Weight="1"/> <!-- Ronkan Thorn -->
+        <TargetMob Id="8639" Weight="1"/> <!-- Ronkan Dreamer -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="0,5.35,314.8604"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8231" Weight="1"/> <!-- Lozatl -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="61.20386,-21,-41.13288"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8232" Weight="1"/> <!-- Batsquatch -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="17.12395,-77,-550.7904" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8233" Weight="1"/> <!-- Eros -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks> 	
+  </CodeChunks>	
+</Profile>

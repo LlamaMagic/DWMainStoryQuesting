@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Main Story Questing
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Main Story Questing Start Profile</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+  <!-- Lisbeth check 
+	<LisbethCheck/> -->
+
+	<!-- Profile start here -->	
+	
+	<!-- Uldah Starting Zone -->
+	<If Condition="(not IsQuestCompleted(66209) and not IsQuestCompleted(66210)) and (ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Pugilist)">	
+		<Log Message="Loading Uldah Questing" />
+		<LLoadProfile Path="Profiles/Starting Zones/Uldah 1-15.xml"/>
+	</If>
+	
+	<!-- Limsa Starting Zone -->
+	<If Condition="(not IsQuestCompleted(66209) and not IsQuestCompleted(66210)) and (ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Marauder)">	
+		<Log Message="Loading Limsa Questing" />
+		<LLoadProfile Path="Profiles/Starting Zones/Limsa 1-15.xml"/>
+	</If>
+	
+	<!-- Gridania Starting Zone -->
+	<If Condition="(not IsQuestCompleted(66209) and not IsQuestCompleted(66210)) and (ClassName == ClassJobType.Archer or ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.Lancer)">	
+		<Log Message="Loading Gridania Questing" />
+		<LLoadProfile Path="Profiles/Starting Zones/Gridania 1-15.xml"/>
+	</If>
+
+	<!-- A Realm Reborn -->
+	<If Condition="not IsQuestCompleted(65964) and (IsQuestCompleted(66210) or IsQuestCompleted(66209))">	
+		<Log Message="Loading A Realm Reborn Questing" />
+		<LLoadProfile Path="Profiles/1 A Realm Reborn.xml"/>
+	</If>
+	
+	<!-- Heavensward -->
+	<If Condition="IsQuestCompleted(65964) and not IsQuestCompleted(67895)">	
+		<Log Message="Loading Heavensward Questingt" />
+		<LLoadProfile Path="Profiles/2 Heavensward.xml"/>
+	</If>	
+	
+	<!-- Stormblood -->
+	<If Condition="IsQuestCompleted(67895) and not IsQuestCompleted(68721)">	
+		<Log Message="Loading Stormblood Questing " />
+		<LLoadProfile Path="Profiles/3 Stormblood.xml"/>
+	</If>	
+	
+	<!-- Shadowbringers -->
+	<If Condition="IsQuestCompleted(68721) and not IsQuestCompleted(69602)">	
+		<Log Message="Shadowbringers Questing has not been tested yet" />	
+		<LLoadProfile Path="Profiles/4 Shadowbringers.xml"/>
+	</If>	
+	
+	<!-- Endwalker -->
+	<If Condition="IsQuestCompleted(69602) and not IsQuestCompleted(70000)">	
+		<Log Message="Loading Endwalker Questing" />	
+		<LLoadProfile Path="Profiles/5 Endwalker.xml"/>
+	</If>	
+	
+	<!-- Endwalker 6.1 -->
+	<If Condition="IsQuestCompleted(70000) and not IsQuestCompleted(70071)">	
+		<Log Message="Loading 6.1 Endwalker Questing" />	
+		<LLoadProfile Path="Profiles/Newfound Adventure - MSQ 6_1.xml"/>
+	</If>		
+
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

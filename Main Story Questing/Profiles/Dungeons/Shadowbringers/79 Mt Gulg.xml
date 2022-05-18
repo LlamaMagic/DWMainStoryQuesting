@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Mt. Gulg
+  Authors: DomesticWarlord86
+	Version: 1.0
+	
+	Zone Name: Mt. Gulg | Zone Id: 822 
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+<!ENTITY EquipAfterChestOpen "0">
+]>
+
+<Profile>
+  <Name>Mt. Gulg</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	
+	<If condition="not DutyManager.InInstance">
+		<JoinSupportDuty DutyId="659"/>	<!-- Mt. Gulg -->
+	</If>
+	
+	<If condition="DutyManager.InInstance">
+	
+		<LoadDungeonAssist />
+
+		<!-- Arrive on the Perished Path: 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Arrive on the Perished Path: 0/1" />
+			<MoveTo XYZ="187.9628, -48, -170.115" />
+		</If>
+		
+		<!-- Clear the Perished Path: 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Clear the Perished Path: 0/1" />		
+			<MoveTo XYZ="187.9628, -48, -170.115" InCombat="True"/>
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Forgiven Cruelty -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="170.1228,-48.0202,-169.9703" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>			
+		</If>
+		
+		<!-- Arrive at the White Gate: 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Arrive at the White Gate: 0/1" />
+			<EnablePlugin Names="SideStep"/>
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>			
+			</If>	
+			<If condition="IsOnSubMap(2998) or IsOnSubMap(3003)">
+				<MoveTo XYZ="-35.06368, -24.58146, -197.7493" />
+				<LLChangeZone Heading="4.207457" />
+			</If>
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-83.14642,172.6863,-250.5379" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-239.7346,201.9836,-99.04633" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>	
+			<MoveTo XYZ="-239.9892, 210, -49.93291"/>
+		</If>	
+		
+		
+		<!-- Clear the White Gate: 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+			<Log Message="Clear the White Gate: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>			
+			</If>				
+			<If condition="IsOnSubMap(2998) or IsOnSubMap(3003)">
+				<MoveTo XYZ="-35.06368, -24.58146, -197.7493" />
+				<LLChangeZone Heading="4.207457" />
+			</If>
+			<MoveTo XYZ="-239.9892, 210, -49.93291" InCombat="True"/>
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Forgiven Whimsy -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-240.0397,209.9794,-39.96344" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>			
+		</If>
+		
+		<!-- Arrive at the Winding Flare: 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+			<Log Message=" Arrive at the Winding Flare: 0/1 " />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>			
+			</If>				
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-288.1667,193.9879,87.11377" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-254.3832,201.9836,140.0625" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>	
+			<MoveTo XYZ="-240.5081, 204.3701, 188.3011" />
+			<MoveTo XYZ="-240.1572, 210, 210.3035" usemesh="false" />
+			<MoveTo XYZ="-239.9622, 210, 226.5752" InCombat="True"/>
+		</If>		
+		
+		<!-- Defeat the forgiven obscenity: 0/1 -->
+		<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+			<Log Message="Defeat the forgiven obscenity: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>	
+				<If condition="not IsOnSubMap(3000)">
+					<MoveTo XYZ="-240.5081, 204.3701, 188.3011" />
+					<MoveTo XYZ="-239.9622, 210, 226.5752" usemesh="false" InCombat="True"/>					
+				</If>
+			</If>			
+			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Forgiven Obscenity -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-240.0092,209.9794,246.2653" />
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip />
+				</If>	
+			</If>			
+		</If>		
+		
+		<While condition="DutyManager.InInstance and IsDutyEnded()">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>		
+		
+  </If>
+	
+	
+	<LLoadProfile Path="../../../Start.xml"/>
+
+	</Order>
+  <GrindAreas>	
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="173.99,-48,-170.0094"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8260" Weight="1"/> <!-- Forgiven Cruelty -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-239.9892, 210, -49.90553" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8261" Weight="1"/> <!-- Forgiven Whimsy -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-239.9622, 210, 226.5752" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8262" Weight="1"/> <!-- Forgiven Obscenity -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks> 	
+  </CodeChunks>	
+</Profile>

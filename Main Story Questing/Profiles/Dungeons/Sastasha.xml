@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sastasha
+  Authors: DomesticWarlord86
+	Version: 2.0
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>Sastasha</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<If condition="not DutyManager.InInstance">
+		<JoinSupportDuty DutyId="4"/>
+	</If>	
+
+	<If condition="DutyManager.InInstance">
+		<!-- Activate the coral trigger 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Activate the coral trigger: 0/1" />
+			<Grind GrindRef="ClearRoom" While="NumAttackableEnemies(1000, Array[int]([1208,38,1210])) &gt; 0"/> <!-- Clear all the clams -->
+			<MoveTo XYZ="75.8698,35.10142,-32.53721" distance="2"/> <!-- Move To Blue Coral -->
+			<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable"> 
+				<UseTransport NpcId="2000213" InteractDistance="3.0" XYZ="75.8698, 35.10142, -32.53721"/>	<!-- Blue Coral Formation -->
+			</If>
+			<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+				<UseTransport NpcId="2000215" InteractDistance="3.0" XYZ="64.98816, 33.67282, -56.69056"/> <!-- Green Coral Formation -->		
+			</If>
+			<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+				<UseTransport NpcId="2000214" InteractDistance="3.0" XYZ="88.76937, 31.13569, -40.86964"/> <!-- Red Coral Formation -->				
+			</If>
+			<WaitTimer WaitTime="2"/>
+		</If>	
+			
+		<!-- Open the hidden door 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+			<Log Message="Open the hidden door: 0/1" />			
+			<If condition="GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+				<UseObject NpcId="2000216" XYZ="62.90795,33.96952,-31.17228" Radius="25" condition="not GameObjectManager.GetObjectByNPCId(1204)"/>
+			</If>	
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1204).CurrentHealth == 0"/> <!-- Fight First Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<UseObject NpcId="2000216" XYZ="62.90795,33.96952,-31.17228" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2000216).IsTargetable"/>	
+			<WaitTimer WaitTime="3" />	
+		</If>
+		
+		<!-- Discover the pirate captain 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Discover the pirate captain 0/1" />
+			<MoveTo XYZ="-5.280043, 22.8478, 36.63774"/>
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight second Boss -->		
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-32.05927,23.91083,62.02783" />
+				<LLOpenChest />
+			</If>			
+		</If>
+		
+		<!-- Obtain the Waverider Gate key 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+			<Log Message="Obtain the Waverider Gate key 0/1" />
+			<Grind GrindRef="GrindCaptainsQuartersKey" While="not GameObjectManager.GetObjectByNPCId(2000250)"/> <!-- Farm Captain's Quarters Key -->
+			<If condition="GameObjectManager.GetObjectByNPCId(2000250) and not HasAtLeast(2000512,1)">	
+				<UseObject NpcId="2000250" XYZ="-95.04467,20.51307,172.0396" Radius="200" condition="not HasAtLeast(2000512,1)"/> <!-- Pickup Captain's Quarters Key -->				
+			</If>
+			<MoveTo XYZ="-95.04467,20.51307,172.0396" />
+			<While condition="GameObjectManager.GetObjectByNPCId(2000227).IsTargetable">
+				<UseTransport NpcId="2000227" InteractDistance="3.0" XYZ="-95.04467,20.51307,172.0396"/>				
+			</While>
+			<MoveTo XYZ="-95.02753,20.012,194.5923" />
+			<UseObject NpcId="2000255" XYZ="-95.11745,20.012,190.557" Radius="100" condition="not HasAtLeast(2000513,1)"/>	<!-- Pickup Waverider Gate Key -->		
+		</If>		
+		
+		<!-- Defeat Denn the Orcatoothed 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+			<Log Message="Defeat Denn the Orcatoothed 0/1" />
+			<MoveTo XYZ="-130.6,16,156.8" />
+			<While condition="GameObjectManager.GetObjectByNPCId(2000231).IsTargetable">
+				<UseTransport NpcId="2000231" InteractDistance="3.0" XYZ="-130.6, 16, 156.8"/>				
+			</While>			
+			<MoveTo XYZ="-165.2793, 7.402772, 225.4319"/>
+			<Grind GrindRef="SecondBoss2" While="GameObjectManager.GetObjectByNPCId(2000236).IsVisible"/> <!-- Fight second Boss again... -->
+			<MoveTo XYZ="-301.4477, 5.576687, 285.9107"/>	
+			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight Final Boss -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-324.5137,5.569519,348.989" />
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance and IsDutyEnded()">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>
+		</If>						
+	</If>
+	
+	<LLoadProfile Path="../../Start.xml"/>
+	
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="ClearRoom">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="75.8698,35.10142,-32.53721" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1211" Weight="1"/> <!-- Fossilshell -->
+        <TargetMob Id="1208" Weight="2"/> <!-- Giant Clam -->
+        <TargetMob Id="1209" Weight="1"/> <!-- Shade Seeker -->
+        <TargetMob Id="1210" Weight="1"/> <!-- Cave Aurelia -->
+        <TargetMob Id="1212" Weight="1"/> <!-- Sastasha Orobon -->
+        <TargetMob Id="38" Weight="1"/> <!-- Black Bat -->
+        <TargetMob Id="1210" Weight="1"/> <!-- Cave Aurelia -->
+      </TargetMobs>
+    </GrindArea>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="66.72766,31.72176,-38.01025" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="1204" Weight="1" /> <!-- Chopper -->
+			</TargetMobs>
+	  </GrindArea>		
+	  <GrindArea name="SecondBoss">
+      <Hotspots>
+				<Hotspot Radius="200" XYZ="-31.51084,23.7394,58.97142" />
+      </Hotspots>
+      <TargetMobs>
+				<TargetMob Id="1382" Weight="2" /> <!-- Captain Madison -->
+				<TargetMob Id="342" Weight="1" /> <!-- Shallowtail Reaver -->
+      </TargetMobs>
+		</GrindArea>
+	  <GrindArea name="GrindCaptainsQuartersKey">
+      <Hotspots>
+				<Hotspot Radius="200" XYZ="-97.06197, 13.84801, 147.9231" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1205" Weight="1"/> <!-- Scurvy Dog -->
+        <TargetMob Id="346" Weight="1"/> <!-- Shallowscale Reaver -->
+        <TargetMob Id="344" Weight="1"/> <!-- Shallowclaw Reaver -->
+      </TargetMobs>
+		</GrindArea>		
+		<GrindArea name="SecondBoss2">
+      <Hotspots>
+				<Hotspot Radius="200" XYZ="-185.7579,6.681291,247.7682" />
+      </Hotspots>
+      <TargetMobs>
+				<TargetMob Id="1382" Weight="1" /> <!-- Captain Madison -->
+				<TargetMob Id="342" Weight="2" /> <!-- Shallowtail Reaver -->
+        <TargetMob Id="1205" Weight="2"/> <!-- Scurvy Dog -->				
+      </TargetMobs>
+		</GrindArea>	
+		<GrindArea name="FinalBoss">
+      <Hotspots>
+				<Hotspot Radius="200" XYZ="-334.2874,5.576687,318.569" />
+      </Hotspots>
+      <TargetMobs>
+				<TargetMob Id="1206" Weight="1" />	<!-- Denn the Orcatoothed -->
+      </TargetMobs>
+		</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>		
+  </CodeChunks>
+</Profile>

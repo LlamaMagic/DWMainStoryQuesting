@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Dohn Mheg
+  Authors: DomesticWarlord86
+	Version: 1.0
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Dohn Mheg</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<If condition="not DutyManager.InInstance">
+		<JoinSupportDuty DutyId="649"/>	<!-- Dohn Mheg -->
+	</If>
+	
+	<If condition="DutyManager.InInstance">
+	
+		<LoadDungeonAssist />
+
+		<!-- Arrive at Teag Gye: 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Arrive at Teag Gye: 0/1" />
+			<MoveTo XYZ="-0.3553915, 6.851144, 45.50544" />
+		</If>
+		
+		<!-- Clear Teag Gye: 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Clear Teag Gye: 0/1" />
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Aenc Thon, Lord of the Lingering Gaze -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-0.01531982,6.851257,16.1593" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+		</If>
+		
+		<!-- Arrive in the Atelier: 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Arrive in the Atelier: 0/1" />
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-54.52057,1.724182,-105.272" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="6.515503,12.40552,-233.8751" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+			<MoveTo XYZ="7.472399, 23.04288, -319.6074" />
+		</If>	
+		
+		<!-- Clear the Atelier: 0/1 -->
+		<!--
+		Name:Painted Sapling 0x1B021EB3540, ID:8144, ID:1073941487, Obj:ff14bot.Objects.BattleCharacter
+		Name:Painted Sapling 0x1B021E86240, ID:8144, ID:1073941488, Obj:ff14bot.Objects.BattleCharacter
+		-->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+			<Log Message="Clear the Atelier: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700"/>
+			</If>						
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Griaule -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="7.156433,23.02582,-358.1445" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+		</If>
+		
+		<!-- Arrive in the throne room: 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+			<Log Message="Arrive in the throne room: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700"/>			
+			</If>				
+			<If condition="not IsOnSubMap(2962) and not IsOnSubMap(2967)">
+				<MoveTo XYZ="9.040175, 20.23401, -397.4621" />
+				<MoveTo XYZ="7.929464, 19.3, -449.04" UseMesh="False"/>
+				<LLChangeZone Heading="3.145854" />
+				<MoveTo XYZ="-169.7621, -182.7501, 32.42662" />
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-177.02,-182.7574,31.44885" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>				
+			<If condition="GameObjectManager.GetObjectByNPCId(2009760) and GameObjectManager.GetObjectByNPCId(2009760).IsTargetable">
+				<UseObject NpcId="2009760" XYZ="-171.8624,-178.7595,-6.363098"  condition="GameObjectManager.GetObjectByNPCId(2009760).IsTargetable"/> <!-- Shell Crown -->
+			</If>
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-119.6766,-156.0236,-169.6651" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>				
+			<MoveTo XYZ="-128.5326, -144.5212, -228.8046" />
+		</If>		
+		
+		<!-- Defeat Aenc Thon, Lord of the Legnthsome Gait: 0/1 -->
+		<!--
+		Imp Choir 13552
+		Toad Choir 13551, 20272
+		Finale _ follow 13520, 13844, 15723
+		Corrosive bile - Follow
+		-->
+		<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+			<Log Message="Defeat Aenc Thon, Lord of the Legnthsome Gait: 0/1" />
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700"/>			
+			</If>	
+			<If condition="not IsOnSubMap(2962) and not IsOnSubMap(2967) and not IsOnSubMap(2968)">
+				<MoveTo XYZ="9.040175, 20.23401, -397.4621" />
+				<MoveTo XYZ="7.929464, 19.3, -449.04" UseMesh="False"/>
+				<LLChangeZone Heading="3.145854" />
+			</If>				
+			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Aenc Thon, Lord of the Lengthsome Gait -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-128.5878,-144.5488,-256.0312" />
+				<LLOpenChest/>
+				<AutoInventoryEquip />
+			</If>			
+		</If>		
+		
+		<While condition="DutyManager.InInstance and IsDutyEnded()">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>		
+		
+  </If>
+	
+	<LLoadProfile Path="../../../Start.xml"/>
+
+	</Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-0.01531982,6.851518,21.4389"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8141" Weight="1"/> <!-- Aenc Thon, Lord of the Lingering Gaze -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="7.156433,23.04288,-351.1254"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8143" Weight="1"/> <!-- Griaule -->
+        <TargetMob Id="8145" Weight="10"/> <!-- Painted Root -->				
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-128.5,-144.5259,-256" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8146" Weight="1"/> <!-- Aenc Thon, Lord of the Lengthsome Gait -->
+        <TargetMob Id="8958" Weight="10"/> <!-- Liar's Lyre -->				
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="AddGeyserAvoids">
+			<![CDATA[ 
+					AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+					var ids = GameObjectManager.GetObjectsByNPCId(8141).Select(i => i.ObjectId).ToArray();
+					AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 10f, ids);
+			]]>
+	</CodeChunk>
+	<CodeChunk Name="RemoveAvoids">
+					<![CDATA[ 
+							AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+					]]>
+	</CodeChunk>    	
+  </CodeChunks>	
+</Profile>

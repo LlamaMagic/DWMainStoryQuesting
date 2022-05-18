@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Howling Eye
+  Authors: DomesticWarlord86
+	Version: 2.0
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Howling Eye</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+		<If condition="not DutyManager.InInstance">
+			<JoinSupportDuty DutyId="58" Trial="true"/> 
+		</If>	
+
+	<If condition="DutyManager.InInstance">
+		<Grind GrindRef="Garuda" While="not IsDutyEnded()"/> <!-- Kill Garuda -->
+		<If Condition="&openchest; == 1">
+			<LLOpenChest />
+		</If>
+		
+		<While condition="DutyManager.InInstance and IsDutyEnded()">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>		
+		
+	</If>
+
+	<LLoadProfile Path="../../Start.xml"/>
+	
+ </Order>
+  <GrindAreas>
+		<GrindArea name="Garuda">
+      <Hotspots>
+				<Hotspot Radius="200" XYZ="1.1442,-2.033097,-18" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1644" Weight="1"/> <!-- Garuda -->
+        <TargetMob Id="1647" Weight="2"/> <!-- Razor Plume -->							
+      </TargetMobs>
+		</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>    
