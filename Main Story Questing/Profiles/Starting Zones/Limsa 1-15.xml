@@ -263,57 +263,6 @@
 			</If>
 		</If>
 		<If Condition="HasQuest(65998) and not IsQuestCompleted(65998) and GetQuestStep(65998) == 255">
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<!-- Wharf Rat -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 1, 0)">
-					<If condition="not IsOnSubMap(161)">
-						<GetTo ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Marauder_1_1"/>
-					</If>	
-					<Grind grindRef="Marauder_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 1, 0)"/>
-				</If>			
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 0, 0)">
-					<If condition="not IsOnSubMap(161)">
-						<GetTo ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Marauder_1_0"/>
-					</If>	
-					<Grind grindRef="Marauder_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 0, 0)"/>
-				</If>
-				<!-- Bee Cloud -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 3, 0)">
-					<GetTo ZoneId="134" xyz="-39.21257, 46.84208, 17.64889" name="Marauder_1_3"/>
-					<Grind grindRef="Marauder_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 3, 0)"/>
-				</If>			
-				<!-- Tiny Mandragora -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 5, 0)">
-					<GetTo ZoneId="134" xyz="114.1033, 67.5534, -147.6051" name="Marauder_1_5"/>
-					<Grind grindRef="Marauder_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 5, 0)"/>
-				</If>			
-			</If>
-			<If Condition="ClassName == ClassJobType.Arcanist">
-				<!-- Wharf Rat -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 1, 0)">
-					<GetTo ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Arcanist_1_1"/>
-					<Grind grindRef="Arcanist_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 1, 0)"/>
-				</If>			
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 0, 0)">
-					<If condition="not IsOnSubMap(161)">
-						<GetTo ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Arcanist_1_0"/>
-					</If>
-					<Grind grindRef="Arcanist_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 0, 0)"/>
-				</If>
-				<!-- Lost Lamb -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 2, 0)">
-					<If condition="not IsOnSubMap(161)">
-						<GetTo ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Arcanist_1_2"/>
-					</If>
-					<Grind grindRef="Arcanist_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 2, 0)"/>
-				</If>
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 4, 0)">
-					<GetTo ZoneId="134" xyz="100.2745, 55.90008, -51.23675" name="Arcanist_1_4"/>
-					<Grind grindRef="Arcanist_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 4, 0)"/>
-				</If>				
-			</If>	
 			<GetTo ZoneId="134" XYZ="205.4218, 112.7266, -223.7576"/>
 			<TurnIn QuestId="65998" NpcId="1002626" XYZ="207.2633, 112.8604, -222.4308"/>
 			<LLSmallTalk/>
@@ -368,20 +317,6 @@
 			</If>
 		</If>
 		<If Condition="HasQuest(66079) and not IsQuestCompleted(66079) and GetQuestStep(66079) == 1">
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<!-- Bogy -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 6, 0)">
-					<GetTo ZoneId="134" xyz="-58.08532, 29.64651, -100.4133" name="Marauder_1_6"/>
-					<Grind grindRef="Marauder_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 6, 0)"/>
-				</If>
-			</If>
-			<If Condition="ClassName == ClassJobType.Arcanist">
-				<!-- Bogy -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 6, 0)">
-					<GetTo ZoneId="134" xyz="-58.08532, 29.64651, -100.4133" name="Arcanist_1_6"/>
-					<Grind grindRef="Arcanist_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 6, 0)"/>
-				</If>
-			</If>			
 			<GetTo ZoneId="134" XYZ="-58.6405, 27.14575, -141.7716"/>
 			<SimpleDuty InteractNpcId="2001582" XYZ="-58.6405, 27.14575, -141.7716" QuestId="66079" Step="1">
 				<HotSpots>
@@ -515,13 +450,6 @@
 			<TalkTo NpcId="1002629" XYZ="52.75037, 64.48143, -185.7176" QuestId="66003" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(66003) and not IsQuestCompleted(66003) and GetQuestStep(66003) == 2">
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<!-- Wounded Aurochs -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 7, 0)">
-					<GetTo ZoneId="134" xyz="-153.8597, 45.00096, -210.1831" name="Marauder_1_7"/>
-					<Grind grindRef="Marauder_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 7, 0)"/>
-				</If>
-			</If>	
 			<GetTo ZoneId="134" XYZ="-132.9519, 45.36511, -228.9311"/>
 			<UseObject NpcIds="2001239,2001238,2001237" QuestId="66003" StepId="2">
 				<HotSpots>
@@ -549,13 +477,6 @@
 		</If>
 		<If Condition="HasQuest(66004) and not IsQuestCompleted(66004) and GetQuestStep(66004) == 1">
 			<GetTo ZoneId="134" XYZ="-87.0993, 48.55717, -234.4706"/>
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<!-- Grounded Pirate -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 8, 0)">
-					<LisbethTravel ZoneId="134" xyz="-76.04529, 48.70982, -211.6434" name="Arcanist_1_9"/>
-					<Grind grindRef="Arcanist_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 8, 0)"/>
-				</If>
-			</If>	
 			<Grind GrindRef="Grounded_Pirate" PostCombatDelay="3.0" While="HasQuest(66004) and not IsQuestCompleted(66004) and GetQuestStep(66004) == 1"/>
 		</If>
 		<If Condition="HasQuest(66004) and not IsQuestCompleted(66004) and GetQuestStep(66004) == 2">
@@ -689,11 +610,6 @@
 							<TalkTo NpcId="1002679" XYZ="-5.233948, 31.4756, -256.9772" QuestId="65849" StepId="8" />
 						</If>
 						<If Condition="GetQuestStep(65849) == 9">
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 2, 0)">
-								<!-- Aurelia -->
-								<GetTo ZoneId="135" xyz="138.0098, 35.68225, 60.73302" name="Marauder_1_2"/>
-								<Grind grindRef="Marauder_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 2, 0)"/>
-							</If>							
 							<GetTo ZoneId="135" XYZ="130.8461, 35.99597, 28.51904" /> <!-- Megalocrab Nest -->
 							<UseObject NpcId="2000284" XYZ="130.8461, 35.99597, 28.51904" Radius="10" QuestId="65849" StepId="9" />
 						</If>
@@ -733,11 +649,6 @@
 					</If>
 					<If Condition="HasQuest(65850)">
 						<If Condition="GetQuestStep(65850) == 1">
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 4, 0)">
-								<!-- Wild Dodo -->
-								<GetTo ZoneId="135" xyz="343.094, 74.59916, -318.6518" name="Marauder_1_4"/>
-								<Grind grindRef="Marauder_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 4, 0)"/>
-							</If>							
 							<GetTo ZoneId="135" XYZ="410.5915, 75.36475, -329.3518" /> <!-- Grinding Area -->
 							<Grind grindRef="Wake_of_Destruction" while="HasQuest(65850) and GetQuestStep(65850) == 1" />
 						</If>
@@ -774,26 +685,6 @@
 					</If>
 					<If Condition="HasQuest(65991)">
 						<If Condition="GetQuestStep(65991) == 1">
-							<!-- Wind Sprite -->
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 3, 0)">
-								<GetTo ZoneId="135" xyz="345.2661, 53.29605, -38.11365" name="Arcanist_1_3"/>
-								<Grind grindRef="Arcanist_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 3, 0)"/>
-							</If>
-							<!-- Cave Bat -->
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 7, 0)">
-								<GetTo ZoneId="135" xyz="279.9011, 73.46301, -261.3954" name="Arcanist_1_7"/>
-								<Grind grindRef="Arcanist_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 7, 0)"/>
-							</If>
-							<!-- Galago -->
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 7, 1)">
-								<GetTo ZoneId="135" xyz="394.2669, 76.12614, -329.2907" name="Arcanist_1_8"/>
-								<Grind grindRef="Arcanist_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 7, 1)"/>
-							</If>
-							<!-- Nesting Buzzard -->
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 5, 0)">
-								<LisbethTravel ZoneId="135" xyz="586.3826, 74.4145, -279.2928" name="Arcanist_1_5"/>
-								<Grind grindRef="Arcanist_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 5, 0)"/>
-							</If>							
 							<If Condition="not IsTodoChecked(65991, 1, 0)">
 								<GetTo ZoneId="135" XYZ="387.0847, 65.40367, -99.18919" /> <!-- Grinding Area -->
 								<Grind grindRef="Whats_in_the_Box" while="not IsTodoChecked(65991, 1, 0)" />
@@ -842,18 +733,6 @@
 		
 		<!-- Sky-high -->
 		<If Condition="HasQuest(65933) and not IsQuestCompleted(65933) and GetQuestStep(65933) == 255">
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 8, 0)">
-					<!-- Grounded Raider -->
-					<GetTo ZoneId="134" xyz="-76.04529, 48.70982, -211.6434" name="Marauder_1_8"/>
-					<Grind grindRef="Marauder_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 8, 0)"/>
-				</If>
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 9, 0)">
-					<!-- Megalocrab -->
-					<GetTo ZoneId="134" xyz="-278.9803, 12.30295, -303.0282" name="Marauder_1_9"/>
-					<Grind grindRef="Marauder_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 9, 0)"/>
-				</If>				
-			</If>	
 			<GetTo ZoneId="134" XYZ="-283.6805, 10.59338, -249.3478"/>
 			<TurnIn QuestId="65933" NpcId="1003239" XYZ="-283.6805, 10.59338, -249.3478"/>
 			<LLSmallTalk/>
@@ -961,19 +840,7 @@
 			<TalkTo NpcId="1003246" XYZ="443.2288, 14.6451, 452.842" QuestId="65939" StepId="1"/>
 			<MoveTo UseMesh="False" XYZ="450.5302, 11.80701, 446.7951"/>
 		</If>
-		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 2">
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 2, 0)">
-					<!-- Fat Dodo -->
-					<GetTo ZoneId="138" xyz="547.6037, 16.60797, 364.524" name="Marauder_2_2"/>
-					<Grind grindRef="Marauder_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 2, 0)"/>
-				</If>
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 5, 0)">
-					<!-- Rhotano Buccaneer -->
-					<GetTo ZoneId="138" xyz="604.1115, 42.22591, 314.1177" name="Marauder_2_5"/>
-					<Grind grindRef="Marauder_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 5, 0)"/>
-				</If>				
-			</If>	
+		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 2">	
 			<GetTo ZoneId="138" XYZ="602.5024, 28.94629, 361.0131"/>
 			<UseItem NpcId="2001260" XYZ="602.5024, 28.94629, 361.0131" ItemId="2000343" QuestId="65939" StepId="2"/>
 		</If>
@@ -981,38 +848,12 @@
 			<GetTo ZoneId="138" XYZ="602.5024, 28.94629, 361.0131"/>
 			<UseObject NpcId="2001261" XYZ="602.5024, 28.94629, 361.0131" QuestId="65939" StepId="3"/>
 		</If>
-		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 4">
-			<!-- Lightining Sprite -->
-			<If Condition="ClassName == ClassJobType.Arcanist">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 9, 0)">
-					<GetTo ZoneId="138" xyz="534.165, 6.323189, 401.0688" name="Arcanist_1_10"/>
-					<Grind grindRef="Arcanist_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 9, 0)"/>
-				</If>
-			</If>		
+		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 4">		
 			<GetTo ZoneId="138" XYZ="443.2288, 14.6451, 452.842"/>
 			<HandOver ItemId="2000344" NpcId="1003246" XYZ="443.2288, 14.6451, 452.842" QuestId="65939" StepId="4"/>
 			<MoveTo UseMesh="False" XYZ="450.5302, 11.80701, 446.7951"/>
 		</If>
 		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 5">
-			<!-- Arbor Buzzard -->
-			<If Condition="ClassName == ClassJobType.Arcanist">
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 3, 0)">
-					<GetTo ZoneId="138" xyz="519.8577, 1.684532, 422.8343" name="Arcanist_2_3"/>
-					<Grind grindRef="Arcanist_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 3, 0)"/>
-				</If>
-				<!-- Fat Dodo -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 2, 0)">
-					<GetTo ZoneId="138" xyz="586.8716, 37.75261, 327.947" name="Arcanist_2_2"/>
-					<Grind grindRef="Arcanist_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 2, 0)"/>
-				</If>
-				<!-- Sewer Mole -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 0, 0)">
-					<If condition="not IsOnSubMap(219)">
-						<GetTo ZoneId="138" xyz="647.3243, 37.2284, 353.6689" name="Arcanist_2_0"/>
-					</If>
-					<Grind grindRef="Arcanist_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 0, 0)"/>
-				</If>				
-			</If>		
 			<GetTo ZoneId="138" XYZ="655.7563, 8.316302, 521.1719"/>
 			<TalkTo NpcId="1003245" XYZ="655.7563, 8.316302, 521.1719" QuestId="65939" StepId="5"/>
 		</If>
@@ -1033,30 +874,6 @@
 			</If>
 		</If>
 		<If Condition="HasQuest(65942) and not IsQuestCompleted(65942) and GetQuestStep(65942) == 255">
-			<If Condition="ClassName == ClassJobType.Marauder">
-				<!-- Mossless Goobbue -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 1, 0)">
-					<GetTo ZoneId="135" XYZ="47.97738, 56.74392, 122.3584" />
-					<Grind grindRef="Marauder_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 1, 0)"/>
-				</If>
-				<!-- Moraby Mole -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 3, 0)">
-					<GetTo ZoneId="135" xyz="-39.02855, 40.3599, 686.4474" name="Marauder_2_3"/>
-					<Grind grindRef="Marauder_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 3, 0)"/>
-				</If>				
-			</If>
-			<If Condition="ClassName == ClassJobType.Arcanist">	
-				<!-- Lightning Sprite -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 9, 0)">
-					<GetTo ZoneId="135" xyz="-58.1299, 40.59941, 576.2553" name="Arcanist_1_10"/>
-					<Grind grindRef="Arcanist_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Arcanist, 9, 0)"/>
-				</If>	
-				<!-- Mossless Goobbue -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 1, 0)">
-					<GetTo ZoneId="135" xyz="47.97738, 56.74392, 122.3584" name="Arcanist_2_1"/>
-					<Grind grindRef="Arcanist_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 1, 0)"/>
-				</If>								
-			</If>					
 			<GetTo ZoneId="135" XYZ="247.364, 14.02301, 611.9325"/>
 			<TurnIn QuestId="65942" NpcId="1002238" ItemId="2000217" XYZ="247.364, 14.02301, 611.9325"/>
 			<LLSmallTalk/>
@@ -1094,20 +911,6 @@
 			<TalkTo NpcId="1002456" XYZ="-94.86542, 2.371762, 734.2793" QuestId="65951" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(65951) and not IsQuestCompleted(65951) and GetQuestStep(65951) == 2 and not IsTodoChecked(65951, 2, 0)">
-			<If Condition="ClassName == ClassJobType.Marauder">	
-				<!-- Qiqirn Eggdigger -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 4, 0)">
-					<GetTo ZoneId="135" xyz="-124.9706, 3.520135, 700.6313" name="Marauder_2_4"/>
-					<Grind grindRef="Marauder_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 4, 0)"/>
-				</If>
-			</If>
-			<If Condition="ClassName == ClassJobType.Arcanist">	
-				<!-- Qiqirn Eggdigger -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 4, 0)">
-					<LisbethTravel ZoneId="135" xyz="-124.9706, 3.520135, 700.6313" name="Arcanist_2_4"/>
-					<Grind grindRef="Arcanist_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 4, 0)"/>
-				</If>
-			</If>			
 			<GetTo ZoneId="135" XYZ="-145.0981, 1.052795, 709.1021"/>
 			<UseObject NpcId="2000769" XYZ="-145.0981, 1.052795, 709.1021" UseTimes="1"/>
 		</If>
@@ -1148,13 +951,6 @@
 			<TalkTo QuestId="65949" Step="2" NpcId="1002240" XYZ="118.5167, 23.00084, 735.6831"/>
 		</If>
 		<If Condition="HasQuest(65949) and not IsQuestCompleted(65949) and GetQuestStep(65949) == 3">
-			<If Condition="ClassName == ClassJobType.Marauder">	
-				<!-- Firefly -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 0, 0)">
-					<GetTo ZoneId="135" xyz="247.7612, 6.84578, 785.0369" name="Marauder_2_0"/>
-					<Grind grindRef="Marauder_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 0, 0)"/>
-				</If>		
-			</If>			
 			<GetTo ZoneId="135" XYZ="249.897, 6.088318, 773.1287"/>
 			<TalkTo QuestId="65949" Step="3" NpcId="1002463" XYZ="249.897, 6.088318, 773.1287"/>
 		</If>
@@ -1251,41 +1047,10 @@
 					</If>
 					<If Condition="HasQuest(65852)">
 						<If Condition="GetQuestStep(65852) == 1">
-							<!-- Puk Hatchling -->
-							<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 1)">
-								<GetTo ZoneId="138" xyz="427.1466, -6.199739, 227.1266" name="Marauder_2_7"/>
-								<Grind grindRef="Marauder_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 1)"/>
-							</If>							
 							<GetTo ZoneId="138" XYZ="319.8444, -31.89865, 273.5179" /> <!-- Reynfred -->
 							<TalkTo NpcId="1002110" XYZ="319.8444, -31.89865, 273.5179" QuestId="65852" StepId="1" />
 						</If>
 						<If Condition="GetQuestStep(65852) == 2">
-							<!-- Dusk Bat -->
-							<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 0)">
-								<GetTo ZoneId="138" xyz="323.4413, -9.667931, 123.1287" name="Marauder_2_6"/>
-								<Grind grindRef="Marauder_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 0)"/>
-							</If>
-							<!-- Hedgemole -->
-							<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 2)">
-								<If condition="not IsOnSubMap(171)">
-									<GetTo ZoneId="138" xyz="253.4046, -12.36597, 105.1967" name="Marauder_2_8"/>
-								</If>	
-								<Grind grindRef="Marauder_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 2)"/>
-							</If>
-							<!-- Rothlyt Pelican -->
-							<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 7, 0)">
-								<If condition="not IsOnSubMap(171)">
-									<GetTo ZoneId="138" xyz="126.105, -15.37122, 88.45286" name="Marauder_2_9"/>
-								</If>
-								<Grind grindRef="Marauder_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 7, 0)"/>
-							</If>
-							<!-- Killer Mantis -->
-							<If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 8, 0)">
-								<If condition="not IsOnSubMap(171)">
-									<GetTo ZoneId="138" xyz="-7.594713, -22.42778, 62.6085" name="Marauder_2_10"/>
-								</If>
-								<Grind grindRef="Marauder_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 8, 0)"/>
-							</If>								
 							<GetTo ZoneId="138" XYZ="99.22937, -14.29773, 141.8632" /> <!-- Destination -->
 							<UseObject NpcId="2000288" XYZ="99.22937, -14.29773, 141.8632" Radius="10" QuestId="65852" StepId="2" />
 						</If>
@@ -1384,39 +1149,10 @@
 						</If>
 						<If Condition="HasQuest(65994)">
 							<If Condition="GetQuestStep(65994) == 1">
-								<!-- Puk Hatchling -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 6, 0)">
-									<GetTo ZoneId="138" xyz="427.1466, -6.199739, 227.1266" name="Arcanist_2_6"/>
-									<Grind grindRef="Arcanist_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 6, 0)"/>
-								</If>							
 								<GetTo ZoneId="138" XYZ="316.0295, -24.13677, 211.2001" /> <!-- K'lyhia -->
 								<TalkTo NpcId="1005208" XYZ="316.0295, -24.13677, 211.2001" QuestId="65994" StepId="1" />
 							</If>
 							<If Condition="GetQuestStep(65994) == 2">
-								<!-- Dusk Bat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 5, 0)">
-									<GetTo ZoneId="138" xyz="323.4413, -9.667931, 123.1287" name="Arcanist_2_5"/>
-									<Grind grindRef="Arcanist_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 5, 0)"/>
-								</If>
-								<!-- Hedgemole -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 7, 0)">
-									<If condition="not IsOnSubMap(171)">
-										<GetTo ZoneId="138" xyz="253.4046, -12.36597, 105.1967" name="Arcanist_2_7"/>
-									</If>
-									<Grind grindRef="Arcanist_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 7, 0)"/>
-								</If>
-								<!-- Rothlyt Pelican -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 7, 1)">
-									<If condition="not IsOnSubMap(171)">
-										<GetTo ZoneId="138" xyz="126.105, -15.37122, 88.45286" name="Arcanist_2_8"/>
-									</If>
-									<Grind grindRef="Arcanist_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 7, 1)"/>
-								</If>
-								<!-- Killer Mantis -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 8, 0)">
-									<GetTo ZoneId="138" xyz="-7.594713, -22.42778, 62.6085" name="Arcanist_2_9"/>
-									<Grind grindRef="Arcanist_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 8, 0)"/>
-								</If>								
 								<GetTo ZoneId="138" XYZ="204.2725, -36.40237, 306.1722" /> <!-- Steersman -->
 								<TalkTo NpcId="1005211" XYZ="204.2725, -36.40237, 306.1722" QuestId="65994" StepId="2" />
 								<Grind grindRef="Over_the_Rails" while="HasQuest(65994) and GetQuestStep(65994) == 2" />
@@ -1541,14 +1277,6 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-		<If Condition="ClassName == ClassJobType.Arcanist">
-			<!-- Bumble Beetle -->
-      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 9, 0)">
-        <GetTo ZoneId="139" name="Ferry Skipper" xyz="-381.799, -2.483691, 184.2488"/>
-        <Grind grindRef="Arcanist_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Arcanist, 9, 0)"/>
-      </If>
-		</If>	
 		
 		<!-- The Lominsan Envoy (Level 15) -->
 		<If Condition="IsQuestCompleted(66081) and not HasQuest(66082) and not IsQuestCompleted(66082)">

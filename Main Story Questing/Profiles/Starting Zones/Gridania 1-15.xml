@@ -260,132 +260,12 @@
 			</If>
 		</If>
     <If Condition="HasQuest(65564) and not IsQuestCompleted(65564) and GetQuestStep(65564) == 255">
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 0, 0)">
-					<GetTo ZoneId="148" xyz="121.8755, 20.732, -283.2485" name="Archer_1_0"/>
-					<Grind grindRef="Archer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 0, 0)"/>
-				</If>
-				<!-- Ground Squirrel -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 1, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Archer_1_1"/>
-					</If>
-					<Grind grindRef="Archer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 1, 0)"/>
-				</If>
-				<!-- Forest Funguar -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 2, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Archer_1_2"/>
-					</If>
-					<Grind grindRef="Archer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 2, 0)"/>
-				</If>				
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 0, 0)">
-					<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_0"/>
-					<Grind grindRef="Lancer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 0, 0)"/>
-				</If>
-				<!-- Ground Squirrel -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 1, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_1"/>
-					</If>
-					<Grind grindRef="Lancer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 1, 0)"/>
-				</If>
-				<!-- Forest Funguar -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 2, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Lancer_1_2"/>
-					</If>
-					<Grind grindRef="Lancer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 2, 0)"/>
-				</If>
-			</If>			
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 0, 0)">
-					<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Conjurer_1_0"/>
-					<Grind grindRef="Conjurer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 0, 0)"/>
-				</If>
-				<!-- Ground Squirrel -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 1, 0)">
-					<GetTo ZoneId="148" xyz="54.06433, 5.534256, -218.9905" name="Conjurer_1_1"/>
-					<Grind grindRef="Conjurer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 1, 0)"/>
-				</If>
-				<!-- Forest Funguar -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 2, 0)">
-					<GetTo ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Conjurer_1_2"/>
-					<Grind grindRef="Conjurer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 2, 0)"/>
-				</If>		
-			</If>	
       <GetTo ZoneId="148" XYZ="98.17268, -8, -81.03164"/>
       <TurnIn QuestId="65564" NpcId="1000421" XYZ="98.25281, -8, -78.44666"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 0, 0)">
-					<GetTo ZoneId="148" xyz="121.8755, 20.732, -283.2485" name="Archer_1_0"/>
-					<Grind grindRef="Archer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 0, 0)"/>
-				</If>
-				<!-- Ground Squirrel -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 1, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Archer_1_1"/>
-					</If>
-					<Grind grindRef="Archer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 1, 0)"/>
-				</If>
-				<!-- Forest Funguar -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 2, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Archer_1_2"/>
-					</If>
-					<Grind grindRef="Archer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 2, 0)"/>
-				</If>				
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 0, 0)">
-					<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_0"/>
-					<Grind grindRef="Lancer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 0, 0)"/>
-				</If>
-				<!-- Ground Squirrel -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 1, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_1"/>
-					</If>
-					<Grind grindRef="Lancer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 1, 0)"/>
-				</If>
-				<!-- Forest Funguar -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 2, 0)">
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Lancer_1_2"/>
-					</If>
-					<Grind grindRef="Lancer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 2, 0)"/>
-				</If>
-			</If>			
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Little Ladybug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 0, 0)">
-					<GetTo ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Conjurer_1_0"/>
-					<Grind grindRef="Conjurer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 0, 0)"/>
-				</If>
-				<!-- Ground Squirrel -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 1, 0)">
-					<GetTo ZoneId="148" xyz="54.06433, 5.534256, -218.9905" name="Conjurer_1_1"/>
-					<Grind grindRef="Conjurer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 1, 0)"/>
-				</If>
-				<!-- Forest Funguar -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 2, 0)">
-					<GetTo ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Conjurer_1_2"/>
-					<Grind grindRef="Conjurer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 2, 0)"/>
-				</If>		
-			</If>	
-		
 		
     <!-- Passing Muster (Level 5) -->
     <If Condition="IsQuestCompleted(65564) and not HasQuest(65737) and not IsQuestCompleted(65737)">
@@ -434,22 +314,6 @@
 			</If>
 		</If>
     <If Condition="HasQuest(65981) and not IsQuestCompleted(65981) and GetQuestStep(65981) == 1">
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 6, 0)">
-					<!-- Black Eft -->
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="258.4995, -12.03043, -71.76523" name="Archer_1_6"/>
-					</If>
-					<Grind grindRef="Archer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 6, 0)"/>
-				</If>		
-			</If>		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 0)">
-					<!-- Black Eft -->
-					<GetTo ZoneId="148" xyz="258.4995, -12.03043, -71.76523" name="Lancer_1_6"/>
-					<Grind grindRef="Lancer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 0)"/>
-				</If>			
-			</If>			
       <GetTo ZoneId="148" XYZ="322.448, 0.3238037, -307.288"/>
       <SimpleDuty InteractNpcId="2000953" XYZ="323.5979, 0.3508911, -309.5598" QuestId="65981" StepId="1">
         <HotSpots>
@@ -474,27 +338,6 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		<If Condition="ClassName == ClassJobType.Archer">
-				<!-- Water Sprite -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 5, 0)">
-					<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Archer_1_5"/>
-					<Grind grindRef="Archer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 5, 0)"/>
-				</If>		
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 6, 0)">
-					<!-- Black Eft -->
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="258.4995, -12.03043, -71.76523" name="Archer_1_6"/>
-					</If>
-					<Grind grindRef="Archer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 6, 0)"/>
-				</If>		
-				</If>		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 0)">
-					<!-- Black Eft -->
-					<GetTo ZoneId="148" xyz="258.4995, -12.03043, -71.76523" name="Lancer_1_6"/>
-					<Grind grindRef="Lancer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 0)"/>
-				</If>			
-			</If>			
 		
 		
     <!-- Eggs over Queasy (Level 7) 5.3 -->
@@ -507,26 +350,6 @@
     <If Condition="HasQuest(69390) and not IsQuestCompleted(69390) and GetQuestStep(69390) == 1">
       <GetTo ZoneId="148" XYZ="203.5701, -7.845859, -56.78665"/>
       <Grind GrindRef="Chigoe" PostCombatDelay="3.0" While="HasQuest(69390) and not IsQuestCompleted(69390) and GetQuestStep(69390) == 1"/>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Water Sprite -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 5, 0)">
-					<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_5"/>
-					<Grind grindRef="Conjurer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 5, 0)"/>
-				</If>	
-				<!-- Chigoe -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 4, 0)">
-					<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_4"/>
-					<Grind grindRef="Conjurer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 4, 0)"/>
-				</If>				
-			</If>	
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 5, 0)">
-					<!-- Water Sprite -->
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Archer_1_5"/>
-					</If>
-				</If>
-			</If>
 		</If>
     <If Condition="HasQuest(69390) and not IsQuestCompleted(69390) and GetQuestStep(69390) == 255">
       <GetTo ZoneId="148" XYZ="196.9487, -5.634137, -108.2345"/>
@@ -535,29 +358,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Water Sprite -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 5, 0)">
-					<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_5"/>
-					<Grind grindRef="Conjurer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 5, 0)"/>
-				</If>	
-				<!-- Chigoe -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 4, 0)">
-					<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_4"/>
-					<Grind grindRef="Conjurer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 4, 0)"/>
-				</If>				
-			</If>	
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 5, 0)">
-					<!-- Water Sprite -->
-					<If condition="not IsOnMap(148)">
-						<GetTo ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Archer_1_5"/>
-						<Grind grindRef="Archer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 5, 0)"/>						
-					</If>
-				</If>
-			</If>
-		
+			
 		
     <!-- Surveying the Damage (Level 8) -->
     <If Condition="IsQuestCompleted(69390) and not HasQuest(65711) and not IsQuestCompleted(65711)">
@@ -576,13 +377,6 @@
 			</UseObject>
 		</If>
     <If Condition="HasQuest(65711) and not IsQuestCompleted(65711) and GetQuestStep(65711) == 1 and not IsTodoChecked(65711, 1, 2)">
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<!-- Bog Yarzon -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 1)">
-					<GetTo ZoneId="148" xyz="119.1089, -12, 140.3002" name="Lancer_1_7"/>
-					<Grind grindRef="Lancer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 1)"/>
-				</If>
-			</If>		
       <GetTo ZoneId="148" XYZ="154.0398, -10.75769, 120.3479"/>
       <UseObject NpcId="2000149" XYZ="154.0398, -10.75769, 120.3479" UseTimes="1"/>
 		</If>
@@ -598,15 +392,6 @@
 			<CloseHowTos/>
 		</If>
 		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<!-- Bog Yarzon -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 1)">
-					<GetTo ZoneId="148" xyz="119.1089, -12, 140.3002" name="Lancer_1_7"/>
-					<Grind grindRef="Lancer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 1)"/>
-				</If>
-			</If>		
-		
-		
     <!-- A Soldier's Breakfast (Level 9) 5.3 -->
     <If Condition="IsQuestCompleted(65711) and not HasQuest(69391) and not IsQuestCompleted(69391)">
       <GetTo ZoneId="148" XYZ="289.1527, -3.296992, -36.23741"/>
@@ -615,40 +400,12 @@
 			</If>
 		</If>
     <If Condition="HasQuest(69391) and not IsQuestCompleted(69391) and GetQuestStep(69391) == 1 and not IsTodoChecked(69391, 1, 0)">
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Microchu -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 7, 0)">
-					<GetTo ZoneId="148" xyz="328.9543, -6.246077, -91.59382" name="Conjurer_1_7"/>
-					<Grind grindRef="Conjurer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 7, 0)"/>
-				</If>
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<!-- Microchu -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 5, 0)">
-					<GetTo ZoneId="148" xyz="328.9543, -6.246077, -91.59382" name="Lancer_1_5"/>
-					<Grind grindRef="Lancer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 5, 0)"/>
-				</If>
-			</If>			
 			<GetTo ZoneId="148" XYZ="480.8879, 30.74683, -49.72919"/>
 			<UseObject NpcId="2000010" XYZ="480.8879, 30.74683, -49.72919" UseTimes="1"/>
 		</If>
     <If Condition="HasQuest(69391) and not IsQuestCompleted(69391) and GetQuestStep(69391) == 1 and not IsTodoChecked(69391, 1, 1)">	
       <GetTo ZoneId="148" XYZ="425.0816, 6.965504, -87.01886"/>
       <Grind GrindRef="Anole" PostCombatDelay="3.0" While="HasQuest(69391) and not IsQuestCompleted(69391) and GetQuestStep(69391) == 1 and not IsTodoChecked(69391, 1, 1)"/>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">	
-				<!-- Anole -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 7, 0)">
-					<GetTo ZoneId="148" xyz="465.0707, 19.11924, -75.06451" name="Archer_1_7"/>
-					<Grind grindRef="Archer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 7, 0)"/>
-				</If>
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">	
-				<!-- Anole -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 0)">
-					<GetTo ZoneId="148" xyz="465.0707, 19.11924, -75.06451" name="Lancer_1_9"/>
-					<Grind grindRef="Lancer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 0)"/>
-				</If>
-			</If>			
 		</If>
     <If Condition="HasQuest(69391) and not IsQuestCompleted(69391) and GetQuestStep(69391) == 2">
       <GetTo ZoneId="148" XYZ="289.1527, -3.296992, -36.23741"/>
@@ -661,37 +418,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Microchu -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 7, 0)">
-					<GetTo ZoneId="148" xyz="328.9543, -6.246077, -91.59382" name="Conjurer_1_7"/>
-					<Grind grindRef="Conjurer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 7, 0)"/>
-				</If>
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">
-				<!-- Microchu -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 5, 0)">
-					<GetTo ZoneId="148" xyz="328.9543, -6.246077, -91.59382" name="Lancer_1_5"/>
-					<Grind grindRef="Lancer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 5, 0)"/>
-				</If>
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">	
-				<!-- Anole -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 7, 0)">
-					<GetTo ZoneId="148" xyz="465.0707, 19.11924, -75.06451" name="Archer_1_7"/>
-					<Grind grindRef="Archer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 7, 0)"/>
-				</If>
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Lancer">	
-				<!-- Anole -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 0)">
-					<GetTo ZoneId="148" xyz="465.0707, 19.11924, -75.06451" name="Lancer_1_9"/>
-					<Grind grindRef="Lancer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 0)"/>
-				</If>
-			</If>			
-
-		
+	
 		
     <!-- Spirithold Broken (Level 9) -->
     <If Condition="IsQuestCompleted(69391) and not HasQuest(65665) and not IsQuestCompleted(65665)">
@@ -723,20 +450,6 @@
     <If Condition="HasQuest(65665) and not IsQuestCompleted(65665) and GetQuestStep(65665) == 2 and GetQuestById(65665).GetTodoArgs(2, 0).Item1 == 4">
       <GetTo ZoneId="148" XYZ="285.6335, 21.60632, 186.3584"/>
       <TalkTo NpcId="1000516" XYZ="285.6335, 21.60632, 186.3584" QuestId="65665"/>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<!-- Trickster Imp -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 8, 0)">
-					<GetTo ZoneId="148" xyz="306.2513, 15.86189, 161.2982" name="Archer_1_8"/>
-					<Grind grindRef="Archer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 8, 0)"/>
-				</If>				
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Syrphid Swarm -->			
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 8, 0)">
-					<GetTo ZoneId="148" xyz="320.88, 7.298048, 125.9735" name="Conjurer_1_8"/>
-					<Grind grindRef="Conjurer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 8, 0)"/>
-				</If>	
-			</If>	
 		</If>
     <If Condition="HasQuest(65665) and not IsQuestCompleted(65665) and GetQuestStep(65665) == 3">
       <GetTo ZoneId="148" XYZ="260.1815, 24, 192.2179"/>
@@ -762,22 +475,6 @@
 			<CloseHowTos/>
 		</If>
 		
-			<If condition="Core.Me.CurrentJob == ClassJobType.Archer">
-				<!-- Trickster Imp -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 8, 0)">
-					<GetTo ZoneId="148" xyz="306.2513, 15.86189, 161.2982" name="Archer_1_8"/>
-					<Grind grindRef="Archer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 8, 0)"/>
-				</If>				
-			</If>
-			<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer">
-				<!-- Syrphid Swarm -->			
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 8, 0)">
-					<GetTo ZoneId="148" xyz="320.88, 7.298048, 125.9735" name="Conjurer_1_8"/>
-					<Grind grindRef="Conjurer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 8, 0)"/>
-				</If>	
-			</If>	
-		
-		
     <!-- On to Bentbranch (Level 10) -->
     <If Condition="IsQuestCompleted(65665) and not HasQuest(65712) and not IsQuestCompleted(65712)">
       <GetTo ZoneId="132" XYZ="26.12956, -8, 115.5568"/>
@@ -792,12 +489,7 @@
 
 				<If Condition="not IsQuestCompleted(65582)">
 					<If Condition="Core.Player.ClassLevel &gt; 4">
-						<If Condition="not HasQuest(65582)">
-							<!-- Miteling -->
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)">
-								<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Archer_1_3"/>
-								<Grind grindRef="Archer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)"/>
-							</If>						
+						<If Condition="not HasQuest(65582)">					
 							<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" /> <!-- Luciane -->
 							<If Condition="IsQuestAcceptQualified(65582)">
 								<PickupQuest NpcId="1000200" QuestId="65582" XYZ="209.5521, 0.9999819, 35.01941" />
@@ -840,12 +532,7 @@
 								<TalkTo NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" QuestId="65582" StepId="2" />
 							</If>
 							<If Condition="GetQuestStep(65582) == 3">
-								<If Condition="not IsTodoChecked(65582, 3, 0)">
-									<!-- Midge Swarm -->
-									<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 4, 0)">
-										<GetTo ZoneId="154" xyz="279.7798, -14.28025, 103.8638" name="Archer_1_4"/>
-										<Grind grindRef="Archer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 4, 0)"/>
-									</If>								
+								<If Condition="not IsTodoChecked(65582, 3, 0)">						
 									<GetTo ZoneId="154" XYZ="290.5708, -25.79398, 198.3533" /> <!-- Grinding Area -->
 									<Grind grindRef="A_Matter_of_Perspective" while="not IsTodoChecked(65582, 3, 0)" />
 								</If>
@@ -949,12 +636,7 @@
 							</If>
 						</If>
 						<If Condition="HasQuest(65584)">
-							<If Condition="GetQuestStep(65584) == 1">
-								<!-- Miteling -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 3, 0)">
-									<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Conjurer_1_3"/>
-									<Grind grindRef="Conjurer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 3, 0)"/>
-								</If>							
+							<If Condition="GetQuestStep(65584) == 1">						
 								<GetTo ZoneId="154" XYZ="218.8906, -28.25249, 338.3992" /> <!-- Nolanel -->
 								<TalkTo NpcId="1000764" XYZ="218.8906, -28.25249, 338.3992" QuestId="65584" StepId="1" />
 							</If>
@@ -966,12 +648,7 @@
 								<GetTo ZoneId="154" XYZ="218.8906, -28.25249, 338.3992" /> <!-- Nolanel -->
 								<TalkTo NpcId="1000764" XYZ="218.8906, -28.25249, 338.3992" QuestId="65584" StepId="3" />
 							</If>
-							<If Condition="GetQuestStep(65584) == 255">
-								<!-- Midge Swarm -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 6, 0)">
-									<GetTo ZoneId="154" xyz="279.7798, -14.28025, 103.8638" name="Conjurer_1_6"/>
-									<Grind grindRef="Conjurer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 6, 0)"/>
-								</If>							
+							<If Condition="GetQuestStep(65584) == 255">					
 								<GetTo ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
 								<TurnIn QuestId="65584" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
 							</If>
@@ -990,12 +667,7 @@
 							</If>
 						</If>
 						<If Condition="HasQuest(65627)">
-							<If Condition="GetQuestStep(65627) == 1">
-								<!-- Northern Vulture -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 9, 0)">
-									<GetTo ZoneId="152" xyz="-474.8969, 6.471003, 102.8514" name="Conjurer_1_9"/>
-									<Grind grindRef="Conjurer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 9, 0)"/>
-								</If>							
+							<If Condition="GetQuestStep(65627) == 1">					
 								<GetTo ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
 								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65627" StepId="1" />
 							</If>
@@ -1025,31 +697,6 @@
 								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65627" StepId="5" />
 							</If>
 							<If Condition="GetQuestStep(65627) == 255">
-								<!-- urage -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 0, 0)">
-									<GetTo ZoneId="152" xyz="-463.9826, 4.173842, 232.9398" name="Conjurer_2_0"/>
-									<Grind grindRef="Conjurer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 0, 0)"/>
-								</If> 
-								<!-- Goblin Hunter -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 1)">
-									<GetTo ZoneId="152" xyz="-391.869, 9.165998, 308.7953" name="Conjurer_2_2"/>
-									<Grind grindRef="Conjurer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 1)"/>
-								</If>	
-								<!-- Mandragora -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 3, 0)">
-									<GetTo ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Conjurer_2_4"/>
-									<Grind grindRef="Conjurer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 3, 0)"/>
-								</If>
-								<!-- Boring Weevil -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 4, 0)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Conjurer_2_5"/>
-									<Grind grindRef="Conjurer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 4, 0)"/>
-								</If>
-								<!-- Gaerie Funguar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 5, 0)">
-									<GetTo ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Conjurer_2_6"/>
-									<Grind grindRef="Conjurer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 5, 0)"/>
-								</If>							
 								<GetTo ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
 								<TurnIn QuestId="65627" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
 							</If>
@@ -1071,15 +718,7 @@
 							</If>
 						</If>
 						<If Condition="HasQuest(65583)">
-							<If Condition="GetQuestStep(65583) == 1">
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 3, 0)">
-									<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Lancer_1_3"/>
-									<Grind grindRef="Lancer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 3, 0)"/>
-								</If>
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 4, 0)">
-									<GetTo ZoneId="154" xyz="305.7923, -20.01519, 200.4644" name="Lancer_1_4"/>
-									<Grind grindRef="Lancer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 4, 0)"/>
-								</If>							
+							<If Condition="GetQuestStep(65583) == 1">						
 								<GetTo ZoneId="148" XYZ="261.8295, -11.79523, -161.3641" /> <!-- Yarzon Nest -->
 								<UseItem NpcIds="2000911,2000910,2000909,2000908" ItemId="2000230" Radius="250" QuestId="65583" StepId="1">
 									<HotSpots>
@@ -1094,12 +733,7 @@
 								<GetTo ZoneId="133" XYZ="157.7019, 15.90038, -270.3442" /> <!-- Ywain -->
 								<TalkTo NpcId="1000254" XYZ="157.7019, 15.90038, -270.3442" QuestId="65583" StepId="2" />
 							</If>
-							<If Condition="GetQuestStep(65583) == 3">
-								<!-- Hoglet -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 7, 0)">
-									<GetTo ZoneId="148" xyz="376.8226, 10.31183, 68.63804" name="Lancer_1_8"/>
-									<Grind grindRef="Lancer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 7, 0)"/>
-								</If>							
+							<If Condition="GetQuestStep(65583) == 3">						
 								<GetTo ZoneId="148" XYZ="309.7332, -1.895912, 72.39441" /> <!-- Collapsed Pillar -->
 								<UseObject NpcIds="2000914,2000915,2000916" QuestId="65583" StepId="3">
 									<HotSpots>
@@ -1148,82 +782,7 @@
 					</If>
 				</If>
 			</If>		
-		
-		<If Condition="ClassName == ClassJobType.Archer">
-			
-				<!-- Miteling -->
-							<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)">
-								<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Archer_1_3"/>
-								<Grind grindRef="Archer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)"/>
-							</If>	
-									<!-- Midge Swarm -->
-									<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 4, 0)">
-										<GetTo ZoneId="154" xyz="279.7798, -14.28025, 103.8638" name="Archer_1_4"/>
-										<Grind grindRef="Archer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 4, 0)"/>
-									</If>		
-		</If>
-		
-		<If Condition="ClassName == ClassJobType.Conjurer">
-								<!-- Miteling -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 3, 0)">
-									<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Conjurer_1_3"/>
-									<Grind grindRef="Conjurer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 3, 0)"/>
-								</If>							
-								<!-- Midge Swarm -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 6, 0)">
-									<GetTo ZoneId="154" xyz="279.7798, -14.28025, 103.8638" name="Conjurer_1_6"/>
-									<Grind grindRef="Conjurer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 6, 0)"/>
-								</If>							
-								<!-- Northern Vulture -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 9, 0)">
-									<GetTo ZoneId="152" xyz="-474.8969, 6.471003, 102.8514" name="Conjurer_1_9"/>
-									<Grind grindRef="Conjurer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 9, 0)"/>
-								</If>							
-								<!-- urage -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 0, 0)">
-									<GetTo ZoneId="152" xyz="-463.9826, 4.173842, 232.9398" name="Conjurer_2_0"/>
-									<Grind grindRef="Conjurer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 0, 0)"/>
-								</If> 
-								<!-- Goblin Hunter -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 1)">
-									<GetTo ZoneId="152" xyz="-391.869, 9.165998, 308.7953" name="Conjurer_2_2"/>
-									<Grind grindRef="Conjurer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 1)"/>
-								</If>	
-								<!-- Mandragora -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 3, 0)">
-									<GetTo ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Conjurer_2_4"/>
-									<Grind grindRef="Conjurer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 3, 0)"/>
-								</If>
-								<!-- Boring Weevil -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 4, 0)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Conjurer_2_5"/>
-									<Grind grindRef="Conjurer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 4, 0)"/>
-								</If>
-								<!-- Gaerie Funguar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 5, 0)">
-									<GetTo ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Conjurer_2_6"/>
-									<Grind grindRef="Conjurer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 5, 0)"/>
-								</If>							
 
-</If>
-
-			<If Condition="ClassName == ClassJobType.Lancer">
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 3, 0)">
-									<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Lancer_1_3"/>
-									<Grind grindRef="Lancer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 3, 0)"/>
-								</If>
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 4, 0)">
-									<GetTo ZoneId="154" xyz="305.7923, -20.01519, 200.4644" name="Lancer_1_4"/>
-									<Grind grindRef="Lancer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 4, 0)"/>
-								</If>							
-								<!-- Hoglet -->
-								<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 7, 0)">
-									<GetTo ZoneId="148" xyz="376.8226, 10.31183, 68.63804" name="Lancer_1_8"/>
-									<Grind grindRef="Lancer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 7, 0)"/>
-								</If>							
-
-
-</If>		
 		
     <If Condition="HasQuest(65712) and not IsQuestCompleted(65712) and GetQuestStep(65712) == 255">
       <GetTo ZoneId="148" XYZ="-59.00665, -0.01083579, 26.41333"/>
@@ -1293,27 +852,13 @@
       <MoveTo UseMesh="False" XYZ="-184.9754, 2.410887, -84.60076"/>
 		</If>
     <If Condition="HasQuest(65913) and not IsQuestCompleted(65913) and GetQuestStep(65913) == 255">
-			<If Condition="ClassName == ClassJobType.Conjurer">
-				<!-- Arbor Buzzard -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 0)">
-					<GetTo ZoneId="148" xyz="246.0932, -30.34545, 403.0329" name="Conjurer_2_1"/>
-					<Grind grindRef="Conjurer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 0)"/>
-				</If>		
-			</If>	
       <GetTo ZoneId="148" XYZ="-194.2738, 56.26477, -117.9869"/>
       <TurnIn QuestId="65913" NpcId="1000436" XYZ="-193.225, 56.26458, -116.4721"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-			<If Condition="ClassName == ClassJobType.Conjurer">
-				<!-- Arbor Buzzard -->
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 0)">
-					<GetTo ZoneId="148" xyz="246.0932, -30.34545, 403.0329" name="Conjurer_2_1"/>
-					<Grind grindRef="Conjurer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 0)"/>
-				</If>		
-			</If>		
+
 		
     <!-- In the Grim Darkness of the Forest (Level 11) -->
     <If Condition="IsQuestCompleted(65913) and not HasQuest(65915) and not IsQuestCompleted(65915)">
@@ -1331,13 +876,6 @@
       <UseObject NpcId="2000689" XYZ="-95.47571, 3.494263, -150.8049" QuestId="65915" StepId="2"/>
 		</If>
     <If Condition="HasQuest(65915) and not IsQuestCompleted(65915) and GetQuestStep(65915) == 255">
-			<If Condition="ClassName == ClassJobType.Lancer">
-				<!-- Diremite -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 1)">
-					<GetTo ZoneId="148" xyz="-95.47571, 3.494263, -150.8049" name="Lancer_1_10"/>
-					<Grind grindRef="Lancer_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 1)"/>
-				</If>	
-			</If>	
       <GetTo ZoneId="148" XYZ="-125.2308, 4.157372, -43.59509"/>
       <TurnIn ItemId="2000191" QuestId="65915" NpcId="1000748" XYZ="-125.2308, 4.157372, -43.59509"/>
 			<LLSmallTalk/>
@@ -1345,13 +883,6 @@
 			<CloseHowTos/>
 		</If>
 		
-			<If Condition="ClassName == ClassJobType.Lancer">
-				<!-- Diremite -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 1)">
-					<GetTo ZoneId="148" xyz="-95.47571, 3.494263, -150.8049" name="Lancer_1_10"/>
-					<Grind grindRef="Lancer_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 1)"/>
-				</If>	
-			</If>		
 		
     <!-- Threat Level Elevated (Level 11) -->
     <If Condition="IsQuestCompleted(65915) and not HasQuest(65916) and not IsQuestCompleted(65916)">
@@ -1383,14 +914,7 @@
         <PickupQuest QuestId="65917" NpcId="1000741" XYZ="-66.7583, 0.2, 11.36792"/>
 			</If>
 		</If>
-    <If Condition="HasQuest(65917) and not IsQuestCompleted(65917) and GetQuestStep(65917) == 1">
-			<If Condition="ClassName == ClassJobType.Archer">
-				<!-- Roselet -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 9, 0)">
-					<GetTo ZoneId="148" xyz="53.26877, -14.05511, 161.6631" name="Archer_1_9"/>
-					<Grind grindRef="Archer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 9, 0)"/>
-				</If>		
-			</If>			
+    <If Condition="HasQuest(65917) and not IsQuestCompleted(65917) and GetQuestStep(65917) == 1">		
       <GetTo ZoneId="148" XYZ="99.65662, -15.73212, 193.0114"/>
       <UseObject NpcId="2001006" XYZ="99.65662, -15.73212, 193.0114" QuestId="65917" StepId="1"/>
 		</If>
@@ -1401,14 +925,6 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-
-			<If Condition="ClassName == ClassJobType.Archer">
-				<!-- Roselet -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 9, 0)">
-					<GetTo ZoneId="148" xyz="53.26877, -14.05511, 161.6631" name="Archer_1_9"/>
-					<Grind grindRef="Archer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 9, 0)"/>
-				</If>		
-			</If>
 		
     <!-- Skeletons in My Deepcroft (Level 13) -->
     <If Condition="IsQuestCompleted(65917) and not HasQuest(65918) and not IsQuestCompleted(65918)">
@@ -1440,29 +956,13 @@
       <GetTo ZoneId="148" XYZ="-65.04926, -36.79766, 477.592"/>
       <TalkTo NpcId="1002932" XYZ="-65.04926, -36.79766, 477.592" QuestId="65920" StepId="1"/>
 		</If>
-    <If Condition="HasQuest(65920) and not IsQuestCompleted(65920) and GetQuestStep(65920) == 255">
-			<If Condition="ClassName == ClassJobType.Lancer">
-				<!-- Tree Slug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 9, 0)">
-					<GetTo ZoneId="148" xyz="151.0425, -32.01019, 324.5426" name="Lancer_1_11"/>
-					<Grind grindRef="Lancer_1_11" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 9, 0)"/>
-				</If>		
-			</If>	
+    <If Condition="HasQuest(65920) and not IsQuestCompleted(65920) and GetQuestStep(65920) == 255">	
       <GetTo ZoneId="148" XYZ="176.2125, -32.00885, 331.5332"/>
       <TurnIn QuestId="65920" NpcId="1000503" XYZ="178.3322, -32.01522, 333.3027"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-
-			<If Condition="ClassName == ClassJobType.Lancer">
-
-				<!-- Tree Slug -->
-				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 9, 0)">
-					<GetTo ZoneId="148" xyz="151.0425, -32.01019, 324.5426" name="Lancer_1_11"/>
-					<Grind grindRef="Lancer_1_11" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 9, 0)"/>
-				</If>	
-			</If>	
 
     <!-- Salvaging the Scene (Level 13) -->
     <If Condition="IsQuestCompleted(65695) and not HasQuest(65923) and not IsQuestCompleted(65923)">
@@ -1472,20 +972,6 @@
 			</If>
 		</If>
     <If Condition="HasQuest(65923) and not IsQuestCompleted(65923) and GetQuestStep(65923) == 1">			
-			<If Condition="ClassName == ClassJobType.Archer">	
-				<!-- Arbor Buzzard -->		
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 1, 0)">
-					<GetTo ZoneId="148" XYZ="223.7198, -31.63709, 406.0985"/>
-					<Grind grindRef="Archer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 1, 0)"/>
-				</If>
-			</If>	
-			<If Condition="ClassName == ClassJobType.Lancer">
-				<!-- Arbor Buzzard -->		
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 0, 0)">
-					<GetTo ZoneId="148" XYZ="223.7198, -31.63709, 406.0985" name="Lancer_2_0"/>
-					<Grind grindRef="Lancer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 0, 0)"/>
-				</If>
-			</If>			
       <GetTo ZoneId="148" XYZ="154.1924, -24.33813, 503.4713"/>
       <UseObject NpcIds="2001016,2001018" QuestId="65923" StepId="1">
         <HotSpots>
@@ -1501,22 +987,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-			<If Condition="ClassName == ClassJobType.Archer">	
-				<!-- Arbor Buzzard -->		
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 1, 0)">
-					<GetTo ZoneId="148" XYZ="223.7198, -31.63709, 406.0985"/>
-					<Grind grindRef="Archer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 1, 0)"/>
-				</If>
-			</If>	
-			<If Condition="ClassName == ClassJobType.Lancer">
-				<!-- Arbor Buzzard -->		
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 0, 0)">
-					<GetTo ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Lancer_2_0"/>
-					<Grind grindRef="Lancer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 0, 0)"/>
-				</If>
-			</If>			
-		
+
     <!-- Leia's Legacy (Level 14) -->
     <If Condition="IsQuestCompleted(65923) and not HasQuest(65697) and not IsQuestCompleted(65697)">
       <GetTo ZoneId="148" XYZ="-58.56086, 0.2, 7.283125"/>
@@ -1541,20 +1012,6 @@
       <TalkTo NpcId="1000471" XYZ="-60.47156, 0.2, 6.301941" QuestId="65697" StepId="2"/>
 		</If>
     <If Condition="HasQuest(65697) and not IsQuestCompleted(65697) and GetQuestStep(65697) == 3">
-			<If Condition="ClassName == ClassJobType.Archer">
-				<!-- Magicked Bones -->		
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 2)">
-					<GetTo ZoneId="148" XYZ="-38.08831, -33.77425, 311.8487"/>
-					<Grind grindRef="Archer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 2)"/>
-				</If>				
-			</If>
-			<If Condition="ClassName == ClassJobType.Conjurer">
-				<!-- Firefly -->					
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 2, 0)">
-					<GetTo ZoneId="148" xyz="-64.2096, -39.85896, 312.2948" name="Conjurer_2_3"/>
-					<Grind grindRef="Conjurer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 2, 0)"/>
-				</If>
-			</If>	
       <GetTo ZoneId="148" XYZ="-189.1356, -26.69049, 295.5214"/>
       <SimpleDuty InteractNpcId="1003002" XYZ="-189.1356, -26.69049, 295.5214" QuestId="65697" StepId="3">
         <HotSpots>
@@ -1581,21 +1038,6 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-			<If Condition="ClassName == ClassJobType.Archer">
-				<!-- Magicked Bones -->		
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 2)">
-					<GetTo ZoneId="148" XYZ="-38.08831, -33.77425, 311.8487"/>
-					<Grind grindRef="Archer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 2)"/>
-				</If>				
-			</If>
-			<If Condition="ClassName == ClassJobType.Conjurer">
-				<!-- Firefly -->					
-				<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 2, 0)">
-					<GetTo ZoneId="148" xyz="-64.2096, -39.85896, 312.2948" name="Conjurer_2_3"/>
-					<Grind grindRef="Conjurer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 2, 0)"/>
-				</If>
-			</If>		
 		
     <!-- Dread Is in the Air (Level 14) -->
     <If Condition="IsQuestCompleted(65697) and not HasQuest(65982) and not IsQuestCompleted(65982)">
@@ -1644,38 +1086,6 @@
 								<TalkTo NpcId="1000204" XYZ="226.337, 1.999909, 29.06836" QuestId="65604" StepId="1" />
 							</If>
 							<While Condition="GetQuestStep(65604) == 2">
-								<If Condition="ClassName == ClassJobType.Archer">
-									<!-- Hornet Swarm -->
-									<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 0, 0)">
-										<GetTo ZoneId="148" XYZ="55.09315, -24.70916, 234.5854" />
-										<Grind grindRef="Archer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 0, 0)"/>
-									</If>					
-								</If>							
-								<!-- Treant Sapling -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 1)">
-									<GetTo ZoneId="148" xyz="307.5142, -1.174989, -297.8878" name="Archer_2_3"/>
-									<Grind grindRef="Archer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 1)"/>
-								</If>	
-								<!-- Goblin Hunter -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 0)">
-									<GetTo ZoneId="152" xyz="-391.869, 9.165998, 308.7953" name="Archer_2_2"/>
-									<Grind grindRef="Archer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 0)"/>
-								</If>	
-								<!-- Mandragora -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 3)">
-									<GetTo ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Archer_2_5"/>
-									<Grind grindRef="Archer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 3)"/>
-								</If>								
-								<!-- Lemur -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 4, 0)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Archer_2_7"/>
-									<Grind grindRef="Archer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 4, 0)"/>
-								</If>
-								<!-- Wild Hoglet -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 3, 0)">
-									<GetTo ZoneId="152" xyz="-443.2791, 0.0152936, 105.9235" name="Archer_2_6"/>
-									<Grind grindRef="Archer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 3, 0)"/>
-								</If>								
 								<If condition="GetQuestById(65604).GetTodoArgs(2, 0).Item1 == 0">
 									<GetTo ZoneId="152" XYZ="-294.8734, 0.2634137, 257.7264" />
 									<While condition="GameObjectManager.GetObjectByNPCId(2001179).IsVisible">
@@ -1714,21 +1124,6 @@
 								</If>								
 							</While>
 							<If Condition="GetQuestStep(65604) == 3">
-								<!-- Faerie Funguar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 5, 0)">
-									<GetTo ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Archer_2_8"/>
-									<Grind grindRef="Archer_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 5, 0)"/>
-								</If>
-								<!-- Giant Gnat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 6, 0)">
-									<GetTo ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Archer_2_9"/>
-									<Grind grindRef="Archer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 6, 0)"/>
-								</If>
-								<!-- Wild Boar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 9, 0)">
-									<GetTo ZoneId="152" xyz="-129.2341, -2.916349, 180.8452" name="Archer_2_12"/>
-									<Grind grindRef="Archer_2_12" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 9, 0)"/>
-								</If>							
 								<GetTo ZoneId="132" XYZ="226.337, 1.999909, 29.06836" /> <!-- Silvairre -->
 								<TalkTo NpcId="1000204" XYZ="226.337, 1.999909, 29.06836" QuestId="65604" StepId="3" />
 							</If>
@@ -1775,18 +1170,7 @@
 							</If>
 						</If>
 						<If Condition="HasQuest(65628)">
-							<If Condition="GetQuestStep(65628) == 1">
-								<!-- Giant Gnat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 6, 0)">
-									<GetTo ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Conjurer_2_7"/>
-									<Grind grindRef="Conjurer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 6, 0)"/>
-								</If>
-								<!-- Wolf Poacher -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 7, 0)">
-									<GetTo ZoneId="152" xyz="-95.50292, 11.03478, 430.7531" name="Conjurer_2_8"/>
-									<Grind grindRef="Conjurer_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 7, 0)"/>
-								</If>
-							
+							<If Condition="GetQuestStep(65628) == 1">							
 								<GetTo ZoneId="152" XYZ="-276.936, 11.73413, 367.2083" /> <!-- Corrupted Water -->
 								<UseItem NpcId="2000889" ItemId="2000121" QuestId="65628" StepId="1" PostCombatDelay="2" XYZ="-276.936, 11.73413, 367.2083" Radius="5" />
 							</If>
@@ -1806,12 +1190,7 @@
 								<GetTo ZoneId="152" XYZ="-237.6593, 17.85008, 243.4882" /> <!-- Joacin -->
 								<TalkTo NpcId="1003057" XYZ="-237.6593, 17.85008, 243.4882" QuestId="65628" StepId="5" />
 							</If>
-							<If Condition="GetQuestStep(65628) == 6">
-								<!-- Black Bat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 9, 0)">
-									<GetTo ZoneId="152" xyz="-145.3074, -1.420919, 168.7406" name="Conjurer_2_10"/>
-									<Grind grindRef="Conjurer_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 9, 0)"/>
-								</If>									
+							<If Condition="GetQuestStep(65628) == 6">							
 								<GetTo ZoneId="152" XYZ="-66.05634, -7.982881, 231.1589" /> <!-- Gods' Quiver Bow -->
 								<SimpleDuty InteractNpcId="1001213" XYZ="-66.05634, -7.982881, 231.1589" QuestId="65628" StepId="6">
 									<HotSpots>
@@ -1852,46 +1231,6 @@
 						</If>
 						<If Condition="HasQuest(65591)">
 							<If Condition="GetQuestStep(65591) == 1">
-								<!-- Manadragora -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 2, 0)">
-									<GetTo ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Lancer_2_2"/>
-									<Grind grindRef="Lancer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 2, 0)"/>
-								</If>
-								<!-- Wild Hoglet -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 3, 0)">
-									<GetTo ZoneId="152" xyz="-443.2791, 0.0152936, 105.9235" name="Lancer_2_3"/>
-									<Grind grindRef="Lancer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 3, 0)"/>
-								</If>
-								<!-- Lemur -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 0)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_4"/>
-									<Grind grindRef="Lancer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 0)"/>
-								</If>
-								<!-- Boring Weevil -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 1)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_5"/>
-									<Grind grindRef="Lancer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 1)"/>
-								</If>
-								<!-- Faerie Funguar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 5, 0)">
-									<GetTo ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Lancer_2_6"/>
-									<Grind grindRef="Lancer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 5, 0)"/>
-								</If>
-								<!-- Giant Gnat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 0)">
-									<GetTo ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Lancer_2_7"/>
-									<Grind grindRef="Lancer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 0)"/>
-								</If>
-								<!-- Ziz Gorlin -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 7, 0)">
-									<GetTo ZoneId="152" xyz="-56.59529, -6.37919, 208.1935" name="Lancer_2_9"/>
-									<Grind grindRef="Lancer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 7, 0)"/>
-								</If>
-								<!-- Black Bat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 1)">
-									<GetTo ZoneId="152" xyz="-145.3074, -1.420919, 168.7406" name="Lancer_2_11"/>
-									<Grind grindRef="Lancer_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 1)"/>
-								</If>								
 								<GetTo ZoneId="152" XYZ="-416.3729, 0.1067505, 60.99023" /> <!-- Foulques -->
 								<TalkTo NpcId="1001194" XYZ="-416.3729, 0.1067505, 60.99023" QuestId="65591" StepId="1" />
 							</If>
@@ -1903,12 +1242,7 @@
 								<GetTo ZoneId="152" XYZ="-416.3729, 0.1067505, 60.99023" /> <!-- Foulques -->
 								<TalkTo NpcId="1001194" XYZ="-416.3729, 0.1067505, 60.99023" QuestId="65591" StepId="3" />
 							</If>
-							<If Condition="GetQuestStep(65591) == 4">
-								<!-- Treant Sapling -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 1, 0)">
-									<GetTo ZoneId="148" xyz="307.5142, -1.174989, -297.8878" name="Lancer_2_1"/>
-									<Grind grindRef="Lancer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 1, 0)"/>
-								</If>								
+							<If Condition="GetQuestStep(65591) == 4">							
 								<GetTo ZoneId="148" XYZ="267.5669, -0.5951538, -253.8339" /> <!-- Lifemend Stump -->
 								<SimpleDuty InteractNpcId="2000920" XYZ="267.5669, -0.5951538, -253.8339" QuestId="65591" StepId="4">
 									<HotSpots>
@@ -1956,120 +1290,6 @@
 			<CloseHowTos/>
 		</If>
 	
-								<If Condition="ClassName == ClassJobType.Archer">
-									<!-- Hornet Swarm -->
-									<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 0, 0)">
-										<GetTo ZoneId="148" XYZ="55.09315, -24.70916, 234.5854" />
-										<Grind grindRef="Archer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 0, 0)"/>
-									</If>											
-								<!-- Treant Sapling -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 1)">
-									<GetTo ZoneId="148" xyz="307.5142, -1.174989, -297.8878" name="Archer_2_3"/>
-									<Grind grindRef="Archer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 1)"/>
-								</If>	
-								<!-- Goblin Hunter -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 0)">
-									<GetTo ZoneId="152" xyz="-391.869, 9.165998, 308.7953" name="Archer_2_2"/>
-									<Grind grindRef="Archer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 0)"/>
-								</If>	
-								<!-- Mandragora -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 3)">
-									<GetTo ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Archer_2_5"/>
-									<Grind grindRef="Archer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 2, 3)"/>
-								</If>								
-								<!-- Lemur -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 4, 0)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Archer_2_7"/>
-									<Grind grindRef="Archer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 4, 0)"/>
-								</If>
-								<!-- Wild Hoglet -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 3, 0)">
-									<GetTo ZoneId="152" xyz="-443.2791, 0.0152936, 105.9235" name="Archer_2_6"/>
-									<Grind grindRef="Archer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 3, 0)"/>
-								</If>	
-								<!-- Faerie Funguar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 5, 0)">
-									<GetTo ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Archer_2_8"/>
-									<Grind grindRef="Archer_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 5, 0)"/>
-								</If>
-								<!-- Giant Gnat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 6, 0)">
-									<GetTo ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Archer_2_9"/>
-									<Grind grindRef="Archer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 6, 0)"/>
-								</If>
-								<!-- Wild Boar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Archer, 9, 0)">
-									<GetTo ZoneId="152" xyz="-129.2341, -2.916349, 180.8452" name="Archer_2_12"/>
-									<Grind grindRef="Archer_2_12" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Archer, 9, 0)"/>
-								</If>							
-								
-</If>
-
-		<If Condition="ClassName == ClassJobType.Conjurer">
-								<!-- Giant Gnat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 6, 0)">
-									<GetTo ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Conjurer_2_7"/>
-									<Grind grindRef="Conjurer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 6, 0)"/>
-								</If>
-								<!-- Black Bat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 9, 0)">
-									<GetTo ZoneId="152" xyz="-145.3074, -1.420919, 168.7406" name="Conjurer_2_10"/>
-									<Grind grindRef="Conjurer_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 9, 0)"/>
-								</If>									
-
-
-</If>
-
-		<If Condition="ClassName == ClassJobType.Lancer">
-								<!-- Manadragora -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 2, 0)">
-									<GetTo ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Lancer_2_2"/>
-									<Grind grindRef="Lancer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 2, 0)"/>
-								</If>
-								<!-- Wild Hoglet -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 3, 0)">
-									<GetTo ZoneId="152" xyz="-443.2791, 0.0152936, 105.9235" name="Lancer_2_3"/>
-									<Grind grindRef="Lancer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 3, 0)"/>
-								</If>
-								<!-- Lemur -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 0)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_4"/>
-									<Grind grindRef="Lancer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 0)"/>
-								</If>
-								<!-- Boring Weevil -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 1)">
-									<GetTo ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_5"/>
-									<Grind grindRef="Lancer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 1)"/>
-								</If>
-								<!-- Faerie Funguar -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 5, 0)">
-									<GetTo ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Lancer_2_6"/>
-									<Grind grindRef="Lancer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 5, 0)"/>
-								</If>
-								<!-- Giant Gnat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 0)">
-									<GetTo ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Lancer_2_7"/>
-									<Grind grindRef="Lancer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 0)"/>
-								</If>
-								<!-- Ziz Gorlin -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 7, 0)">
-									<GetTo ZoneId="152" xyz="-56.59529, -6.37919, 208.1935" name="Lancer_2_9"/>
-									<Grind grindRef="Lancer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 7, 0)"/>
-								</If>
-								<!-- Black Bat -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 1)">
-									<GetTo ZoneId="152" xyz="-145.3074, -1.420919, 168.7406" name="Lancer_2_11"/>
-									<Grind grindRef="Lancer_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 1)"/>
-								</If>								
-								<!-- Treant Sapling -->
-								<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 1, 0)">
-									<GetTo ZoneId="148" xyz="307.5142, -1.174989, -297.8878" name="Lancer_2_1"/>
-									<Grind grindRef="Lancer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 1, 0)"/>
-								</If>								
-
-
-</If>	
-	
     <!-- Festive Endeavors (Level 14) -->
     <If Condition="IsQuestCompleted(65983) and not HasQuest(65984) and not IsQuestCompleted(65984)">
       <If Condition="not IsOnMap(204)">
@@ -2095,27 +1315,6 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
-		<!-- Finish Rank 2 Logs -->
-		<If Condition="ClassName == ClassJobType.Conjurer">
-			<!-- Qirirn Beater -->
-      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 8, 0)">
-        <GetTo ZoneId="153" xyz="-304.5961, 23.41519, -193.5119" name="Conjurer_2_9"/>
-        <Grind grindRef="Conjurer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 8, 0)"/>
-      </If>		
-		</If>
-		<If Condition="ClassName == ClassJobType.Lancer">
-			<!-- Qiqirn Beater -->
-			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 0)">
-				<GetTo ZoneId="153" xyz="-321.6884, 20.85904, -188.7529" name="Lancer_2_10"/>
-				<Grind grindRef="Lancer_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 0)"/>
-			</If>
-			<!-- Antelope Doe -->
-			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 9, 0)">
-				<GetTo ZoneId="153" xyz="-321.6884, 20.85904, -188.7529" name="Lancer_2_12"/>
-				<Grind grindRef="Lancer_2_12" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 9, 0)"/>
-			</If>
-		</If>	
 		
     <!-- Renewing the Covenant (Level 14) -->
     <If Condition="IsQuestCompleted(65984) and not HasQuest(65985) and not IsQuestCompleted(65985)">
