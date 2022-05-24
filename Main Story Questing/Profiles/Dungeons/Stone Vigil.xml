@@ -47,6 +47,7 @@
 			</If>			
 			<MoveTo XYZ="25.42299, 3.954224, -79.95275"/> <!-- Move to second boss room -->		
 			<RunCode name="AddMealstromAvoids"/>
+			<MoveTo XYZ="45.39376, 4.000031, -79.82553" InCombat="True"/>
 			<Grind GrindRef="Koshchei" While="GetInstanceTodo(1) == 0"/> <!-- Fight Koshchei -->
 			<RunCode name="RemoveAvoids"/>
 			<If Condition="&openchest; == 1">
