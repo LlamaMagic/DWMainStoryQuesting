@@ -23,40 +23,6 @@
 	<KillRadius>90</KillRadius>
 	<Order>
 	
-	<!-- Unlocking Conjurer -->
-	<!-- So You Want to Be a Conjurer -->
-	<If Condition="not IsQuestCompleted(65718)">
-		<If Condition="not HasQuest(65718)">
-			<GetTo ZoneId="133" XYZ="-234.5071, -4.000002, -6.916752"/>
-			<If Condition="IsQuestAcceptQualified(65718)">
-				<LLPickUpQuest NpcId="1000323" QuestId="65718" XYZ="-234.5071, -4.000002, -6.916752"/>
-				<LLSmallTalk/>
-			</If>
-		</If>
-	</If>
-	<!-- Way of the Conjurer -->
-	<If Condition="not IsQuestCompleted(65669) and IsQuestCompleted(65718)">
-		<If Condition="not HasQuest(65669)">
-			<GetTo ZoneId="133" XYZ="-234.5071, -4.000002, -6.916752"/>
-			<If Condition="IsQuestAcceptQualified(65669)">
-				<LLPickupQuest NpcId="1000323" QuestId="65669" XYZ="-234.5071, -4.000002, -6.916752"/>
-				<LLSmallTalk/>
-			</If>
-			<If Condition="GetQuestStep(65669) == 255">
-				<LLTurnIn QuestId="65669" StepId="255" NpcId="1000692" InteractDistance="1.0" XYZ="-256.956, -5.774297, -25.042"/>
-				<LLSmallTalk/>
-				<WaitTimer WaitTime="2"/>
-				<If Condition="ClassName != ClassJobType.Conjurer">
-					<ChangeClass Job="Conjurer" />
-				</If>		
-				<If Condition="ClassName == ClassJobType.Conjurer">
-					<AutoEquip UpdateGearSet="true"/>
-					<WaitTimer WaitTime="5"/>
-				</If>
-			</If>
-		</If>
-	</If>
-	
 	<If Condition="ClassName != ClassJobType.Conjurer and not IsQuestCompleted(66615)">
 		<ChangeClass Job="Conjurer" Force="True"/>
 	</If>		

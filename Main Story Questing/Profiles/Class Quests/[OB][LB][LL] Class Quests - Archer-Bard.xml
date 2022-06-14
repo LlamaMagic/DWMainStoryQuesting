@@ -23,40 +23,7 @@
 	<KillRadius>90</KillRadius>
 	<Order>
 	
-	<!-- Unlocking Archer -->
-	<!-- So You Want to Be an Archer -->
-	<If Condition="not IsQuestCompleted(65717)">
-		<If Condition="not HasQuest(65717)">
-			<GetTo ZoneId="132" XYZ="197.336, 0, 44.09909"/>
-			<If Condition="IsQuestAcceptQualified(65717)">
-				<LLPickupQuest NpcId="1000197" QuestId="65717" XYZ="197.336, 0, 44.09909"/>
-				<LLSmallTalk/>
-			</If>
-		</If>
-	</If>
-	<!-- Way of the Archer -->
-	<If Condition="not IsQuestCompleted(65667)">
-		<If Condition="not HasQuest(65667)">
-			<GetTo ZoneId="132" XYZ="197.336, 0, 44.09909"/>
-			<If Condition="IsQuestAcceptQualified(65667)">
-				<LLPickupQuest NpcId="1000197" QuestId="65667" XYZ="197.336, 0, 44.09909"/>
-				<LLSmallTalk/>
-			</If>
-			<If Condition="GetQuestStep(65667) == 255">
-				<LLTurnIn QuestId="65667" StepId="255" NpcId="1000200" InteractDistance="1.0" XYZ="211.6598, 0.9999956, 35.18959"/>
-				<LLSmallTalk/>
-				<WaitTimer WaitTime="2"/>
-				<If Condition="ClassName != ClassJobType.Archer">
-					<ChangeClass Job="Archer"/>
-				</If>		
-				<If Condition="ClassName == ClassJobType.Archer">
-					<AutoEquip UpdateGearSet="true"/>
-					<WaitTimer WaitTime="5"/>
-				</If>
-			</If>
-		</If>
-	</If>
-	
+
 	<If Condition="ClassName != ClassJobType.Archer and not IsQuestCompleted(66621)">
 		<ChangeClass Job="Archer" Force="True"/>
 	</If>		
@@ -79,15 +46,15 @@
 				<If Condition="HasQuest(65755)">
 					<If Condition="GetQuestStep(65755) == 1">
 						<If Condition="not IsTodoChecked(65755, 1, 0)">
-							<LisbethTravel ZoneId="148" XYZ="-6.144673, 0.6748074, -177.9309"/> <!-- Grinding Area -->
+							<GetTo ZoneId="148" XYZ="-6.144673, 0.6748074, -177.9309"/> <!-- Grinding Area -->
 							<Grind grindRef="My_First_Bow" while="not IsTodoChecked(65755, 1, 0)"/>
 						</If>
 						<If Condition="not IsTodoChecked(65755, 1, 2)">
-							<LisbethTravel ZoneId="148" XYZ="-6.144673, 0.6748074, -177.9309"/> <!-- Grinding Area -->
+							<GetTo ZoneId="148" XYZ="-6.144673, 0.6748074, -177.9309"/> <!-- Grinding Area -->
 							<Grind grindRef="My_First_Bow3" while="not IsTodoChecked(65755, 1, 2)"/>
 						</If>
 						<If Condition="not IsTodoChecked(65755, 1, 1)">
-							<LisbethTravel ZoneId="148" XYZ="-6.144673, 0.6748074, -177.9309"/> <!-- Grinding Area -->
+							<GetTo ZoneId="148" XYZ="-6.144673, 0.6748074, -177.9309"/> <!-- Grinding Area -->
 							<Grind grindRef="My_First_Bow2" while="not IsTodoChecked(65755, 1, 1)"/>
 						</If>
 					</If>
@@ -148,11 +115,11 @@
 						</If>
 						<If Condition="GetQuestStep(65582) == 3">
 							<If Condition="not IsTodoChecked(65582, 3, 0)">
-								<LisbethTravel ZoneId="154" XYZ="290.5708, -25.79398, 198.3533"/> <!-- Grinding Area -->
+								<GetTo ZoneId="154" XYZ="290.5708, -25.79398, 198.3533"/> <!-- Grinding Area -->
 								<Grind grindRef="A_Matter_of_Perspective" while="not IsTodoChecked(65582, 3, 0)"/>
 							</If>
 							<If Condition="not IsTodoChecked(65582, 3, 1)">
-								<LisbethTravel ZoneId="154" XYZ="288.3746, -11.16997, 41.6236"/> <!-- Grinding Area -->
+								<GetTo ZoneId="154" XYZ="288.3746, -11.16997, 41.6236"/> <!-- Grinding Area -->
 								<Grind grindRef="A_Matter_of_Perspective2" while="not IsTodoChecked(65582, 3, 1)"/>
 							</If>
 						</If>
@@ -182,32 +149,32 @@
 						</If>
 						<While Condition="GetQuestStep(65603) == 2">
 							<While Condition="GetQuestById(65603).QuestI8A == 0">
-								<LisbethTravel ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
+								<GetTo ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65603).QuestI8A == 1">
-								<LisbethTravel ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
+								<GetTo ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65603).QuestI8A == 2">
-								<LisbethTravel ZoneId="148" XYZ="-81.56133, -0.006021142, -183.5941"/>
+								<GetTo ZoneId="148" XYZ="-81.56133, -0.006021142, -183.5941"/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65603).QuestI8A == 3">
-								<LisbethTravel ZoneId="148" XYZ="-116.2865, -3.682212, -63.99775"/>
+								<GetTo ZoneId="148" XYZ="-116.2865, -3.682212, -63.99775"/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65603).QuestI8A == 4">
-								<LisbethTravel ZoneId="148" XYZ="-154.7968, -0.3608802, -64.02232"/>
+								<GetTo ZoneId="148" XYZ="-154.7968, -0.3608802, -64.02232"/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65603).QuestI8A == 5">
-								<LisbethTravel ZoneId="148" XYZ="-150.6393, 4.784497, -136.8705"/>
+								<GetTo ZoneId="148" XYZ="-150.6393, 4.784497, -136.8705"/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
@@ -218,11 +185,11 @@
 						</If>
 						<If Condition="GetQuestStep(65603) == 4">
 							<If Condition="not IsTodoChecked(65603, 4, 0)">
-								<LisbethTravel ZoneId="152" XYZ="-463.7145, 7.505338, 244.168"/> <!-- Grinding Area -->
+								<GetTo ZoneId="152" XYZ="-463.7145, 7.505338, 244.168"/> <!-- Grinding Area -->
 								<Grind grindRef="School_of_Hard_Nocks" while="not IsTodoChecked(65603, 4, 0)"/>
 							</If>
 							<If Condition="not IsTodoChecked(65603, 4, 1)">
-								<LisbethTravel ZoneId="152" XYZ="-505.7623, 11.60868, 127.5668"/> <!-- Grinding Area -->
+								<GetTo ZoneId="152" XYZ="-505.7623, 11.60868, 127.5668"/> <!-- Grinding Area -->
 								<Grind grindRef="School_of_Hard_Nocks2" while="not IsTodoChecked(65603, 4, 1)"/>
 							</If>
 						</If>
@@ -256,37 +223,37 @@
 						</If>
 						<While Condition="GetQuestStep(65670) == 2">
 							<While Condition="GetQuestById(65670).QuestI8A == 0">
-								<LisbethTravel ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
+								<GetTo ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65670).QuestI8A == 1">
-								<LisbethTravel ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
+								<GetTo ZoneId="148" XYZ="-28.49119, 0.4725635, -150.8261"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65670).QuestI8A == 2">
-								<LisbethTravel ZoneId="148" XYZ="-81.56133, -0.006021142, -183.5941"/>
+								<GetTo ZoneId="148" XYZ="-81.56133, -0.006021142, -183.5941"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65670).QuestI8A == 3">
-								<LisbethTravel ZoneId="148" XYZ="-116.2865, -3.682212, -63.99775"/>
+								<GetTo ZoneId="148" XYZ="-116.2865, -3.682212, -63.99775"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65670).QuestI8A == 4">
-								<LisbethTravel ZoneId="148" XYZ="-154.7968, -0.3608802, -64.02232"/>
+								<GetTo ZoneId="148" XYZ="-154.7968, -0.3608802, -64.02232"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65670).QuestI8A == 5">
-								<LisbethTravel ZoneId="148" XYZ="-150.6393, 4.784497, -136.8705"/>
+								<GetTo ZoneId="148" XYZ="-150.6393, 4.784497, -136.8705"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
@@ -298,11 +265,11 @@
 						</If>
 						<If Condition="GetQuestStep(65670) == 4">
 							<If Condition="not IsTodoChecked(65670, 4, 1)">
-								<LisbethTravel ZoneId="152" XYZ="-337.9563, -1.526918, 256.7955"/> <!-- Grinding Area -->
+								<GetTo ZoneId="152" XYZ="-337.9563, -1.526918, 256.7955"/> <!-- Grinding Area -->
 								<Grind grindRef="Training_with_Leih2" while="not IsTodoChecked(65670, 4, 1)"/>
 							</If>
 							<If Condition="not IsTodoChecked(65670, 4, 0)">
-								<LisbethTravel ZoneId="152" XYZ="-454.9391, 0.24586, 142.0739"/> <!-- Grinding Area -->
+								<GetTo ZoneId="152" XYZ="-454.9391, 0.24586, 142.0739"/> <!-- Grinding Area -->
 								<Grind grindRef="Training_with_Leih" while="not IsTodoChecked(65670, 4, 0)"/>
 							</If>
 						</If>
@@ -336,37 +303,37 @@
 						</If>
 						<While Condition="GetQuestStep(65604) == 2">
 							<While Condition="GetQuestById(65604).QuestI8A == 0">
-								<LisbethTravel ZoneId="152" XYZ="-294.8734, 0.2634137, 257.7264"/>
+								<GetTo ZoneId="152" XYZ="-294.8734, 0.2634137, 257.7264"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65604).QuestI8A == 1">
-								<LisbethTravel ZoneId="152" XYZ="-273.4749, -2.071945, 245.7643"/>
+								<GetTo ZoneId="152" XYZ="-273.4749, -2.071945, 245.7643"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65604).QuestI8A == 2">
-								<LisbethTravel ZoneId="152" XYZ="-332.781, 4.054853, 300.7027"/>
+								<GetTo ZoneId="152" XYZ="-332.781, 4.054853, 300.7027"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65604).QuestI8A == 3">
-								<LisbethTravel ZoneId="152"  XYZ="-326.8647, 8.898, 321.8404"/>
+								<GetTo ZoneId="152"  XYZ="-326.8647, 8.898, 321.8404"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65604).QuestI8A == 4">
-								<LisbethTravel ZoneId="152" XYZ="-350.3452, 6.267966, 305.1577"/>
+								<GetTo ZoneId="152" XYZ="-350.3452, 6.267966, 305.1577"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
 							</While>
 							<While Condition="GetQuestById(65604).QuestI8A == 5">
-								<LisbethTravel ZoneId="152" XYZ="-378.4444, 4.169621, 277.9274"/>
+								<GetTo ZoneId="152" XYZ="-378.4444, 4.169621, 277.9274"/>
 								<Dismount/>
 								<RunCode name="Archer_Target"/>
 								<WaitTimer WaitTime="1"/>
@@ -377,7 +344,7 @@
 							<LLTalkTo NpcId="1000204" XYZ="226.337, 1.999909, 29.06836" QuestId="65604" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(65604) == 4">
-							<LisbethTravel ZoneId="154" XYZ="288.5634, -11.30695, 52.38416"/> <!-- Destination -->
+							<GetTo ZoneId="154" XYZ="288.5634, -11.30695, 52.38416"/> <!-- Destination -->
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
 							</If>
@@ -419,12 +386,12 @@
 					</If>
 					<If Condition="HasQuest(65606)">
 						<If Condition="GetQuestStep(65606) == 1">
-							<LisbethTravel ZoneId="153" XYZ="-167.1886, 9.014794, -64.75754"/>
+							<GetTo ZoneId="153" XYZ="-167.1886, 9.014794, -64.75754"/>
 							<LLTalkTo NpcId="1000590" XYZ="-165.9419, 9.869228, -81.34589" QuestId="65606" StepId="1"/>
-							<LisbethTravel ZoneId="153" XYZ="-167.1886, 9.014794, -64.75754"/>
+							<GetTo ZoneId="153" XYZ="-167.1886, 9.014794, -64.75754"/>
 						</If>
 						<If Condition="GetQuestStep(65606) == 2">
-							<LisbethTravel ZoneId="153" XYZ="-240.0856, 6.312324, -98.97705"/>
+							<GetTo ZoneId="153" XYZ="-240.0856, 6.312324, -98.97705"/>
 							<UseObject NpcIds="2000948,2000949,2000947" QuestId="65606" StepId="2">
 								<HotSpots>
 									<HotSpot XYZ="-270.0085, 15.48785, -91.17267" Radius="10"/>
@@ -434,13 +401,13 @@
 							</UseObject>
 						</If>
 						<While Condition="GetQuestStep(65606) == 3">
-							<LisbethTravel ZoneId="153" XYZ="-165.8599, 8.412343, -63.5905"/>
+							<GetTo ZoneId="153" XYZ="-165.8599, 8.412343, -63.5905"/>
 							<SelectStringOverride Index="0,3" QuestId="65606" StepId="3"/>
 							<UseObject NpcId="2001105" XYZ="-173.022, 9.872559, -78.6908" Radius="10" QuestId="65606" StepId="3"/>
-							<LisbethTravel ZoneId="153" XYZ="-165.8599, 8.412343, -63.5905"/>
+							<GetTo ZoneId="153" XYZ="-165.8599, 8.412343, -63.5905"/>
 						</While>
 						<If Condition="GetQuestStep(65606) == 4">
-							<LisbethTravel ZoneId="153" XYZ="-295.8572, 23.57513, -192.34"/>
+							<GetTo ZoneId="153" XYZ="-295.8572, 23.57513, -192.34"/>
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
 							</If>
@@ -456,7 +423,7 @@
 							</LLSimpleDuty>
 						</If>
 						<If Condition="GetQuestStep(65606) == 5">
-							<LisbethTravel ZoneId="153" XYZ="-167.1886, 9.014794, -64.75754"/>
+							<GetTo ZoneId="153" XYZ="-167.1886, 9.014794, -64.75754"/>
 							<LLTalkTo NpcId="1000590" XYZ="-165.9419, 9.869228, -81.34589" QuestId="65606" StepId="5"/>
 						</If>
 						<If Condition="GetQuestStep(65606) == 255">
@@ -488,11 +455,11 @@
 							<LLTalkTo NpcId="1000199" XYZ="211.139, 1.502782E-05, 28.58008" QuestId="65607" StepId="2"/>
 						</If>
 						<If Condition="GetQuestStep(65607) == 3">
-							<LisbethTravel ZoneId="153" XYZ="-1.815857, 6.912292, -93.0343"/>
+							<GetTo ZoneId="153" XYZ="-1.815857, 6.912292, -93.0343"/>
 							<UseObject NpcId="2000951" XYZ="-1.815857, 6.912292, -93.0343" Radius="10" QuestId="65607" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(65607) == 4">
-							<LisbethTravel ZoneId="148" XYZ="134.4777, -7, -69.99316"/>
+							<GetTo ZoneId="148" XYZ="134.4777, -7, -69.99316"/>
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
 							</If>
@@ -527,7 +494,7 @@
 					</If>
 					<If Condition="HasQuest(65612)">
 						<If Condition="GetQuestStep(65612) == 1">
-							<LisbethTravel ZoneId="153" XYZ="278.6144, 8.346143, -38.22394"/>
+							<GetTo ZoneId="153" XYZ="278.6144, 8.346143, -38.22394"/>
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
 							</If>
@@ -544,7 +511,7 @@
 							</LLSimpleDuty>
 						</If>
 						<If Condition="GetQuestStep(65612) == 2">
-							<LisbethTravel ZoneId="153" XYZ="-90.74542, 0.01519775, 61.08191"/>
+							<GetTo ZoneId="153" XYZ="-90.74542, 0.01519775, 61.08191"/>
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
 							</If>
@@ -582,23 +549,23 @@
 					</If>
 					<If Condition="HasQuest(66621)">
 						<If Condition="GetQuestStep(66621) == 1">
-							<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+							<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLTalkTo NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" QuestId="66621" StepId="1"/>
 						</If>
 						<If Condition="GetQuestStep(66621) == 2">
-							<LisbethTravel ZoneId="153" XYZ="447.2876, 2.147105, 21.86615"/>
+							<GetTo ZoneId="153" XYZ="447.2876, 2.147105, 21.86615"/>
 							<LLTalkTo NpcId="1007834" XYZ="447.2876, 2.147105, 21.86615" QuestId="66621" StepId="2"/>
 						</If>
 						<If Condition="GetQuestStep(66621) == 3">
-							<LisbethTravel ZoneId="153" XYZ="457.9995, 0.4425049, -106.7369"/>
+							<GetTo ZoneId="153" XYZ="457.9995, 0.4425049, -106.7369"/>
 							<UseObject NpcId="2002364" XYZ="457.9995, 0.4425049, -106.7369" Radius="10" QuestId="66621" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(66621) == 4">
-							<LisbethTravel ZoneId="153" XYZ="447.2876, 2.147105, 21.86615"/>
+							<GetTo ZoneId="153" XYZ="447.2876, 2.147105, 21.86615"/>
 							<LLHandOver ItemId="2000813" QuestId="66621" StepId="4" NpcId="1007834" XYZ="447.2876, 2.147105, 21.86615"/>
 						</If>
 						<If Condition="GetQuestStep(66621) == 255">
-							<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+							<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLTurnIn QuestId="66621" NpcId="1006750" ItemId="2000813" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -617,7 +584,7 @@
 			<If Condition="not IsQuestCompleted(66622) and IsQuestCompleted(66621)">
 				<If Condition="Core.Player.ClassLevel &gt; 34">
 					<If Condition="not HasQuest(66622)">
-						<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+						<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 						<If Condition="IsQuestAcceptQualified(66622)">
 							<LLPickupQuest NpcId="1006750" QuestId="66622" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
@@ -627,19 +594,19 @@
 						<While Condition="GetQuestStep(66622) == 1">
 							<If Condition="not IsQuestCompleted(66060)">
 								<If Condition="not IsOnMap(137)">
-									<LisbethTravel ZoneId="137" XYZ="-147.3813, 56.5485, 601.304"/>
+									<GetTo ZoneId="137" XYZ="-147.3813, 56.5485, 601.304"/>
 								</If>
 								<If Condition="IsOnMap(137) and (IsOnSubMap(167) or IsOnSubMap(205) or IsOnSubMap(206) or IsOnSubMap(209) or IsOnSubMap(210) or IsOnSubMap(211))">
 									<UseTransport Name="Ferry Skipper" InteractDistance="3.0" NpcId="1003588" XYZ="344.6859, 31.88946, 89.37195"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-147.3813, 56.5485, 601.304"/>
+								<GetTo ZoneId="137" XYZ="-147.3813, 56.5485, 601.304"/>
 								<ClimbHill Name="Rock Face" Start="-147.3813, 56.5485, 601.304" End="-145.9675, 60.04568, 598.5966"/>
 							</If>
-							<LisbethTravel ZoneId="137" XYZ="-145.9675, 60.04568, 598.5966"/>
+							<GetTo ZoneId="137" XYZ="-145.9675, 60.04568, 598.5966"/>
 							<UseObject NpcId="2002366" XYZ="-143.0534, 68.1925, 586.1448" Radius="10" QuestId="66622" StepId="1"/>
 						</While>
 						<If Condition="GetQuestStep(66622) == 255">
-							<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+							<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLTurnIn QuestId="66622" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -651,7 +618,7 @@
 			<If Condition="not IsQuestCompleted(66623) and IsQuestCompleted(66622)">
 				<If Condition="Core.Player.ClassLevel &gt; 39">
 					<If Condition="not HasQuest(66623)">
-						<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+						<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 						<If Condition="IsQuestAcceptQualified(66623)">
 							<LLPickupQuest NpcId="1006750" QuestId="66623" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
@@ -659,11 +626,11 @@
 					</If>
 					<If Condition="HasQuest(66623)">
 						<If Condition="GetQuestStep(66623) == 1">
-							<LisbethTravel ZoneId="145" XYZ="272.053, 18.87537, -164.5381"/>
+							<GetTo ZoneId="145" XYZ="272.053, 18.87537, -164.5381"/>
 							<UseObject NpcId="2002365" XYZ="272.053, 18.87537, -164.5381" Radius="10" QuestId="66623" StepId="1"/>
 						</If>
 						<If Condition="GetQuestStep(66623) == 255">
-							<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+							<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLTurnIn QuestId="66623" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -675,7 +642,7 @@
 			<If Condition="not IsQuestCompleted(66624) and IsQuestCompleted(66623)">
 				<If Condition="Core.Player.ClassLevel &gt; 44">
 					<If Condition="not HasQuest(66624)">
-						<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+						<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 						<If Condition="IsQuestAcceptQualified(66624)">
 							<LLPickupQuest NpcId="1006750" QuestId="66624" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
@@ -683,7 +650,7 @@
 					</If>
 					<If Condition="HasQuest(66624)">
 						<If Condition="GetQuestStep(66624) == 1">
-							<LisbethTravel ZoneId="154" XYZ="104.3259, -21.77466, 171.0078"/>
+							<GetTo ZoneId="154" XYZ="104.3259, -21.77466, 171.0078"/>
 							<Dismount/>
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
@@ -702,7 +669,7 @@
 							</LLSimpleDuty>
 						</If>
 						<If Condition="GetQuestStep(66624) == 255">
-							<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+							<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLTurnIn QuestId="66624" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -714,7 +681,7 @@
 			<If Condition="not IsQuestCompleted(66625) and IsQuestCompleted(66624)">
 				<If Condition="Core.Player.ClassLevel &gt; 44">
 					<If Condition="not HasQuest(66625)">
-						<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+						<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 						<If Condition="IsQuestAcceptQualified(66625)">
 							<LLPickupQuest NpcId="1006750" QuestId="66625" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
@@ -723,7 +690,7 @@
 					<If Condition="HasQuest(66625)">
 						<If Condition="GetQuestStep(66625) == 1">
 							<While Condition="not IsTodoChecked(66625, 1, 1)">
-								<LisbethTravel ZoneId="153" XYZ="509.1353, 14.51949, 139.7375"/>
+								<GetTo ZoneId="153" XYZ="509.1353, 14.51949, 139.7375"/>
 								<Dismount/>
 								<MoveTo Name="Jump" XYZ="508.8684, 10.55319, 149.0262" UseMesh="False"/>
 								<MoveTo Name="Frayed Sack" XYZ="512.291, 10.48285, 148.3024"/>
@@ -731,21 +698,21 @@
 								<MoveTo Name="Jump" XYZ="493.6565, 0.3956053, 161.4477" UseMesh="False"/>
 							</While>
 							<While Condition="not IsTodoChecked(66625, 1, 0)">
-								<LisbethTravel ZoneId="138" XYZ="-153.2514, -22.90211, 39.08057"/>
+								<GetTo ZoneId="138" XYZ="-153.2514, -22.90211, 39.08057"/>
 								<ClimbHill Name="Coral" Start="-153.2514, -22.90211, 39.08057" End="-158.3203, -21.86581, 41.20146"/>
 								<UseObject NpcId="2002527" XYZ="-168.2918, -21.5, 44.14429" Radius="10" UseTimes="1" QuestId="66625" StepId="1"/>
 							</While>
 							<If Condition="not IsTodoChecked(66625, 1, 2)">
-								<LisbethTravel ZoneId="147" XYZ="-324.7273, 87.96814, -133.5012"/>
+								<GetTo ZoneId="147" XYZ="-324.7273, 87.96814, -133.5012"/>
 								<UseObject NpcId="2002529" XYZ="-324.7273, 87.96814, -133.5012" Radius="10" UseTimes="1" QuestId="66625" StepId="1"/>
 							</If>
 							<If Condition="not IsTodoChecked(66625, 1, 3)">
-								<LisbethTravel ZoneId="152" XYZ="576.2263, -24.0025, -423.7584"/>
+								<GetTo ZoneId="152" XYZ="576.2263, -24.0025, -423.7584"/>
 								<UseObject NpcId="2002530" XYZ="576.2263, -24.0025, -423.7584" Radius="10" UseTimes="1" QuestId="66625" StepId="1"/>
 							</If>
 						</If>
 						<If Condition="GetQuestStep(66625) == 255">
-							<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+							<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLTurnIn QuestId="66625" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -757,7 +724,7 @@
 			<If Condition="not IsQuestCompleted(66626) and IsQuestCompleted(66625)">
 				<If Condition="Core.Player.ClassLevel &gt; 49">
 					<If Condition="not HasQuest(66626)">
-						<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+						<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 						<If Condition="IsQuestAcceptQualified(66626)">
 							<LLPickupQuest NpcId="1006750" QuestId="66626" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
@@ -765,7 +732,7 @@
 					</If>
 					<If Condition="HasQuest(66626)">
 						<If Condition="GetQuestStep(66626) == 1">
-							<LisbethTravel ZoneId="155" XYZ="72.09875, 227.1915, 380.8499"/>
+							<GetTo ZoneId="155" XYZ="72.09875, 227.1915, 380.8499"/>
 							<Dismount/>
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
@@ -785,7 +752,7 @@
 							</LLSimpleDuty>
 						</If>
 						<If Condition="GetQuestStep(66626) == 255">
-							<LisbethTravel ZoneId="155" XYZ="70.17627, 226.7221, 381.3076"/>
+							<GetTo ZoneId="155" XYZ="70.17627, 226.7221, 381.3076"/>
 							<LLTurnIn QuestId="66626" NpcId="1007891" XYZ="70.17627, 226.7221, 381.3076"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -797,7 +764,7 @@
 			<If Condition="not IsQuestCompleted(67249) and IsQuestCompleted(65964) and IsQuestCompleted(66626)">
 				<If Condition="Core.Player.ClassLevel &gt; 49">
 					<If Condition="not HasQuest(67249)">
-						<LisbethTravel ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
+						<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661"/>
 						<If Condition="IsQuestAcceptQualified(67249)">
 							<LLPickupQuest NpcId="1006750" QuestId="67249" XYZ="16.46442, 6.750492, -7.339661"/>
 							<LLSmallTalk/>
@@ -829,16 +796,16 @@
 							<LLTalkTo NpcId="1014203" XYZ="1.235901, 0.5000253, -1.083435" QuestId="67249" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(67249) == 4">
-							<LisbethTravel ZoneId="152" XYZ="28.85474, 6.65556, 421.4694"/>
+							<GetTo ZoneId="152" XYZ="28.85474, 6.65556, 421.4694"/>
 							<LLTalkTo NpcId="1014207" XYZ="28.85474, 6.65556, 421.4694" QuestId="67249" StepId="4"/>
 							<Grind grindRef="On_the_Road_Again" while="HasQuest(67249) and GetQuestStep(67249) == 4"/>
 						</If>
 						<If Condition="GetQuestStep(67249) == 5">
-							<LisbethTravel ZoneId="152" XYZ="28.85474, 6.65556, 421.4694"/>
+							<GetTo ZoneId="152" XYZ="28.85474, 6.65556, 421.4694"/>
 							<LLTalkTo NpcId="1014207" XYZ="28.85474, 6.65556, 421.4694" QuestId="67249" StepId="5"/>
 						</If>
 						<If Condition="GetQuestStep(67249) == 6">
-							<LisbethTravel ZoneId="152" XYZ="24.67383, 6.38687, 414.9386"/>
+							<GetTo ZoneId="152" XYZ="24.67383, 6.38687, 414.9386"/>
 							<LLTalkTo NpcId="1014204" XYZ="24.67383, 6.38687, 414.9386" QuestId="67249" StepId="6"/>
 						</If>
 						<If Condition="GetQuestStep(67249) == 7">
