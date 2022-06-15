@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hall of the Novice  - Tanks
+  Authors: DomesticWarlord86
+	
+	Zone Name: Western La Noscea | Zone Id: 138 | Raw Zone Id: 552 | Subzone Id: 0
+-->
+<Profile>
+  <Name>Hall of the Novice - Tanks</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<LoadDungeonAssist />
+	
+	<While condition="not HasAtLeast(14043,1)">
+		<If condition="not DutyManager.InInstance">
+			<GetTo ZoneId="138" XYZ="358.2095, -15.9764, 138.5692" />
+			<RunCode name="JoinDuty"/>
+		</If>
+		
+		<!-- Avoid Area of Effect Attacks -->			
+		<If condition="IsOnMap(537) and DutyManager.InInstance">
+			<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/> 
+			<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+			<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4784)"/>
+			<Grind GrindRef="Avoid_Area_of_Effect_Attacks" While="GameObjectManager.GetObjectByNPCId(4784)"/>
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>
+		
+		<!-- Execute a Combo to Increase Enmity -->				
+		<If condition="IsOnMap(538) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(541)">	
+				<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/>	
+				<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(541)"/>
+			</If>	
+			<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(541)"/>
+			<Grind GrindRef="Execute_a_Combo_to_Increase_Enmity" While="GameObjectManager.GetObjectByNPCId(541)"/>
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>	
+		
+		<!-- Execute a Combo in Battle -->		
+		<If condition="IsOnMap(539) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(4784)">	
+				<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/>	
+				<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4784)"/>
+			</If>	
+			<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4784)"/>
+			<Grind GrindRef="Execute_a_Combo_in_Battle" While="GameObjectManager.GetObjectByNPCId(4784)"/>
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>	
+		
+		<!-- Accrue Enmity from Mutliple Targets -->
+		<If condition="IsOnMap(540) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(541)">	
+				<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/>	
+				<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(541)"/>
+			</If>	
+			<WaitWhile condition="GameObjectManager.GetObjectByNPCId(541) and not GameObjectManager.GetObjectByNPCId(541).IsTargetable"/>
+			<RunCode name="Accrue_Enmity_from_Mutliple_Targets"/>		
+			<WaitWhile condition="not ff14bot.Behavior.CommonBehaviors.IsLoading"/>			
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>	
+		
+		<!-- Engage Multiple Targets -->			
+		<If condition="IsOnMap(541) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(4782)">	
+				<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/>	
+				<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4782)"/>
+			</If>	
+			<WaitWhile condition="GameObjectManager.GetObjectByNPCId(4782) and not GameObjectManager.GetObjectByNPCId(4782).IsTargetable"/>
+			<Grind GrindRef="Engage_Multiple_Targets" While="GameObjectManager.GetObjectByNPCId(4782)"/>
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>
+		
+		<!-- Execute a Ranged Attack to Increase Enmity -->
+		<If condition="IsOnMap(542) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(4782)">	
+				<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/>	
+				<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4782)"/>
+			</If>	
+			<WaitWhile condition="GameObjectManager.GetObjectByNPCId(4782) and not GameObjectManager.GetObjectByNPCId(4782).IsTargetable"/>
+			<Grind GrindRef="Execute_a_Ranged_Attack_to_Increase_Enmity" While="GameObjectManager.GetObjectByNPCId(4782)"/>
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>	
+		
+		<!-- Engage Enemy Reinforcements -->
+		<If condition="IsOnMap(543) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(4782)">	
+				<MoveTo XYZ="35.18406, 0.3379272, 0.02014005"/>	
+				<LLTalkTo NpcId="1016806" XYZ="33.71373, 0.06697989, 0"/>
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4782)"/>
+			</If>	
+			<WaitWhile condition="GameObjectManager.GetObjectByNPCId(4782) and not GameObjectManager.GetObjectByNPCId(4782).IsTargetable"/>
+			<Grind GrindRef="Engage_Enemy_Reinforcements" While="not ff14bot.Behavior.CommonBehaviors.IsLoading"/>		
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>	
+		
+		<!-- Final Exercise -->
+		<If condition="IsOnMap(138) and DutyManager.InInstance">
+			<If condition="not GameObjectManager.GetObjectByNPCId(4782)">	
+				<MoveTo XYZ="456.8403,5.344419,271.7956"/>	
+				<LLTalkTo NpcId="1016806" XYZ="456.8403,5.344419,271.7956" />
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4782)"/>
+			</If>	
+			<WaitWhile condition="GameObjectManager.GetObjectByNPCId(4782) and not GameObjectManager.GetObjectByNPCId(4782).IsTargetable"/>
+			<Grind GrindRef="Final_Exercise" While="not ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<WaitWhile condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<RunCode name="TurnIn"/>
+		</If>	
+	</While>
+	
+	<AutoInventoryEquip/>
+	
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Avoid_Area_of_Effect_Attacks">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-0.2826065, -0.9877869, 0.108928" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4784" Weight="1"/> <!-- Axe-wielding Training Partner -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Execute_a_Combo_to_Increase_Enmity">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-1.203947, -0.9877863, 0.0220393" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="541" Weight="1"/> <!-- Striking Dummy -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="Execute_a_Combo_in_Battle">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-1.203947, -0.9877863, 0.0220393" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4784" Weight="1"/> <!-- Axe-wielding Training Partner -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="Engage_Multiple_Targets">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-9.457964, -1.001271, 0.036833" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4784" Weight="1"/> <!-- Axe-wielding Training Partner -->
+        <TargetMob Id="4786" Weight="2"/> <!-- Quick-fisted Training Partner -->
+        <TargetMob Id="4785" Weight="3"/> <!-- Staff-waving Training Partner -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Execute_a_Ranged_Attack_to_Increase_Enmity">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="17.07482, 0.09094381, 0.2414106" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4814" Weight="1"/> <!-- Training Automaton -->
+        <TargetMob Id="4787" Weight="1"/> <!-- Tamed Jackal -->
+        <TargetMob Id="4788" Weight="1"/> <!-- Tamed Dodo -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Engage_Enemy_Reinforcements">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-9.457964, -1.001271, 0.036833" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4784" Weight="1"/> <!-- Axe-wielding Training Partner -->
+        <TargetMob Id="4786" Weight="10"/> <!-- Quick-fisted Training Partner -->				
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Final_Exercise">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="439.9948, 0.8448, 255.855" name="Name"/>
+        <Hotspot Radius="90" XYZ="413.2375,-9.212605,217.1597"  name="Name"/>			
+        <Hotspot Radius="90" XYZ="375.6619,-14.6936,203.9673"  name="Name"/>				
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4788" Weight="1"/> <!-- Tamed Dodo -->
+        <TargetMob Id="4787" Weight="2"/> <!-- Tamed Jackal -->		
+        <TargetMob Id="4789" Weight="1"/> <!-- Tamed Puk -->
+        <TargetMob Id="4821" Weight="1"/> <!-- Tamed Goobbue -->				
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="JoinDuty">
+			<![CDATA[
+            var npcId = GameObjectManager.GetObjectByNPCId(1017058);
+
+            if (!npcId.IsWithinInteractRange)
+
+            {
+                var _target = npcId.Location;
+                Navigator.PlayerMover.MoveTowards(_target);
+                while (_target.Distance2D(Core.Me.Location) >= 4)
+                {
+                    Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(100);
+                }
+
+                Navigator.PlayerMover.MoveStop();
+            }
+
+            npcId.Interact();
+
+            await Coroutine.Wait(10000, () => Talk.DialogOpen);
+
+            if (!Talk.DialogOpen)
+            {
+                Logging.WriteDiagnostic("Window didn't open, trying again.");
+                npcId.Interact();
+                await Coroutine.Wait(10000, () => Talk.DialogOpen);
+            }
+
+            if (Talk.DialogOpen)
+            {
+                while (!LlamaLibrary.RemoteWindows.BeginnersMansionProblem.Instance.IsOpen && !SelectString.IsOpen)
+                {
+                    Talk.Next();
+                    await Buddy.Coroutines.Coroutine.Sleep(500);
+                }
+            }
+
+            if (SelectString.IsOpen)
+            {
+                SelectString.ClickSlot(0);
+                await Coroutine.Wait(10000, () => Talk.DialogOpen);
+                while (!LlamaLibrary.RemoteWindows.BeginnersMansionProblem.Instance.IsOpen)
+                {
+                    Talk.Next();
+                    await Buddy.Coroutines.Coroutine.Sleep(500);
+                }
+
+                if (LlamaLibrary.RemoteWindows.BeginnersMansionProblem.Instance.IsOpen)
+                {
+                    LlamaLibrary.RemoteWindows.BeginnersMansionProblem.Instance.DisplayeCompletedExercises();
+                    await Coroutine.Wait(10000,
+                        () => LlamaLibrary.RemoteWindows.BeginnersMansionProblemCo.Instance.IsOpen);
+                    if (LlamaLibrary.RemoteWindows.BeginnersMansionProblemCo.Instance.IsOpen)
+                    {
+                        LlamaLibrary.RemoteWindows.BeginnersMansionProblemCo.Instance.SelectExercise(7);
+                        await Coroutine.Wait(10000,
+                            () => DutyManager.QueueState != QueueState.None);
+                    }
+                }
+            }
+
+            if (LlamaLibrary.RemoteWindows.BeginnersMansionProblem.Instance.IsOpen)
+            {
+								await Coroutine.Sleep(1000);
+                LlamaLibrary.RemoteWindows.BeginnersMansionProblem.Instance.Begin();
+                await Coroutine.Wait(10000,
+                    () => DutyManager.QueueState != QueueState.None);
+            }
+
+            if (DutyManager.QueueState != QueueState.None)
+            {
+                Logging.WriteDiagnostic("Queued for Dungeon");
+            }
+
+            while (DutyManager.QueueState != QueueState.None || DutyManager.QueueState != QueueState.InDungeon ||
+                   CommonBehaviors.IsLoading)
+            {
+                if (DutyManager.QueueState == QueueState.CommenceAvailable)
+                {
+                    Logging.WriteDiagnostic("Waiting for queue pop.");
+                    await Coroutine.Wait(-1,
+                        () => (DutyManager.QueueState == QueueState.JoiningInstance ||
+                               DutyManager.QueueState == QueueState.None));
+                }
+
+                if (DutyManager.QueueState == QueueState.JoiningInstance)
+                {
+                    Random rnd = new Random();
+                    int waitTime = rnd.Next(1000, 10000);
+
+                    Logging.WriteDiagnostic($"Dungeon popped, commencing in {waitTime / 1000} seconds.");
+                    await Coroutine.Sleep(waitTime);
+                    DutyManager.Commence();
+                    await Coroutine.Wait(-1,
+                        () => (DutyManager.QueueState == QueueState.LoadingContent ||
+                               DutyManager.QueueState == QueueState.CommenceAvailable));
+                }
+
+                if (DutyManager.QueueState == QueueState.LoadingContent)
+                {
+                    Logging.WriteDiagnostic("Waiting for everyone to accept queue.");
+                    await Coroutine.Wait(-1,
+                        () => (CommonBehaviors.IsLoading ||
+                               DutyManager.QueueState == QueueState.CommenceAvailable));
+                    await Coroutine.Sleep(1000);
+                }
+
+                if (CommonBehaviors.IsLoading)
+                {
+                    break;
+                }
+
+                await Coroutine.Sleep(500);
+            }
+
+            if (DutyManager.QueueState == QueueState.None)
+            {
+                return;
+            }
+
+            await Coroutine.Sleep(500);
+            if (CommonBehaviors.IsLoading)
+            {
+                await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+            }
+
+            if (QuestLogManager.InCutscene)
+            {
+                TreeRoot.StatusText = "InCutscene";
+                if (ff14bot.RemoteAgents.AgentCutScene.Instance != null)
+                {
+                    ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+                    await Coroutine.Wait(2000, () => SelectString.IsOpen || SelectYesno.IsOpen);
+                    if (SelectString.IsOpen)
+                    {
+                        SelectString.ClickSlot(0);
+                    }
+
+                    if (SelectYesno.IsOpen)
+                    {
+                        SelectYesno.Yes();
+                    }
+                }
+            }
+			]]>			
+		</CodeChunk>		
+		<CodeChunk Name="TurnIn">
+			<![CDATA[
+			
+			
+            var npc = GameObjectManager.GetObjectsByNPCId(1016806).FirstOrDefault(obj => obj.IsTargetable);
+						
+
+            if (!npc.IsWithinInteractRange)
+
+            {
+                var _target = npc.Location;
+                Navigator.PlayerMover.MoveTowards(_target);
+                while (_target.Distance2D(Core.Me.Location) >= 4)
+                {
+                    Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(100);
+                }
+
+                Navigator.PlayerMover.MoveStop();
+            }
+						
+            npc.Interact();
+
+            while (!JournalResult.IsOpen)
+            {
+                Talk.Next();
+                await Buddy.Coroutines.Coroutine.Sleep(500);
+            }
+
+            if (JournalResult.IsOpen)
+            {
+                JournalResult.Complete();
+            }
+						
+						await Coroutine.Wait(-1, () => (CommonBehaviors.IsLoading));
+            Logging.WriteDiagnostic($"Waiting for loading to finish...");
+            await Coroutine.Wait(-1, () => (!CommonBehaviors.IsLoading));
+
+	
+						]]>			
+		</CodeChunk>
+		<CodeChunk Name="Accrue_Enmity_from_Mutliple_Targets">
+			<![CDATA[
+            Vector3 location = new Vector3("-8.563612, -0.9994742, -0.003294572");
+            while (location.Distance2D(Core.Me.Location) > 0.2)
+            {
+                Navigator.PlayerMover.MoveTowards(location);
+                await Coroutine.Sleep(30);
+                Navigator.PlayerMover.MoveStop();
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.Marauder || Core.Me.CurrentJob == ClassJobType.Warrior)
+            {
+                ActionManager.DoAction(41, Core.Me);
+                await Coroutine.Sleep(5000);
+                ActionManager.DoAction(41, Core.Me);
+                await Coroutine.Sleep(5000);
+                ActionManager.DoAction(41, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.Gladiator || Core.Me.CurrentJob == ClassJobType.Paladin)
+            {
+                ActionManager.DoAction(7381, Core.Me);
+                await Coroutine.Sleep(5000);
+                ActionManager.DoAction(7381, Core.Me);
+                await Coroutine.Sleep(5000);
+                ActionManager.DoAction(7381, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.DarkKnight)
+            {
+                ActionManager.DoAction(3621, Core.Me);
+                await Coroutine.Sleep(5000);
+                ActionManager.DoAction(3621, Core.Me);
+                await Coroutine.Sleep(5000);
+                ActionManager.DoAction(3621, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            location = new Vector3("-2.973908, -0.9863418, -0.1456484");
+            while (location.Distance2D(Core.Me.Location) > 0.2)
+            {
+                Navigator.PlayerMover.MoveTowards(location);
+                await Coroutine.Sleep(30);
+                Navigator.PlayerMover.MoveStop();
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.Marauder || Core.Me.CurrentJob == ClassJobType.Warrior)
+            {
+                ActionManager.DoAction(41, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.Gladiator || Core.Me.CurrentJob == ClassJobType.Paladin)
+            {
+                ActionManager.DoAction(7381, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.DarkKnight)
+            {
+                ActionManager.DoAction(3621, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            location = new Vector3("-7.246241, -0.986339, -0.00749617");
+            while (location.Distance2D(Core.Me.Location) > 0.2)
+            {
+                Navigator.PlayerMover.MoveTowards(location);
+                await Coroutine.Sleep(30);
+                Navigator.PlayerMover.MoveStop();
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.Marauder || Core.Me.CurrentJob == ClassJobType.Warrior)
+            {
+                ActionManager.DoAction(41, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.Gladiator || Core.Me.CurrentJob == ClassJobType.Paladin)
+            {
+                ActionManager.DoAction(7381, Core.Me);
+                await Coroutine.Sleep(5000);
+            }
+
+            if (Core.Me.CurrentJob == ClassJobType.DarkKnight)
+            {
+                ActionManager.DoAction(3621, Core.Me);
+                await Coroutine.Sleep(5000);
+            }						
+						]]>			
+		</CodeChunk>
+  </CodeChunks>
+</Profile>  

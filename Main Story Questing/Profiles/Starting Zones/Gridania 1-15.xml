@@ -2,7 +2,7 @@
 <!--
   Profile: Gridania 1-15
   Authors: DomesticWarlord86
--->
+	-->
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
@@ -57,7 +57,7 @@
 			<If Condition="HasQuest(65659) and not IsQuestCompleted(65659) and GetQuestStep(65659) == 1 and not IsTodoChecked(65659, 1, 2)">
 				<GetTo ZoneId="133" XYZ="170.4057, 15.5, -89.87196"/>
 				<HandOver ItemId="2000119" NpcId="1000768" XYZ="172.3506, 15.5, -89.95197" QuestId="65660"/>
-			</If>
+				</If>
 			<If Condition="HasQuest(65659) and not IsQuestCompleted(65659) and GetQuestStep(65659) == 1 and not IsTodoChecked(65659, 1, 1)">
 				<GetTo ZoneId="132" XYZ="198.8192, 0, 43.82232"/>
 				<TalkTo NpcId="1000197" XYZ="201.3123, 7.450581E-09, 43.90015" QuestId="65659" StepId="1"/>
@@ -520,7 +520,6 @@
 									<While condition="GameObjectManager.GetObjectByNPCId(2000928).IsVisible">
 										<RunCode name="ArcheryButt"/>
 									</While>									
-									<LLUseSpell UseDistance="25" SpellId="97" NpcId="2000928" XYZ="33.24939, 5.447388, 70.63391" condition="GameObjectManager.GetObjectByNPCId(2000928).IsVisible" />
 								</If>
 								<If condition="GetQuestById(65582).GetTodoArgs(1, 0).Item1 == 5">
 									<GetTo ZoneId="132" XYZ="63.19635, -5.65181, 92.28159" />
@@ -584,11 +583,15 @@
 								</If>
 								<If condition="GetQuestById(65603).GetTodoArgs(2, 0).Item1 == 3">
 									<GetTo ZoneId="148" Name="Archery Butt" XYZ="-116.2865, -3.682212, -63.99775" />
-									<LLUseSpell Distance="15" SpellId="97" NpcId="2001171" XYZ="-115.5872, -3.402832, -51.07196" condition="GameObjectManager.GetObjectByNPCId(2001171).IsVisible" />
+									<While condition="GameObjectManager.GetObjectByNPCId(2001171).IsVisible">
+										<RunCode name="ArcheryButt"/>
+									</While>										
 								</If>
 								<If condition="GetQuestById(65603).GetTodoArgs(2, 0).Item1 == 4">
 									<GetTo ZoneId="148" Name="Archery Butt" XYZ="-154.7968, -0.3608802, -64.02232" />
-									<LLUseSpell Distance="20" SpellId="97" NpcId="2000940" XYZ="-143.3281, -0.4120483, -58.88464" condition="GameObjectManager.GetObjectByNPCId(2000940).IsVisible" />
+									<While condition="GameObjectManager.GetObjectByNPCId(2000940).IsVisible">
+										<RunCode name="ArcheryButt"/>
+									</While>										
 								</If>
 								<If condition="GetQuestById(65603).GetTodoArgs(2, 0).Item1 == 5">
 									<GetTo ZoneId="148" Name="Archery Butt" XYZ="-150.6393, 4.784497, -136.8705" />
@@ -2374,7 +2377,7 @@
 		</CodeChunk>
     <CodeChunk Name="ArcheryButt">
 			<![CDATA[
-        uint[] questNpcIds = { 2000929, 2000928, 2001174, 2000936, 2001173, 2000939, 2001179, 2000946, 2000943, 2000944, 2000945, 2000942 };
+        uint[] questNpcIds = { 2001171, 2000940, 2000929, 2000928, 2001174, 2000936, 2001173, 2000939, 2001179, 2000946, 2000943, 2000944, 2000945, 2000942, 2000948 };
         var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
 
         ActionManager.DoAction(97, npcId);
