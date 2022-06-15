@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Antitower
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Antitower</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>	
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="141"/>
+	</If>
+	
+	<If condition="DutyManager.InInstance">
+		<!-- Clear the Manifest 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Clear the Manifest 0/1" />
+			<MoveTo XYZ="-315.4307, 220.0002, 130.6754" />
+			<MoveTo XYZ="-354.2007, 255.0002, -1.831028" />
+			<MoveTo XYZ="-365.3401, 290.0002, -136.002" />
+			<MoveTo XYZ="-365.0302, 325, -233.1836" />
+			<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="-365.0591, 325.0002, -283.0475" />
+		</If>
+		
+		<!-- Clear Where Hearts Leap 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+			<Log Message="Clear Where Hearts Leap 0/1" />
+			<If Condition="&openchest; == 1">
+				<NoCombatMoveTo XYZ="191.4243,7.980469,230.9757" />
+				<LLOpenChest />
+			</If>
+			<If Condition="&openchest; == 1">
+				<NoCombatMoveTo XYZ="151.2626,-4.013123,168.1697" />
+				<LLOpenChest />
+			</If>			
+			<MoveTo XYZ="167.8555, -21.99403, 137.5162" />
+			<Grind GrindRef="SecondBoss" while="GetInstanceTodo(1) == 0"/>
+			<If Condition="&openchest; == 1">
+				<NoCombatMoveTo XYZ="199.7253,-22.01886,137.4685" />
+				<LLOpenChest />
+			</If>			
+			<MoveTo XYZ="213.4265, -22.1, 137.339" />
+			<LLChangeZone Heading="1.596207"/>
+		</If>		
+		
+		<!-- Clear Where All Witness 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 1  and GetInstanceTodo(2) == 0">
+			<Log Message="Clear Where All Witness 0/1" />
+			<MoveTo XYZ="250.0155, -9.46492, -182.2969" />
+			<Grind GrindRef="FinalBoss" while="not IsDutyEnded()"/>		
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>	
+			<While condition="IsDutyEnded()">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>		
+	</If>
+		
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-365.0302, 325, -233.1836" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4805" Weight="1"/> <!-- Zuro Roggo -->
+      </TargetMobs>
+    </GrindArea>	
+		<GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="167.8555, -21.99403, 137.5162" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4808" Weight="1"/> <!-- Ziggy -->
+      </TargetMobs>
+    </GrindArea>
+		<GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="250.0155, -9.46492, -182.2969" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4812" Weight="1"/> <!-- Brina -->
+        <TargetMob Id="4811" Weight="1"/> <!-- Calca -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+ 	<CodeChunk Name="AnimatedAtlas">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13623)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedLunarisRod">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13620)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedBrionac">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13614)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+ 	<CodeChunk Name="AnimatedBerimbau">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13615)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedFerdinand">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13618)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedRisingSuns">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13612)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedYukimitsu">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13616)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedHauteclaire">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13611)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedPrytwen">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13624)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedElements">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13622)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedAlmandal">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13621)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>		
+ 	<CodeChunk Name="AnimatedParashu">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13613)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	 	<CodeChunk Name="AnimatedDeathbringer">
+		<![CDATA[ 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+
+						foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13617)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+<CodeChunk Name="AnimatedSeraphCane">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13619)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+  </CodeChunks>
+</Profile>

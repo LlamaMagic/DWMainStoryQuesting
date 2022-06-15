@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Ghimlyt Dark
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla.
+	
+	Zone Name: The Ghimlyt Dark | Zone Id: 793  
+	
+	Known Issues
+		After first boss there's a part where you havve to kill all enemies before you can continue
+		but two of the enemies are claimed by NPCs and RB won't fight them. They eventually die but
+		it takes like five minutes
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Ghimlyt Dark</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+		<If condition="not DutyManager.InInstance">
+			<WaitTimer WaitTime="5" />
+			<LLJoinDuty DutyId="611" Undersized="True"/> <!-- The Ghimlyt Dark -->
+		</If>
+			
+			<While condition="DutyManager.InInstance and not IsDutyEnded()">
+		
+				<!-- Arrive on the Field of Dust: 0/1 -->
+				<If Condition="not GetInstanceTodo(0) == 1">
+					<Log Message="Arrive on the Field of Dust: 0/1" />
+					<MoveTo XYZ="-180.3782, 59.99999, 84.79362" />
+				</If>
+				
+				<!-- Clear the Field of Dust: 0/1 -->
+				<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
+					<Log Message="Clear the Field of Dust: 0/1" />
+					<MoveTo XYZ="-180.3782, 59.99999, 84.79362" />				
+					<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Mark III-B Magitek Colossus -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-167.834,59.98315,65.32385" />
+						<LLOpenChest/>
+					</If>				
+				</If>
+
+				<!-- Arrive at the impact crater: 0/1 -->
+				<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+					<Log Message="Arrive at the impact crater: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700" Distance="16"/>	
+					</If>						
+					<If condition="IsOnSubMap(2744)">
+						<If Condition="&openchest; == 1">
+							<MoveTo XYZ="22.17133,60.31885,49.11877" />
+							<LLOpenChest/>
+						</If>
+						<MoveTo XYZ="25.03197, 61.20079, 39.20855" />
+						<MoveTo XYZ="33.44196, 45.53974, 30.27132" usemesh="false" />
+					</If>
+					<If condition="IsOnSubMap(2745) or IsOnSubMap(2746)">
+						<If Condition="&openchest; == 1">
+							<MoveTo XYZ="135.1796,34.95837,30.3197" />
+							<LLOpenChest/>
+						</If>
+						<Grind GrindRef="ClearToSecondBoss" While="DistanceSqrTo('133.7977, 30, -0.1893658') &gt; 5"/>						
+						<MoveTo XYZ="133.0428, 30, -19.86286" InCombat="True"/>
+					</If>					
+				</If>
+				
+				<!-- Clear the impact Crater: 0/1 -->
+				<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+					<Log Message="Clear the impact Crater: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700" Distance="16"/>	
+						<If condition="IsOnSubMap(2744)">
+							<MoveTo XYZ="25.03197, 61.20079, 39.20855" />
+							<MoveTo XYZ="33.44196, 45.53974, 30.27132" usemesh="false" />
+						</If>
+						<If condition="IsOnSubMap(2745)">							
+							<MoveTo XYZ="133.0428, 30, -19.86286" InCombat="True"/>
+						</If>	
+					</If>						
+					<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Prometheus -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="144.4877,29.98401,-45.39563" />
+						<LLOpenChest/>
+					</If>				
+				</If>
+				
+				<!-- Arrive at the provisional imperial landing 0/1 -->
+				<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+					<Log Message="Arrive at the provisional imperial landing 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700" Distance="16"/>	
+					</If>						
+					<Grind GrindRef="ClearToLanding" While="DistanceSqrTo('370.0475, 13.60863, -231.9377') &gt; 5"/>
+					<MoveTo XYZ="370.1175, -15, -247.2672" usemesh="false" />
+				</If>	
+				
+				<!-- Defeat Zenos yae Galvus: 0/1 -->
+				<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+					<Log Message="Defeat Zenos yae Galvus: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700"/>
+						<MoveTo XYZ="370.0475, 13.60863, -231.9377" />
+						<MoveTo XYZ="370.1175, -15, -247.2672" usemesh="false" />
+					</If>						
+					<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Annia and Julia -->	
+					<If Condition="&openchest; == 1">
+						<NoCombatMoveTo XYZ="370.9995,-15,-269.6053" />
+						<LLOpenChest/>
+					</If>				
+				</If>				
+
+				<!-- Duty Has Ended, leaving -->
+				<While condition="IsDutyEnded() and DutyManager.InInstance">
+					<Log Message="Duty has ended, leaving..." />
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>
+				
+			</While>	
+	
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-180.569,59.99999,68.523" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7855" Weight="1"/> <!-- Mark III-B Magitek Colossus -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ClearToSecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="74.03598, 43.87561, 28.72929" name="Name"/>
+        <Hotspot Radius="90" XYZ="126.437, 34.85785, 38.60997" name="Name"/>
+        <Hotspot Radius="90" XYZ="133.7977, 30, -0.1893658" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7872" Weight="1"/> <!-- Schola Laquearius -->
+        <TargetMob Id="7873" Weight="1"/> <!-- Schola Secutor -->
+        <TargetMob Id="7880" Weight="1"/> <!-- Schola Avenger -->
+        <TargetMob Id="7879" Weight="1"/> <!-- Schola Predator -->
+        <TargetMob Id="7856" Weight="1"/> <!-- Prometheus -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="133.9894,30,-35.0195" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7856" Weight="1"/> <!-- Prometheus -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ClearToLanding">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="232.9767, 20, -95.71293" name="Name"/>
+        <Hotspot Radius="90" XYZ="289.1483, 14.89527, -107.9544" name="Name"/>
+        <Hotspot Radius="90" XYZ="368.6578, 4.999999, -137.9256" name="Name"/>
+        <Hotspot Radius="90" XYZ="370.0475, 13.60863, -231.9377" name="Name"/>				
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7872" Weight="1"/> <!-- Schola Laquearius -->
+        <TargetMob Id="7874" Weight="1"/> <!-- Schola Eques -->
+        <TargetMob Id="7871" Weight="1"/> <!-- Schola Centurion -->
+        <TargetMob Id="7880" Weight="1"/> <!-- Schola Avenger -->
+        <TargetMob Id="7879" Weight="1"/> <!-- Schola Predator -->
+        <TargetMob Id="7874" Weight="1"/> <!-- Schola Eques -->
+        <TargetMob Id="7872" Weight="1"/> <!-- Schola Laquearius -->
+        <TargetMob Id="7871" Weight="1"/> <!-- Schola Centurion -->
+        <TargetMob Id="7874" Weight="1"/> <!-- Schola Eques -->
+        <TargetMob Id="7873" Weight="1"/> <!-- Schola Secutor -->
+        <TargetMob Id="7886" Weight="1"/> <!-- Schola Colossus -->
+        <TargetMob Id="7881" Weight="1"/> <!-- Schola Hexadrone -->		
+        <TargetMob Id="7888" Weight="1"/> <!-- Schola Mark II Colossus -->
+        <TargetMob Id="7887" Weight="1"/> <!-- Schola Colossus Rubricatus -->				
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="370,-15,-267.0998" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7858" Weight="1"/> <!-- Annia quo Soranus -->
+        <TargetMob Id="7857" Weight="1"/> <!-- Julia quo Soranus -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>	

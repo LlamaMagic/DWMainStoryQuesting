@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Drowned City of Skalla
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla.
+	Zone Name: The Drowned City of Skalla | Zone Id: 731 
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Drowned City of Skalla</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+		<If condition="not DutyManager.InInstance">
+			<WaitTimer WaitTime="5" />
+			<LLJoinDuty DutyId="279" Undersized="True"/> <!-- The Drowned City of Skalla -->
+		</If>
+			
+			<While condition="DutyManager.InInstance and not IsDutyEnded()">
+		
+				<!-- Arrive at the Green Screams: 0/1 -->
+				<If Condition="not GetInstanceTodo(0) == 1">
+					<Log Message="Arrive at the Green Screams: 0/1" />
+					<MoveTo XYZ="-240.3261, -2, 4.205237" />
+				</If>
+				
+				<!-- Defeat Kelpie: 0/1 -->
+				<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
+					<Log Message="Defeat Kelpie: 0/1" />
+					<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Kelpie -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-207.7516,-1.907471,3.982544" />
+						<LLOpenChest/>
+					</If>				
+				</If>
+
+				<!-- Arrive at a Door Unopened: 0/1 -->
+				<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+					<Log Message="Arrive at a Door Unopened: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700"/>
+					</If>						
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-12.74133,3.982544,20.70648" />
+						<LLOpenChest/>
+					</If>	
+					<MoveTo XYZ="98.78344, 9, 4.365204" />
+				</If>
+				
+				<!-- Defeat the Old One: 0/1 -->
+				<!--
+				Subservient 0x1721BA38080 NpcId:6909 Type:BattleNpc
+				Transfiguration
+				1448 -->
+				<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+					<Log Message="Defeat the Old One: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700"/>
+						<MoveTo XYZ="-223.4447, 45.49994, 130.5915" />
+					</If>						
+					<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- The Old One -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="128.954,8.987488,3.982544" />
+						<LLOpenChest/>
+					</If>				
+				</If>
+				
+				<!-- Arrive at the Golden Walls of Ruin: 0/1 Subzone Id: 2365 -->
+				<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+					<Log Message="Arrive at the Golden Walls of Ruin: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700"/>
+					</If>						
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="251.8806,-7.950012,7.431091" />
+						<LLOpenChest/>
+					</If>	
+					<MoveTo XYZ="275.3724, -12, 27.69032" />
+					<MoveTo XYZ="275.8491, -12, -15.90164" usemesh="false" />
+					<MoveTo XYZ="275.4914, -12, -47.71981" />
+					<MoveTo XYZ="331.3701, -12, -33.64243" usemesh="false" />
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="362.6752, -12, -37.50544" />
+						<LLOpenChest/>
+					</If>	
+					<MoveTo XYZ="462.4334, -13.95, 3.811031" />
+				</If>	
+				
+				<!-- Defeat Hrodric Poisontongue: 0/1 -->
+				<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+					<Log Message="Defeat Hrodric Poisontongue: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700"/>
+						<MoveTo XYZ="-239.4049, 66.99999, -182.3978" />
+					</If>						
+					<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Hrodric Poisontongue -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="486.1981,-13.96204,3.982544" />
+						<LLOpenChest/>
+					</If>				
+				</If>				
+
+				<!-- Duty Has Ended, leaving -->
+				<While condition="IsDutyEnded() and DutyManager.InInstance">
+					<Log Message="Duty has ended, leaving..." />
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>
+				
+			</While>	
+	
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-211.2002,-1.9,9.933594" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6907" Weight="1"/> <!-- Kelpie -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="122,9,4" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6908" Weight="1"/> <!-- The Old One -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="487.6324,-13.95,3.982544"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6910" Weight="1"/> <!-- Hrodric Poisontongue -->
+      </TargetMobs>
+    </GrindArea>		
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>	

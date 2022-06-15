@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Chrysalis
+  Authors: Zamphire, Angles24
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Chrysalis</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<If condition="DutyManager.InInstance">
+		<MoveTo XYZ="0.2629661, -0.002887726, 9.242315" usemesh="false"/> <!-- Move to center -->
+		<Grind GrindRef="Nabriales" While="not GameObjectManager.GetObjectByNPCId(3287).CurrentHealth == 0"/> <!-- Kill Nabriales -->
+		<If Condition="&openchest; == 1">
+			<LLOpenChest />
+		</If>
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+
+	
+ </Order>
+  <GrindAreas>
+	<GrindArea name="Nabriales">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-0.04577637, -0.002887793, -3.891113" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Nabriales" Id="3287" Weight="1" />
+			<TargetMob Name="Shadow Sprite" Id="3292" Weight="2" />
+			<TargetMob Name="Aetherial Tear" Id="3293" Weight="2" />
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>    

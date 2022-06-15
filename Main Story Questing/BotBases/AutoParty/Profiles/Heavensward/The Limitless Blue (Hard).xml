@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Limitless Blue (Hard)
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+<Profile>
+  <Name>The Limitless Blue (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+		<LLToast message="If you run this on a caster, you'll need to get on Bismarck's back manually."/>
+ 
+		<While condition="DutyManager.InInstance and not IsDutyEnded()">
+			<Grind grindRef="Bismarck" while="(not GameObjectManager.GetObjectByNPCId(2005544).IsTargetable and not GameObjectManager.GetObjectByNPCId(2005545).IsTargetable) and not IsDutyEnded()"/> <!-- Kill Bismarck -->
+			<While Condition="GameObjectManager.GetObjectByNPCId(2005544).IsTargetable and GameObjectManager.GetObjectByNPCId(2005545).IsTargetable">
+				<RunCode name="UseCannons"/>
+			</While>	
+			<While condition="IsDutyEnded()">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>
+		</While>
+ 
+ 
+  </Order>
+	<GrindAreas>
+    <GrindArea name="Bismarck">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-4.834111, 0.0173974, -1.034802" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3653" Weight="1"/> <!-- Vuk'maii Vundu -->
+        <TargetMob Id="3652" Weight="1"/> <!-- Lan'maii Vundu -->
+        <TargetMob Id="3655" Weight="3"/> <!-- Ul'sanuwa -->
+        <TargetMob Id="3654" Weight="3"/> <!-- So'sanuwa -->				
+        <TargetMob Id="3657" Weight="100"/> <!-- Corona -->				
+        <TargetMob Id="3656" Weight="100"/> <!-- Chitin Carapace -->				
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="GrindArea">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-6.521286, 0.01705921, -0.1080581" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3655" Weight="1"/> <!-- Ul'sanuwa -->
+        <TargetMob Id="3654" Weight="1"/> <!-- So'sanuwa -->
+        <TargetMob Id="3656" Weight="100"/> <!-- Chitin Carapace -->					
+      </TargetMobs>
+    </GrindArea>		
+	</GrindAreas>	
+  <CodeChunks>
+		<CodeChunk Name="UseCannons">
+      <![CDATA[
+
+            var cannonNpc1 = GameObjectManager.GetObjectByNPCId(2005544);
+            var cannonNpc2 = GameObjectManager.GetObjectByNPCId(2005545);
+						
+						while (cannonNpc1.IsTargetable)
+						{
+							while (Core.Me.Location.Distance2D(cannonNpc1.Location) > 1.5f)
+							{
+									await Coroutine.Yield();
+									Navigator.PlayerMover.MoveTowards(cannonNpc1.Location);
+							}
+							Navigator.PlayerMover.MoveStop();
+							cannonNpc1.Interact();
+							await Coroutine.Wait(10000, () => !cannonNpc1.IsTargetable);
+						}
+						
+						while (cannonNpc2.IsTargetable)
+						{	
+							while (Core.Me.Location.Distance2D(cannonNpc2.Location) > 1.5f)
+							{
+									await Coroutine.Yield();
+									Navigator.PlayerMover.MoveTowards(cannonNpc2.Location);
+							}
+							Navigator.PlayerMover.MoveStop();
+							cannonNpc2.Interact();
+							await Coroutine.Wait(10000, () => !cannonNpc2.IsTargetable);
+						}
+      ]]>
+    </CodeChunk>	
+  </CodeChunks>  
+</Profile>  

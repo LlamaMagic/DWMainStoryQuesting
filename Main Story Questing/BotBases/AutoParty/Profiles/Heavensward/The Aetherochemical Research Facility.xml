@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Aetherochemical Research Facility
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+<Profile>
+  <Name>The Aetherochemical Research Facility</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+		
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="38"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+			<!-- Clear Analysis and Poving: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Clear Analysis and Poving: 0/1" />		
+				<MoveTo XYZ="-128.4681, 395.0709, -295.9797" />
+				<Grind grindRef="FirstBoss" While="GetInstanceTodo(0) == 0"/> <!-- Regula van Hydrus -->				
+			</If>
+			
+			<!-- Clear Bioweapon Research: 0/1 -->	
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Bioweapon Research: 0/1" />
+				<If condition="not IsOnSubMap(1592)">
+					<MoveTo XYZ="-48.27719, 389.6373, -246.3293" />
+					<LLChangeZone Heading="6.264739" />
+				</If>
+				<Grind grindRef="ClearNodes" While="GetInstanceTodo(1) == 0"/> <!-- Regula van Hydrus -->								
+			</If>
+			
+			<!-- Defeat Harmachis: 0/1 -->	
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat Harmachis: 0/1" />
+				<MoveTo XYZ="233.8052, 225.0669, 272.5081" />
+				<Grind grindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Regula van Hydrus -->								
+			</If>
+			
+			<!-- Defeat all opposition: 0/1 -->	
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Defeat all opposition: 0/1" />
+				<If condition="not IsOnSubMap(1627) and not IsOnSubMap(1595) and not IsOnSubMap(1596) and not IsOnSubMap(1602)">
+					<MoveTo XYZ="324.3314, 222.2041, 271.4315" />
+					<LLChangeZone Heading="0.8695014" />
+					<WaitWhile condition="not IsOnSubMap(1627)"/>
+				</If>
+				<If condition="IsOnSubMap(1627)">		
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2005307)"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2005307).IsTargetable">
+						<UseTransport NpcId="2005307" InteractDistance="3.0" XYZ="-351.7171, -299.9839, -250.0031" condition="GameObjectManager.GetObjectByNPCId(2005307).IsTargetable"/>				
+						<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(3836)"/>																	
+					</If>
+					<MoveTo XYZ="-360.0439, -299.9839, -249.5546"/>
+					<LLChangeZone Heading="3.688745" />
+					<WaitWhile condition="IsOnSubMap(1627)"/>
+				</If>	
+				<If condition="IsOnSubMap(1595)">
+					<Grind grindRef="FinalMap1" While="not GameObjectManager.GetObjectByNPCId(2005308).IsTargetable"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2005308).IsTargetable">
+						<MoveTo XYZ="192.2445, -28.16305, 200.4419" usemesh="false" />
+						<UseTransport NpcId="2005308" InteractDistance="3.0" XYZ="203.5258, -28.16302, 195.8495"/>
+						<MoveTo XYZ="194.7946, -58.29624, 182.6029" usemesh="false" />
+					</If>
+					<Grind grindRef="FinalMap2" While="not GameObjectManager.GetObjectByNPCId(2005309).IsTargetable"/> 
+					<If condition="GameObjectManager.GetObjectByNPCId(2005309).IsTargetable">		
+						<MoveTo XYZ="217.8327, -59.26898, 96.12624" usemesh="false" />
+						<UseTransport NpcId="2005309" InteractDistance="3.0" XYZ="229.755, -59.26902, 94.95691"/>	
+						<MoveTo XYZ="225.4297, -89.44203, 82.81158" usemesh="false" />
+						<MoveTo XYZ="228.0067, -90.16166, 50.09496" usemesh="false" />
+						<LLChangeZone Heading="3.091779" />
+						<WaitWhile condition="IsOnSubMap(1595)"/>
+					</If>	
+				</If>
+				<If condition="IsOnSubMap(1596) or IsOnSubMap(1602)">
+					<MoveTo XYZ="224.5462, -96.37077, -164.3466" usemesh="false" />
+					<Grind grindRef="LahabreaAndIgeyorhm" While="GetInstanceTodo(3) == 0"/> <!-- Regula van Hydrus -->													
+				</If>
+			</If>	
+			
+			<!-- Defeat the Ascian prime: 0/1 -->	
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Defeat the Ascian prime: 0/1" />
+				<Grind grindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Regula van Hydrus -->								
+			</If>	
+			
+			<While condition="DutyManager.InInstance and IsDutyEnded()">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>			
+			
+		</If>
+
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-105.3331,394.9887,-296.0098"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3818" Weight="1"/> <!-- Regula van Hydrus -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ClearNodes">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="26.58563, 210.601, 215.5979" name="Name"/>
+        <Hotspot Radius="90" XYZ="112.151, 220.0378, 278.7628" name="Name"/>	
+        <Hotspot Radius="90" XYZ="232.5034, 225.0669, 272.0785" name="Name"/>				
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3831" Weight="1"/> <!-- Precultured Biomass -->
+        <TargetMob Id="3830" Weight="10"/> <!-- Bioculture Node -->
+        <TargetMob Id="4342" Weight="1"/> <!-- Cultured Naga -->
+        <TargetMob Id="4343" Weight="1"/> <!-- Cultured Cobra -->
+        <TargetMob Id="3833" Weight="1"/> <!-- Cultured Empuse -->
+        <TargetMob Id="4426" Weight="1"/> <!-- Cultured Bowyer -->
+        <TargetMob Id="3832" Weight="1"/> <!-- Cultured Dancer -->				
+      </TargetMobs>
+    </GrindArea>		
+		<GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="253.9128,225.1376,272.0521"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3821" Weight="1"/> <!-- Harmachis -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Elevator">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-360.0439, -299.9839, -249.5546" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3836" Weight="1"/> <!-- Facility Dreadnaught -->
+        <TargetMob Id="3837" Weight="1"/> <!-- Monitoring Drone -->			
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="FinalMap1">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="222.5283, -27.96624, 225.593" name="Name"/>	
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3840" Weight="1"/> <!-- Cultured Shabti -->
+        <TargetMob Id="3839" Weight="1"/> <!-- Cloned Thaumaturge -->
+        <TargetMob Id="3838" Weight="1"/> <!-- Cloned Conjurer -->				
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="FinalMap2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="201.4339, -58.93452, 126.5905" name="Name"/>			
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3840" Weight="1"/> <!-- Cultured Shabti -->
+        <TargetMob Id="3839" Weight="1"/> <!-- Cloned Thaumaturge -->
+        <TargetMob Id="3838" Weight="1"/> <!-- Cloned Conjurer -->				
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="LahabreaAndIgeyorhm">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="232.5336,-96.45795,-187.4647" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2143" Weight="2"/> <!-- Lahabrea -->
+        <TargetMob Id="3822" Weight="1"/> <!-- Igeyorhm -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="230.0808,-456.458,71.98056"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3823" Weight="1"/> <!-- Ascian Prime -->
+      </TargetMobs>
+    </GrindArea>		
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>  

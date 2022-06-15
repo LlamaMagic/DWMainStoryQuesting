@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sohr Khai
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Sohr Khai</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>	
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="171"/>
+	</If>
+	
+	<If condition="DutyManager.InInstance">
+		<!-- Overcome Unsevered Despair 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Overcome Unsevered Despair 0/1" />
+			<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="-365.0591, 325.0002, -283.0475" />
+		</If>
+		
+		<!-- Overcome Unstifled Prayer 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+			<Log Message="Overcome Unstifled Prayer 0/1" />
+			<If condition="IsOnSubMap(1771)">
+				<Grind GrindRef="ClearToSecondBoss" while="NumAttackableEnemies(100, Array[int]([4936,4937,4938,4939])) &gt; 0"/>
+				<MoveTo XYZ="400.9505, 9.841545, 154.3772" />
+			</If>	
+			<Grind GrindRef="SecondBoss" while="GetInstanceTodo(1) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>				
+			<MoveTo XYZ="399.8801, 24.95996, 86.02703" />
+			<LLChangeZone Heading="3.126039" />
+		</If>		
+		
+		<!-- Defeat Hraesvelgr 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 1  and GetInstanceTodo(2) == 0">
+			<Log Message="Defeat Hraesvelgr 0/1" />
+			<If condition="not IsOnSubMap(1769)">
+				<MoveTo XYZ="400.4353, -57.02924, -135.4388" usemesh="false" />
+				<MoveTo XYZ="361.9698, -38.58055, -244.4922" Distance="0" UseMesh="False"/>
+				<MoveTo XYZ="400.1537, -16.17371, -347.3516" Distance="0" UseMesh="False"/>
+			</If>	
+			<Grind GrindRef="FinalBoss" while="GetInstanceTodo(2) == 0"/>			
+		</If>		
+	</If>
+		
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-399.6258,8,-166.724"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4943" Weight="1"/> <!-- Chieftain Moglin -->			
+        <TargetMob Id="4928" Weight="1"/> <!-- Cloud Gardener -->
+        <TargetMob Id="4933" Weight="1"/> <!-- Garden Cloudtrap -->
+        <TargetMob Id="4930" Weight="1"/> <!-- Sanctuary Skipper -->
+        <TargetMob Id="4932" Weight="1"/> <!-- Garden Melia -->
+        <TargetMob Id="4931" Weight="1"/> <!-- Garden Sankchinni -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ClearToSecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="378.8693, 0, 355.834" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4937" Weight="1"/> <!-- Sohr Khai Anzu -->
+        <TargetMob Id="4936" Weight="1"/> <!-- Sohr Khai Cockerel -->
+        <TargetMob Id="4938" Weight="1"/> <!-- Sanctuary Tsanahale -->
+        <TargetMob Id="4939" Weight="1"/> <!-- Kargas -->
+      </TargetMobs>
+    </GrindArea>		
+		<GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="400.2289, 24.94836, 121.3855" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4952" Weight="1"/> <!-- Poqhiraj -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SubZone1707">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="400.3213, -60, -90.76403" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4940" Weight="1"/> <!-- Hraesvelgr Broodling -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SubZone1707_2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="443.7477,-40,-205.0092" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4941" Weight="1"/> <!-- Holy Wyvern -->
+      </TargetMobs>
+    </GrindArea>
+		<GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="400.6256, -60.01379, -399.3439" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4954" Weight="1"/> <!-- Hraesvelgr -->
+        <TargetMob Id="4955" Weight="1"/> <!-- Holy Sprite -->				
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>

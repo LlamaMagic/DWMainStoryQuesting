@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Thok ast Thok Hard
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+<Profile>
+  <Name>Thok ast Thok (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 
+		<If condition="DutyManager.InInstance">
+			<Grind GrindRef="Ravana" while="not IsDutyEnded()"/> <!-- Kill Ravana -->
+			<While condition="IsDutyEnded()">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>
+		</If>
+ 
+ 
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Ravana">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-0.002296858, 0, 14.92972" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3660" Weight="1"/> <!-- Ravana -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>  

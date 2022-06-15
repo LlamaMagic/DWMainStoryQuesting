@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Amdapor Keep
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Amdapor Keep</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<If condition="DutyManager.InInstance">
+		<!-- Clear the Gier Hall 0/1 -->
+		<If Condition="not GetInstanceTodo(0) == 1">
+			<Log Message="Clear the Gier Hall 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="-196.265, -4.200005, 13.03519"/> <!-- Move to bridge -->
+			<MoveTo XYZ="-193.4538, -3.800007, 63.08482" usemesh="false"/> <!-- Move across bridge -->
+			<MoveTo XYZ="-153.0291, -4, 87.56704" usemesh="false"/>
+			<MoveTo XYZ="-49.44293, 0.1620599, 85.68034" usemesh="false"/>
+			<MoveTo XYZ="-45.23792, 0, 68.82082" usemesh="false"/>
+			<MoveTo XYZ="-70.51669, -2, 49.46097" usemesh="false"/>
+			<MoveTo XYZ="-134.2573, -2.000006, 43.35908" usemesh="false"/>
+			<MoveTo XYZ="-146.8705, -2, 29.05991" usemesh="false"/>
+			<MoveTo XYZ="-134.8821, -2.4, 14.71817" usemesh="false"/>	
+			<MoveTo XYZ="-83.99593, 3.099442E-06, -0.1227691" usemesh="false"/> <!-- Move to sealed gate -->
+			<MoveTo XYZ="-73.51895, 0.1999929, 0.2118544" usemesh="false"/>
+			<Grind GrindRef="LunaticPriest" While="not GameObjectManager.GetObjectByNPCId(1690).CurrentHealth == 0"/> <!-- Fight first boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>	
+			<MoveTo XYZ="-10.23611,-1.192093E-07,-0.01531982" usemesh="false"/>
+			<UseTransport NpcId="2000500" InteractDistance="3.0" XYZ="-10.23611, -1.192093E-07, -0.01531982"/>			
+		</If>
+		
+		<!-- Clear the Bloody Transept 0/1 -->
+		<If Condition="not GetInstanceTodo(1) == 1">
+			<LogMessage Message="Clear the Bloody Transept 0/1"/>
+			<MoveTo XYZ="115.199, 22.43723, -0.4705639"/> <!-- Move into first room -->		
+			<MoveTo XYZ="199.4624, 22.4248, -70.63486"/> <!-- Move outside bosses room -->	
+			<MoveTo XYZ="200.4684, 22, -112.2056" usemesh="false"/> <!-- Move into boss's room -->
+			<MoveTo XYZ="199.5795, 22, -133.268" usemesh="false"/> <!-- Move into boss's room -->
+			<Grind GrindRef="DemonWall" While="not GameObjectManager.GetObjectByNPCId(1694).CurrentHealth == 0"/> <!-- Fight second boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="200.061,22,-165.266" usemesh="false"/> <!-- Move Astral Flow 2 -->
+			<UseTransport NpcId="2000501" InteractDistance="3.0" XYZ="200.061,22,-165.266"/>	
+		</If>
+		
+		<!-- Defeat Anantaboga 0/1-->
+		<If Condition="not GetInstanceTodo(2) == 1">
+			<LogMessage Message="Defeat Anantaboga 0/1"/>	
+			<MoveTo XYZ="136.8121, 44, -0.5193871"/> <!-- Move to first big door -->
+			<MoveTo XYZ="25.36752, 48, 0.3284818" /> <!-- Move into bosses room -->
+			<Grind GrindRef="Anantaboga" While="not GameObjectManager.GetObjectByNPCId(1696).CurrentHealth == 0"/> <!-- Fight final boss -->
+			<If Condition="&openchest; == 1">
+				<RunCode name="OpenChest" />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>
+	</If>
+
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="LunaticPriest">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-33.37984,0.0999999,0.07623291" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Lunatic Priest" Id="1690" Weight="1" />
+			<TargetMob Name="Psycheflayer " Id="1689" Weight="2" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="DemonWall">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="200.0683,21.99992,-152" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Demon Wall" Id="1694" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Anantaboga">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-0.04577636,48.2028,0" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Demon Wall" Id="1696" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks> 	
+  </CodeChunks>
+</Profile>	

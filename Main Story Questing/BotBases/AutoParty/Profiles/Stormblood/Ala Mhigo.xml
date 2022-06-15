@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Ala Mhigo
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla.
+	
+	Zone Name: Ala Mhigo | Zone Id: 689 
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Ala Mhigo</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+		<LoadDungeonAssist />
+  
+		<If condition="not DutyManager.InInstance">
+			<WaitTimer WaitTime="5" />
+			<LLJoinDuty DutyId="247" Undersized="True"/> <!-- Ala Mhigo -->
+		</If>
+			
+			<While condition="DutyManager.InInstance and not IsDutyEnded()">
+		
+				<!-- Eliminate the imperials: 0/1 -->
+				<If Condition="not GetInstanceTodo(0) == 1">
+					<Log Message="Eliminate the imperials: 0/1" />
+					<If condition="IsOnSubMap(2285)">
+						<MoveTo XYZ="-342.2378, 24.00001, 152.1736" />
+						<MoveTo XYZ="-342.3421, 24.00001, 143.1911" usemesh="false" />
+						<MoveTo XYZ="-261.4449, 27, 99.57639" />
+						<MoveTo XYZ="-254.2549, 27.00001, 99.18139" usemesh="false" />						
+					</If>
+					<MoveTo XYZ="-207.1999, 34.86706, 72.30422" />
+				</If>
+				
+				<!-- Defeat the magitek scorpion: 0/1 -->
+				<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
+					<Log Message="Defeat the magitek scorpion: 0/1" />
+					<If condition="IsOnSubMap(2285)">
+						<MoveTo XYZ="-342.2378, 24.00001, 152.1736" />
+						<MoveTo XYZ="-342.3421, 24.00001, 143.1911" usemesh="false" />
+						<MoveTo XYZ="-261.4449, 27, 99.57639" />
+						<MoveTo XYZ="-254.2549, 27.00001, 99.18139" usemesh="false" />						
+					</If>					
+					<MoveTo XYZ="-207.1999, 34.86706, 72.30422" />
+					<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- magitek rearguard -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-178.5153,34.86682,71.88525" />
+						<LLOpenChest/>
+					</If>				
+				</If>
+
+				<!-- Eliminate all obstacles: 0/1 -->
+				<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+					<Log Message="Eliminate all obstacles: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700" Distance="16"/>	
+					</If>						
+					<If condition="IsOnSubMap(2289)">
+						<MoveTo XYZ="-158.4374, 34.86707, 72.41742" />
+						<LLChangeZone Heading="1.537598" />
+					</If>
+					<MoveTo XYZ="249.8734, 106.4468, -53.67252" />
+				</If>
+				
+				<!-- Slay Aulus mal Asina: 0/1 -->
+				<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+					<Log Message="Slay Aulus mal Asina: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700" Distance="16"/>	
+						<If condition="IsOnSubMap(2289)">
+							<MoveTo XYZ="-158.4374, 34.86707, 72.41742" />
+							<LLChangeZone Heading="1.537598" />
+						</If>						
+						<MoveTo XYZ="249.8734, 106.4468, -53.67252" />
+					</If>						
+					<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Aulus mal Asina -->	
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="249.9885,106.4316,-85.00806" />
+						<LLOpenChest/>
+					</If>				
+				</If>
+				
+				<!-- Arrive in the Hall of the Griffin 0/1 -->
+				<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+					<Log Message="Arrive in the Hall of the Griffin: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700" Distance="16"/>	
+					</If>						
+					<Grind GrindRef="ClearToHalloftheGriffin" While="DistanceSqrTo('249.9245, 122.0006, -285.0379') &gt; 5"/> <!-- Aulus mal Asina -->					
+				</If>	
+				
+				<!-- Defeat Zenos yae Galvus: 0/1 -->
+				<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+					<Log Message="Defeat Zenos yae Galvus: 0/1" />
+					<If condition="IsNearShortcut(2000700)">
+						<UseShortcut NpcId="2000700"/>
+					</If>						
+					<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Zenos yae Galvus -->	
+					<If Condition="&openchest; == 1">
+						<NoCombatMoveTo XYZ="250.0526,122,-365.0232" />
+						<LLOpenChest/>
+					</If>				
+				</If>				
+
+				<!-- Duty Has Ended, leaving -->
+				<While condition="IsDutyEnded() and DutyManager.InInstance">
+					<Log Message="Duty has ended, leaving..." />
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>
+				
+			</While>	
+	
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-185,34.86707,72"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6037" Weight="1"/> <!-- Magitek Scorpion -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="250,106.4468,-80"  name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6038" Weight="1"/> <!-- Aulus mal Asina -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ClearToHalloftheGriffin">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="238.4035, 110, -150.3887" name="Name"/>
+        <Hotspot Radius="90" XYZ="218.3906, 118.7839, -245.1676" name="Name"/>				
+        <Hotspot Radius="90" XYZ="249.9245, 122.0006, -285.0379" name="Name"/>				
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6025" Weight="1"/> <!-- 12th Legion Laquearius -->
+        <TargetMob Id="6024" Weight="1"/> <!-- 12th Legion Hoplomachus -->
+        <TargetMob Id="6026" Weight="1"/> <!-- 12th Legion Eques -->
+        <TargetMob Id="6036" Weight="2"/> <!-- Magitek Laserfield -->
+        <TargetMob Id="6033" Weight="1"/> <!-- 12th Legion Hexadrone -->
+        <TargetMob Id="6034" Weight="1"/> <!-- 12th Legion Slasher -->
+        <TargetMob Id="6033" Weight="1"/> <!-- 12th Legion Hexadrone -->
+        <TargetMob Id="6035" Weight="1"/> <!-- 12th Legion Colossus -->				
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="249.9885,122,-365.0111" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6039" Weight="1"/> <!-- Zenos yae Galvus -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>	

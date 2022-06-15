@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Cape Westwind
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+	-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Cape Westwind</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<If condition="DutyManager.InInstance">
+		<Grind GrindRef="Rhitahtyn sas Arvina " While="not GameObjectManager.GetObjectByNPCId(2160).CurrentHealth == 0"/> <!-- Kill Rhitahtyn sas Arvina  -->
+		<If Condition="&openchest; == 1">
+			<LLOpenChest />
+		</If>
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+
+	
+ </Order>
+  <GrindAreas>
+	<GrindArea name="Rhitahtyn sas Arvina ">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-707.8608,67.74046,-822.4221" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Rhitahtyn sas Arvina " Id="2160" Weight="1" />				
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>    

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Haukke Manor (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Haukke Manor (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<If condition="DutyManager.InInstance">
+		<!-- Clear the White Hall 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">
+			<Log Message="Clear the White Hall 0/1" />
+			<MoveTo XYZ="16.98096, 17, -52.54222"/>
+			<UseObject NpcIds="2003312" XYZ="16.23937,17,-54.15789" Radius="50" condition="GetInstanceTodo(0) &lt; 1"/>
+			<MoveTo XYZ="15.98883,17,-82.16676"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2003315).IsTargetable">
+				<RunCode name="LockedDoor1"/>
+			</While>	
+			<MoveTo XYZ="16.20898, 17, -98.04694"/>
+			<UseObject NpcIds="2003314" XYZ="16.23937,17,-54.15789" Radius="50" condition="GetInstanceTodo(0) &lt; 1"/>
+			<MoveTo XYZ="0.7017622,17,-96.12426"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2003316).IsTargetable">
+				<RunCode name="LockedDoor2"/>
+			</While>	
+			<MoveTo XYZ="-19.5165, 17, -96.8035"/>
+			<UseObject NpcIds="2003430" XYZ="-19.5165, 17, -96.8035" Radius="50" condition="GetInstanceTodo(0) &lt; 1"/>
+			<MoveTo XYZ="-15.9416,17,-86.21455"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2003317).IsTargetable">
+				<RunCode name="LockedDoor3"/>
+			</While>	
+			<MoveTo XYZ="-22.77435, 17, -0.1981363"/>
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(426).CurrentHealth == 0"/> <!-- Fight First Boss -->
+			<WaitTimer WaitTime="3" />
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="31.37083, 16.99994, 1.565044"/>
+			<RunCode name="CrystalBall1"/>		
+		</If>
+		
+		<!-- Clear the Red Hall 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0">
+			<Log Message="Clear the Red Hall 0/1" />
+			<NoCombatMoveTo XYZ="41.81406, 0, -35.50204"/>
+			<UseObject NpcIds="2003313" XYZ="41.81406, 0, -35.50204" Radius="100" condition="GetInstanceTodo(0) &lt; 1"/>
+			<MoveTo XYZ="46.73828,-0.01531982,-35.96558"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2003320).IsTargetable">
+				<RunCode name="LockedDoor4"/>
+			</While>
+			<MoveTo XYZ="70.11511,-0.01531982,-48.90515"/>
+			<LLOpenChest/>	
+			<MoveTo XYZ="21.36292, 0, -0.07704652"/>
+			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(2341).CurrentHealth == 0"/> <!-- Fight Second Boss -->
+			<MoveTo XYZ="-43.45517,-6.880034E-16,13.58027"/>
+			<RunCode name="CrystalBall2"/>	
+		</If>
+		
+		<!-- Defeat Halicarnassus 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0">
+			<Log Message="Defeat Halicarnassus 0/1" />
+			<NoCombatMoveTo XYZ="-26.35083, -18.8, 45.07621"/>
+			<MoveTo XYZ="-14.77353, -18.9, 0.1370375"/>
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(2346).CurrentHealth == 0"/> <!-- Fight final boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>						
+	</If>
+	
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-70,-12.00001,-62" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="426" Weight="1" /> <!-- Manor Jester -->
+			<TargetMob Id="2340" Weight="1" />	<!-- Manor Butler -->
+        </TargetMobs>
+	</GrindArea>			
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-12.15654,0,-0.05606866" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2341" Weight="2" /> <!-- Ash -->				
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="14.62679,-18.67832,0.1223917" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2346" Weight="1" /> <!-- Halicarnassus -->
+			<TargetMob Id="428" Weight="1" />	<!-- Manor Sentry -->
+			<TargetMob Id="633" Weight="1" />	<!-- Manor Maidservant -->				
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="LockedDoor1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2003315).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LockedDoor2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2003316).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LockedDoor3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2003317).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LockedDoor4">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2003320).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="CrystalBall1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2002916).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="CrystalBall2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2002941).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>		
+	<CodeChunk Name="ChangeZone">
+		<![CDATA[
+			MovementManager.SetFacing(3.190046f);
+			MovementManager.MoveForwardStart();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+			MovementManager.MoveStop();
+		]]>
+	</CodeChunk>		
+  </CodeChunks>
+</Profile>
