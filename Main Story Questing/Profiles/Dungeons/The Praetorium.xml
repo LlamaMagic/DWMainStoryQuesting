@@ -41,7 +41,7 @@
 		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
 			<Log Message="Clear the command chamber: 0/1" />
 			<If condition="not IsOnSubMap(448)">
-				<MoveTo XYZ="196.597, 185.9994, -6.486791"/> 
+				<MoveTo XYZ="173.8055,76.0812,4.1231" />
 				<UseShortcut NpcId="2012811"/>
 			</If>
 			<If condition="IsOnSubMap(448)">
@@ -58,8 +58,8 @@
 		<!-- Arrive at the Laboratorium Primum: 0/1 -->
 		<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
 			<Log Message="Arrive at the Laboratorium Primum: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
+			<If condition="IsNearShortcut(2000789)">
+				<UseShortcut NpcId="2000789" Distance="20"/>
 			</If>	
 			<If condition="IsOnSubMap(451)">
 				<MoveTo XYZ="175.0171, 76, 3.027801"/> 
@@ -78,8 +78,8 @@
 		<!-- Clear the Laboratorium Primum: 0/1 -->
 		<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
 			<Log Message="Clear the Laboratorium Primum: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
+			<If condition="IsNearShortcut(2000789)">
+				<UseShortcut NpcId="2000789" Distance="20"/>
 			</If>						
 			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight Nero tol Scaeva -->		
 		</If>	
@@ -87,10 +87,12 @@
 		<!-- Arrive on the Echelon: 0/1 -->
 		<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
 			<Log Message="Arrive on the Echelon: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
+			<If condition="IsNearShortcut(2000789)">
+				<UseShortcut NpcId="2000789" Distance="20"/>
 			</If>	
 			<If condition="IsOnSubMap(454) or IsOnSubMap(453)">
+				<MoveTo XYZ="-194.0341, -104.1726, 0.1756029" />
+				<MoveTo XYZ="-213.9307, -103.9974, -0.3751153" usemesh="false" />
 				<MoveTo XYZ="-238.8421, -103.9974, -19.57658"/> 
 				<UseShortcut NpcId="2012817"/>
 			</If>	
@@ -99,11 +101,13 @@
 		<!-- Defeat Gaius van Baelsar: 0/1 -->
 		<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
 			<Log Message="Defeat Gaius van Baelsar: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
+			<If condition="IsNearShortcut(2000789)">
+				<UseShortcut NpcId="2000789" Distance="20"/>
 				<If condition="IsOnSubMap(454) or IsOnSubMap(453)">
-					<MoveTo XYZ="-237.9685, -103.9974, -18.89413"/> 
-					<UseShortcut NpcId="2012817"/>
+					<MoveTo XYZ="-194.0341, -104.1726, 0.1756029" />
+					<MoveTo XYZ="-213.9307, -103.9974, -0.3751153" usemesh="false" />				
+					<MoveTo XYZ="-228.2292,-103.9974,0" />
+					<UseShortcut NpcId="2012818"/>
 				</If>				
 			</If>	
 			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight Gaius van Baelsar -->		
