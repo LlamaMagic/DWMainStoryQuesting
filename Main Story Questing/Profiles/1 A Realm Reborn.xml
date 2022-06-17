@@ -4744,7 +4744,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 			</If>	
 			<!-- Monk -->
 			<If condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
-				<If condition="not IsQuestCompleted(67563)">
+				<If condition="not IsQuestCompleted(66602)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>	
 				</If>	
 			</If>				
