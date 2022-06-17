@@ -11,9 +11,9 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 <!ENTITY NorthernThanBlacklistFates "556,446,647">	   
 
 <!-- Should we auto invite a carry to do dungeons? -->
-<!ENTITY UseCarry "0">	
+<!ENTITY UseCarry "1">	
 <!-- What's the carry's name? -->
-<!ENTITY CarryName "Sleepy">
+<!ENTITY CarryName "Lizzy">
 
 ]>
 
@@ -4744,7 +4744,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 			</If>	
 			<!-- Monk -->
 			<If condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
-				<If condition="not IsQuestCompleted(66595)">
+				<If condition="not IsQuestCompleted(67563)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>	
 				</If>	
 			</If>				
@@ -7531,9 +7531,10 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- A Recurring Problem -->
     <If Condition="IsQuestCompleted(65625) and not IsQuestCompleted(66583)">
       <If Condition="not HasQuest(66583)">
-				<If Condition="not IsOnMap(140) and not IsOnMap(212)">
+				<If Condition="not IsOnMap(212)">
 					<LisbethTravel Area="Western Thanalan" Position="-491.9146, 19.05129, -370.1329"/>
 					<GetTo ZoneId="140" XYZ="-480.9186, 17.99036, -386.862"/>
+					<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186,17.99036,-386.862"  />
 				</If>
 				<If Condition="IsOnMap(212)">
 					<UseTransport InteractDistance="3.0" NpcId="2001715" XYZ="23.23944,2.090454,-0.01531982" />
@@ -7545,13 +7546,11 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         </If>
       </If>
 			<If Condition="GetQuestStep(66583) == 255">
-				<If Condition="not IsOnMap(140)">
+				<If Condition="not IsOnMap(212)">
 					<LisbethTravel Area="Western Thanalan" Position="-491.9146, 19.05129, -370.1329"/>
 					<GetTo ZoneId="140" XYZ="-480.9186, 17.99036, -386.862"/>
-				</If>	
-				<If Condition="IsOnMap(212) and IsOnSubMap(374)">
-					<UseTransport NpcId="2001717" InteractDistance="3.0" XYZ="25.4978, 2.090454, -0.01531982"/>	
-				</If>					
+					<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186,17.99036,-386.862"  />
+				</If>				
 				<MoveTo ZoneId="212" XYZ="-0.3742037, -3.000001, -56.65307"/>  
 				<LLTurnIn QuestId="66583" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
 				<LLSmallTalk/>
@@ -8625,7 +8624,6 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="2002878" XYZ="-0.01531982, -1.022339, -26.7796"/>
       </If>
       <TurnIn RewardSlot="2" QuestId="65960" NpcId="1010897" XYZ="0.9613037, -1.995725, -45.60925"/>
-			<StopBot/>
 		</If>
 		
 	<!-- Legacy of Allag -->
