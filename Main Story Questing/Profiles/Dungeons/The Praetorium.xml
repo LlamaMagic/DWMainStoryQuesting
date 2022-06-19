@@ -42,7 +42,7 @@
 			<Log Message="Clear the command chamber: 0/1" />
 			<If condition="not IsOnSubMap(448)">
 				<MoveTo XYZ="173.8055,76.0812,4.1231" />
-				<UseShortcut NpcId="2012811"/>
+				<UseShortcut NpcId="2000789" Distance="20"/>
 			</If>
 			<If condition="IsOnSubMap(448)">
 				<MoveTo XYZ="222.7194, 156, 3.491335" />
