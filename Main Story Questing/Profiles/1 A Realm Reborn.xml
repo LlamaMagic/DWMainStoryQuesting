@@ -11,9 +11,9 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 <!ENTITY NorthernThanBlacklistFates "556,446,647">	   
 
 <!-- Should we auto invite a carry to do dungeons? -->
-<!ENTITY UseCarry "1">	
+<!ENTITY UseCarry "0">	
 <!-- What's the carry's name? -->
-<!ENTITY CarryName "Lizzy">
+<!ENTITY CarryName "Shark Tooth">
 
 ]>
 
