@@ -5,9 +5,9 @@
 These steps will need to be done manually.
 
 * A Realm Reborn
-  * Quest 'The Labyrinth of the Ancients' and it's connected duty.
-  * Quest 'Syrcus Tower' and it's connected duty. 
-  * Quest 'The World of Darkness" and it's connected duty.
+  * Quest `The Labyrinth of the Ancients` and it's connected duty.
+  * Quest `Syrcus Tower` and it's connected duty. 
+  * Quest `The World of Darkness` and it's connected duty.
 
 
 * Heavensward
