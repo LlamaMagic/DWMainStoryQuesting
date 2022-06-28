@@ -11,16 +11,17 @@ These steps will need to be done manually.
 
 
 * Heavensward
-  * 'Thok ast Thok (Hard)' for MSQ 'Lord of the Hive'.
+  * 'Thok ast Thok (Hard)' for MSQ `Lord of the Hive`.
 
 ## Known Issues
+* Quest `Lord of the Hive` has an issue moving into the inner chamber. Sometimes it gets stuck. Move through the door manually to get it started again.
 
+
+The following quests are NPC follow quests and may have issues, watch them.
+* `You Have Selected Regicide`
+
+### Should be fixed
 
 * ~~Gets stuck on interacting with the Gravesite during MSQ quest `A Proper Burial`~~
 * ~~Same issue as above, quest Level 38 `Following the Evidence`~~
 * ~~The Archer quest `School of Hard Nocks` has the same issue.~~
-* Quest "Lord of the Hive" has an issue moving into the inner chamber. Sometimes it gets stuck. Move through the door manually to get it started again.
-
-
-The following quests are NPC follow quests and may have issues, watch them.
-* 'You Have Selected Regicide'
