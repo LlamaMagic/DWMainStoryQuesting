@@ -79,7 +79,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 					</If>
 				</If>
 			</If>    
-		</If>
+			</If>
     <If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 255">
       <GetTo ZoneId="128" XYZ="16.20745, 40.19998, -5.131207"/>
       <LLTurnIn QuestId="65781" NpcId="1000972" XYZ="20.27917, 40.19993, -6.118958"/>
@@ -8927,16 +8927,17 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1010998" XYZ="78.41602, -0.6357315, -166.3386" QuestId="65963" StepId="2"/>
     </If>
     <If Condition="HasQuest(65963) and not IsQuestCompleted(65963) and GetQuestStep(65963) == 255">
-      <LisbethTravel ZoneId="155" XYZ="260.2953, 303.1, -199.883"/>
+      <LisbethTravel ZoneId="155" XYZ="231.1076, 302, -198.8826" />
       <TurnIn QuestId="65963" NpcId="1006384" XYZ="263.5996, 303.1, -199.9695"/>
     </If>
 		
     <!-- Before the Dawn (Level 50) -->
     <If Condition="IsQuestCompleted(65963) and not HasQuest(65964) and not IsQuestCompleted(65964)">
-      <LisbethTravel ZoneId="155" XYZ="260.2953, 303.1, -199.883"/>
+      <LisbethTravel ZoneId="155" XYZ="231.1076, 302, -198.8826" />
       <If Condition="IsQuestAcceptQualified(65964)">
         <PickUpQuest NpcId="1006384" QuestId="65964" XYZ="263.5996, 303.1, -199.9695"/>
       </If>
+			<GetTo ZoneId="155" XYZ="231.1076, 302, -198.8826" />
     </If>
     <If Condition="HasQuest(65964) and not IsQuestCompleted(65964) and GetQuestStep(65964) == 255">
       <LisbethTravel ZoneId="155" XYZ="264.9119, 302.2624, -223.7126"/>
