@@ -122,6 +122,8 @@
 	</While>
 	
 	<AutoInventoryEquip/>
+
+  <LLoadProfile Path="../Start.xml"/>	
 	
 	
   </Order>
