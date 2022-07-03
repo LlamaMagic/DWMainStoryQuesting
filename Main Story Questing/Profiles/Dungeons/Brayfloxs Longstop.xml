@@ -13,13 +13,12 @@
 
 <Profile>
 	<Name>Brayflox's Longstop</Name>
-	<BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
+	<BehaviorDirectory></BehaviorDirectory>
 	<Order>
 
 		<AutoInventoryEquip />
 
 		<If condition="not DutyManager.InInstance">
-			<NPCRepair Threshhold="&repairNum;" XYZ="-247.1199, 16.2, 51.86536" ZoneId="129" NpcId="1001206" />
 			<JoinSupportDuty DutyId="8" />
 		</If>
 
@@ -105,22 +104,24 @@
 	</Order>
 	<GrindAreas>
 		<GrindArea name="FirstBoss">
-			<Hotspots>
-				<Hotspot Radius="90" XYZ="-104.6604,-4.162874,111.8944" name="Name" />
-			</Hotspots>
-			<TargetMobs>
-				<TargetMob Id="442" Weight="1" /> <!-- Coeurl O' Nine Tails -->
-			</TargetMobs>
-		</GrindArea>
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="111.881, -2.184384, -6.905929" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1280" Weight="1"/> <!-- Great Yellow Pelican -->
+        <TargetMob Id="1282" Weight="1"/> <!-- Violet Back -->
+        <TargetMob Id="1290" Weight="1"/> <!-- Comet Chaser -->
+        <TargetMob Id="1292" Weight="1"/> <!-- Ashdrake -->
+      </TargetMobs>
+    </GrindArea>
 		<GrindArea name="SecondBoss">
-			<Hotspots>
-				<Hotspot Radius="90" XYZ="-9.10187,5.742157,-91.09246" name="Name" />
-			</Hotspots>
-			<TargetMobs>
-				<TargetMob Id="442" Weight="1" /> <!-- Coeurl O' Nine Tails -->
-				<TargetMob Id="441" Weight="2" /> <!-- Warden's Whip -->
-			</TargetMobs>
-		</GrindArea>
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-4.256111, 5.742157, -83.01486" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1284" Weight="1"/> <!-- Inferno Drake -->
+      </TargetMobs>
+    </GrindArea>
 		<GrindArea name="Hellbender">
 			<Hotspots>
 				<Hotspot Radius="90" XYZ="-110.2216,-2.381622,-33.57573" name="Name" />
