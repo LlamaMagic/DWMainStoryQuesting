@@ -1244,7 +1244,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <MoveTo XYZ="16.39985, -197.9525, -151.5875" Distance="1.0"/>
       <RunCode Name="ExitSuiNoSato"/>
       <RunCode Name="68022"/> -->
-			<LisbethTravel ZoneId="613" XYZ="-227.8907, -178.209, 184.7923" />
+			<GetTo ZoneId="613" XYZ="-227.8907, -178.209, 184.7923" />
       <TalkTo NpcId="1019978" XYZ="-227.8907, -178.209, 184.7923" QuestId="68022" StepId="1"/>
     </If>
     <If Condition="HasQuest(68022) and not IsQuestCompleted(68022) and GetQuestStep(68022) == 2">
@@ -1388,14 +1388,14 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
     </If>
     <If Condition="HasQuest(68025) and not IsQuestCompleted(68025) and GetQuestStep(68025) == 1">
-      <LisbethTravel ZoneId="613" XYZ="-838.6819, 51.63837, 38.55779"/>
+      <GetTo ZoneId="613" XYZ="-838.6819, 51.63837, 38.55779"/>
       <UseObject NpcIds="2007853" XYZ="-838.6819, 51.63837, 38.55779" QuestId="68025" StepId="1"/>
     </If>
     <If Condition="HasQuest(68025) and not IsQuestCompleted(68025) and GetQuestStep(68025) == 2">
 			<UserDialog QuestId="68025" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the Pool of Tribute and hit continue." />
     </If>
     <If Condition="HasQuest(68025) and not IsQuestCompleted(68025) and GetQuestStep(68025) == 4">
-      <LisbethTravel ZoneId="613" XYZ="-726.7028, 0.2673199, -316.119"/>
+      <GetTo ZoneId="613" XYZ="-726.7028, 0.2673199, -316.119"/>
       <TalkTo NpcId="1019987" XYZ="-726.7028, 0.2673199, -316.119" QuestId="68025" StepId="4"/>
       <WaitWhile Condition="HasQuest(68025) and not IsQuestCompleted(68025) and not GetQuestStep(68025) == 255"/>
     </If>
@@ -1434,39 +1434,39 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
     </If>
     <If Condition="HasQuest(68027) and not IsQuestCompleted(68027) and GetQuestStep(68027) == 1">
-      <LisbethTravel ZoneId="614" XYZ="790.1407, 99.43533, -290.9814"/>
+      <GetTo ZoneId="614" XYZ="790.1407, 99.43533, -290.9814"/>
       <WaitWhile Condition="HasQuest(68027) and not IsQuestCompleted(68027) and not GetQuestStep(68027) == 2"/>
     </If>
     <If Condition="HasQuest(68027) and not IsQuestCompleted(68027) and GetQuestStep(68027) == 2">
-      <LisbethTravel ZoneId="614" XYZ="790.1407, 99.43533, -290.9814"/>
+      <GetTo ZoneId="614" XYZ="790.1407, 99.43533, -290.9814"/>
       <TalkTo NpcId="1019994" XYZ="790.1407, 99.43533, -290.9814" QuestId="68027" StepId="2"/>
     </If>
     <If Condition="HasQuest(68027) and not IsQuestCompleted(68027) and GetQuestStep(68027) == 255">
-      <LisbethTravel ZoneId="614" XYZ="528.144, 43.71817, -156.3862"/>
+      <GetTo ZoneId="614" XYZ="528.144, 43.71817, -156.3862"/>
       <TurnIn QuestId="68027" InteractDistance="3.0" NpcId="1019997" XYZ="528.144, 43.71817, -156.3862"/>
     </If>
     <!-- Life after Doma (Level 64) -->
     <If Condition="IsQuestCompleted(68027) and not HasQuest(68028) and not IsQuestCompleted(68028)">
-      <LisbethTravel ZoneId="614" XYZ="528.144, 43.71817, -156.3862"/>
+      <GetTo ZoneId="614" XYZ="528.144, 43.71817, -156.3862"/>
       <If Condition="IsQuestAcceptQualified(68028)">
         <PickupQuest QuestId="68028" InteractDistance="3.0" NpcId="1019997" XYZ="528.144, 43.71817, -156.3862"/>
       </If>
     </If>
     <If Condition="HasQuest(68028) and not IsQuestCompleted(68028) and GetQuestStep(68028) == 1">
-      <LisbethTravel ZoneId="614" XYZ="486.7417, 50.67066, -114.5634"/>
+      <GetTo ZoneId="614" XYZ="486.7417, 50.67066, -114.5634"/>
       <UseObject NpcIds="2007834" XYZ="486.7417, 50.67066, -114.5634" QuestId="68028" StepId="1"/>
     </If>
     <If Condition="HasQuest(68028) and not IsQuestCompleted(68028) and GetQuestStep(68028) == 2">
-      <LisbethTravel ZoneId="614" XYZ="507.8358, 41.76163, -94.73425"/>
+      <GetTo ZoneId="614" XYZ="507.8358, 41.76163, -94.73425"/>
       <TalkTo NpcId="1020000" XYZ="507.8358, 41.76163, -94.73425" QuestId="68028" StepId="2"/>
     </If>
     <If Condition="HasQuest(68028) and not IsQuestCompleted(68028) and GetQuestStep(68028) == 3">
-      <LisbethTravel ZoneId="614" XYZ="414.3939, -0.3000069, -276.4995"/>
+      <GetTo ZoneId="614" XYZ="414.3939, -0.3000069, -276.4995"/>
       <TalkTo NpcId="1020016" XYZ="414.3939, -0.3000069, -276.4995" QuestId="68028" StepId="3"/>
     </If>
     <If Condition="HasQuest(68028) and not IsQuestCompleted(68028) and GetQuestStep(68028) == 255">
       <If Condition="not IsOnMap(614)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
       </If>
       <If Condition="not IsOnSubMap(2805)">
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895" Distance="1.0"/>
@@ -1477,7 +1477,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- A Glimpse of Madness (Level 64) -->
     <If Condition="IsQuestCompleted(68028) and not HasQuest(68470) and not IsQuestCompleted(68470)">
       <If Condition="not IsOnSubMap(2805)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
       </If>
@@ -1488,7 +1488,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68470) and not IsQuestCompleted(68470) and GetQuestStep(68470) == 2 and GetQuestById(68470).GetTodoArgs(2, 0).Item1 == 0">
       <If Condition="not IsOnMap(681)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
         <UseTransport InteractDistance="2.0" NpcId="1019291" XYZ="276.3561, 3.658416, -377.5235"/>
@@ -1497,7 +1497,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68470) and not IsQuestCompleted(68470) and GetQuestStep(68470) == 2 and GetQuestById(68470).GetTodoArgs(2, 0).Item1 == 1">
       <If Condition="not IsOnMap(681)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
         <UseTransport InteractDistance="2.0" NpcId="1019291" XYZ="276.3561, 3.658416, -377.5235"/>
@@ -1506,7 +1506,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68470) and not IsQuestCompleted(68470) and GetQuestStep(68470) == 2 and GetQuestById(68470).GetTodoArgs(2, 0).Item1 == 2">
       <If Condition="not IsOnMap(681)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
         <UseTransport InteractDistance="2.0" NpcId="1019291" XYZ="276.3561, 3.658416, -377.5235"/>
@@ -1515,7 +1515,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68470) and not IsQuestCompleted(68470) and GetQuestStep(68470) == 255">
       <If Condition="not IsOnMap(681)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
         <UseTransport InteractDistance="2.0" NpcId="1019291" XYZ="276.3561, 3.658416, -377.5235"/>
@@ -1525,7 +1525,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- The Stubborn Remainder (Level 64) -->
     <If Condition="IsQuestCompleted(68470) and not HasQuest(68029) and not IsQuestCompleted(68029)">
       <If Condition="not IsOnMap(681)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
         <UseTransport InteractDistance="2.0" NpcId="1019291" XYZ="276.3561, 3.658416, -377.5235"/>
@@ -1535,139 +1535,139 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
     </If>
     <If Condition="HasQuest(68029) and not IsQuestCompleted(68029) and GetQuestStep(68029) == 1">
-      <LisbethTravel ZoneId="614" XYZ="487.1275, 50.40274, -115.5334"/>
+      <GetTo ZoneId="614" XYZ="487.1275, 50.40274, -115.5334"/>
       <TalkTo NpcId="1020012" XYZ="487.1275, 50.40274, -115.5334" QuestId="68029" StepId="1"/>
     </If>
     <If Condition="HasQuest(68029) and not IsQuestCompleted(68029) and GetQuestStep(68029) == 2 and GetQuestById(68029).GetTodoArgs(2, 0).Item1 == 0">
-      <LisbethTravel ZoneId="614" XYZ="451.9475, 58.76571, -188.1383"/>
+      <GetTo ZoneId="614" XYZ="451.9475, 58.76571, -188.1383"/>
       <TalkTo NpcId="1019263" XYZ="451.9475, 58.76571, -188.1383" QuestId="68029"/>
     </If>
     <If Condition="HasQuest(68029) and not IsQuestCompleted(68029) and GetQuestStep(68029) == 2 and GetQuestById(68029).GetTodoArgs(2, 0).Item1 == 1">
-      <LisbethTravel ZoneId="614" XYZ="434.1953, 68.02851, -65.32753"/>
+      <GetTo ZoneId="614" XYZ="434.1953, 68.02851, -65.32753"/>
       <LLTalkTo InteractDistance="3.0" NpcId="1022719" XYZ="434.1953, 68.02851, -65.32753" QuestId="68029" DialogOption="1"/>
     </If>
     <If Condition="HasQuest(68029) and not IsQuestCompleted(68029) and GetQuestStep(68029) == 2 and GetQuestById(68029).GetTodoArgs(2, 0).Item1 == 2">
-      <LisbethTravel ZoneId="614" XYZ="405.6845, 67.46069, -61.53697"/>
+      <GetTo ZoneId="614" XYZ="405.6845, 67.46069, -61.53697"/>
       <TalkTo NpcId="1019259" XYZ="405.6845, 67.46069, -61.53697" QuestId="68029"/>
     </If>
     <If Condition="HasQuest(68029) and not IsQuestCompleted(68029) and GetQuestStep(68029) == 2 and GetQuestById(68029).GetTodoArgs(2, 0).Item1 == 3">
-      <LisbethTravel ZoneId="614" XYZ="389.2854, 72.07916, -68.68219"/>
+      <GetTo ZoneId="614" XYZ="389.2854, 72.07916, -68.68219"/>
       <TalkTo NpcId="1020015" XYZ="389.2854, 72.07916, -68.68219" QuestId="68029"/>
     </If>
     <If Condition="HasQuest(68029) and not IsQuestCompleted(68029) and GetQuestStep(68029) == 255">
-      <LisbethTravel ZoneId="614" XYZ="486.9913, 50.47229, -115.5046"/>
+      <GetTo ZoneId="614" XYZ="486.9913, 50.47229, -115.5046"/>
       <TurnIn QuestId="68029" InteractDistance="3.0" NpcId="1020012" XYZ="486.9913, 50.47229, -115.5046"/>
     </If>
     <!-- The Ones We Leave Behind (Level 64) -->
     <If Condition="IsQuestCompleted(68029) and not HasQuest(68030) and not IsQuestCompleted(68030)">
-      <LisbethTravel ZoneId="614" XYZ="486.9913, 50.47229, -115.5046"/>
+      <GetTo ZoneId="614" XYZ="486.9913, 50.47229, -115.5046"/>
       <If Condition="IsQuestAcceptQualified(68030)">
         <PickupQuest QuestId="68030" InteractDistance="3.0" NpcId="1020012" XYZ="486.9913, 50.47229, -115.5046"/>
       </If>
     </If>
     <If Condition="HasQuest(68030) and not IsQuestCompleted(68030) and GetQuestStep(68030) == 1">
-      <LisbethTravel ZoneId="614" XYZ="508.1232, 83.83755, 98.63892"/>
+      <GetTo ZoneId="614" XYZ="508.1232, 83.83755, 98.63892"/>
       <WaitWhile Condition="HasQuest(68030) and not IsQuestCompleted(68030) and not GetQuestStep(68030) == 2"/>
     </If>
     <If Condition="HasQuest(68030) and not IsQuestCompleted(68030) and GetQuestStep(68030) == 2">
-      <LisbethTravel ZoneId="614" XYZ="507.7597, 83.5686, 94.94852"/>
+      <GetTo ZoneId="614" XYZ="507.7597, 83.5686, 94.94852"/>
       <TalkTo NpcId="1020018" XYZ="507.7597, 83.5686, 94.94852" QuestId="68030" StepId="2"/>
     </If>
     <If Condition="HasQuest(68030) and not IsQuestCompleted(68030) and GetQuestStep(68030) == 3">
-      <LisbethTravel ZoneId="614" XYZ="370.1854, 85.57024, 32.55219"/>
+      <GetTo ZoneId="614" XYZ="370.1854, 85.57024, 32.55219"/>
       <UseObject NpcIds="2007836" XYZ="370.1854, 85.57024, 32.55219" QuestId="68030" StepId="3"/>
     </If>
     <If Condition="HasQuest(68030) and not IsQuestCompleted(68030) and GetQuestStep(68030) == 4">
-      <LisbethTravel ZoneId="614" XYZ="508.1969, 83.59189, 95.12865"/>
+      <GetTo ZoneId="614" XYZ="508.1969, 83.59189, 95.12865"/>
       <HandOver ItemId="2002067" InteractDistance="3.0" NpcId="1020018" XYZ="508.1969, 83.59189, 95.12865" QuestId="68030" StepId="4"/>
     </If>
     <If Condition="HasQuest(68030) and not IsQuestCompleted(68030) and GetQuestStep(68030) == 5">
-      <LisbethTravel ZoneId="614" XYZ="208.7289, 141.5289, -28.72351"/>
+      <GetTo ZoneId="614" XYZ="208.7289, 141.5289, -28.72351"/>
       <TalkTo NpcId="1020019" XYZ="208.7289, 141.5289, -28.72351" QuestId="68030" StepId="5"/>
     </If>
     <If Condition="HasQuest(68030) and not IsQuestCompleted(68030) and GetQuestStep(68030) == 255">
-      <LisbethTravel ZoneId="614" XYZ="397.8512, 72.83157, -97.19635"/>
+      <GetTo ZoneId="614" XYZ="397.8512, 72.83157, -97.19635"/>
       <TurnIn QuestId="68030" InteractDistance="3.0" NpcId="1020020" XYZ="397.8512, 72.83157, -97.19635"/>
     </If>
     <!-- A New Ruby Tithe (Level 64) -->
     <If Condition="IsQuestCompleted(68030) and not HasQuest(68031) and not IsQuestCompleted(68031)">
-      <LisbethTravel ZoneId="614" XYZ="397.8512, 72.83157, -97.19635"/>
+      <GetTo ZoneId="614" XYZ="397.8512, 72.83157, -97.19635"/>
       <If Condition="IsQuestAcceptQualified(68031)">
         <PickupQuest QuestId="68031" InteractDistance="3.0" NpcId="1020020" XYZ="397.8512, 72.83157, -97.19635"/>
       </If>
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 1">
-      <LisbethTravel ZoneId="614" XYZ="418.4874, 68.02851, -135.3786"/>
+      <GetTo ZoneId="614" XYZ="418.4874, 68.02851, -135.3786"/>
       <UseObject NpcIds="2007838" XYZ="418.4874, 68.02851, -135.3786" QuestId="68031" StepId="1"/>
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 2">
-      <LisbethTravel ZoneId="614" XYZ="417.8515, 68.02851, -133.9605"/>
+      <GetTo ZoneId="614" XYZ="417.8515, 68.02851, -133.9605"/>
       <TalkTo NpcId="1020022" XYZ="417.8515, 68.02851, -133.9605" QuestId="68031" StepId="2"/>
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 3">
-      <LisbethTravel ZoneId="614" XYZ="534.2928, 84.81051, 111.1983"/>
+      <GetTo ZoneId="614" XYZ="534.2928, 84.81051, 111.1983"/>
       <TalkTo NpcId="1020024" XYZ="534.2928, 84.81051, 111.1983" QuestId="68031" StepId="3"/>
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 4">
-      <LisbethTravel ZoneId="614" XYZ="498.9214, 78.11392, 147.0668"/>
+      <GetTo ZoneId="614" XYZ="498.9214, 78.11392, 147.0668"/>
 			<UserDialog QuestId="68031" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoom-zoom manually and hit continue." />
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 5">
-      <LisbethTravel ZoneId="614" XYZ="535.1069, 54.54139, 236.5954"/>
+      <GetTo ZoneId="614" XYZ="535.1069, 54.54139, 236.5954"/>
 			<UserDialog QuestId="68031" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoom-zoom manually and hit continue." />
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 6">
-      <LisbethTravel ZoneId="614" XYZ="303.2831, 16.61997, 585.0649"/>
+      <GetTo ZoneId="614" XYZ="303.2831, 16.61997, 585.0649"/>
       <TalkTo NpcId="1020025" XYZ="303.2831, 16.61997, 585.0649" QuestId="68031" StepId="6"/>
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 7">
-      <LisbethTravel ZoneId="614" XYZ="329.7429, 32.98788, 603.2724"/>
+      <GetTo ZoneId="614" XYZ="329.7429, 32.98788, 603.2724"/>
 			<UserDialog QuestId="68031" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the zoom-zoom manually and hit continue." />
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 8">
-      <LisbethTravel ZoneId="614" XYZ="303.843, 16.77227, 584.6717"/>
+      <GetTo ZoneId="614" XYZ="303.843, 16.77227, 584.6717"/>
       <TalkTo NpcId="1020025" XYZ="303.843, 16.77227, 584.6717" QuestId="68031" StepId="8"/>
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 255">
-      <LisbethTravel ZoneId="614" XYZ="406.455, 14.64187, 626.007"/>
+      <GetTo ZoneId="614" XYZ="406.455, 14.64187, 626.007"/>
       <TurnIn QuestId="68031" InteractDistance="3.0" NpcId="1020283" XYZ="406.455, 14.64187, 626.007"/>
     </If>
     <!-- The Will to Live (Level 64) -->
     <If Condition="IsQuestCompleted(68031) and not HasQuest(68032) and not IsQuestCompleted(68032)">
-      <LisbethTravel ZoneId="614" XYZ="406.455, 14.64187, 626.007"/>
+      <GetTo ZoneId="614" XYZ="406.455, 14.64187, 626.007"/>
       <If Condition="IsQuestAcceptQualified(68032)">
         <PickupQuest QuestId="68032" InteractDistance="3.0" NpcId="1023780" XYZ="406.455, 14.64187, 626.007"/>
       </If>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 1">
-      <LisbethTravel ZoneId="614" XYZ="359.0437, 22.67859, 572.8754"/>
+      <GetTo ZoneId="614" XYZ="359.0437, 22.67859, 572.8754"/>
       <UseObject NpcIds="2007839" XYZ="359.0437, 22.67859, 572.8754" QuestId="68032" StepId="1"/>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 2">
-      <LisbethTravel ZoneId="614" XYZ="435.2649, 14.64187, 619.6493"/>
+      <GetTo ZoneId="614" XYZ="435.2649, 14.64187, 619.6493"/>
       <TalkTo NpcId="1020042" XYZ="435.2649, 14.64187, 619.6493" QuestId="68032" StepId="2"/>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 3">
-      <LisbethTravel ZoneId="614" XYZ="435.849, 14.64187, 623.0855"/>
+      <GetTo ZoneId="614" XYZ="435.849, 14.64187, 623.0855"/>
 			<If Condition="GetQuestStep(68032) == 3">
-				<LisbethTravel ZoneId="614" XYZ="434.9021, 14.64187, 621.66"/>  
+				<GetTo ZoneId="614" XYZ="434.9021, 14.64187, 621.66"/>  
 				<LLTalkTo NpcId="1020043" XYZ="438.4375, 14.64187, 620.3555" QuestId="68032" StepId="3"/>
 				<If Condition="GetQuestStep(68032) == 3">
-					<LisbethTravel ZoneId="614" XYZ="434.9021, 14.64187, 621.66"/>  
+					<GetTo ZoneId="614" XYZ="434.9021, 14.64187, 621.66"/>  
 					<LLTalkTo NpcId="1020044" XYZ="438.4069, 14.64187, 622.217" QuestId="68032" StepId="3"/>
 					<If Condition="GetQuestStep(68032) == 3">
-						<LisbethTravel ZoneId="614" XYZ="434.9021, 14.64187, 621.66"/>  
+						<GetTo ZoneId="614" XYZ="434.9021, 14.64187, 621.66"/>  
 						<LLTalkTo NpcId="1020045" XYZ="439.0173, 14.64187, 624.0481" QuestId="68032" StepId="3"/>
 					</If>						
 				</If>				
 			</If>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 4">
-      <LisbethTravel ZoneId="614" XYZ="435.2998, 14.64187, 619.9541"/>
+      <GetTo ZoneId="614" XYZ="435.2998, 14.64187, 619.9541"/>
       <TalkTo NpcId="1020042" XYZ="435.2998, 14.64187, 619.9541" QuestId="68032" StepId="4"/>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 5">
-      <LisbethTravel ZoneId="614" XYZ="434.5184, 14.64187, 622.0693"/>
+      <GetTo ZoneId="614" XYZ="434.5184, 14.64187, 622.0693"/>
       <BotSettings AutoEquip="0"/>
       <RunCode Name="68031"/>
       <NoCombatMoveTo XYZ="453.2233, 14.64187, 629.2685"/>
@@ -1682,51 +1682,51 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <BotSettings AutoEquip="1"/>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 6">
-      <LisbethTravel ZoneId="614" XYZ="435.3741, 14.64187, 620.0533"/>
+      <GetTo ZoneId="614" XYZ="435.3741, 14.64187, 620.0533"/>
       <TalkTo NpcId="1020042" XYZ="435.3741, 14.64187, 620.0533" QuestId="68032" StepId="6"/>
     </If>
     <If Condition="HasQuest(68032) and not IsQuestCompleted(68032) and GetQuestStep(68032) == 255">
-      <LisbethTravel ZoneId="614" XYZ="457.7003, 29.99076, 764.0201"/>
+      <GetTo ZoneId="614" XYZ="457.7003, 29.99076, 764.0201"/>
       <TurnIn QuestId="68032" InteractDistance="3.0" NpcId="1020029" XYZ="457.7003, 29.99076, 764.0201"/>
     </If>
     <!-- Daughter of the Deep (Level 64) -->
     <If Condition="IsQuestCompleted(68032) and not HasQuest(68033) and not IsQuestCompleted(68033)">
-      <LisbethTravel ZoneId="614" XYZ="456.1518, 29.40103, 760.0186"/>
+      <GetTo ZoneId="614" XYZ="456.1518, 29.40103, 760.0186"/>
       <If Condition="IsQuestAcceptQualified(68033)">
         <PickupQuest QuestId="68033" InteractDistance="3.0" NpcId="1020046" XYZ="456.1518, 29.40103, 760.0186"/>
       </If>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 1">
-      <LisbethTravel ZoneId="614" XYZ="434.4792, 14.64187, 622.5245"/>
+      <GetTo ZoneId="614" XYZ="434.4792, 14.64187, 622.5245"/>
       <UseObject NpcIds="1020047" XYZ="434.4792, 14.64187, 622.5245" QuestId="68033" StepId="1"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 2">
-      <LisbethTravel ZoneId="614" XYZ="390.6317, 14.64187, 685.9533"/>
+      <GetTo ZoneId="614" XYZ="390.6317, 14.64187, 685.9533"/>
       <UseObject NpcIds="2007840" XYZ="390.6317, 14.64187, 685.9533" QuestId="68033" StepId="2"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 3">
-      <LisbethTravel ZoneId="614" XYZ="390.6317, 14.64187, 685.9533"/>
+      <GetTo ZoneId="614" XYZ="390.6317, 14.64187, 685.9533"/>
       <UseItem ItemId="2002070" NpcIds="1020049" XYZ="390.6317, 14.64187, 685.9533" QuestId="68033" StepId="3"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 4">
-      <LisbethTravel ZoneId="614" XYZ="434.3508, 14.64187, 624.8356"/>
+      <GetTo ZoneId="614" XYZ="434.3508, 14.64187, 624.8356"/>
       <UseObject NpcIds="1020048" XYZ="434.3508, 14.64187, 624.8356" QuestId="68033" StepId="4"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 5">
-      <LisbethTravel ZoneId="614" XYZ="485.524, 14.64184, 743.3757"/>
+      <GetTo ZoneId="614" XYZ="485.524, 14.64184, 743.3757"/>
       <UseObject NpcIds="2007841" XYZ="485.524, 14.64184, 743.3757" QuestId="68033" StepId="5"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 6">
-      <LisbethTravel ZoneId="614" XYZ="485.524, 14.64184, 743.3757"/>
+      <GetTo ZoneId="614" XYZ="485.524, 14.64184, 743.3757"/>
       <UseItem ItemId="2002070" NpcIds="1020050" XYZ="485.524, 14.64184, 743.3757" QuestId="68033" StepId="6"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 7">
-      <LisbethTravel ZoneId="614" XYZ="232.491, 1.402228, 755.9556"/>
+      <GetTo ZoneId="614" XYZ="232.491, 1.402228, 755.9556"/>
       <TalkTo NpcId="1020051" XYZ="232.491, 1.402228, 755.9556" QuestId="68033" StepId="7"/>
     </If>
     <If Condition="HasQuest(68033) and not IsQuestCompleted(68033) and GetQuestStep(68033) == 255">
       <If Condition="not IsOnSubMap(2805)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
       </If>
@@ -1736,7 +1736,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <!-- Path of No Return (Level 64) -->
     <If Condition="IsQuestCompleted(68033) and not HasQuest(68471) and not IsQuestCompleted(68471)">
       <If Condition="not IsOnMap(681)">
-        <LisbethTravel ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
+        <GetTo ZoneId="614" XYZ="439.4919, 68.58437, -88.57996"/>
         <NoCombatMoveTo XYZ="401.7245, -0.6000004, -289.5895"/>
         <RunCode Name="House_of_The_Fierce"/>
         <UseTransport InteractDistance="2.0" NpcId="1019291" XYZ="276.3561, 3.658416, -377.5235"/>
@@ -1746,27 +1746,27 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
     </If>
     <If Condition="HasQuest(68471) and not IsQuestCompleted(68471) and GetQuestStep(68471) == 1">
-      <!--<LisbethTravel ZoneId="614" XYZ="456.0302, 41.27082, -43.29512"/>-->
+      <!--<GetTo ZoneId="614" XYZ="456.0302, 41.27082, -43.29512"/>-->
       <TeleportTo Name="Namai" AetheryteId="107" Force="True"/>
       <TalkTo NpcId="1020053" XYZ="456.0302, 41.27082, -43.29512" QuestId="68471" StepId="1"/>
     </If>
     <If Condition="HasQuest(68471) and not IsQuestCompleted(68471) and GetQuestStep(68471) == 255">
-      <LisbethTravel ZoneId="614" XYZ="-463.6787, 1.230005, 535.5617"/>
+      <GetTo ZoneId="614" XYZ="-463.6787, 1.230005, 535.5617"/>
       <TurnIn QuestId="68471" InteractDistance="3.0" NpcId="1020055" XYZ="-463.6787, 1.230005, 535.5617"/>
     </If>
     <!-- The Time between the Seconds (Level 64) -->
     <If Condition="IsQuestCompleted(68471) and not HasQuest(68034) and not IsQuestCompleted(68034)">
-      <LisbethTravel ZoneId="614" XYZ="-463.6787, 1.230005, 535.5617"/>
+      <GetTo ZoneId="614" XYZ="-463.6787, 1.230005, 535.5617"/>
       <If Condition="IsQuestAcceptQualified(68034)">
         <PickupQuest QuestId="68034" InteractDistance="3.0" NpcId="1020055" XYZ="-463.6787, 1.230005, 535.5617"/>
       </If>
     </If>
     <If Condition="HasQuest(68034) and not IsQuestCompleted(68034) and GetQuestStep(68034) == 1">
-      <LisbethTravel ZoneId="614" XYZ="-245.4066, 16.93272, 577.5007"/>
+      <GetTo ZoneId="614" XYZ="-245.4066, 16.93272, 577.5007"/>
       <UseObject NpcIds="2007842" XYZ="-245.4066, 16.93272, 577.5007" QuestId="68034" StepId="1"/>
     </If>
     <If Condition="HasQuest(68034) and not IsQuestCompleted(68034) and GetQuestStep(68034) == 2">
-      <LisbethTravel ZoneId="614" XYZ="-247.4425, 16.93272, 577.3146"/>
+      <GetTo ZoneId="614" XYZ="-247.4425, 16.93272, 577.3146"/>
       <SimpleDuty InteractNpcId="1020056" XYZ="-247.9134, 16.93272, 577.4165" QuestId="68034" StepId="2">
         <HotSpots>
           <HotSpot XYZ="-243.2979, 16.1961, 539.5198" Radius="90"/>
@@ -1779,44 +1779,44 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <WaitWhile Condition="HasQuest(68034) and not IsQuestCompleted(68034) and not GetQuestStep(68034) == 255"/>
     </If>
     <If Condition="HasQuest(68034) and not IsQuestCompleted(68034) and GetQuestStep(68034) == 255">
-      <LisbethTravel ZoneId="614" XYZ="488.2383, 7.342312, 375.2588"/>
+      <GetTo ZoneId="614" XYZ="488.2383, 7.342312, 375.2588"/>
       <TurnIn QuestId="68034" InteractDistance="3.0" NpcId="1020057" XYZ="488.2383, 7.342312, 375.2588"/>
     </If>
     <!-- All the Little Angels (Level 64) -->
     <If Condition="IsQuestCompleted(68034) and not HasQuest(68035) and not IsQuestCompleted(68035)">
-      <LisbethTravel ZoneId="614" XYZ="489.8633, 8.324658, 373.3794"/>
+      <GetTo ZoneId="614" XYZ="489.8633, 8.324658, 373.3794"/>
       <If Condition="IsQuestAcceptQualified(68035)">
         <PickupQuest QuestId="68035" InteractDistance="3.0" NpcId="1020059" XYZ="489.8633, 8.324658, 373.3794"/>
       </If>
     </If>
     <If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 1">
-      <LisbethTravel ZoneId="614" XYZ="453.4409, 57.19851, -146.6246"/>
+      <GetTo ZoneId="614" XYZ="453.4409, 57.19851, -146.6246"/>
       <TalkTo NpcId="1020062" XYZ="453.4409, 57.19851, -146.6246" QuestId="68035" StepId="1"/>
     </If>
     <If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 2 and GetQuestById(68035).GetTodoArgs(2, 0).Item1 == 0">
-      <LisbethTravel ZoneId="614" XYZ="459.1113, 58.78894, -187.4568"/>
+      <GetTo ZoneId="614" XYZ="459.1113, 58.78894, -187.4568"/>
       <TalkTo NpcId="1020065" XYZ="459.1113, 58.78894, -187.4568" QuestId="68035"/>
     </If>
     <If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 2 and GetQuestById(68035).GetTodoArgs(2, 0).Item1 == 1">
-      <LisbethTravel ZoneId="614" XYZ="443.5064, 58.80057, -173.0222"/>
+      <GetTo ZoneId="614" XYZ="443.5064, 58.80057, -173.0222"/>
       <TalkTo NpcId="1020064" XYZ="443.5064, 58.80057, -173.0222" QuestId="68035"/>
     </If>
     <If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 2 and GetQuestById(68035).GetTodoArgs(2, 0).Item1 == 2">
-      <LisbethTravel ZoneId="614" XYZ="443.0082, 58.84785, -171.1373"/>
+      <GetTo ZoneId="614" XYZ="443.0082, 58.84785, -171.1373"/>
       <TalkTo NpcId="1020063" XYZ="443.0082, 58.84785, -171.1373" QuestId="68035"/>
     </If>
     <If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 2 and GetQuestById(68035).GetTodoArgs(2, 0).Item1 == 3">
-      <LisbethTravel ZoneId="614" XYZ="445.482, 68.02854, -73.50587"/>
+      <GetTo ZoneId="614" XYZ="445.482, 68.02854, -73.50587"/>
       <TalkTo NpcId="1020066" XYZ="445.482, 68.02854, -73.50587" QuestId="68035"/>
     </If>
     <If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 255">
-      <LisbethTravel ZoneId="614" XYZ="446.7554, 68.02853, -74.61173"/>
+      <GetTo ZoneId="614" XYZ="446.7554, 68.02853, -74.61173"/>
       <TurnIn QuestId="68035" InteractDistance="3.0" NpcId="1020067" XYZ="446.7554, 68.02853, -74.61173"/>
       <WaitWhile Condition="QuestLogManager.InCutscene"/>
     </If>
     <!-- Here There Be Xaela (Level 65) -->
     <If Condition="IsQuestCompleted(68035) and not HasQuest(68166) and not IsQuestCompleted(68166)">
-      <LisbethTravel ZoneId="614" XYZ="444.1121, 68.02853, -76.97729"/>
+      <GetTo ZoneId="614" XYZ="444.1121, 68.02853, -76.97729"/>
       <If Condition="IsQuestAcceptQualified(68166)">
         <PickupQuest QuestId="68166" InteractDistance="3.0" NpcId="1020068" XYZ="444.1121, 68.02853, -76.97729"/>
       </If>
@@ -2028,7 +2028,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
     </If>
     <If Condition="HasQuest(68043) and not IsQuestCompleted(68043) and GetQuestStep(68043) == 1">
-      <LisbethTravel ZoneId="622" XYZ="-507.7792, 71.22987, -512.024"/>
+      <GetTo ZoneId="622" XYZ="-507.7792, 71.22987, -512.024"/>
 			<If condition="&UseCarry; == 0">
 				<UserDialog QuestId="68043" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the dungeon Bardam's Mettle and hit continue." />
 			</If>
@@ -2056,20 +2056,20 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 			<WaitWhile Condition="GetQuestStep(68043) == 2"/>
 		</If>		
     <If Condition="HasQuest(68043) and not IsQuestCompleted(68043) and GetQuestStep(68043) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-507.3338, 70.85477, -501.7557"/>
+      <GetTo ZoneId="622" XYZ="-507.3338, 70.85477, -501.7557"/>
       <TurnIn QuestId="68043" InteractDistance="3.0" NpcId="1020682" XYZ="-507.3338, 70.85477, -501.7557"/>
 			<UseInventoryItem ItemId="20555"/>
     </If>
     <!-- The Children of Azim (Level 65) -->
     <If Condition="IsQuestCompleted(68043) and not HasQuest(68044) and not IsQuestCompleted(68044)">
-      <LisbethTravel ZoneId="622" XYZ="-507.3338, 70.85477, -501.7557"/>
+      <GetTo ZoneId="622" XYZ="-507.3338, 70.85477, -501.7557"/>
       <If Condition="IsQuestAcceptQualified(68044)">
         <PickupQuest QuestId="68044" InteractDistance="3.0" NpcId="1020682" XYZ="-507.3338, 70.85477, -501.7557"/>
       </If>
       <WaitWhile Condition="HasQuest(68044) and not IsQuestCompleted(68044) and not GetQuestStep(68044) == 255"/>
     </If>
     <If Condition="HasQuest(68044) and not IsQuestCompleted(68044) and GetQuestStep(68044) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-39.27767, 122.1, 63.58629"/>
+      <GetTo ZoneId="622" XYZ="-39.27767, 122.1, 63.58629"/>
       <TurnIn QuestId="68044" InteractDistance="3.0" NpcId="1019417" XYZ="-39.27767, 122.1, 63.58629"/>
     </If>
     <!-- The Labors of Magnai (Level 66) -->
@@ -2126,12 +2126,12 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <HandOver ItemId="2002207" NpcId="1020687" XYZ="102.9981, 114.905, 70.99219" QuestId="68045" StepId="4"/>
     </If>
     <If Condition="HasQuest(68045) and not IsQuestCompleted(68045) and GetQuestStep(68045) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-39.6168, 122.1, 63.59547"/>
+      <GetTo ZoneId="622" XYZ="-39.6168, 122.1, 63.59547"/>
       <TurnIn QuestId="68045" InteractDistance="3.0" NpcId="1019417" XYZ="-39.6168, 122.1, 63.59547"/>
     </If>
     <!-- For Love of the Moon (Level 66) -->
     <If Condition="IsQuestCompleted(68045) and not HasQuest(68046) and not IsQuestCompleted(68046)">
-      <LisbethTravel ZoneId="622" XYZ="-31.11352, 121.1207, 62.03188"/>
+      <GetTo ZoneId="622" XYZ="-31.11352, 121.1207, 62.03188"/>
       <If Condition="IsQuestAcceptQualified(68046)">
         <PickupQuest QuestId="68046" InteractDistance="3.0" NpcId="1021730" XYZ="-31.11352, 121.1207, 62.03188"/>
       </If>
@@ -2172,23 +2172,23 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1020689" XYZ="-28.12519, 114.905, -37.40926" QuestId="68046" StepId="4"/>
     </If>
     <If Condition="HasQuest(68046) and not IsQuestCompleted(68046) and GetQuestStep(68046) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-39.16619, 122.1, 63.54834"/>
+      <GetTo ZoneId="622" XYZ="-39.16619, 122.1, 63.54834"/>
       <TurnIn QuestId="68046" NpcId="1019417" InteractDistance="3.0" XYZ="-39.16619, 122.1, 63.54834"/>
     </If>
     <!-- Sworn Enemies of the Sun (Level 66) -->
     <If Condition="IsQuestCompleted(68046) and not HasQuest(68047) and not IsQuestCompleted(68047)">
-      <LisbethTravel ZoneId="622" XYZ="-39.16619, 122.1, 63.54834"/>
+      <GetTo ZoneId="622" XYZ="-39.16619, 122.1, 63.54834"/>
       <If Condition="IsQuestAcceptQualified(68047)">
         <PickupQuest QuestId="68047" NpcId="1019417" InteractDistance="3.0" XYZ="-39.16619, 122.1, 63.54834"/>
       </If>
     </If>
     <If Condition="HasQuest(68047) and not IsQuestCompleted(68047) and GetQuestStep(68047) == 1">
-      <LisbethTravel ZoneId="622" XYZ="63.24969, 114.905, 72.44996"/>
+      <GetTo ZoneId="622" XYZ="63.24969, 114.905, 72.44996"/>
       <TalkTo NpcId="1021605" XYZ="63.24969, 114.905, 72.44996" QuestId="68047" StepId="1"/>
     </If>
     <If Condition="HasQuest(68047) and not IsQuestCompleted(68047) and GetQuestStep(68047) == 2">
       <If Condition="not IsOnMap(622)">
-        <LisbethTravel ZoneId="622" XYZ="-136.8699, 15.55881, 580.166"/>
+        <GetTo ZoneId="622" XYZ="-136.8699, 15.55881, 580.166"/>
       </If>
       <UseTransport NpcId="1019424" InteractDistance="3.0" XYZ="66.20763, 114.905, -8.062243"/>
       <NoCombatMoveTo XYZ="-136.8699, 15.55881, 580.166"/>
@@ -2196,210 +2196,210 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <WaitWhile Condition="HasQuest(68047) and not IsQuestCompleted(68047) and not GetQuestStep(68047) == 3"/>
     </If>
     <If Condition="HasQuest(68047) and not IsQuestCompleted(68047) and GetQuestStep(68047) == 3">
-      <LisbethTravel ZoneId="622" XYZ="-291.5847, 10.65852, 602.0142"/>
+      <GetTo ZoneId="622" XYZ="-291.5847, 10.65852, 602.0142"/>
       <UseObject NpcId="1021608" XYZ="-291.5847, 10.65852, 602.0142" QuestId="68047" StepId="3"/>
     </If>
     <If Condition="HasQuest(68047) and not IsQuestCompleted(68047) and GetQuestStep(68047) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-290.1876, 10.36397, 598.705"/>
+      <GetTo ZoneId="622" XYZ="-290.1876, 10.36397, 598.705"/>
       <TurnIn QuestId="68047" InteractDistance="3.0" NpcId="1021625" XYZ="-290.1876, 10.36397, 598.705"/>
     </If>
     <!-- The Undying Ones (Level 66) -->
     <If Condition="IsQuestCompleted(68047) and not HasQuest(68048) and not IsQuestCompleted(68048)">
-      <LisbethTravel ZoneId="622" XYZ="-290.1876, 10.36397, 598.705"/>
+      <GetTo ZoneId="622" XYZ="-290.1876, 10.36397, 598.705"/>
       <If Condition="IsQuestAcceptQualified(68048)">
         <PickupQuest QuestId="68048" InteractDistance="3.0" NpcId="1021625" XYZ="-290.1876, 10.36397, 598.705"/>
       </If>
     </If>
     <If Condition="HasQuest(68048) and not IsQuestCompleted(68048) and GetQuestStep(68048) == 1">
-      <LisbethTravel ZoneId="622" XYZ="-447.8247, 3.08372, 545.9018"/>
+      <GetTo ZoneId="622" XYZ="-447.8247, 3.08372, 545.9018"/>
       <TalkTo NpcId="1021611" XYZ="-447.8247, 3.08372, 545.9018" QuestId="68048" StepId="1"/>
     </If>
     <If Condition="HasQuest(68048) and not IsQuestCompleted(68048) and GetQuestStep(68048) == 2">
-      <LisbethTravel ZoneId="622" XYZ="-450.5642, 3.423968, 540.4245"/>
+      <GetTo ZoneId="622" XYZ="-450.5642, 3.423968, 540.4245"/>
       <TalkTo NpcId="1021613" XYZ="-450.5642, 3.423968, 540.4245" QuestId="68048" StepId="2"/>
     </If>
     <If Condition="HasQuest(68048) and not IsQuestCompleted(68048) and GetQuestStep(68048) == 3 and GetQuestById(68048).GetTodoArgs(3, 0).Item1 == 0">
-      <LisbethTravel ZoneId="622" XYZ="-435.3593, 2.261327, 582.2807"/>
+      <GetTo ZoneId="622" XYZ="-435.3593, 2.261327, 582.2807"/>
       <TalkTo NpcId="1019320" XYZ="-435.3593, 2.261327, 582.2807" QuestId="68048"/>
     </If>
     <If Condition="HasQuest(68048) and not IsQuestCompleted(68048) and GetQuestStep(68048) == 3 and GetQuestById(68048).GetTodoArgs(3, 0).Item1 == 1">
-      <LisbethTravel ZoneId="622" XYZ="-411.8313, 2.24758, 616.9207"/>
+      <GetTo ZoneId="622" XYZ="-411.8313, 2.24758, 616.9207"/>
       <TalkTo NpcId="1019322" XYZ="-411.8313, 2.24758, 616.9207" QuestId="68048"/>
     </If>
     <If Condition="HasQuest(68048) and not IsQuestCompleted(68048) and GetQuestStep(68048) == 3 and GetQuestById(68048).GetTodoArgs(3, 0).Item1 == 2">
-      <LisbethTravel ZoneId="622" XYZ="-472.9873, 2.320035, 616.9202"/>
+      <GetTo ZoneId="622" XYZ="-472.9873, 2.320035, 616.9202"/>
       <TalkTo NpcId="1019321" XYZ="-472.9873, 2.320035, 616.9202" QuestId="68048"/>
     </If>
     <If Condition="HasQuest(68048) and not IsQuestCompleted(68048) and GetQuestStep(68048) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-398.9695, 2.25768, 599.2399"/>
+      <GetTo ZoneId="622" XYZ="-398.9695, 2.25768, 599.2399"/>
       <TurnIn QuestId="68048" InteractDistance="3.0" NpcId="1021615" XYZ="-398.9695, 2.25768, 599.2399"/>
     </If>
     <!-- A Final Peace (Level 66) -->
     <If Condition="IsQuestCompleted(68048) and not HasQuest(68049) and not IsQuestCompleted(68049)">
-      <LisbethTravel ZoneId="622" XYZ="-398.9695, 2.25768, 599.2399"/>
+      <GetTo ZoneId="622" XYZ="-398.9695, 2.25768, 599.2399"/>
       <If Condition="IsQuestAcceptQualified(68049)">
         <PickupQuest QuestId="68049" InteractDistance="3.0" NpcId="1021615" XYZ="-398.9695, 2.25768, 599.2399"/>
       </If>
     </If>
     <If Condition="HasQuest(68049) and not IsQuestCompleted(68049) and GetQuestStep(68049) == 1">
-      <LisbethTravel ZoneId="622" XYZ="-447.6122, 2.277143, 631.8716"/>
+      <GetTo ZoneId="622" XYZ="-447.6122, 2.277143, 631.8716"/>
       <TalkTo NpcId="1020280" XYZ="-447.6122, 2.277143, 631.8716" QuestId="68049" StepId="1"/>
     </If>
     <If Condition="HasQuest(68049) and not IsQuestCompleted(68049) and GetQuestStep(68049) == 2">
-      <LisbethTravel ZoneId="622" XYZ="-704.3717, 6.362976, 615.0759"/>
+      <GetTo ZoneId="622" XYZ="-704.3717, 6.362976, 615.0759"/>
       <UseObject NpcIds="2008484" XYZ="-704.3717, 6.362976, 615.0759" QuestId="68049" StepId="2"/>
     </If>
     <If Condition="HasQuest(68049) and not IsQuestCompleted(68049) and GetQuestStep(68049) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-705.5469, 6.556923, 613.1005"/>
+      <GetTo ZoneId="622" XYZ="-705.5469, 6.556923, 613.1005"/>
       <TurnIn QuestId="68049" InteractDistance="3.0" NpcId="1021628" XYZ="-705.5469, 6.556923, 613.1005"/>
     </If>
     <!-- As the Gods Will (Level 66) -->
     <If Condition="IsQuestCompleted(68049) and not HasQuest(68050) and not IsQuestCompleted(68050)">
-      <LisbethTravel ZoneId="622" XYZ="-705.5469, 6.556923, 613.1005"/>
+      <GetTo ZoneId="622" XYZ="-705.5469, 6.556923, 613.1005"/>
       <If Condition="IsQuestAcceptQualified(68050)">
         <PickupQuest QuestId="68050" InteractDistance="3.0" NpcId="1021628" XYZ="-705.5469, 6.556923, 613.1005"/>
       </If>
     </If>
     <If Condition="HasQuest(68050) and not IsQuestCompleted(68050) and GetQuestStep(68050) == 1">
       <If Condition="not IsOnSubMap(2822)">
-        <LisbethTravel ZoneId="622" XYZ="64.21237, 8.799978, 40.72631"/>
+        <GetTo ZoneId="622" XYZ="64.21237, 8.799978, 40.72631"/>
         <UseTransport InteractDistance="3.0" NpcId="1019423" XYZ="61.60059, 8.799953, 41.12305"/>
       </If>
-      <LisbethTravel ZoneId="622" XYZ="-39.19804, 122.1, 63.62787"/>
+      <GetTo ZoneId="622" XYZ="-39.19804, 122.1, 63.62787"/>
       <TalkTo NpcId="1019417" XYZ="-39.19804, 122.1, 63.62787" QuestId="68050" StepId="1"/>
     </If>
     <If Condition="HasQuest(68050) and not IsQuestCompleted(68050) and GetQuestStep(68050) == 2">
       <If Condition="not IsOnSubMap(2822)">
-        <LisbethTravel ZoneId="622" XYZ="64.21237, 8.799978, 40.72631"/>
+        <GetTo ZoneId="622" XYZ="64.21237, 8.799978, 40.72631"/>
         <UseTransport InteractDistance="3.0" NpcId="1019423" XYZ="61.60059, 8.799953, 41.12305"/>
       </If>
-      <LisbethTravel ZoneId="622" XYZ="59.47773, 114.905, 72.20789"/>
+      <GetTo ZoneId="622" XYZ="59.47773, 114.905, 72.20789"/>
       <TalkTo NpcId="1021630" XYZ="59.47773, 114.905, 72.20789" QuestId="68050" StepId="2"/>
     </If>
     <If Condition="HasQuest(68050) and not IsQuestCompleted(68050) and GetQuestStep(68050) == 255">
       <If Condition="IsOnSubMap(2822)">
-        <LisbethTravel ZoneId="622" XYZ="66.20763, 114.905, -8.062243"/>
+        <GetTo ZoneId="622" XYZ="66.20763, 114.905, -8.062243"/>
         <UseTransport InteractDistance="3.0" NpcId="1019424" XYZ="66.20763, 114.905, -8.062243"/>
       </If>
-      <LisbethTravel ZoneId="622" XYZ="498.3662, 40.8361, -508.3227"/>
+      <GetTo ZoneId="622" XYZ="498.3662, 40.8361, -508.3227"/>
       <TurnIn QuestId="68050" InteractDistance="3.0" NpcId="1020539" XYZ="498.3662, 40.8361, -508.3227"/>
     </If>
     <!-- Naadam (Level 66) -->
     <If Condition="IsQuestCompleted(68050) and not HasQuest(68051) and not IsQuestCompleted(68051)">
-      <LisbethTravel ZoneId="622" XYZ="498.3662, 40.8361, -508.3227"/>
+      <GetTo ZoneId="622" XYZ="498.3662, 40.8361, -508.3227"/>
       <If Condition="IsQuestAcceptQualified(68051)">
         <PickupQuest QuestId="68051" InteractDistance="3.0" NpcId="1020539" XYZ="498.3662, 40.8361, -508.3227"/>
       </If>
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 1 and GetQuestById(68051).GetTodoArgs(1, 0).Item1 == 0">
-      <LisbethTravel ZoneId="622" XYZ="501.143, 40.83609, -506.0058"/>
+      <GetTo ZoneId="622" XYZ="501.143, 40.83609, -506.0058"/>
       <TalkTo NpcId="1019386" XYZ="501.143, 40.83609, -506.0058" QuestId="68051"/>
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 1 and GetQuestById(68051).GetTodoArgs(1, 0).Item1 == 1">
-      <LisbethTravel ZoneId="622" XYZ="508.0885, 40.4257, -482.6865" QuestId="68051"/>
+      <GetTo ZoneId="622" XYZ="508.0885, 40.4257, -482.6865" QuestId="68051"/>
       <TalkTo NpcId="1019388" XYZ="508.0885, 40.4257, -482.6865" QuestId="68051"/>
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 1 and GetQuestById(68051).GetTodoArgs(1, 0).Item1 == 2">
-      <LisbethTravel ZoneId="622" XYZ="542.1109, 40.4257, -500.5084" QuestId="68051"/>
+      <GetTo ZoneId="622" XYZ="542.1109, 40.4257, -500.5084" QuestId="68051"/>
       <TalkTo NpcId="1019396" XYZ="542.1109, 40.4257, -500.5084" QuestId="68051"/>
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 1 and GetQuestById(68051).GetTodoArgs(1, 0).Item1 == 3">
-      <LisbethTravel ZoneId="622" XYZ="547.1365, 38.85466, -484.1414"/>
+      <GetTo ZoneId="622" XYZ="547.1365, 38.85466, -484.1414"/>
       <LLTalkTo InteractDistance="3.0" NpcId="1021634" XYZ="547.1365, 38.85466, -484.1414" DialogOption="1" QuestId="68051"/>
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 2">
-      <LisbethTravel ZoneId="622" XYZ="496.5729, 40.8586, -510.4495"/>
+      <GetTo ZoneId="622" XYZ="496.5729, 40.8586, -510.4495"/>
       <TalkTo NpcId="1019382" XYZ="496.5729, 40.8586, -510.4495" QuestId="68051" StepId="2"/>
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 3">
-      <LisbethTravel ZoneId="622" XYZ="498.3189, 40.8361, -508.2768"/>
+      <GetTo ZoneId="622" XYZ="498.3189, 40.8361, -508.2768"/>
 			<UserDialog QuestId="68051" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the next duty manually." />
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 255">
-      <LisbethTravel ZoneId="622" XYZ="486.7548, 40.07708, -465.6007"/>
+      <GetTo ZoneId="622" XYZ="486.7548, 40.07708, -465.6007"/>
       <TurnIn QuestId="68051" InteractDistance="3.0" NpcId="1020540" XYZ="486.7548, 40.07708, -465.6007"/>
     </If>
     <!-- Glory to the Khagan (Level 66) -->
     <If Condition="IsQuestCompleted(68051) and not HasQuest(68052) and not IsQuestCompleted(68052)">
-      <LisbethTravel ZoneId="622" XYZ="486.7548, 40.07708, -465.6007"/>
+      <GetTo ZoneId="622" XYZ="486.7548, 40.07708, -465.6007"/>
       <If Condition="IsQuestAcceptQualified(68052)">
         <PickupQuest QuestId="68052" InteractDistance="3.0" NpcId="1020540" XYZ="486.7548, 40.07708, -465.6007"/>
       </If>
     </If>
     <If Condition="HasQuest(68052) and not IsQuestCompleted(68052) and GetQuestStep(68052) == 1">
-      <LisbethTravel ZoneId="622" XYZ="496.6307, 41.10452, -510.6679"/>
+      <GetTo ZoneId="622" XYZ="496.6307, 41.10452, -510.6679"/>
       <TalkTo NpcId="1019382" XYZ="496.6307, 41.10452, -510.6679" QuestId="68052" StepId="1"/>
     </If>
     <If Condition="HasQuest(68052) and not IsQuestCompleted(68052) and GetQuestStep(68052) == 2">
-      <LisbethTravel ZoneId="622" XYZ="547.0349, 38.87275, -484.2224"/>
+      <GetTo ZoneId="622" XYZ="547.0349, 38.87275, -484.2224"/>
       <TalkTo NpcId="1021634" XYZ="547.0349, 38.87275, -484.2224" QuestId="68052" StepId="2"/>
       <WaitWhile Condition="HasQuest(68052) and not IsQuestCompleted(68052) and not GetQuestStep(68052) == 3"/>
     </If>
     <If Condition="HasQuest(68052) and not IsQuestCompleted(68052) and GetQuestStep(68052) == 3">
-      <LisbethTravel ZoneId="622" XYZ="545.6717, 38.87797, -483.259"/>
+      <GetTo ZoneId="622" XYZ="545.6717, 38.87797, -483.259"/>
       <MoveTo Distance="0.5" XYZ="546.1561, 38.77595, -482.7362"/>
       <SoSendChat Emote="victorypose" QuestId="68052" StepId="3"/>
       <WaitWhile Condition="HasQuest(68052) and not IsQuestCompleted(68052) and not GetQuestStep(68052) == 255"/>
     </If>
     <If Condition="HasQuest(68052) and not IsQuestCompleted(68052) and GetQuestStep(68052) == 255">
-      <LisbethTravel ZoneId="622" XYZ="498.2062, 40.8361, -508.0099"/>
+      <GetTo ZoneId="622" XYZ="498.2062, 40.8361, -508.0099"/>
       <TurnIn QuestId="68052" InteractDistance="3.0" NpcId="1020539" XYZ="498.2062, 40.8361, -508.0099"/>
     </If>
     <!-- In Crimson They Walked (Level 66) -->
     <If Condition="IsQuestCompleted(68052) and not HasQuest(68053) and not IsQuestCompleted(68053)">
-      <LisbethTravel ZoneId="622" XYZ="495.1225, 40.83613, -508.308"/>
+      <GetTo ZoneId="622" XYZ="495.1225, 40.83613, -508.308"/>
       <If Condition="IsQuestAcceptQualified(68053)">
         <PickupQuest QuestId="68053" InteractDistance="3.0" NpcId="1021633" XYZ="495.1225, 40.83613, -508.308"/>
       </If>
     </If>
     <If Condition="HasQuest(68053) and not IsQuestCompleted(68053) and GetQuestStep(68053) == 1">
-      <LisbethTravel ZoneId="622" XYZ="-39.21331, 122.1, 63.56859"/>
+      <GetTo ZoneId="622" XYZ="-39.21331, 122.1, 63.56859"/>
       <TalkTo NpcId="1019417" XYZ="-39.21331, 122.1, 63.56859" QuestId="68053" StepId="1"/>
     </If>
     <If Condition="HasQuest(68053) and not IsQuestCompleted(68053) and GetQuestStep(68053) == 2">
-      <LisbethTravel ZoneId="622" XYZ="-447.9425, 2.277143, 632.4543"/>
+      <GetTo ZoneId="622" XYZ="-447.9425, 2.277143, 632.4543"/>
       <TalkTo NpcId="1020280" XYZ="-447.9425, 2.277143, 632.4543" QuestId="68053" StepId="2"/>
     </If>
     <If Condition="HasQuest(68053) and not IsQuestCompleted(68053) and GetQuestStep(68053) == 255">
-      <LisbethTravel ZoneId="622" XYZ="-167.9684, 0.8866953, 816.6306"/>
+      <GetTo ZoneId="622" XYZ="-167.9684, 0.8866953, 816.6306"/>
       <TurnIn QuestId="68053" InteractDistance="3.0" NpcId="1021646" XYZ="-167.9684, 0.8866953, 816.6306"/>
     </If>
     <!-- The Hour of Reckoning (Level 66) -->
     <If Condition="IsQuestCompleted(68053) and not HasQuest(68054) and not IsQuestCompleted(68054)">
-      <LisbethTravel ZoneId="622" XYZ="-169.5539, 0.9230028, 817.0824"/>
+      <GetTo ZoneId="622" XYZ="-169.5539, 0.9230028, 817.0824"/>
       <If Condition="IsQuestAcceptQualified(68054)">
         <PickupQuest QuestId="68054" InteractDistance="3.0" NpcId="1021647" XYZ="-169.5539, 0.9230028, 817.0824"/>
       </If>
     </If>
     <If Condition="HasQuest(68054) and not IsQuestCompleted(68054) and GetQuestStep(68054) == 1">
 			<If condition="IsOnMap(622)">
-				<LisbethTravel ZoneId="622" XYZ="-161.7426, 0.6402123, 846.9229" />
+				<GetTo ZoneId="622" XYZ="-161.7426, 0.6402123, 846.9229" />
 				<LLChangeZone Heading="0.1951842" />
 			</If>
-      <LisbethTravel ZoneId="614" XYZ="508.3212, 14.11525, -856.4196"/>
+      <GetTo ZoneId="614" XYZ="508.3212, 14.11525, -856.4196"/>
       <TalkTo NpcId="1021652" XYZ="508.3212, 14.11525, -856.4196" QuestId="68054" StepId="1"/>
     </If>
     <If Condition="HasQuest(68054) and not IsQuestCompleted(68054) and GetQuestStep(68054) == 2">
-      <LisbethTravel ZoneId="614" XYZ="330.674, 23.26611, -542.5783"/>
+      <GetTo ZoneId="614" XYZ="330.674, 23.26611, -542.5783"/>
       <TalkTo NpcId="1021692" XYZ="330.674, 23.26611, -542.5783" QuestId="68054" StepId="2"/>
     </If>
     <If Condition="HasQuest(68054) and not IsQuestCompleted(68054) and GetQuestStep(68054) == 255">
-      <LisbethTravel ZoneId="614" XYZ="173.9905, 5.16971, -417.7367"/>
+      <GetTo ZoneId="614" XYZ="173.9905, 5.16971, -417.7367"/>
       <TurnIn QuestId="68054" InteractDistance="3.0" NpcId="1020519" XYZ="173.9905, 5.16971, -417.7367"/>
     </If>
     <!-- The Room Where It Happened (Level 67) -->
     <If Condition="IsQuestCompleted(68054) and not HasQuest(68055) and not IsQuestCompleted(68055)">
-      <LisbethTravel ZoneId="614" XYZ="173.8764, 5.16971, -417.9512"/>
+      <GetTo ZoneId="614" XYZ="173.8764, 5.16971, -417.9512"/>
       <If Condition="IsQuestAcceptQualified(68055)">
         <PickupQuest QuestId="68055" NpcId="1020519" XYZ="173.8764, 5.16971, -417.9512"/>
       </If>
     </If>
     <If Condition="HasQuest(68055) and not IsQuestCompleted(68055) and GetQuestStep(68055) == 1">
-      <LisbethTravel ZoneId="614" XYZ="173.3102, 5.19123, -433.438"/>
+      <GetTo ZoneId="614" XYZ="173.3102, 5.19123, -433.438"/>
       <TalkTo NpcId="1020524" XYZ="173.3102, 5.19123, -433.438" QuestId="68055" StepId="1"/>
     </If>
     <If Condition="HasQuest(68055) and not IsQuestCompleted(68055) and GetQuestStep(68055) == 2">
-      <LisbethTravel ZoneId="614" XYZ="173.7664, 5.16971, -417.4932"/>
+      <GetTo ZoneId="614" XYZ="173.7664, 5.16971, -417.4932"/>
       <TalkTo NpcId="1020519" XYZ="173.7664, 5.16971, -417.4932" QuestId="68055" StepId="2"/>
     </If>
     <If Condition="HasQuest(68055) and not IsQuestCompleted(68055) and GetQuestStep(68055) == 255">
@@ -2434,80 +2434,80 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <HandOver ItemId="2002174" NpcId="1023084" XYZ="-1.482813, 0, -1.259722" QuestId="68482" StepId="2"/>
     </If>
     <If Condition="HasQuest(68482) and not IsQuestCompleted(68482) and GetQuestStep(68482) == 255">
-      <LisbethTravel ZoneId="614" XYZ="173.8902, 5.16971, -417.3837"/>
+      <GetTo ZoneId="614" XYZ="173.8902, 5.16971, -417.3837"/>
       <TurnIn ItemId="2002175" QuestId="68482" NpcId="1020519" InteractDistance="3.0" XYZ="173.8902, 5.16971, -417.3837"/>
     </If>
     <!-- Seeds of Despair (Level 67) -->
     <If Condition="IsQuestCompleted(68482) and not HasQuest(68056) and not IsQuestCompleted(68056)">
-      <LisbethTravel ZoneId="614" XYZ="173.8902, 5.16971, -417.3837"/>
+      <GetTo ZoneId="614" XYZ="173.8902, 5.16971, -417.3837"/>
       <If Condition="IsQuestAcceptQualified(68056)">
         <PickupQuest QuestId="68056" InteractDistance="3.0" NpcId="1020519" XYZ="173.8902, 5.16971, -417.3837"/>
       </If>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 1">
-      <LisbethTravel ZoneId="614" XYZ="235.8714, 4.454769, -382.8048"/>
+      <GetTo ZoneId="614" XYZ="235.8714, 4.454769, -382.8048"/>
       <TalkTo NpcId="1020520" XYZ="235.8714, 4.454769, -382.8048" QuestId="68056" StepId="1"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 2">
-      <LisbethTravel ZoneId="614" XYZ="280.47, 16.09152, -641.4588"/>
+      <GetTo ZoneId="614" XYZ="280.47, 16.09152, -641.4588"/>
       <UseObject NpcIds="2007923" XYZ="280.47, 16.09152, -641.4588" QuestId="68056" StepId="2"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 3">
-      <LisbethTravel ZoneId="614" XYZ="284.5137, 6.83475, -792.6904"/>
+      <GetTo ZoneId="614" XYZ="284.5137, 6.83475, -792.6904"/>
       <UseObject NpcIds="2007924" XYZ="284.5137, 6.83475, -792.6904" QuestId="68056" StepId="3"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 4">
-      <LisbethTravel ZoneId="614" XYZ="462.7841, -3.451473, -799.2636"/>
+      <GetTo ZoneId="614" XYZ="462.7841, -3.451473, -799.2636"/>
       <UseTransport NpcId="1020228" InteractDistance="3.0" XYZ="462.7841, -3.451473, -799.2636" DialogOption="0" QuestId="68056" StepId="4"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 5">
-      <LisbethTravel ZoneId="614" XYZ="552.0418, 23.15463, -690.6907"/>
+      <GetTo ZoneId="614" XYZ="552.0418, 23.15463, -690.6907"/>
       <TalkTo NpcId="1020230" XYZ="552.0418, 23.15463, -690.6907" QuestId="68056" StepId="5"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 6">
-      <LisbethTravel ZoneId="614" XYZ="552.0418, 23.15463, -690.6907"/>
+      <GetTo ZoneId="614" XYZ="552.0418, 23.15463, -690.6907"/>
       <WaitWhile Condition="HasQuest(68056) and not IsQuestCompleted(68056) and not GetQuestStep(68056) == 7"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 7">
-      <LisbethTravel ZoneId="614" XYZ="498.9214, 11.84389, -838.2575"/>
+      <GetTo ZoneId="614" XYZ="498.9214, 11.84389, -838.2575"/>
       <TalkTo NpcId="1020273" XYZ="498.9214, 11.84389, -838.2575" QuestId="68056" StepId="7"/>
     </If>
     <If Condition="HasQuest(68056) and not IsQuestCompleted(68056) and GetQuestStep(68056) == 255">
-      <LisbethTravel ZoneId="614" XYZ="235.8236, 4.471331, -382.6911"/>
+      <GetTo ZoneId="614" XYZ="235.8236, 4.471331, -382.6911"/>
       <TurnIn QuestId="68056" InteractDistance="3.0" NpcId="1020520" XYZ="235.8236, 4.471331, -382.6911"/>
     </If>
     <!-- The Limits of Our Endurance (Level 67) -->
     <If Condition="IsQuestCompleted(68056) and not HasQuest(68057) and not IsQuestCompleted(68057)">
-      <LisbethTravel ZoneId="614" XYZ="235.8236, 4.471331, -382.6911"/>
+      <GetTo ZoneId="614" XYZ="235.8236, 4.471331, -382.6911"/>
       <If Condition="IsQuestAcceptQualified(68057)">
         <PickupQuest QuestId="68057" InteractDistance="3.0" NpcId="1020520" XYZ="235.8236, 4.471331, -382.6911"/>
       </If>
     </If>
     <If Condition="HasQuest(68057) and not IsQuestCompleted(68057) and GetQuestStep(68057) == 1">
-      <LisbethTravel ZoneId="614" XYZ="188.1972, 5.069492, -414.9248"/>
+      <GetTo ZoneId="614" XYZ="188.1972, 5.069492, -414.9248"/>
       <TalkTo NpcId="1020521" XYZ="188.1972, 5.069492, -414.9248" QuestId="68057" StepId="1"/>
     </If>
     <If Condition="HasQuest(68057) and not IsQuestCompleted(68057) and GetQuestStep(68057) == 2">
-      <LisbethTravel ZoneId="614" XYZ="442.5113, 58.87671, -171.2374"/>
+      <GetTo ZoneId="614" XYZ="442.5113, 58.87671, -171.2374"/>
       <TalkTo NpcId="1023092" XYZ="442.5113, 58.87671, -171.2374" QuestId="68057" StepId="2"/>
     </If>
     <If Condition="HasQuest(68057) and not IsQuestCompleted(68057) and GetQuestStep(68057) == 255">
-      <LisbethTravel ZoneId="614" XYZ="337.0003, 31.08492, 207.016"/>
+      <GetTo ZoneId="614" XYZ="337.0003, 31.08492, 207.016"/>
       <TurnIn QuestId="68057" InteractDistance="3.0" NpcId="1020232" XYZ="337.0003, 31.08492, 207.016"/>
     </If>
     <!-- Broken Steel, Broken Men (Level 67) -->
     <If Condition="IsQuestCompleted(68057) and not HasQuest(68483) and not IsQuestCompleted(68483)">
-      <LisbethTravel ZoneId="614" XYZ="337.4386, 31.01581, 206.7066"/>
+      <GetTo ZoneId="614" XYZ="337.4386, 31.01581, 206.7066"/>
       <If Condition="IsQuestAcceptQualified(68483)">
         <PickupQuest QuestId="68483" InteractDistance="3.0" NpcId="1020232" XYZ="337.4386, 31.01581, 206.7066"/>
       </If>
     </If>
     <If Condition="HasQuest(68483) and not IsQuestCompleted(68483) and GetQuestStep(68483) == 1">
-      <LisbethTravel ZoneId="614" XYZ="165.3785, 6.313306, 357.9842"/>
+      <GetTo ZoneId="614" XYZ="165.3785, 6.313306, 357.9842"/>
       <UseItem ItemId="2002176" NpcId="2007926" XYZ="165.3785, 6.313306, 357.9842" QuestId="68483" StepId="1"/>
     </If>
     <If Condition="HasQuest(68483) and not IsQuestCompleted(68483) and GetQuestStep(68483) == 2">
-      <LisbethTravel ZoneId="614" XYZ="165.5403, 4.352991, 349.3151"/>
+      <GetTo ZoneId="614" XYZ="165.5403, 4.352991, 349.3151"/>
       <UseObject NpcIds="2007928, 2007929, 2007930" QuestId="68483" StepId="2">
         <HotSpots>
           <HotSpot XYZ="165.5403, 4.352991, 349.3151" Radius="20"/>
@@ -2517,11 +2517,11 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </UseObject>
     </If>
     <If Condition="HasQuest(68483) and not IsQuestCompleted(68483) and GetQuestStep(68483) == 3">
-      <LisbethTravel ZoneId="614" XYZ="40.88324, 5.490985, 301.2398"/>
+      <GetTo ZoneId="614" XYZ="40.88324, 5.490985, 301.2398"/>
       <UseItem ItemId="2002176" NpcId="2007927" XYZ="40.88324, 5.490985, 301.2398" QuestId="68483" StepId="3"/>
     </If>
     <If Condition="HasQuest(68483) and not IsQuestCompleted(68483) and GetQuestStep(68483) == 4">
-      <LisbethTravel ZoneId="614" XYZ="33.81889, 4.835407, 308.3878"/>
+      <GetTo ZoneId="614" XYZ="33.81889, 4.835407, 308.3878"/>
       <UseObject NpcIds="2008190,2008191,2008192,2008193,2008188,2008189" QuestId="68483" StepId="4">
         <HotSpots>
           <HotSpot XYZ="33.81889, 4.835407, 308.3878" Radius="20"/>
@@ -2534,88 +2534,88 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </UseObject>
     </If>
     <If Condition="HasQuest(68483) and not IsQuestCompleted(68483) and GetQuestStep(68483) == 255">
-      <LisbethTravel ZoneId="614" XYZ="337.4832, 31.012, 206.576"/>
+      <GetTo ZoneId="614" XYZ="337.4832, 31.012, 206.576"/>
       <TurnIn ItemId="2002177" QuestId="68483" NpcId="1020232" InteractDistance="3.0" XYZ="337.4832, 31.012, 206.576"/>
     </If>
     <!-- The Doma Within (Level 67) -->
     <If Condition="IsQuestCompleted(68483) and not HasQuest(68058) and not IsQuestCompleted(68058)">
-      <LisbethTravel ZoneId="614" XYZ="336.9681, 31.11511, 203.6284"/>
+      <GetTo ZoneId="614" XYZ="336.9681, 31.11511, 203.6284"/>
       <If Condition="IsQuestAcceptQualified(68058)">
         <PickupQuest QuestId="68058" InteractDistance="3.0" NpcId="1020234" XYZ="336.9681, 31.11511, 203.6284"/>
       </If>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 1 and GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 0">
-      <LisbethTravel ZoneId="614" XYZ="233.5597, 5.242018, -425.2724"/>
+      <GetTo ZoneId="614" XYZ="233.5597, 5.242018, -425.2724"/>
       <TalkTo NpcId="1019286" InteractDistance="3.0" XYZ="233.5597, 5.242018, -425.2724" QuestId="68058"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 1 and GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 1">
-      <LisbethTravel ZoneId="614" XYZ="196.7047, 5.167062, -411.3493"/>
+      <GetTo ZoneId="614" XYZ="196.7047, 5.167062, -411.3493"/>
       <TalkTo NpcId="1019287" InteractDistance="3.0" XYZ="196.7047, 5.167062, -411.3493" QuestId="68058"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 1 and GetQuestById(68058).GetTodoArgs(1, 0).Item1 == 2">
-      <LisbethTravel ZoneId="614" XYZ="195.8469, 5.169701, -437.7425"/>
+      <GetTo ZoneId="614" XYZ="195.8469, 5.169701, -437.7425"/>
       <TalkTo NpcId="1019285" InteractDistance="3.0" XYZ="195.8469, 5.169701, -437.7425" QuestId="68058"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 2">
-      <LisbethTravel ZoneId="614" XYZ="174.734, 5.196851, -432.5633"/>
+      <GetTo ZoneId="614" XYZ="174.734, 5.196851, -432.5633"/>
       <TalkTo NpcId="1023083" XYZ="174.734, 5.196851, -432.5633" QuestId="68058" StepId="2"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 3">
-      <LisbethTravel ZoneId="614" XYZ="-74.43459, 53.21751, -521.9879"/>
+      <GetTo ZoneId="614" XYZ="-74.43459, 53.21751, -521.9879"/>
       <TalkTo NpcId="1020237" XYZ="-74.43459, 53.21751, -521.9879" QuestId="68058" StepId="3"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 4">
-      <LisbethTravel ZoneId="614" XYZ="-155.6995, 53.21751, -622.0059"/>
+      <GetTo ZoneId="614" XYZ="-155.6995, 53.21751, -622.0059"/>
       <TalkTo NpcId="1020238" XYZ="-155.6995, 53.21751, -622.0059" QuestId="68058" StepId="4"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 5">
-      <LisbethTravel ZoneId="614" XYZ="-245.8478, 53.23483, -515.5634"/>
+      <GetTo ZoneId="614" XYZ="-245.8478, 53.23483, -515.5634"/>
       <UseObject NpcIds="2007931" XYZ="-245.8478, 53.23483, -515.5634" QuestId="68058" StepId="5"/>
     </If>
     <If Condition="HasQuest(68058) and not IsQuestCompleted(68058) and GetQuestStep(68058) == 255">
-      <LisbethTravel ZoneId="614" XYZ="-291.6616, 53.21751, -614.3809"/>
+      <GetTo ZoneId="614" XYZ="-291.6616, 53.21751, -614.3809"/>
       <TurnIn ItemIds="2002178" InteractDistance="3.0" QuestId="68058" NpcId="1020239" XYZ="-291.6616, 53.21751, -614.3809"/>
     </If>
     <!-- On the Eve of Destiny (Level 67) -->
     <If Condition="IsQuestCompleted(68058) and not HasQuest(68059) and not IsQuestCompleted(68059)">
-      <LisbethTravel ZoneId="614" XYZ="-291.6616, 53.21751, -614.3809"/>
+      <GetTo ZoneId="614" XYZ="-291.6616, 53.21751, -614.3809"/>
       <If Condition="IsQuestAcceptQualified(68059)">
         <PickupQuest QuestId="68059" InteractDistance="3.0" NpcId="1020239" XYZ="-291.6616, 53.21751, -614.3809"/>
       </If>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 1">
-      <LisbethTravel ZoneId="614" XYZ="173.7853, 5.16971, -417.5015"/>
+      <GetTo ZoneId="614" XYZ="173.7853, 5.16971, -417.5015"/>
       <TalkTo NpcId="1020519" XYZ="173.7853, 5.16971, -417.5015" QuestId="68059" StepId="1"/>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 2 and GetQuestById(68059).GetTodoArgs(2, 0).Item1 == 0">
-      <LisbethTravel ZoneId="614" XYZ="177.1467, 5.169708, -416.186"/>
+      <GetTo ZoneId="614" XYZ="177.1467, 5.169708, -416.186"/>
       <TalkTo NpcId="1020523" XYZ="177.1467, 5.169708, -416.186" QuestId="68059"/>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 2 and GetQuestById(68059).GetTodoArgs(2, 0).Item1 == 1">
-      <LisbethTravel ZoneId="614" XYZ="188.0672, 5.069492, -415.0723"/>
+      <GetTo ZoneId="614" XYZ="188.0672, 5.069492, -415.0723"/>
       <TalkTo NpcId="1020521" XYZ="188.0672, 5.069492, -415.0723" QuestId="68059"/>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 2 and GetQuestById(68059).GetTodoArgs(2, 0).Item1 == 2">
-      <LisbethTravel ZoneId="614" XYZ="188.0672, 5.069492, -415.0723"/>
+      <GetTo ZoneId="614" XYZ="188.0672, 5.069492, -415.0723"/>
       <TalkTo NpcId="1020240" XYZ="233.9404, 5.657917, -427.0182" QuestId="68059"/>
     </If>
     <If Condition="HasQuest(68059) and not IsQuestCompleted(68059) and GetQuestStep(68059) == 255">
-      <LisbethTravel ZoneId="614" XYZ="173.8472, 5.16971, -417.3779"/>
+      <GetTo ZoneId="614" XYZ="173.8472, 5.16971, -417.3779"/>
       <TurnIn QuestId="68059" InteractDistance="3.0" NpcId="1020519" XYZ="173.8472, 5.16971, -417.3779"/>
     </If>
     <!-- The Die Is Cast (Level 67) -->
     <If Condition="IsQuestCompleted(68059) and not HasQuest(68060) and not IsQuestCompleted(68060)">
-      <LisbethTravel ZoneId="614" XYZ="173.314, 5.19139, -433.3132"/>
+      <GetTo ZoneId="614" XYZ="173.314, 5.19139, -433.3132"/>
       <If Condition="IsQuestAcceptQualified(68060)">
         <PickupQuest QuestId="68060" InteractDistance="3.0" NpcId="1020524" XYZ="173.314, 5.19139, -433.3132"/>
       </If>
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 1">
-      <LisbethTravel ZoneId="614" XYZ="-162.7548, 53.21751, -559.0415"/>
+      <GetTo ZoneId="614" XYZ="-162.7548, 53.21751, -559.0415"/>
       <UseObject NpcId="2007932" XYZ="-162.7548, 53.21751, -559.0415" QuestId="68060" StepId="1"/>
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 2">
-      <LisbethTravel ZoneId="614" XYZ="-241.9438, 53.21751, -653.1641"/>
+      <GetTo ZoneId="614" XYZ="-241.9438, 53.21751, -653.1641"/>
       <TalkTo NpcId="1020244" XYZ="-241.9438, 53.21751, -653.1641" QuestId="68060" StepId="2"/>
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 3">
@@ -2647,32 +2647,32 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 			</If>
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 255">
-      <LisbethTravel ZoneId="614" XYZ="-390.4628, 30.65187, -455.9088"/>
+      <GetTo ZoneId="614" XYZ="-390.4628, 30.65187, -455.9088"/>
       <TurnIn QuestId="68060" InteractDistance="3.0" NpcId="1020248" XYZ="-390.4628, 30.65187, -455.9088"/>
     </If>
     <!-- The World Turned Upside Down (Level 67) -->
     <If Condition="IsQuestCompleted(68060) and not HasQuest(68061) and not IsQuestCompleted(68061)">
-      <LisbethTravel ZoneId="614" XYZ="-390.4628, 30.65187, -455.9088"/>
+      <GetTo ZoneId="614" XYZ="-390.4628, 30.65187, -455.9088"/>
       <If Condition="IsQuestAcceptQualified(68061)">
         <PickupQuest QuestId="68061" InteractDistance="3.0" NpcId="1020248" XYZ="-390.4628, 30.65187, -455.9088"/>
       </If>
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 1">
-      <LisbethTravel ZoneId="614" XYZ="-348.3893, 1.230025, -343.7865"/>
+      <GetTo ZoneId="614" XYZ="-348.3893, 1.230025, -343.7865"/>
       <UseTransport NpcId="1020255" InteractDistance="3.0" XYZ="-348.3893, 1.230025, -343.7865" DialogOption="0" QuestId="68061" StepId="1"/>
       <WaitWhile Condition="HasQuest(68061) and not IsQuestCompleted(68061) and not GetQuestStep(68061) == 3"/>
       <WaitWhile Condition="not IsOnMap(682)"/>
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 3">
       <If Condition="IsOnMap(682)">
-				<LisbethTravel ZoneId="682" XYZ="147.5351, -4.178713, 50.60109"/>
+				<GetTo ZoneId="682" XYZ="147.5351, -4.178713, 50.60109"/>
         <UseTransport NpcId="1020644" InteractDistance="3.0" XYZ="147.5351, -4.178713, 50.60109"/>
       </If>
-      <LisbethTravel ZoneId="614" XYZ="-462.6106, 1.230005, 546.0444"/>
+      <GetTo ZoneId="614" XYZ="-462.6106, 1.230005, 546.0444"/>
       <TalkTo NpcId="1020258" XYZ="-462.6106, 1.230005, 546.0444" QuestId="68061" StepId="3"/>
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 4">
-      <LisbethTravel ZoneId="614" XYZ="-471.848, 1.230624, 557.1023"/>
+      <GetTo ZoneId="614" XYZ="-471.848, 1.230624, 557.1023"/>
       <UseTransport NpcId="1020263" InteractDistance="3.0" XYZ="-471.848, 1.230624, 557.1023" DialogOption="0" QuestId="68061" StepId="4"/>
     </If>
     <If Condition="HasQuest(68061) and not IsQuestCompleted(68061) and GetQuestStep(68061) == 255">
@@ -3894,69 +3894,69 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 		<!-- Unlock Golden Saucer -->
     <!-- It Could Happen to You (Level 15) -->
     <If Condition="(IsQuestCompleted(66043) or IsQuestCompleted(66064) or IsQuestCompleted(66082)) and not HasQuest(65970) and not IsQuestCompleted(65970) and Core.Player.ClassLevel &gt; 14">
-      <GetTo ZoneId="130" XYZ="-81.28416, 4, -110.7648"/>
+      <LisbethTravel ZoneId="130" XYZ="-81.28416, 4, -110.7648"/>
       <If Condition="IsQuestAcceptQualified(65970)">
         <PickupQuest QuestId="65970" NpcId="1011565" InteractDistance="3.0" XYZ="-78.8739, 4, -110.4296"/>
       </If>
     </If>
     <If Condition="HasQuest(65970) and not IsQuestCompleted(65970) and GetQuestStep(65970) == 255">
-      <GetTo ZoneId="130" XYZ="-23.6542, 83.19999, -4.632526"/>
+      <LisbethTravel ZoneId="130" XYZ="-23.6542, 83.19999, -4.632526"/>
       <TurnIn ItemId="2001555" QuestId="65970" NpcId="1004433" InteractDistance="3.0" XYZ="-23.60571, 83.19999, -2.304138"/>
       <WaitWhile Condition="not IsOnMap(144)"/>
     </If>
     <!-- World of Wonders (Level 15) -->
     <If Condition="IsQuestCompleted(65970) and not HasQuest(65971) and not IsQuestCompleted(65971)">
-      <GetTo ZoneId="144" XYZ="-38.97863, 0.02503264, 99.10065"/>
+      <LisbethTravel ZoneId="144" XYZ="-38.97863, 0.02503264, 99.10065"/>
       <If Condition="IsQuestAcceptQualified(65971)">
         <PickupQuest QuestId="65971" NpcId="1011022" InteractDistance="3.0" XYZ="-38.89526, -2.793968E-06, 97.33728"/>
       </If>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 1">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="-54.18003, 1.600001, 34.63613"/>
+        <LisbethTravel ZoneId="144" XYZ="-54.18003, 1.600001, 34.63613"/>
       </If>
       <TalkTo NpcId="1010448" XYZ="-54.00177, 1.6, 30.68579" QuestId="65971" StepId="1"/>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 2">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="-61.41798, 1.6, 29.30517"/>
+        <LisbethTravel ZoneId="144" XYZ="-61.41798, 1.6, 29.30517"/>
       </If>
       <TalkTo NpcId="1011038" XYZ="-58.88464, 1.6, 27.63403" QuestId="65971" StepId="2"/>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 3">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="-98.22258, -0.8629702, 64.79282"/>
+        <LisbethTravel ZoneId="144" XYZ="-98.22258, -0.8629702, 64.79282"/>
       </If>
       <TalkTo NpcId="1010478" XYZ="-99.19891, -0.8629702, 66.11731" QuestId="65971" StepId="3"/>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 4">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="19.41186, 3.99973, 36.23358"/>
+        <LisbethTravel ZoneId="144" XYZ="19.41186, 3.99973, 36.23358"/>
       </If>
       <TalkTo NpcId="1011080" XYZ="21.53046, 3.99973, 39.90234" QuestId="65971" StepId="4"/>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 5">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="122.4002, 13.00045, -15.48271"/>
+        <LisbethTravel ZoneId="144" XYZ="122.4002, 13.00045, -15.48271"/>
       </If>
       <TalkTo NpcId="1011079" XYZ="125.0781, 13.00064, -13.77893" QuestId="65971" StepId="5"/>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 6">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="-10.32157, 3.265048, -74.50376"/>
+        <LisbethTravel ZoneId="144" XYZ="-10.32157, 3.265048, -74.50376"/>
       </If>
       <TalkTo NpcId="1011084" XYZ="-12.52765, 3.254643, -73.16705" QuestId="65971" StepId="6"/>
     </If>
     <If Condition="HasQuest(65971) and not IsQuestCompleted(65971) and GetQuestStep(65971) == 255">
       <If Condition="not IsOnMap(144)">
-        <GetTo ZoneId="144" XYZ="-54.09208, 1.600001, 34.75377"/>
+        <LisbethTravel ZoneId="144" XYZ="-54.09208, 1.600001, 34.75377"/>
       </If>
       <TurnIn QuestId="65971" NpcId="1010448" InteractDistance="3.0" XYZ="-54.00177, 1.6, 30.68579"/>
     </If>
 		
 		<!-- Finish A Sultana's Duty -->
     <If Condition="HasQuest(68504) and not IsQuestCompleted(68504) and GetQuestStep(68504) == 3">
-      <GetTo ZoneId="144" XYZ="-52.81404, 0.04427993, 53.27386"/>
+      <LisbethTravel ZoneId="144" XYZ="-52.81404, 0.04427993, 53.27386"/>
       <TalkTo NpcId="1024042" XYZ="-51.68237, 0.04428005, 53.94055" QuestId="68504" StepId="3"/>
     </If>
     <If Condition="HasQuest(68504) and not IsQuestCompleted(68504) and GetQuestStep(68504) == 255">
@@ -4135,7 +4135,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 		
     <!-- (Patch 4.2) Tidings from the East (Level 70) -->
     <If Condition="IsQuestCompleted(68508) and not HasQuest(68558) and not IsQuestCompleted(68558)">
-      <GetTo ZoneId="635" XYZ="170.5806, 13.02367, -91.96619"/>
+      <LisbethTravel ZoneId="635" XYZ="170.5806, 13.02367, -91.96619"/>
       <If Condition="IsQuestAcceptQualified(68558)">
         <PickupQuest QuestId="68558" NpcId="1019468" InteractDistance="3.0" XYZ="170.5806, 13.02367, -91.96619"/>
       </If>
@@ -4146,7 +4146,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <WaitWhile Condition="HasQuest(68558) and not IsQuestCompleted(68558) and not GetQuestStep(68558) == 255"/>
     </If>
     <If Condition="HasQuest(68558) and not IsQuestCompleted(68558) and GetQuestStep(68558) == 255">
-			<GetTo ZoneId="628" XYZ="-11.36798, 10.50388, -212.7566"/>
+			<LisbethTravel ZoneId="628" XYZ="-11.36798, 10.50388, -212.7566"/>
       <TurnIn QuestId="68558" NpcId="1024726" InteractDistance="3.0" XYZ="-11.36798, 10.50388, -212.7566"/>
     </If>
     <!-- The Sword in the Store (Level 70) -->
@@ -4760,7 +4760,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <LisbethTravel ZoneId="156" XYZ="22.35259, 21.25273, -634.3907"/>
         <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
       </If>
-      <GetTo ZoneId="351" XYZ="-4.066441, 0.009977883, -2.351795"/>  
+      <LisbethTravel ZoneId="351" XYZ="-4.066441, 0.009977883, -2.351795"/>  
 			<UserDialog QuestId="68612" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
     </If>
     <If Condition="HasQuest(68612) and not IsQuestCompleted(68612) and GetQuestStep(68612) == 2">
