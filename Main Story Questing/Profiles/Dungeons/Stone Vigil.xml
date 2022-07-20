@@ -25,7 +25,8 @@
 
 	<If condition="DutyManager.InInstance">
 	
-		<LoadDungeonAssist />
+		<EnablePlugin name="Trust"/>
+
 		
 		<!-- Secure the barbican: 0/1 -->
 		<If Condition="GetInstanceTodo(0) == 0">

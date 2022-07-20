@@ -20,6 +20,9 @@
 	</If>
 	
 	<If condition="DutyManager.InInstance">
+		<EnablePlugin name="Trust"/>
+
+
 		<!-- Find the green key 0/1 -->
 		<If Condition="GetInstanceTodo(1) == 0">
 			<Log Message="Find the green key 0/1" />

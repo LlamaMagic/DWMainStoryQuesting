@@ -22,6 +22,9 @@
 		</If>	
 
 	<If condition="DutyManager.InInstance">
+		<EnablePlugin name="Trust"/>
+
+
 		<Grind GrindRef="Garuda" While="not IsDutyEnded()"/> <!-- Kill Garuda -->
 		<If Condition="&openchest; == 1">
 			<LLOpenChest />

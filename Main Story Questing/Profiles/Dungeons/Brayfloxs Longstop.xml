@@ -24,6 +24,8 @@
 
 		<If condition="DutyManager.InInstance">
 
+			<EnablePlugin name="Trust"/>
+
 			<!-- Meet a Longstop ally: 0/1 -->
 			<If Condition="GetInstanceTodo(0) == 0">
 				<Log Message="Meet a Longstop ally: 0/1" />

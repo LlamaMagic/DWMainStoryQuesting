@@ -20,6 +20,10 @@
 	</If>
 	
 	<If condition="DutyManager.InInstance">
+
+		<EnablePlugin name="Trust"/>
+
+
 		<!-- Arrive at the confession chamber: 0/1 -->
 		<If Condition="GetInstanceTodo(0) == 0">
 			<Log Message="Arrive at the confession chamber: 0/1" />

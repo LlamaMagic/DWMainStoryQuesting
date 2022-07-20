@@ -19,6 +19,9 @@
 	</If>
 	
 	<If condition="DutyManager.InInstance">
+		<EnablePlugin name="Trust"/>
+
+
 		<!-- Cultist orbs destroyed 0/4 -->
 		<If Condition="GetInstanceTodo(0) == 0">
 			<Log Message="Cultist orbs destroyed 0/4" />		

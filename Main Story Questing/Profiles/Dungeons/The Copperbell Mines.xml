@@ -20,6 +20,10 @@
 	</If>
 	
 	<If condition="DutyManager.InInstance">
+
+		<EnablePlugin name="Trust"/>
+
+
 		<!-- Clear shaft B4 of rubble 0/1 -->
 		<While Condition="GetInstanceTodo(1) == 0">
 			<Log Message="Clear shaft B4 of rubble 0/1" />
