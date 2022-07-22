@@ -750,9 +750,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 		
     <!-- A Desert Crossing (Level 70) -->
     <If Condition="IsQuestCompleted(68829) and not HasQuest(68830) and not IsQuestCompleted(68830)">
-      <If Condition="not IsOnMap(815)">
-        <GetTo ZoneId="815" XYZ="311.9497, 1.468583, -157.2728"/>
-      </If>
+      <GetTo ZoneId="815" XYZ="311.9497, 1.468583, -157.2728"/>
       <If Condition="IsQuestAcceptQualified(68830)">
         <PickupQuest QuestId="68830" NpcId="1028977"/>
       </If>
@@ -1038,7 +1036,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <TalkTo NpcId="1029846" XYZ="682.3376, 101.7017, -710.3533" QuestId="68836" StepId="3"/>
       </If>
       <If Condition="GetQuestStep(68836) == 4">
-        <LLoadProfile Path="Dungeons/Shadowbringers/[O][RBTrust] 71 Holminster Switch.xml"/>
+        <LLoadProfile Path="Dungeons/Shadowbringers/71 Holminster Switch.xml"/>
       </If>
       <If Condition="GetQuestStep(68836) == 255">
         <If Condition="not IsOnMap(813)">
@@ -3958,7 +3956,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <GetTo ZoneId="815" XYZ="-506.8639, -95.96886, 490.0764"/>
         </If>
 				<StopBot/>
-        <LLoadProfile Path="../Trust/[77] Malikah's Well.xml"/>
+        <LLoadProfile Path="Dungeons/Shadowbringers/77 Malikah's Well.xml"/>
       </If>
       <If Condition="GetQuestStep(69157) == 3">
 				<WaitWhile condition="GetQuestStep(69157) == 3"/>
