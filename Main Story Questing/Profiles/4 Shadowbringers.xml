@@ -399,9 +399,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 		
     <!-- City of Final Pleasures (Level 70) -->
     <If Condition="IsQuestCompleted(68821) and not HasQuest(68822) and not IsQuestCompleted(68822)">
-      <If Condition="not IsOnMap(814)">
         <GetTo ZoneId="814" XYZ="-329.462, 19.06647, 388.3667"/>
-      </If>
       <If Condition="IsQuestAcceptQualified(68822)">
         <PickupQuest QuestId="68822" NpcId="1029822"/>
       </If>
