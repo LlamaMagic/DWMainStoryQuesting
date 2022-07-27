@@ -3540,25 +3540,25 @@
 		<If Condition="IsQuestCompleted(67204)">
 			<!-- Summoner -->
 			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
-				<If condition="not IsQuestCompleted(68161)">
+				<If condition="not IsQuestCompleted(67641)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>	
 				</If>	
 			</If>
 			<!-- Scholar -->
 			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
-				<If condition="not IsQuestCompleted(68459)">
+				<If condition="not IsQuestCompleted(67212)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>	
 				</If>					
 			</If>			
 			<!-- Warrior -->
 			<If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
-				<If condition="not IsQuestCompleted(68436)">
+				<If condition="not IsQuestCompleted(66137)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>	
 				</If>	
 			</If>	
 			<!-- Bard -->
 			<If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
-				<If condition="not IsQuestCompleted(68426)">
+				<If condition="not IsQuestCompleted(67254)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>	
 				</If>	
 			</If>
@@ -3570,7 +3570,7 @@
 			</If>		
 			<!-- Dragoon -->
 			<If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
-				<If condition="not IsQuestCompleted(68446)">
+				<If condition="not IsQuestCompleted(67231)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>	
 				</If>	
 			</If>
@@ -3582,7 +3582,7 @@
 			</If>
 			<!-- Paladin -->
 			<If condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
-				<If condition="not IsQuestCompleted(68107)">
+				<If condition="not IsQuestCompleted(67573)">
 					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>	
 				</If>	
 			</If>	
