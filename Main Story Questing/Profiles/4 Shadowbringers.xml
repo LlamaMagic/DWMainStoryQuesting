@@ -4597,7 +4597,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(814)">
           <GetTo ZoneId="814" XYZ="-173.4306, 460.431, -796.9117"/>
         </If>
-        <LLoadProfile Path="Dungeons/Shadowbringers/79 Mt. Gulg.xml"/>
+        <LLoadProfile Path="Dungeons/Shadowbringers/79 Mt Gulg.xml"/>
       </If>
       <If Condition="GetQuestStep(69179) == 5">
         <If Condition="not IsOnMap(880)">
