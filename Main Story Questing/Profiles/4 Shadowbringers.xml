@@ -3955,7 +3955,6 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(815)">
           <GetTo ZoneId="815" XYZ="-506.8639, -95.96886, 490.0764"/>
         </If>
-				<StopBot/>
         <LLoadProfile Path="Dungeons/Shadowbringers/77 Malikah's Well.xml"/>
       </If>
       <If Condition="GetQuestStep(69157) == 3">
