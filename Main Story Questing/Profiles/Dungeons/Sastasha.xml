@@ -27,6 +27,9 @@
 		<!-- Activate the coral trigger 0/1 -->
 		<If Condition="GetInstanceTodo(0) == 0">
 			<Log Message="Activate the coral trigger: 0/1" />
+			<MoveTo XYZ="215.814, 36.95539, -126.1243" />
+			<WaitWhile condition="Core.Me.InCombat"/>>
+			<MoveTo XYZ="162.0991, 26.23, -108.6429" InCombat="True"/>
 			<Grind GrindRef="ClearRoom" While="NumAttackableEnemies(1000, Array[int]([1208,38,1210])) &gt; 0"/> <!-- Clear all the clams -->
 			<MoveTo XYZ="75.8698,35.10142,-32.53721" distance="2"/> <!-- Move To Blue Coral -->
 			<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable"> 
