@@ -16,7 +16,6 @@
         <EnablePlugin name="Trust"/>
 
         <MoveTo Name="Gauntlet" XYZ="-99.08389, 103.5737, 358.7849" />
-        <WaitWhile Condition="ConditionParserEx.MsLeftInDungeonGt(6140000)" />
         <MoveTo Name="Boss Arena 1" XYZ="-39.75961, 95, 305.4623" Distance="1" />
         <WaitTimer WaitTime="5" />
         <Grind GrindRef="Unknown" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9260) and not GameObjectManager.GetObjectByNPCId(9260).CurrentHealth == 0)" />
