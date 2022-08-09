@@ -3643,7 +3643,8 @@
 				<LLTalkTo NpcId="1040154" XYZ="-401.236, 329.783, -760.3418" QuestId="69973" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69973) == 2">
-				<UserDialog QuestId="69973" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the duty Ktisis Hyperboreia and hit continue." />
+				<LLoadProfile Path="Dungeons/Endwalker/87 Ktisis Hyperboreia.xml"/>
+				<!-- <UserDialog QuestId="69973" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the duty Ktisis Hyperboreia and hit continue." /> -->
 			</If>
 			<If Condition="GetQuestStep(69973) == 3">
 				<WaitWhile condition="GetQuestStep(69973) == 3"/>

@@ -22,7 +22,6 @@
         <UseShortcut NpcId="2000700" Distance="20" />
       </If>
 
-
       <!-- Arrive in Trnakiya 0/1 -->
       <If Condition="GetInstanceTodo(0) == 0">
         <Log Message="Arrive in Trnakiya 0/1" />
