@@ -945,7 +945,8 @@
 				<UseObject NpcId="2011956" XYZ="-632.0439, -0.01531982, -659.6018" QuestId="69913" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(69913) == 3">
-				<UserDialog QuestId="69913" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Tower of Zot and hit continue." />			
+				<LLoadProfile Path="Dungeons/Endwalker/81 The Tower of Zot.xml"/>
+				<!--<UserDialog QuestId="69913" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Tower of Zot and hit continue." /> -->			
 			</If>
 			<If Condition="GetQuestStep(69913) == 4">
 				<WaitWhile condition="GetQuestStep(69913) == 4"/>
