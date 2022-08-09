@@ -24,7 +24,7 @@
 	
 	<If condition="DutyManager.InInstance">
 	
-		<LoadDungeonAssist />
+		<EnablePlugin name="Trust"/>
 
 		<!-- Arrive at the Divine Threshold: 0/1 -->
 		<If Condition="GetInstanceTodo(0) == 0">

@@ -25,7 +25,7 @@
 	
 	<If condition="DutyManager.InInstance">
 	
-		<LoadDungeonAssist />
+		<EnablePlugin name="Trust"/>
 
 		<!-- Arrive on the Perished Path: 0/1 -->
 		<If Condition="GetInstanceTodo(0) == 0">

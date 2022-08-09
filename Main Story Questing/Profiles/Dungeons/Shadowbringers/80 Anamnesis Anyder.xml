@@ -2,21 +2,19 @@
 <Profile>
   <Name>[OrderBot][Trust] Anamnesis Anyder</Name>
   <Author>Sodimm</Author>
-  <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory></BehaviorDirectory>
   <Order>
+
+
     <While Condition="GetQuestStep(69305) == 2">
-      <If Condition="not IsOnMap(898)">
-        <RunCode Name="Enable_Trust_Plugin"/>
-        <WaitTimer WaitTime="3"/>
-        <RunCode Name="EnterDuty"/>
-        <WaitTimer WaitTime="3"/>
-        <If Condition="ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen">
-          <CommenceDuty/>
-          <WaitTimer WaitTime="3"/>
-        </If>
-        <WaitWhile Condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+
+      <If condition="not DutyManager.InInstance">
+        <JoinSupportDuty DutyId="714"/>	<!-- Anamnesis Anyder-->
       </If>
+
       <If Condition="IsOnMap(898)">
+        <EnablePlugin name="Trust"/>
+
         <MoveTo Name="Gauntlet" XYZ="-99.08389, 103.5737, 358.7849" />
         <WaitWhile Condition="ConditionParserEx.MsLeftInDungeonGt(6140000)" />
         <MoveTo Name="Boss Arena 1" XYZ="-39.75961, 95, 305.4623" Distance="1" />
@@ -39,8 +37,7 @@
         <WaitTimer WaitTime="5"/>
       </If>
     </While>
-    <RunCode Name="Disable_Trust_Plugin"/>
-    <LLoadProfile Path="../MSQ/[OrderBot] ShB MSQ Automation.xml"/>
+    <LLoadProfile Path="../../../Start.xml"/>
   </Order>
   <GrindAreas>
     <GrindArea Name="Unknown">
