@@ -1767,7 +1767,8 @@
 				<UseObject NpcId="2012112" XYZ="-516.7163, -190.0206, -675.288" QuestId="69931" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69931) == 4">
-				<UserDialog QuestId="69931" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty The Tower of Babil and hit continue." />
+				<LLoadProfile Path="Dungeons/Endwalker/83 The Tower of Babil.xml"/>
+				<!-- <UserDialog QuestId="69931" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty The Tower of Babil and hit continue." /> -->
 			</If>
 			<If Condition="GetQuestStep(69931) == 5">
 				<WaitWhile condition="GetQuestStep(69931) == 5"/>
