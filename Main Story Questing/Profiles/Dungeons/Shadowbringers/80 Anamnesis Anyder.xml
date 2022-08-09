@@ -19,18 +19,18 @@
         <WaitWhile Condition="ConditionParserEx.MsLeftInDungeonGt(6140000)" />
         <MoveTo Name="Boss Arena 1" XYZ="-39.75961, 95, 305.4623" Distance="1" />
         <WaitTimer WaitTime="5" />
-        <Grind GrindRef="Unknown" PostCombatDelay="3.0" While="ObjectExistsWithId(9260)" />
+        <Grind GrindRef="Unknown" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9260) and not GameObjectManager.GetObjectByNPCId(9260).CurrentHealth == 0)" />
         <MoveTo Name="Coffer 2" XYZ="34.7434, 100, 144.1869" />
         <MoveTo Name="Coffer 3" XYZ="42.60236, 105, 16.9777" />
         <MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1" />
         <WaitTimer WaitTime="5" />
-        <Grind GrindRef="Kyklops" PostCombatDelay="3.0" While="ObjectExistsWithId(9263)" />
+        <Grind GrindRef="Kyklops" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9263) and not GameObjectManager.GetObjectByNPCId(9263).CurrentHealth == 0)" />
         <MoveTo Name="Coffer 5" XYZ="70.62136, 92, -237.9265" />
         <MoveTo Name="Coffer 6" XYZ="-9.551982, 92, -218.7935" />
         <MoveTo Name="Transition" XYZ="20.00417, 92.5, -314.8636" />
         <RunCode Name="Transition" />
         <MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1" />
-        <Grind GrindRef="RukshsDheem" PostCombatDelay="3.0" While="ObjectExistsWithId(9264)" />
+        <Grind GrindRef="RukshsDheem" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9264) and not GameObjectManager.GetObjectByNPCId(9264).CurrentHealth == 0)" />
         <RunCode name="LeaveDuty" />
         <WaitTimer WaitTime="5"/>
         <RunCode Name="Handle_Cutscene_Talking"/>
