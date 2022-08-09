@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE Profile [
+  <!-- Profile Settings -->
+  <!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>85 Vanaspati</Name>
+  <Order>
+
+    <If Condition="not IsOnMap(970)">
+      <JoinSupportDuty DutyId="789" />
+    </If>
+
+    <If Condition="IsOnMap(970)">
+
+      <EnablePlugin Names="SideStep,Trust" />
+
+      <!-- Shortcut available -->
+      <If condition="IsNearShortcut(2000700)">
+        <UseShortcut NpcId="2000700" Distance="20" />
+      </If>
+
+
+      <!-- Arrive in Trnakiya 0/1 -->
+      <If Condition="GetInstanceTodo(0) == 0">
+        <Log Message="Arrive in Trnakiya 0/1" />
+        <If Condition="IsOnSubMap(4015)">
+          <MoveTo XYZ="-205.6921, 15.48361, 271.3739" Distance="0.5" />
+          <WaitWhile Condition="GetInstanceTodo(0) == 0 and not ObjectExistsWithId(10366)" />
+          <Grind GrindRef="TerminusPursuer" PostCombatDelay="4.0" While="ObjectExistsWithId(10366)" />
+          <MoveTo XYZ="-374.9516, 14.5, 102.6363" Distance="0.5" />
+          <WaitWhile Condition="not ObjectExistsWithId(10717)" />
+        </If>
+        <If Condition="IsOnSubMap(4016)">
+          <MoveTo XYZ="-374.9516, 14.5, 102.6363" Distance="0.5" />
+          <WaitWhile Condition="not ObjectExistsWithId(10717)" />
+        </If>
+      </If>
+
+      <!-- Clear Trnakiya 0/1 -->
+      <If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+        <Log Message="Clear Trnakiya 0/1" />
+        <If Condition="IsOnSubMap(4012)">
+          <EnablePlugin Names="SideStep,Trust" />
+          <Grind GrindRef="TerminusSnatcher" PostCombatDelay="2.0" While="GetInstanceTodo(1) == 0" />
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="-375.2652,14.48077,73.38062" />
+            <LLOpenChest />
+          </If>
+        </If>
+      </If>
+
+      <!-- Arrive in Insight 0/1 -->
+      <If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+        <Log Message="Arrive in Insight 0/1" />
+        <If Condition="IsOnSubMap(4012)">
+          <MoveTo XYZ="-388.303, 15.47565, 53.24551" />
+        </If>
+        <If Condition="IsOnSubMap(4017)">
+          <MoveTo XYZ="-329.899, 41.00037, -146.9926" Distance="0.5" />
+          <WaitWhile Condition="GetInstanceTodo(2) == 0 and not ObjectExistsWithId(11192)" />
+          <Grind GrindRef="TerminusHorror" PostCombatDelay="2.0" While="GetInstanceTodo(2) == 0 and ObjectExistsWithId(10367) or ObjectExistsWithId(11192)" />
+          <MoveTo XYZ="-337.9989, 42.05722, -191.0324" />
+        </If>
+        <If Condition="IsOnSubMap(4018)">
+          <LLOpenChest />
+
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="-309.5293,41.27563,-265.156" />
+            <LLOpenChest />
+          </If>
+          <MoveTo XYZ="-295.469, 41.5, -331.6922" Distance="0.5" />
+        </If>
+      </If>
+
+
+      <!-- Clear Insight 0/1 -->
+      <If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+        <Log Message="Clear Insight 0/1" />
+        <If Condition="IsOnSubMap(4013)">
+          <EnablePlugin Names="SideStep,Trust" />
+          <Grind GrindRef="TerminusWrecker" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0" />
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="-295.1248,41.48914,-370.8095" />
+            <LLOpenChest />
+          </If>
+        </If>
+      </If>
+
+      <!-- Arrive in Devatagara 0/1 -->
+      <If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+        <Log Message="Arrive in Devatagara 0/1" />
+        <If Condition="IsOnSubMap(4013)">
+          <MoveTo XYZ="-295.2436, 42.86975, -404.4084" />
+          <LLChangeZone Heading="3.193952" />
+        </If>
+        <If Condition="IsOnSubMap(4019)">
+          <MoveTo XYZ="300.111, 53.95177, 6.247371" />
+        </If>
+        <If Condition="IsOnSubMap(4020)">
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="307.1183,53.87964,-6.179932" />
+            <LLOpenChest />
+          </If>
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="291.5846,54.48987,-110.3685" />
+            <LLOpenChest />
+          </If>
+          <MoveTo XYZ="299.9672, 55.00583, -142.1797" Distance="0.5" />
+        </If>
+      </If>
+
+      <!-- Clear Devatagara 0/1 -->
+      <If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+        <Log Message="Clear Devatagara 0/1" />
+        <If Condition="IsOnSubMap(4013)">
+          <MoveTo XYZ="-295.2436, 42.86975, -404.4084" />
+          <LLChangeZone Heading="3.193952" />
+        </If>
+        <If Condition="IsOnSubMap(4019)">
+          <MoveTo XYZ="300.111, 53.95177, 6.247371" />
+        </If>
+        <If Condition="IsOnSubMap(4020)">
+          <MoveTo XYZ="299.9672, 55.00583, -142.1797" Distance="0.5" />
+        </If>
+        <If Condition="IsOnSubMap(4014)">
+          <EnablePlugin Names="SideStep,Trust" />
+          <Grind GrindRef="Svarbhanu" PostCombatDelay="2.0" While="not IsDutyEnded()" />
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="300.0076,54.97815,-171.3741" />
+            <LLOpenChest />
+          </If>
+        </If>
+      </If>
+
+      <While condition="DutyManager.InInstance and IsDutyEnded()">
+        <WaitTimer WaitTime="5" />
+        <LLLeaveDuty />
+      </While>
+    </If>
+
+    <LLoadProfile Path="../../../Start.xml" />
+
+
+  </Order>
+  <GrindAreas>
+    <GrindArea Name="TerminusPursuer">
+      <Hotspots>
+        <Hotspot XYZ="-205.6921, 15.48361, 271.3739" Radius="250" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10366" />
+      </TargetMobs>
+      <MinLevel />
+      <MaxLevel />
+    </GrindArea>
+    <GrindArea Name="TerminusHorror">
+      <Hotspots>
+        <Hotspot XYZ="-329.899, 41.00037, -146.9926" Radius="250" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10367" Weight="2" />
+        <TargetMob Id="11192" Weight="1" />
+      </TargetMobs>
+      <MinLevel />
+      <MaxLevel />
+    </GrindArea>
+    <GrindArea Name="TerminusSnatcher">
+      <Hotspots>
+        <Hotspot XYZ="-375, 14.5, 72" Radius="250" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10717" />
+      </TargetMobs>
+      <MinLevel />
+      <MaxLevel />
+    </GrindArea>
+    <GrindArea Name="TerminusWrecker">
+      <Hotspots>
+        <Hotspot XYZ="-295.0027, 41.5, -354.0246" Radius="250" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10718" />
+      </TargetMobs>
+      <MinLevel />
+      <MaxLevel />
+    </GrindArea>
+    <GrindArea Name="Svarbhanu">
+      <Hotspots>
+        <Hotspot XYZ="300, 55.00583, -167" Radius="250" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10719" />
+      </TargetMobs>
+      <MinLevel />
+      <MaxLevel />
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>

@@ -2396,7 +2396,8 @@
 				<LLTalkTo NpcId="1038978" XYZ="202.3499, 1.769995, 757.7172" QuestId="69945" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69945) == 4">
-				<UserDialog QuestId="69945" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty Vanaspati and hit continue." />
+				<LLoadProfile Path="Dungeons/Endwalker/85 Vanaspati.xml"/>
+				<!-- <UserDialog QuestId="69945" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty Vanaspati and hit continue." /> -->
 			</If>
 			<If Condition="GetQuestStep(69945) == 5">
 				<WaitWhile condition="GetQuestStep(69945) == 5"/>
