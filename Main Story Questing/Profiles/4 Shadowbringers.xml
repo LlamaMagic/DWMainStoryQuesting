@@ -5189,7 +5189,6 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(818)">
           <GetTo ZoneId="818" XYZ="-421.7408, -229.0648, 844.2729"/>
         </If>
-        <!--<LLoadProfile Path="../Trust/[80] Amaurot.xml"/>-->
         <UserDialog QuestId="69190" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the Duty Amaurot manually." />
       </If>
       <If Condition="GetQuestStep(69190) == 9">
@@ -5828,7 +5827,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <FlyTo XYZ="-538.424, 63.73028, 737.2299" Land="True"/>
           <NoCombatMoveTo XYZ="-538.424, 63.73028, 737.2299" UseMesh="False"/>
         </If>
-        <LLoadProfile Path="../Dungeons/Shadowbringers/80 Anamnesis Anyder.xml"/>
+        <LLoadProfile Path="/Dungeons/Shadowbringers/80 Anamnesis Anyder.xml"/>
       </If>
       <If Condition="GetQuestStep(69305) == 255">
         <TurnIn QuestId="69305" NpcId="1032549" XYZ="-1.907471, -200, -425.1011"/>
