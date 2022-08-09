@@ -1038,6 +1038,9 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <If Condition="GetQuestStep(68836) == 4">
         <LLoadProfile Path="Dungeons/Shadowbringers/71 Holminster Switch.xml"/>
       </If>
+      <If Condition="GetQuestStep(68836) == 5">
+        <WaitWhile condition="GetQuestStep(68836) == 5"/>
+      </If>
       <If Condition="GetQuestStep(68836) == 255">
         <If Condition="not IsOnMap(813)">
           <GetTo ZoneId="813" XYZ="684.1846, 101.7182, -712.0588"/>
