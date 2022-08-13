@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Profile [
+  <!-- Profile Settings -->
+  <!ENTITY openchest "1">
+]>
 <Profile>
   <Name>[OrderBot][Trust] Anamnesis Anyder</Name>
   <Author>Sodimm</Author>
@@ -6,48 +10,126 @@
   <Order>
 
 
-    <While Condition="GetQuestStep(69305) == 2">
+    <If condition="not DutyManager.InInstance">
+      <JoinSupportDuty DutyId="714" /> <!-- Anamnesis Anyder-->
+    </If>
 
-      <If condition="not DutyManager.InInstance">
-        <JoinSupportDuty DutyId="714"/>	<!-- Anamnesis Anyder-->
+    <If Condition="IsOnMap(898)">
+      <EnablePlugin names="Sidestep,Trust" />
+
+      <!-- Shortcut available -->
+      <If condition="IsNearShortcut(2000700)">
+        <UseShortcut NpcId="2000700" Distance="30" />
       </If>
 
-      <If Condition="IsOnMap(898)">
-        <EnablePlugin name="Trust"/>
+      <!-- Arrive at Katharsis 0/1 -->
+      <If Condition="GetInstanceTodo(0) == 0">
+        <Log Message="Arrive at Katharsis 0/1" />
+        <Grind GrindRef="OnTurtle" While="GetInstanceTodo(0) == 0" />
+      </If>
 
-        <MoveTo Name="Gauntlet" XYZ="-99.08389, 103.5737, 358.7849" />
+      <!-- Clear Katharsis 0/1 -->
+      <If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+        <Log Message="Clear Katharsis 0/1" />
         <MoveTo Name="Boss Arena 1" XYZ="-39.75961, 95, 305.4623" Distance="1" />
-        <WaitTimer WaitTime="5" />
-        <Grind GrindRef="Unknown" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9260) and not GameObjectManager.GetObjectByNPCId(9260).CurrentHealth == 0)" />
-        <MoveTo Name="Coffer 2" XYZ="34.7434, 100, 144.1869" />
-        <MoveTo Name="Coffer 3" XYZ="42.60236, 105, 16.9777" />
-        <MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1" />
-        <WaitTimer WaitTime="5" />
-        <Grind GrindRef="Kyklops" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9263) and not GameObjectManager.GetObjectByNPCId(9263).CurrentHealth == 0)" />
-        <MoveTo Name="Coffer 5" XYZ="70.62136, 92, -237.9265" />
-        <MoveTo Name="Coffer 6" XYZ="-9.551982, 92, -218.7935" />
-        <MoveTo Name="Transition" XYZ="20.00417, 92.5, -314.8636" />
-        <RunCode Name="Transition" />
-        <MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1" />
-        <Grind GrindRef="RukshsDheem" PostCombatDelay="3.0" While="(GameObjectManager.GetObjectByNPCId(9264) and not GameObjectManager.GetObjectByNPCId(9264).CurrentHealth == 0)" />
-        <RunCode name="LeaveDuty" />
-        <WaitTimer WaitTime="5"/>
-        <RunCode Name="Handle_Cutscene_Talking"/>
-        <WaitTimer WaitTime="5"/>
+        <Grind GrindRef="Unknown" PostCombatDelay="3.0" While="GetInstanceTodo(1) == 0" />
+        <If Condition="&openchest; == 1">
+          <MoveTo Name="Coffer 1" XYZ="-40.02448,94.98743,274.9828" />
+          <LLOpenChest />
+        </If>
       </If>
-    </While>
-    <LLoadProfile Path="../../../Start.xml"/>
+
+      <!-- Arrive at Doxa 0/1 -->
+      <If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+        <Log Message="Arrive at Doxa 0/1" />
+        <If Condition="&openchest; == 1">
+          <MoveTo Name="Coffer 2" XYZ="34.7434, 100, 144.1869" />
+          <LLOpenChest />
+        </If>
+        <If Condition="&openchest; == 1">
+          <MoveTo Name="Coffer 3" XYZ="53.54382,104.9972,16.495" />
+          <LLOpenChest />
+        </If>
+        <MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1" />
+      </If>
+
+      <!-- Clear Doxa 0/1 -->
+      <If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+        <Log Message="Clear Doxa 0/1" />
+        <MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1" />
+        <LLToast message="The bot will struggle with this fight but eventually it'll luck through it."/>
+        <Grind GrindRef="Kyklops" PostCombatDelay="3.0" While="GetInstanceTodo(3) == 0" />
+        <If Condition="&openchest; == 1">
+          <MoveTo Name="Coffer 4" XYZ="19.97406,109.9717,-90.013" />
+          <LLOpenChest />
+        </If>
+      </If>
+
+      <!-- Arrive at Noesis 0/1 -->
+      <If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+        <Log Message="Arrive at Noesis 0/1" />
+        <If condition="not IsOnSubMap(3465)">
+          <If Condition="&openchest; == 1">
+            <MoveTo Name="Coffer 5" XYZ="70.62136, 92, -237.9265" />
+            <LLOpenChest />
+          </If>
+          <If Condition="&openchest; == 1">
+            <MoveTo Name="Coffer 6" XYZ="-21.92731,91.99658,-216.6629" />
+            <LLOpenChest />
+          </If>
+          <MoveTo Name="Zone Line" XYZ="20.24325, 92.5, -319.0067" />
+          <LLChangeZone Heading="3.140973" />
+        </If>
+        <MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1" />
+      </If>
+
+      <!-- Defeat Rukshs Dheem 0/1 -->
+      <If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+        <Log Message="Defeat Rukshs Dheem 0/1" />
+        <If condition="not IsOnSubMap(3465)">
+          <MoveTo Name="Zone Line" XYZ="20.24325, 92.5, -319.0067" />
+          <LLChangeZone Heading="3.140973" />
+        </If>
+        <MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1" />
+        <Grind GrindRef="RukshsDheem" PostCombatDelay="3.0" While="not IsDutyEnded()" />
+        <If Condition="&openchest; == 1">
+          <MoveTo Name="Coffer 7" XYZ="-0.01531982,-200,-458.0301"  />
+          <LLOpenChest />
+        </If>
+      </If>
+
+      <While condition="DutyManager.InInstance and IsDutyEnded()">
+        <WaitTimer WaitTime="5" />
+        <LLLeaveDuty />
+      </While>
+
+    </If>
+
+    <LLoadProfile Path="../../../Start.xml" />
   </Order>
   <GrindAreas>
+    <GrindArea name="OnTurtle">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-98.51139, 103.5996, 376.5931" name="OnBismark" />
+        <Hotspot Radius="90" XYZ="-40.25727, 94.99999, 307.3765" name="BossRoom" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9267" Weight="1" /> <!-- Trench Danbania -->
+        <TargetMob Id="9268" Weight="1" /> <!-- Trench Xzomit -->
+        <TargetMob Id="9269" Weight="1" /> <!-- Trench Phuabo -->
+        <TargetMob Id="9271" Weight="1" /> <!-- Trench Dagonite -->
+        <TargetMob Id="9272" Weight="1" /> <!-- Trench Yovra -->
+        <TargetMob Id="9267" Weight="1" /> <!-- Trench Danbania -->
+      </TargetMobs>
+    </GrindArea>
     <GrindArea Name="Unknown">
       <Hotspots>
         <Hotspot XYZ="-40.02448, 95, 289.9977" Radius="120" />
       </Hotspots>
       <TargetMobs>
-        <TargetMob Id="9260" />
+        <TargetMob Id="9260" Weight="1"/> <!-- Unknown -->
+        <TargetMob Id="9261" Weight="1"/> <!-- Unknown -->
       </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
     </GrindArea>
     <GrindArea Name="Kyklops">
       <Hotspots>
@@ -56,171 +138,17 @@
       <TargetMobs>
         <TargetMob Id="9263" />
       </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
     </GrindArea>
     <GrindArea Name="RukshsDheem">
       <Hotspots>
         <Hotspot XYZ="-0.03659993, -200, -460.0256" Radius="120" />
       </Hotspots>
       <TargetMobs>
-        <TargetMob Id="9264" />
+        <TargetMob Id="9264" Weight="1"/> <!-- Rukshs Dheem -->
         <TargetMob Id="9266" Weight="999" />
       </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
     </GrindArea>
   </GrindAreas>
   <CodeChunks>
-    <CodeChunk Name="Enable_Trust_Plugin">
-      <![CDATA[
-        var sideStep = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
-        try
-        {
-          if (!sideStep.Any())
-          {
-            Logging.Write("Error enabling SideStep.");
-            TreeRoot.Stop();
-          }
-          else if (!sideStep.FirstOrDefault().Enabled)
-          {
-            Logging.Write("Enabling SideStep.");
-            sideStep.FirstOrDefault().Enabled = true;
-          }
-          else { Logging.Write("SideStep already enabled."); }
-        }
-        catch (Exception ex)
-        {
-          Logging.Write("Error enabling SideStep.");
-          TreeRoot.Stop();
-        }
-        
-        await Coroutine.Sleep(500);
-        
-        var trustPlugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "Trust");
-        try
-        {
-          if (!trustPlugin.Any())
-          {
-            Logging.Write("Error enabling Trust Plugin.");
-            TreeRoot.Stop();
-          }
-          else if (!trustPlugin.FirstOrDefault().Enabled)
-          {
-            Logging.Write("Enabling Trust Plugin.");
-            trustPlugin.FirstOrDefault().Enabled = true;
-          }
-          else { Logging.Write("Trust Plugin already enabled."); }
-        }
-        catch (Exception ex)
-        {
-          Logging.Write("Error enabling Trust Plugin.");
-          TreeRoot.Stop();
-        }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Disable_Trust_Plugin">
-      <![CDATA[
-        var trustPlugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "Trust");
-        try
-        {
-          if (!trustPlugin.Any())
-          {
-            Logging.Write("Error enabling Trust Plugin.");
-            TreeRoot.Stop();
-          }
-          else if (trustPlugin.FirstOrDefault().Enabled)
-          {
-            Logging.Write("Disabling Trust Plugin.");
-            trustPlugin.FirstOrDefault().Enabled = false;
-          }
-          else { Logging.Write("Trust Plugin already disabled."); }
-        }
-        catch (Exception ex)
-        {
-          Logging.Write("Error enabling Trust Plugin.");
-          TreeRoot.Stop();
-        }
-        
-        await Coroutine.Sleep(500);
-      
-        var sideStep = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
-        try
-        {
-          if (!sideStep.Any())
-          {
-            Logging.Write("Error enabling SideStep.");
-            TreeRoot.Stop();
-          }
-          else if (!sideStep.FirstOrDefault().Enabled)
-          {
-            Logging.Write("Enabling SideStep.");
-            sideStep.FirstOrDefault().Enabled = true;
-          }
-          else { Logging.Write("SideStep already enabled."); }
-        }
-        catch (Exception ex)
-        {
-          Logging.Write("Error enabling SideStep.");
-          TreeRoot.Stop();
-        }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="EnterDuty">
-      <![CDATA[
-        Logging.Write("Commencing Trust duty.");
-        string[] scions = { "Minfilia", "Ryne", "Thancred", "Urianger", "Alphinaud", "Alisaie", "Crystal Exarch", "Lyna", "Y'shtola" };
-        var dutyNpc = GameObjectManager.GameObjects.Where(x => x.IsTargetable && x.Distance() < 15f && scions.Contains(x.Name.ToString())).OrderBy(x => x.Distance()).FirstOrDefault();
-        while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
-        {
-          await Coroutine.Yield();
-          Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
-        }
-        Navigator.PlayerMover.MoveStop();
-        dutyNpc.Interact();
-        await Coroutine.Wait(5000, () => SelectString.IsOpen);
-        SelectString.ClickSlot(1);
-        await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("Dawn") != null);
-        
-        if (RaptureAtkUnitManager.GetWindowByName("Dawn") == null) { TreeRoot.Stop(); }
-        
-        RaptureAtkUnitManager.GetWindowByName("Dawn").SendAction(2,3,15,4,0);//
-        await Coroutine.Sleep(100);
-        RaptureAtkUnitManager.GetWindowByName("Dawn").SendAction(1,3,14);
-        await Coroutine.Wait(10000, () => ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Handle_Cutscene_Talking">
-      <![CDATA[
-        await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
-        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-        while (QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
-        {
-          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
-          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
-          if (Talk.DialogOpen) { Talk.Next(); }
-          await Coroutine.Yield();
-        }
-        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
-        await Coroutine.Sleep(3000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="LeaveDuty">
-      <![CDATA[
-        DutyManager.LeaveActiveDuty();
-        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
-        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-        await Coroutine.Sleep(5000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Transition">
-      <![CDATA[
-        Core.Me.SetFacing(3.137412f);
-        MovementManager.MoveForwardStart();
-        while (WorldManager.SubZoneId != 3465)  {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
   </CodeChunks>
 </Profile>
