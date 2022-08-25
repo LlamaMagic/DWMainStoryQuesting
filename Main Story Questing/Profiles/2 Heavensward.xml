@@ -1345,7 +1345,7 @@
 		</If>
 		<If Condition="HasQuest(67153) and not IsQuestCompleted(67153) and GetQuestStep(67153) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67153" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Sohm Al and hit continue." />
+				<LLoadProfile Path="Dungeons/Heavensward/53 Sohm Al.xml.xml"/>	
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -1943,7 +1943,7 @@
 		</If>
 		<If Condition="HasQuest(67170) and not IsQuestCompleted(67170) and GetQuestStep(67170) == 2">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67170" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the duty The Aery and hit continue." />
+				<LLoadProfile Path="Dungeons/Heavensward/55 The Aery.xml.xml"/>	
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2242,7 +2242,7 @@
 		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67176" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the the Vault and hit continue." />
+				<LLoadProfile Path="Dungeons/Heavensward/57 The Vault.xml"/>	
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Snowcloak
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+]>
+
+<Profile>
+	<Name>Snowcloak</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<If condition="not DutyManager.InInstance">
+			<JoinSupportDuty DutyId="27" />
+		</If>
+
+		<If condition="DutyManager.InInstance and IsOnMap(1062)">
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20" />
+			</If>
+
+			<!-- Tiny Key 0/1 -->
+			<If Condition="not GetInstanceTodo(0) == 1">
+				<Log Message="Tiny Key 0/1" />
+				<If condition="IsOnSubMap(0) or IsOnSubMap(1394)">
+					<!--<MoveTo XYZ="68.58003, 5.705406, -42.91619" />-->
+					<Grind GrindRef="WhiteBear" While="not GameObjectManager.GetObjectByNPCId(2004225)" /> <!-- Fight White Bear -->
+					<UseObject NpcId="2004225" XYZ="68.6021,5.705543,-41.4147" Radius="100" condition="not HasAtLeast(2001447,1)" />
+				</If>
+			</If>
+
+			<!-- Clear Silence 0/1 -->
+			<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Silence 0/1" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2004203).IsTargetable">
+					<MoveTo XYZ="57.11437,4.48007,-45.93763" distance="2" />
+					<RunCode name="DoortoSilence" />
+				</While>
+				<MoveTo XYZ="48.03999, -2.5, -73.68185" distance="1" />
+				<If condition="IsOnSubMap(1395)">
+					<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(3038).CurrentHealth == 0" /> <!-- Fight first boss -->
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="59.83057,-2.517761,-103.6545" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Clear Conviction 0/1 -->
+			<If Condition="not GetInstanceTodo(2) == 1 and GetInstanceTodo(1) == 1">
+				<Log Message="Clear Conviction 0/1" />
+				<MoveTo XYZ="-49.34208, 3.723128, -101.3631" />
+				<MoveTo XYZ="-81.03928, 10.52773, -110.2759" distance="1" />
+				<If condition="IsOnSubMap(1396)">
+					<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(3040).CurrentHealth == 0" /> <!-- Fight second boss -->
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-108.7206,10.42188,-100.9385" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Finger of the Apostate 0/1 -->
+			<If Condition="not GetInstanceTodo(3) == 1 and GetInstanceTodo(2) == 1">
+				<Log Message="Finger of the Apostate 0/1" />
+				<MoveTo XYZ="-57.41408, 28.4, -9.616822" />
+				<Grind GrindRef="ClearRoom" while="not GameObjectManager.GetObjectByNPCId(3032)" />
+				<Grind GrindRef="ClearRoom" while="not GameObjectManager.GetObjectByNPCId(3032).CurrentHealth == 0" />
+				<MoveTo XYZ="-68.24632, 40.78313, 65.11944" />
+				<UseObject NpcId="2004226" XYZ="-74.95443,40.51212,64.15948" Radius="100" condition="not HasAtLeast(2001448,1)" />
+			</If>
+
+			<!-- Defeat Fenrir 0/1-->
+			<If Condition="not GetInstanceTodo(4) == 1 and GetInstanceTodo(3) == 1">
+				<Log Message="Defeat Fenrir 0/1" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2004224).IsTargetable">
+					<MoveTo XYZ="-52.0605,40,65.06619" distance="2" />
+					<RunCode name="DoortoOblivion" />
+				</While>
+				<MoveTo XYZ="-18.50113, 40.06769, 65.8017" />
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()" /> <!-- Fight final boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="14.4502,40.05493,66.81921" />
+					<LLOpenChest />
+				</If>
+
+				<While condition="DutyManager.InInstance and IsDutyEnded()">
+					<WaitTimer WaitTime="10" />
+					<LLLeaveDuty />
+				</While>
+			</If>
+		</If>
+
+	<LLoadProfile Path="../../Start.xml"/>
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="WhiteBear">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="68.58003, 5.705406, -42.91619" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="White Bear" Id="3028" Weight="1" />
+			</TargetMobs>
+			</GrindArea>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="55.65045, -2.5, -85.66619" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3038" Weight="1" /> <!-- Wandil -->
+				<TargetMob Id="3030" Weight="1" /> <!-- Snowcloak Goobbue -->
+				<TargetMob Id="114" Weight="1" /> <!-- Ice Sprite -->
+				<TargetMob Id="3220" Weight="1" /> <!-- Northern Bateleur -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-98.66476, 10.5, -116.7822" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3040" Weight="1" /> <!-- Yeti -->
+				<TargetMob Id="3026" Weight="1" /> <!-- Glacier Sprite -->
+				<TargetMob Id="3031" Weight="1" /> <!-- Hrimthurs -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearRoom">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-57.41408, 28.4, -9.616822" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Snowclops" Id="3032" Weight="1" />
+				<TargetMob Name="Hrimthurs" Id="3031" Weight="1" />
+				<TargetMob Name="Spriggan Tumbler" Id="3037" Weight="1" />
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="5.6308,40.06769,66.315" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3044" Weight="1" /> <!-- Fenrir -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="DoortoSilence">
+			<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004203).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+		</CodeChunk>
+		<CodeChunk Name="DoortoOblivion">
+			<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004224).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+		</CodeChunk>
+	</CodeChunks>
+</Profile>	

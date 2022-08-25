@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sohm Al
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+  <!ENTITY openchest "1">
+  <!ENTITY SolmDrops "11140,11141,11142,11143,11144,11145,11146,11147,11148,11149,11150,11151,11152,11153,11154,11155,11156,11157,11158,11159,11160,11161,11162,11163,11164,11165,11166,11167,11168,11169,11170,11171,11172,11173,11174,11182,11183,11184,11185,11186,11187,11188,11189,11190,11191,11192,11193,11194,11195,12376,12377,12378,12379,12380,12381,12382,12383,12384,12385,12386,12387,12388,12389,12390,12391,12392,12393,12394,12395,20400,20401">
+]>
+
+<Profile>
+  <Name>Sohm Al</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If condition="not DutyManager.InInstance">
+      <JoinSupportDuty DutyId="37" />
+    </If>
+
+    <If Condition="DutyManager.InInstance and IsOnMap(1064)">
+
+      <!-- Shortcut available -->
+      <If condition="IsNearShortcut(2000700)">
+        <UseShortcut NpcId="2000700" Distance="20" />
+      </If>
+
+      <!-- Defeat Raskovnik 0/1 -->
+      <If Condition="not GetInstanceTodo(0) == 1">
+        <Log Message="Defeat Raskovnik 0/1" />
+        <If condition="IsOnSubMap(1606)">
+          <Grind GrindRef="ClearToBoss" While="DistanceSqrTo('-162.7661, 4.138284, 201.1748') &gt; 5" />
+          <MoveTo XYZ="-140.7917, 11.99939, 185.2002" />
+        </If>
+        <If condition="IsOnSubMap(1609)">
+          <Grind GrindRef="Firstboss" While="not GameObjectManager.GetObjectByNPCId(3791).CurrentHealth == 0" /> <!-- Raskovnik -->
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="-126.8483,11.97827,149.0653" />
+            <LLOpenChest />
+          </If>
+        </If>
+      </If>
+
+      <!-- Defeat Myath 0/1 -->
+      <If Condition="not GetInstanceTodo(1) == 1">
+        <Log Message="Defeat Myath 0/1" />
+        <If condition="IsOnSubMap(1609) or IsOnSubMap(1606)">
+          <MoveTo XYZ="-93.73286, 18.69949, 124.4259" />
+          <LLChangeZone Heading="1.472318" />
+        </If>
+        <If condition="not IsOnSubMap(1612)">
+          <MoveTo XYZ="347.8081, 112.3573, -69.31239" />
+          <If condition="GameObjectManager.GetObjectByNPCId(3809)">
+            <Grind GrindRef="Pyrodragon" While="GameObjectManager.GetObjectByNPCId(3809)" /> <!-- Clear Pyrodragon -->
+          </If>
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="271.9665, 120.9482, -100.9838" />
+            <LLOpenChest />
+          </If>
+          <MoveTo XYZ="269.2288, 126.5839, -35.07988" />
+          <If condition="GameObjectManager.GetObjectByNPCId(3810)">
+            <Grind GrindRef="Cryodragon" While="GameObjectManager.GetObjectByNPCId(3810)" /> <!-- Clear Cryodragon -->
+          </If>
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="164.4028, 135.8241, -35.9251" />
+            <LLOpenChest />
+          </If>
+          <MoveTo XYZ="163.7242, 137.6078, -66.94054" />
+        </If>
+        <MoveTo XYZ="163.7242, 137.6078, -66.94054" />
+        <MoveTo XYZ="142.0083, 137.6078, -73.54874" usemesh="false" />
+        <Grind GrindRef="SecondBoss" While="GetInstanceTodo(1) == 1" /> <!-- Myath -->
+        <If Condition="&openchest; == 1">
+          <MoveTo XYZ="174.1511,137.5906,-110.4907" />
+          <LLOpenChest />
+        </If>
+      </If>
+
+      <!-- Defeat Tioman 0/1-->
+      <If Condition="not GetInstanceTodo(2) == 1">
+        <Log Message="Defeat Tioman 0/1" />
+        <If condition="IsOnSubMap(1612) or IsOnSubMap(1607)">
+          <MoveTo XYZ="194.9788, 140.1169, -138.6691" />
+          <LLChangeZone Heading="2.670952" />
+        </If>
+        <If condition="not IsOnSubMap(1613)">
+          <MoveTo XYZ="-201.6142, 329.154, -298.9766" />
+          <If condition="GameObjectManager.GetObjectByNPCId(3811)">
+            <Grind GrindRef="Ergodragon" While="not GameObjectManager.GetObjectByNPCId(3811).CurrentHealth == 0" /> <!-- Clear Ergodragon Fight -->
+          </If>
+          <If condition="GameObjectManager.GetObjectByNPCId(3816)">
+            <Grind GrindRef="WoundedDragon" While="not GameObjectManager.GetObjectByNPCId(3816).CurrentHealth == 0" /> <!-- Clear Wounded Dragons Fight -->
+          </If>
+          <If Condition="&openchest; == 1">
+            <MoveTo XYZ="-91.31446, 344.1454, -358.5639" />
+            <LLOpenChest />
+          </If>
+          <MoveTo XYZ="-110.3985, 348.2341, -374.2008" InCombat="True" />
+        </If>
+        <Grind GrindRef="FinalBoss" While="not IsDutyEnded()" /> <!-- Tioman -->
+        <If Condition="&openchest; == 1">
+          <MoveTo XYZ="-95.44525,348.1649,-406.4241" />
+          <LLOpenChest />
+        </If>
+        <While condition="DutyManager.InInstance and IsDutyEnded()">
+          <WaitTimer WaitTime="5" />
+          <LLLeaveDuty />
+        </While>
+      </If>
+    </If>
+		
+			<LLoadProfile Path="../../../Start.xml"/>
+
+  </Order>
+  <GrindAreas>
+    <GrindArea name="ClearToBoss">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-270.0937, -4.0326, 202.8648" name="Name" />
+        <Hotspot Radius="200" XYZ="-162.7661, 4.138284, 201.1748" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3800" Weight="1" /> <!-- Flying Killer -->
+        <TargetMob Id="3799" Weight="1" /> <!-- Blooming Ochu -->
+        <TargetMob Id="3802" Weight="1" /> <!-- Pollen Cluster -->
+        <TargetMob Id="3803" Weight="1" /> <!-- Drakespur -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Firstboss">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-126.9843,11.99944,168.3082" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3791" Weight="1" /> <!-- Raskovnik -->
+        <TargetMob Id="3444" Weight="10" /> <!-- Dravanian Hornet -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Pyrodragon">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="347.8081, 112.3573, -69.31239" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3809" Weight="1" /> <!-- Pyrodragon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Cryodragon">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="269.2288, 126.5839, -35.07988" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3810" Weight="1" /> <!-- Cryodragon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="158.8356,137.6078,-94.1681" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3793" Weight="1" /> <!-- Myath -->
+        <TargetMob Id="3794" Weight="100"/> <!-- Chyme of the Mountain -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Ergodragon">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-201.6142, 329.154, -298.9766" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3811" Weight="1" /> <!-- Ergodragon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="WoundedDragon">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-201.6142, 329.154, -298.9766" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3816" Weight="1" /> <!-- Wounded Cryodragon -->
+        <TargetMob Id="3815" Weight="1" /> <!-- Wounded Pyrodragon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-103.488,348.1642,-395.8698" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3798" Weight="1" /> <!-- Tioman -->
+        <TargetMob Id="4388" Weight="1000" /> <!-- Left Wing -->
+        <TargetMob Id="4389" Weight="1000" /> <!-- Right Wing -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>
