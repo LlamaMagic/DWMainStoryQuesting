@@ -1348,29 +1348,12 @@
       <UseTransport NpcId="1004433" InteractDistance="3.0" XYZ="-23.60571, 83.19999, -2.304138"/>
     </If>
     <If Condition="HasQuest(66064) and not IsQuestCompleted(66064) and GetQuestStep(66064) == 3">
-      <If Condition="not IsOnMap(130) and not IsOnSubMap(654)">
-        <GetTo ZoneId="130" XYZ="-23.33112, 10, -43.44244"/>
-      </If>
-      <If Condition="IsOnMap(130) and not IsOnSubMap(654)">
-        <UseTransport NpcId="1001834" InteractDistance="3.0" DialogOption="0" XYZ="-23.33112, 10, -43.44244"/>
-      </If>
-      <If Condition="IsOnMap(130) and IsOnSubMap(654) and not ((Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-39.1221, 84, -0.539709)) &lt; 10) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3()) &lt; 10) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-29.16697, 83.19999, 3.35879)) &lt; 5))">
-        <UseTransport NpcId="1004433" InteractDistance="3.0" XYZ="-23.60571, 83.19999, -2.304138"/>
-      </If>
       <LLTalkTo InteractDistance="2.0" NpcId="2001667" XYZ="-45.36511, 84.09241, -0.8087769" QuestId="66064" StepId="3"/>
       <WaitWhile Condition="IsOnMap(130) and IsOnSubMap(654)"/>
       <WaitTimer WaitTime="5"/>
     </If>
     <If Condition="HasQuest(66064) and not IsQuestCompleted(66064) and GetQuestStep(66064) == 4">
-      <If Condition="not IsOnMap(128) and not IsOnSubMap(725)">
-        <GetTo ZoneId="128" XYZ="8.194031, 39.99998, 17.74622"/>
-      </If>
-      <If Condition="IsOnMap(128) and not IsOnSubMap(725)">
-        <UseTransport NpcId="1003597" InteractDistance="3.0" DialogOption="0" XYZ="8.194031, 39.99998, 17.74622"/>
-      </If>
-      <If Condition="IsOnMap(128) and IsOnSubMap(725) and ((Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-12.40326, 92.00001, 11.40404)) &lt; 15) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-26.22043, 91.99999, 4.798211)) &lt; 5))">
-        <UseTransport NpcId="1002703" InteractDistance="3.0" XYZ="-12.37512, 91.49999, -0.5340576"/>
-      </If>
+      <UseTransport NpcId="1002703" InteractDistance="3.0" XYZ="-12.37512, 91.49999, -0.5340576"/>
       <LLTalkTo NpcId="1002693" XYZ="-6.515625, 91.49997, -13.65692" QuestId="66064" StepId="4"/>
     </If>
     <If Condition="HasQuest(66064) and not IsQuestCompleted(66064) and GetQuestStep(66064) == 5">
@@ -1398,29 +1381,12 @@
       <WaitTimer WaitTime="5"/>
     </If>
     <If Condition="HasQuest(66064) and not IsQuestCompleted(66064) and GetQuestStep(66064) == 7">
-      <If Condition="not IsOnMap(129) and not IsOnMap(128)">
-        <GetTo ZoneId="129" XYZ="9.781006, 20.99925, 15.09113"/>
-      </If>
-      <If Condition="IsOnMap(129)">
-        <UseTransport NpcId="1003611" InteractDistance="3.0" DialogOption="0" XYZ="9.781006, 20.99925, 15.09113"/>
-      </If>
-      <If Condition="IsOnMap(128) and not IsOnSubMap(725)">
-        <UseTransport NpcId="1003597" InteractDistance="3.0" DialogOption="0" XYZ="8.194031, 39.99998, 17.74622"/>
-      </If>
-      <If Condition="IsOnMap(128) and IsOnSubMap(725) and not ((Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-12.40326, 92.00001, 11.40404)) &lt; 15) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-26.22043, 91.99999, 4.798211)) &lt; 5))">
-        <UseTransport NpcId="1002695" InteractDistance="4.0" XYZ="-25.92511, 91.99995, -3.677429"/>
-      </If>
       <LLTalkTo InteractDistance="2.0" NpcId="2001670" XYZ="-11.12384, 92.0271, 17.16638" QuestId="66064" StepId="7"/>
       <WaitWhile Condition="IsOnMap(128) and IsOnSubMap(725)"/>
       <WaitTimer WaitTime="5"/>
     </If>
     <If Condition="HasQuest(66064) and not IsQuestCompleted(66064) and GetQuestStep(66064) == 8">
-      <If Condition="not IsOnMap(132) and not IsOnSubMap(549)">
-        <GetTo ZoneId="132" XYZ="29.77026, -19, 114.1222"/>
-      </If>
-      <If Condition="IsOnMap(132) and IsOnSubMap(549) and ((Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(29.05206, -19.4, 121.9258)) &lt; 15) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(10.37805, -21.97092, 102.08)) &lt; 10) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(10.17766, -21.97092, 112.8392)) &lt; 10) or (Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(9.266862, -21.97097, 125.0046)) &lt; 5))">
-        <UseTransport NpcId="1000109" InteractDistance="3.0" XYZ="29.77026, -19, 114.1222"/>
-      </If>
+      <UseTransport NpcId="1000109" InteractDistance="3.0" XYZ="29.77026, -19, 114.1222"/>
       <LLTalkTo NpcId="1002830" XYZ="36.63684, -18.8, 89.64673" QuestId="66064" StepId="8"/>
     </If>
     <If Condition="HasQuest(66064) and not IsQuestCompleted(66064) and GetQuestStep(66064) == 255">
