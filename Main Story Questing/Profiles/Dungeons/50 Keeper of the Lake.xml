@@ -20,6 +20,8 @@
 
 		<If condition="DutyManager.InInstance and IsOnMap(1063)">
 
+			<EnablePlugin names="Trust,SideStep"/>
+
 			<!-- Shortcut available -->
 			<If condition="IsNearShortcut(2000700)">
 				<UseShortcut NpcId="2000700" Distance="20" />
