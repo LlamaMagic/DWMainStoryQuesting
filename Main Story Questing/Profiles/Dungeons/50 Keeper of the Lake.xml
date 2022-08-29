@@ -59,6 +59,7 @@
 					<LLChangeZone Heading="5.20977" />
 					<MoveTo XYZ="-99.56541, 333.8499, -150.0172" />
 				</If>
+				<MoveTo XYZ="-96.68403, 338.6898, -162.6739" InCombat="True" />
 				<While condition="not HasAtLeast(2001567,1) and not GameObjectManager.GetObjectByNPCId(2004975)">
 					<Grind GrindRef="ColossusArea" while="not GameObjectManager.GetObjectByNPCId(2004975)" />
 					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2004975).IsTargetable" />
