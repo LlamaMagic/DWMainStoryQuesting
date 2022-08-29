@@ -12,8 +12,7 @@
 	<LisbethCheck/>
 
 	<!-- Profile start here -->	
-	<DisablePlugin Names="DungeonAssist,Trust,RBTrust"/>
-
+	<EnablePlugin Name="Trust"/>
 	
 	<!-- Uldah Starting Zone -->
 	<If Condition="(not IsQuestCompleted(66209) and not IsQuestCompleted(66210)) and (ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Pugilist)">	
