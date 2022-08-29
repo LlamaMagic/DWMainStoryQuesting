@@ -59,18 +59,21 @@
 					<LLChangeZone Heading="5.20977" />
 					<MoveTo XYZ="-99.56541, 333.8499, -150.0172" />
 				</If>
-				<Grind GrindRef="ColossusArea" while="not GameObjectManager.GetObjectByNPCId(2004975)" />
-				<While condition="GameObjectManager.GetObjectByNPCId(2004975).IsTargetable">
+				<While condition="not HasAtLeast(2001567,1) and not GameObjectManager.GetObjectByNPCId(2004975)">
+					<Grind GrindRef="ColossusArea" while="not GameObjectManager.GetObjectByNPCId(2004975)" />
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2004975).IsTargetable" />
+				</While>
+				<While condition="not HasAtLeast(2001567,1) and (GameObjectManager.GetObjectByNPCId(2004975) and GameObjectManager.GetObjectByNPCId(2004975).IsTargetable)">
 					<UseObject NpcId="2004975" Radius="5000" XYZ="-51.99129,338.3494,-219.451" condition="not HasAtLeast(2001567,1)" />
 				</While>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="-84.18408,338.7045,-192.8283" />
-					<LLOpenChest />
 					<MoveTo XYZ="-69.99316,338.4298,-233.9971" />
 					<LLOpenChest />
+					<MoveTo XYZ="-84.18408,338.7045,-192.8283" />
+					<LLOpenChest />
 				</If>
-				<While condition="GameObjectManager.GetObjectByNPCId(2004834).IsTargetable">
-					<UseTransport NpcId="2004834" InteractDistance="3.0" XYZ="-33.98703, 338.6129, -200.5452"/>
+				<While condition="HasAtLeast(2001567,1) and GameObjectManager.GetObjectByNPCId(2004834).IsTargetable">
+					<UseTransport NpcId="2004834" InteractDistance="3.0" XYZ="-33.98703, 338.6129, -200.5452" />
 				</While>
 				<WaitWhile condition="GetInstanceTodo(1) == 1" />
 			</If>
@@ -78,6 +81,10 @@
 			<!-- Clear the ceruleum spill 0/1 -->
 			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 2">
 				<Log Message="Clear the ceruleum spill 0/1" />
+				<If condition="IsOnSubMap(1503)">
+					<MoveTo XYZ="-8.078124, 22.20572, -3.370753" />
+					<LLChangeZone Heading="5.20977" />
+				</If>
 				<MoveTo XYZ="8.491731, 346.0237, -165.5812" InCombat="True" />
 				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(2) == 0" /> <!-- Magitek Gunship -->
 				<If Condition="&openchest; == 1">
@@ -107,7 +114,7 @@
 
 		</If>
 
-	<LLoadProfile Path="../../Start.xml"/>
+		<LLoadProfile Path="../../Start.xml" />
 
 	</Order>
 	<GrindAreas>
@@ -152,6 +159,5 @@
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
-	<CodeChunks>
-	</CodeChunks>
+	<CodeChunks></CodeChunks>
 </Profile>

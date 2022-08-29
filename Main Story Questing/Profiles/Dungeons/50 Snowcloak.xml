@@ -80,7 +80,7 @@
 			<!-- Defeat Fenrir 0/1-->
 			<If Condition="not GetInstanceTodo(4) == 1 and GetInstanceTodo(3) == 1">
 				<Log Message="Defeat Fenrir 0/1" />
-				<While condition="GameObjectManager.GetObjectByNPCId(2004224).IsTargetable">
+				<While condition="GameObjectManager.GetObjectByNPCId(2004224) and GameObjectManager.GetObjectByNPCId(2004224).IsTargetable">
 					<MoveTo XYZ="-52.0605,40,65.06619" distance="2" />
 					<RunCode name="DoortoOblivion" />
 				</While>

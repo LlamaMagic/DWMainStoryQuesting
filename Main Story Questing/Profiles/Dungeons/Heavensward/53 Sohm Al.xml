@@ -95,7 +95,7 @@
             <MoveTo XYZ="-91.31446, 344.1454, -358.5639" />
             <LLOpenChest />
           </If>
-          <MoveTo XYZ="-110.3985, 348.2341, -374.2008" InCombat="True" />
+          <MoveTo XYZ="-103.488,348.1642,-395.8698" InCombat="True"/>
         </If>
         <Grind GrindRef="FinalBoss" While="not IsDutyEnded()" /> <!-- Tioman -->
         <If Condition="&openchest; == 1">
