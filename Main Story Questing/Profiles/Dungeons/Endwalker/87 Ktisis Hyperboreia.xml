@@ -3,6 +3,7 @@
 <!DOCTYPE Profile [
   <!-- Profile Settings -->
   <!ENTITY openchest "1">
+  <!ENTITY EquipAfterChestOpen "1">
 ]>
 
 <Profile>
@@ -42,6 +43,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="-144.3962,496.1166,37.03357" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
         </If>
       </If>
@@ -61,6 +65,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="5.386414,623.926,121.6907" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
           <MoveTo XYZ="-0.1270234, 630.0001, 63.1016" Distance="0.5" />
         </If>
@@ -83,6 +90,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="-0.01531982,629.9688,34.8363" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
         </If>
       </If>
@@ -103,6 +113,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="36.75033, -600, -43.81325" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
           <MoveTo XYZ="29.57607, -599.7429, -71.85575" Distance="0.5" />
           <WaitWhile Condition="not IsOnSubMap(3765)" />
@@ -112,6 +125,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="-44.90735,-140.0016,29.52612" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
           <MoveTo XYZ="-33.25174, -140, 1.282965" Distance="0.5" />
           <While Condition="IsOnSubMap(3765)">
@@ -152,6 +168,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="0.1067505,-0.01531982,-62.11957" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
         </If>
       </If>

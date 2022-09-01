@@ -3,6 +3,7 @@
 <!DOCTYPE Profile [
   <!-- Profile Settings -->
   <!ENTITY openchest "1">
+  <!ENTITY EquipAfterChestOpen "1">
 ]>
 
 <Profile>
@@ -42,6 +43,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="-300.0077,-175.0058,56.68726" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
         </If>
       </If>
@@ -76,6 +80,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="210.4371,-0.01531982,372.9762" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
           <MoveTo XYZ="220.7229, 0.9999998, 322.8848" Distance="0.5" />
         </If>
@@ -101,6 +108,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="220.9963,0.9613037,289.9977" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
         </If>
       </If>
@@ -129,6 +139,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="-43.01526,483.9703,-118.2117" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
           <MoveTo XYZ="-0.08154679, 480, -184.8952" Distance="0.5" />
         </If>
@@ -154,6 +167,9 @@
           <If Condition="&openchest; == 1">
             <MoveTo XYZ="-0.01531982,479.9724,-188.0064" />
             <LLOpenChest />
+            <If Condition="&EquipAfterChestOpen; == 1">
+              <AutoInventoryEquip />
+            </If>	
           </If>
         </If>
       </If>
