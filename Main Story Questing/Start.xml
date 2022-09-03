@@ -66,7 +66,13 @@
 	<If Condition="IsQuestCompleted(70000) and not IsQuestCompleted(70071)">	
 		<Log Message="Loading 6.1 Endwalker Questing" />	
 		<LLoadProfile Path="Profiles/Newfound Adventure - MSQ 6_1.xml"/>
-	</If>		
+	</If>	
+	
+		<!-- Endwalker 6.2 -->
+		<If Condition="IsQuestCompleted(70071) and not IsQuestCompleted(70135)">	
+			<Log Message="Loading 6.2 Endwalker Questing" />	
+			<LLoadProfile Path="Profiles/Endwalker 6-2 Buried Memory.xml"/>
+		</If>
 
   
   </Order>
