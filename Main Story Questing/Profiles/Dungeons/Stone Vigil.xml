@@ -29,7 +29,7 @@
 
 			<!-- Shortcut available -->
 			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20" />
+				<UseShortcut NpcId="2000700" Distance="30" />
 			</If>
 
 
