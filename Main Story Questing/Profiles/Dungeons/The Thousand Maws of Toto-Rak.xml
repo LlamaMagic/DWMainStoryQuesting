@@ -28,7 +28,8 @@
 		<If Condition="GetInstanceTodo(0) == 0">
 			<Log Message="Arrive at the confession chamber: 0/1" />
 			<Grind GrindRef="ClearToFirstBoss" While="DistanceSqrTo('-122.3474,-4.17979,111.4125') &gt; 5"/> <!-- Clear to first boss -->
-			<WaitWhile condition="GetInstanceTodo(0) == 0"/>
+			<MoveTo XYZ="-120.324, -4.171214, 110.6194" InCombat="True"/>
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Kill Coeurl O' Nine Tails -->
 		</If>
 		
 		<!-- Clear the confession chamber: 0/1 -->
