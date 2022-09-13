@@ -79,6 +79,7 @@
 					<UseTransport NpcId="2000173" XYZ="42.90398,-9.979086,-69.08659" /> <!-- Sealed Blasting Door -->
 				</While>
 				<While condition="not IsOnSubMap(676)">
+					<MoveTo XYZ="58.13903, -8.250014, 7.431797" Distance="1"/>
 					<UseTransport InteractDistance="1.0" NpcId="2000175" XYZ="58.22326, -8.250008, 8.088243" /> <!-- Lift Lever -->	
 					<WaitWhile condition="not IsOnSubMap(676)"/>
 				</While>
