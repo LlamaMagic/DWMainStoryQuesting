@@ -6,115 +6,115 @@
 -->
 
 <!DOCTYPE Profile [
-<!-- Profile Settings -->
-<!ENTITY openchest "1">
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
 ]>
 
 <Profile>
-  <Name>Haukke Manor</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	<If condition="not DutyManager.InInstance">
-		<JoinSupportDuty DutyId="6"/>
-	</If>
-	
-	<If condition="DutyManager.InInstance">
-		<EnablePlugin name="Trust"/>
+	<Name>Haukke Manor</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
 
-
-		<!-- Find the green key 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 0">
-			<Log Message="Find the green key 0/1" />
-			<If condition="GameObjectManager.GetObjectByNPCId(2000329).IsTargetable and GetInstanceTodo(0) == 0">
-				<UseObject NpcId="2000302" XYZ="71.39691,-0.001626727,28.64114" condition="GetInstanceTodo(0) == 0"/> <!-- 1st Tiny Key -->
-			</If>
-			<If condition="GetInstanceTodo(0) == 1">
-				<MoveTo XYZ="0.5093936,0.1435532,56.9761" />
-				<While condition="GameObjectManager.GetObjectByNPCId(2000329).IsTargetable">
-					<UseTransport NpcId="2000329" XYZ="0.5093936,0.1435532,56.9761" /> <!-- Locked Door -->	
-					<WaitWhile condition="GameObjectManager.GetObjectByNPCId(2000329).IsTargetable"/>
-				</While>	
-			</If>	
-			<If condition="(GameObjectManager.GetObjectByNPCId(423) and not GameObjectManager.GetObjectByNPCId(423).CurrentHealth == 0)">
-				<MoveTo XYZ="-18.81326, 0, 0.2454676" />
-				<Grind GrindRef="FirstBoss" While="(GameObjectManager.GetObjectByNPCId(423) and not GameObjectManager.GetObjectByNPCId(423).CurrentHealth == 0)"/> <!-- Fight First Boss -->
-			</If>
-			<If condition="GetInstanceTodo(1) == 0">			
-				<UseObject NpcId="2000324" Radius="50" XYZ="2.176069,0,0.1644126" condition="GetInstanceTodo(1) == 0"/> <!-- Green Key -->
-			</If>	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="16.4339,-0.01531982,-0.04577637" />
-				<LLOpenChest />
-			</If>			
-		</If>
-		
-		<!-- Find the yellow key 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-			<Log Message="Find the yellow key 0/1" />
-			<If condition="GameObjectManager.GetObjectByNPCId(2000355).IsVisible">
-				<UseTransport NpcId="2000355" XYZ="0.5093936,0.1435532,56.9761" /> <!-- Locked Door -->	
-			</If>
-			<If condition="GameObjectManager.GetObjectByNPCId(2000305).IsTargetable and GetInstanceTodo(0) == 0">
-				<UseObject NpcId="2000305" Radius="50" XYZ="-68.49892,-16.79592,-8.967492" condition="GetInstanceTodo(0) == 0"/> <!-- 2nd Tiny Key -->
-			</If>			
-			<If condition="GameObjectManager.GetObjectByNPCId(2000343).IsVisible">
-				<UseTransport NpcId="2000343" XYZ="-1.89994,-18.6151,34.6209" /> <!-- Locked Door -->	
-			</If>
-			<If condition="GetInstanceTodo(2) == 0">			
-				<UseObject NpcId="2000325" Radius="50" XYZ="-12.3487,-18.80323,52.29088" condition="GetInstanceTodo(2) == 0"/>	<!-- Pickup Yellow Key -->
-			</If>	
+		<If condition="not DutyManager.InInstance">
+			<JoinSupportDuty DutyId="6" />
 		</If>
 
-		<!-- Find the bloody parchment 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-			<Log Message="Find the bloody parchment 0/1" />		
-			<If condition="GameObjectManager.GetObjectByNPCId(2000356).IsVisible">
-				<If condition="IsOnSubMap(610)">
-					<MoveTo XYZ="-10.99383, -18.79999, 28.51722" />
-					<MoveTo XYZ="-26.86154, -18.79999, 25.01348" usemesh="false" />
+		<If condition="DutyManager.InInstance">
+			<EnablePlugin name="Trust" />
+
+
+			<!-- Find the green key 0/1 Name: 0x111A9306A70, ID:2001236 IsVisible:True IsTargetable:False -->
+			<If Condition="GetInstanceTodo(1) == 0">
+				<Log Message="Find the green key 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000329).IsTargetable and GetInstanceTodo(0) == 0">
+					<UseObject NpcId="2000302" XYZ="71.39691,-0.001626727,28.64114" condition="GetInstanceTodo(0) == 0" /> <!-- 1st Tiny Key -->
 				</If>
-				<UseTransport NpcId="2000356" XYZ="-25.55891,-18.57028,-0.07634211" /> <!-- Carnation Door -->	
+				<If condition="GetInstanceTodo(0) == 1">
+					<MoveTo XYZ="0.5093936,0.1435532,56.9761" />
+					<While condition="GameObjectManager.GetObjectByNPCId(2000329).IsTargetable">
+						<UseTransport NpcId="2000329" XYZ="0.5093936,0.1435532,56.9761" /> <!-- Locked Door -->
+						<WaitWhile condition="GameObjectManager.GetObjectByNPCId(2000329).IsTargetable" />
+					</While>
+				</If>
+				<If condition="(GameObjectManager.GetObjectByNPCId(423) and not GameObjectManager.GetObjectByNPCId(423).CurrentHealth == 0)">
+					<MoveTo XYZ="-18.81326, 0, 0.2454676" />
+					<Grind GrindRef="FirstBoss" While="(GameObjectManager.GetObjectByNPCId(423) and not GameObjectManager.GetObjectByNPCId(423).CurrentHealth == 0)" /> <!-- Fight First Boss -->
+				</If>
+				<If condition="GetInstanceTodo(1) == 0">
+					<UseObject NpcId="2000324" Radius="50" XYZ="2.176069,0,0.1644126" condition="GetInstanceTodo(1) == 0" /> <!-- Green Key -->
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="16.4339,-0.01531982,-0.04577637" />
+					<LLOpenChest />
+				</If>
 			</If>
-			<Grind GrindRef="SecondBoss" While="(GameObjectManager.GetObjectByNPCId(426) and not GameObjectManager.GetObjectByNPCId(426).CurrentHealth == 0)"/> <!-- Fight Second Boss -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="16.18976,-18.81439,1.693726" />
-				<LLOpenChest />
+
+			<!-- Find the yellow key 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Find the yellow key 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000355) and GameObjectManager.GetObjectByNPCId(2000355).IsVisible">
+					<UseTransport NpcId="2000355" XYZ="0.5093936,0.1435532,56.9761" /> <!-- Locked Door -->
+				</If>
+				<If condition="(GameObjectManager.GetObjectByNPCId(2000305) and GameObjectManager.GetObjectByNPCId(2000305).IsTargetable) and GetInstanceTodo(0) == 0">
+					<UseObject NpcId="2000305" Radius="50" XYZ="-68.49892,-16.79592,-8.967492" condition="GetInstanceTodo(0) == 0" /> <!-- 2nd Tiny Key -->
+				</If>
+				<If condition="GameObjectManager.GetObjectByNPCId(2000343) and GameObjectManager.GetObjectByNPCId(2000343).IsVisible">
+					<UseTransport NpcId="2000343" XYZ="-1.89994,-18.6151,34.6209" /> <!-- Locked Door -->
+				</If>
+				<If condition="GetInstanceTodo(2) == 0">
+					<UseObject NpcId="2000325" Radius="50" XYZ="-12.3487,-18.80323,52.29088" condition="GetInstanceTodo(2) == 0" /> <!-- Pickup Yellow Key -->
+				</If>
 			</If>
-			<If condition="GameObjectManager.GetObjectByNPCId(2001235).IsVisible">
-				<UseObject NpcId="2001235" Radius="50" XYZ="3.950047,-18.77998,-1.937151" condition="GetInstanceTodo(3) == 0"/>	<!-- Pickup bloody parchment -->
-				<WaitWhile condition="GetInstanceTodo(3) == 0"/>
+
+			<!-- Find the bloody parchment 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Find the bloody parchment 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000356).IsVisible">
+					<If condition="IsOnSubMap(610)">
+						<MoveTo XYZ="-10.99383, -18.79999, 28.51722" />
+						<MoveTo XYZ="-26.86154, -18.79999, 25.01348" usemesh="false" />
+					</If>
+					<UseTransport NpcId="2000356" XYZ="-25.55891,-18.57028,-0.07634211" /> <!-- Carnation Door -->
+				</If>
+				<Grind GrindRef="SecondBoss" While="(GameObjectManager.GetObjectByNPCId(426) and not GameObjectManager.GetObjectByNPCId(426).CurrentHealth == 0)" /> <!-- Fight Second Boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="16.18976,-18.81439,1.693726" />
+					<LLOpenChest />
+				</If>
+				<If condition="GameObjectManager.GetObjectByNPCId(2001235).IsVisible">
+					<UseObject NpcId="2001235" Radius="50" XYZ="3.950047,-18.77998,-1.937151" condition="GetInstanceTodo(3) == 0" /> <!-- Pickup bloody parchment -->
+					<WaitWhile condition="GetInstanceTodo(3) == 0" />
+				</If>
+				<If condition="GetInstanceTodo(3) == 1">
+					<UseTransport NpcId="2012969" XYZ="18.91169,-18.8,0" /> <!-- Aetherial Flow -->
+				</If>
 			</If>
-			<If condition="GetInstanceTodo(3) == 1">
-				<UseTransport NpcId="2012969" XYZ="18.91169,-18.8,0" /> <!-- Aetherial Flow -->	
-			</If>	
-		</If>
-		
-		<!-- Defeat Lady Amandine 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-			<Log Message="Defeat Lady Amandine 0/1" />
-			<If condition="GameObjectManager.GetObjectByNPCId(2001233).IsVisible">
-				<UseTransport NpcId="2001233" XYZ="46.69981,9.875019,-0.2538557"  /> <!-- Sealed Barrier -->	
+
+			<!-- Defeat Lady Amandine 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Defeat Lady Amandine 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2001233).IsVisible">
+					<UseTransport NpcId="2001233" XYZ="46.69981,9.875019,-0.2538557" /> <!-- Sealed Barrier -->
+				</If>
+				<Grind GrindRef="KillManorSentry" While="GameObjectManager.GetObjectByNPCId(2000357).IsVisible" /> <!-- KillManorSentry -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()" /> <!-- Fight final boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-2.548279,16.98328,17.95984" />
+					<LLOpenChest />
+				</If>
 			</If>
-			<Grind GrindRef="KillManorSentry" While="GameObjectManager.GetObjectByNPCId(2000357).IsVisible"/> <!-- KillManorSentry -->			
-			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight final boss -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-2.548279,16.98328,17.95984" />
-				<LLOpenChest />
-			</If>			
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+
 		</If>
 
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>
+		<LLoadProfile Path="../../Start.xml" />
 
-	</If>
-	
-	<LLoadProfile Path="../../Start.xml"/>
-	
-  </Order>
-  <GrindAreas>
+	</Order>
+	<GrindAreas>
 		<GrindArea name="FirstBoss">
 			<Hotspots>
 				<Hotspot Radius="200" XYZ="10.49644,-2.384186E-07,3.150471E-10" />
@@ -122,34 +122,33 @@
 			<TargetMobs>
 				<TargetMob Id="423" Weight="1" /> <!-- Manor Claviger -->
 			</TargetMobs>
-		</GrindArea>			
+		</GrindArea>
 		<GrindArea name="SecondBoss">
 			<Hotspots>
 				<Hotspot Radius="200" XYZ="17.23047,-18.8,-4" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="427" Weight="1" /> <!-- Manor Steward -->
-				<TargetMob Id="426" Weight="1" /> <!-- Manor Jester -->			
+				<TargetMob Id="426" Weight="1" /> <!-- Manor Jester -->
 			</TargetMobs>
 		</GrindArea>
-    <GrindArea name="KillManorSentry">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="30.59424,16.99999,-5.325439" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="428" Weight="1"/> <!-- Manor Sentry -->
-      </TargetMobs>
-    </GrindArea>		
+		<GrindArea name="KillManorSentry">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="30.59424,16.99999,-5.325439" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="428" Weight="1" /> <!-- Manor Sentry -->
+			</TargetMobs>
+		</GrindArea>
 		<GrindArea name="FinalBoss">
 			<Hotspots>
 				<Hotspot Radius="200" XYZ="-17.54996,17,-0.01530602" />
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="422" Weight="1" /> <!-- Lady Amandine -->	
-        <TargetMob Id="424" Weight="2"/> <!-- Lady's Handmaiden -->				
+				<TargetMob Id="422" Weight="1" /> <!-- Lady Amandine -->
+				<TargetMob Id="424" Weight="2" /> <!-- Lady's Handmaiden -->
 			</TargetMobs>
-		</GrindArea>	
-  </GrindAreas>
-  <CodeChunks>
-  </CodeChunks>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks></CodeChunks>
 </Profile>
