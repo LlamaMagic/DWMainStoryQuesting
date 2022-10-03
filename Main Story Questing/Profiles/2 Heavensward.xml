@@ -1,30 +1,26 @@
 <?xml version="1.0"?>
 <!--
-	Profile:  [Orderbot] Heavensward Main Scenario
-	Authors:  Sodimm, y2krazy, kagamihiiragi17
-	Version:  1.3.5
-	Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
+	Profile: [Orderbot] Heavensward Main Scenario
+	Authors: Sodimm, y2krazy, kagamihiiragi17
+	Version: 1.3.5
+	Known Issues: GetTo sometimes doesn't get into range of an Aetheryte.
 -->
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-
-<!-- Should we auto invite a carry to do dungeons? -->
-<!ENTITY UseCarry "0">	
-<!-- What's the carry's name? -->
-<!ENTITY CarryName "Shark Tooth">
-
+	<!-- Should we auto invite a carry to do dungeons? -->
+	<!ENTITY UseCarry "0">
+	<!-- What's the carry's name? -->
+	<!ENTITY CarryName "First Last">
 ]>
 <Profile>
 	<Name>[OrderBot] Heavensward Main Scenario 2.0</Name>
-	<BehaviorDirectory></BehaviorDirectory>
 	<Order>
-		
- 		<!-- Buy Eggs -->
+		<!-- Buy Eggs -->
 		<If condition="not HasAtLeast(4650,50)">
 			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975" />
 			<BuyItem ItemIds="4650" DialogOption="0" ItemCount="99" NpcId="1003253" XYZ="-149.9504,18.2,36.94202"/>
-		</If>	
-		
+		</If>
+
 		<!-- Coming to Ishgard (Level 50) -->
 		<If Condition="IsQuestCompleted(65964) and not HasQuest(67116) and not IsQuestCompleted(67116)">
 			<If Condition="not IsOnMap(155) and not IsOnMap(395)">
@@ -65,7 +61,7 @@
 			<GetTo ZoneId="419" XYZ="15.60992, 16.00967, -6.515625"/>
 			<TurnIn QuestId="67116" NpcId="1012313" XYZ="15.60992, 16.00967, -6.515625"/>
 		</If>
-		
+
 		<!-- Taking in the Sights (Level 50) -->
 		<If Condition="IsQuestCompleted(67116) and not HasQuest(67117) and not IsQuestCompleted(67117)">
 			<If Condition="not IsOnMap(433)">
@@ -90,24 +86,24 @@
 		</If>
 		<If Condition="HasQuest(67117) and not IsQuestCompleted(67117) and GetQuestStep(67117) == 255">
 			<GetTo ZoneId="418" XYZ="-50.21753, 8.05915, 15.45734"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67117" NpcId="1012323" XYZ="-50.21753, 8.05915, 15.45734" RewardSlot="0"/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67117" NpcId="1012323" XYZ="-50.21753, 8.05915, 15.45734" RewardSlot="1"/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67117" NpcId="1012323" XYZ="-50.21753, 8.05915, 15.45734" RewardSlot="2"/>
-			</If>		
-			<If Condition="IsScoutingClass()">	
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67117" NpcId="1012323" XYZ="-50.21753, 8.05915, 15.45734" RewardSlot="3"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67117) and GetQuestStep(67117) == 255">
 				<TurnIn QuestId="67117" NpcId="1012323" XYZ="-50.21753, 8.05915, 15.45734" RewardSlot="4"/>
-			</If>				
-			<AutoInventoryEquip/>		 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- The Better Half (Level 50) -->
 		<If Condition="IsQuestCompleted(67117) and not HasQuest(67118) and not IsQuestCompleted(67118)">
 			<GetTo ZoneId="418" XYZ="-50.21753, 8.05915, 15.45734"/>
@@ -131,21 +127,21 @@
 				<GetTo ZoneId="419" XYZ="17.99036, 16.00967, -9.567444"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011217" XYZ="17.99036, 16.00967, -9.567444"/>
 			</If>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67118" NpcId="1013036" XYZ="-0.2289429, 0, 7.339539" RewardSlot="0"/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67118" NpcId="1013036" XYZ="-0.2289429, 0, 7.339539" RewardSlot="1"/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67118" NpcId="1013036" XYZ="-0.2289429, 0, 7.339539" RewardSlot="2"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67118) and GetQuestStep(67118) == 255">
 				<TurnIn QuestId="67118" NpcId="1013036" XYZ="-0.2289429, 0, 7.339539" RewardSlot="3"/>
-			</If>					
-			<AutoInventoryEquip/>		 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- Over the Wall (Level 50) -->
 		<If Condition="IsQuestCompleted(67118) and not HasQuest(67119) and not IsQuestCompleted(67119)">
 			<If Condition="not IsOnMap(433)">
@@ -172,7 +168,7 @@
 			<GetTo ZoneId="397" XYZ="503.1051, 217.9515, 790.2189"/>
 			<TurnIn QuestId="67119" NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189"/>
 		</If>
-		
+
 		<!-- Work in Progress (Level 50) -->
 		<If Condition="IsQuestCompleted(67119) and not HasQuest(67120) and not IsQuestCompleted(67120)">
 			<GetTo ZoneId="397" XYZ="503.1051, 217.9515, 790.2189"/>
@@ -196,24 +192,24 @@
 		</If>
 		<If Condition="HasQuest(67120) and not IsQuestCompleted(67120) and GetQuestStep(67120) == 255">
 			<GetTo ZoneId="397" XYZ="446.0059, 217.9514, 764.0649"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67120" NpcId="1011236" XYZ="446.0059, 217.9514, 764.0649" RewardSlot="0"/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67120" NpcId="1011236" XYZ="446.0059, 217.9514, 764.0649" RewardSlot="1"/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67120" NpcId="1011236" XYZ="446.0059, 217.9514, 764.0649" RewardSlot="2"/>
-			</If>		
-			<If Condition="IsScoutingClass()">	
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67120" NpcId="1011236" XYZ="446.0059, 217.9514, 764.0649" RewardSlot="3"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67120) and GetQuestStep(67120) == 255">
 				<TurnIn QuestId="67120" NpcId="1011236" XYZ="446.0059, 217.9514, 764.0649" RewardSlot="4"/>
-			</If>			
-			<AutoInventoryEquip/>		 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- The First and Foremost (Level 50) -->
 		<If Condition="IsQuestCompleted(67120) and not HasQuest(67121) and not IsQuestCompleted(67121)">
 			<GetTo ZoneId="397" XYZ="446.0059, 217.9514, 764.0649"/>
@@ -231,21 +227,21 @@
 		</If>
 		<If Condition="HasQuest(67121) and not IsQuestCompleted(67121) and GetQuestStep(67121) == 255">
 			<GetTo ZoneId="397" XYZ="501.7318, 164.194, 301.1367"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67121" NpcId="1011241" ItemId="2001572" XYZ="501.7318, 164.194, 301.1367" RewardSlot="0"/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67121" NpcId="1011241" ItemId="2001572" XYZ="501.7318, 164.194, 301.1367" RewardSlot="1"/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67121" NpcId="1011241" ItemId="2001572" XYZ="501.7318, 164.194, 301.1367" RewardSlot="2"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67121) and GetQuestStep(67121) == 255">
 				<TurnIn QuestId="67121" NpcId="1011241" ItemId="2001572" XYZ="501.7318, 164.194, 301.1367" RewardSlot="3"/>
-			</If>				
-			<AutoInventoryEquip/>		 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- From on High (Level 50) -->
 		<If Condition="IsQuestCompleted(67121) and not HasQuest(67122) and not IsQuestCompleted(67122)">
 			<GetTo ZoneId="397" XYZ="501.7318, 164.194, 301.1367"/>
@@ -259,24 +255,24 @@
 		</If>
 		<If Condition="HasQuest(67122) and not IsQuestCompleted(67122) and GetQuestStep(67122) == 255">
 			<GetTo ZoneId="397" XYZ="503.1051, 217.9515, 790.2189"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67122" NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189" RewardSlot="0"/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67122" NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189" RewardSlot="1"/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67122" NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189" RewardSlot="2"/>
-			</If>		
-			<If Condition="IsScoutingClass()">	
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67122" NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189" RewardSlot="3"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67122) and GetQuestStep(67122) == 255">
 				<TurnIn QuestId="67122" NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189" RewardSlot="4"/>
-			</If>				
-			<AutoInventoryEquip/>		 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- Reconnaissance Lost (Level 50) -->
 		<If Condition="IsQuestCompleted(67122) and not HasQuest(67123) and not IsQuestCompleted(67123)">
 			<GetTo ZoneId="397" XYZ="503.1051, 217.9515, 790.2189"/>
@@ -302,21 +298,21 @@
 		</If>
 		<If Condition="HasQuest(67123) and not IsQuestCompleted(67123) and GetQuestStep(67123) == 255">
 			<GetTo ZoneId="397" XYZ="81.80359, 117.1982, 152.3002"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67123" NpcId="1012340" XYZ="81.80359, 117.1982, 152.3002" RewardSlot="0"/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67123" NpcId="1012340" XYZ="81.80359, 117.1982, 152.3002" RewardSlot="1"/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67123" NpcId="1012340" XYZ="81.80359, 117.1982, 152.3002" RewardSlot="2"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67123) and GetQuestStep(67123) == 255">
 				<TurnIn QuestId="67123" NpcId="1012340" XYZ="81.80359, 117.1982, 152.3002" RewardSlot="3"/>
-			</If>			
-			<AutoInventoryEquip/>		 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- At the End of Our Hope (Level 50) -->
 		<If Condition="IsQuestCompleted(67123) and not HasQuest(67124) and not IsQuestCompleted(67124)">
 			<GetTo ZoneId="397" XYZ="84.18396, 117.197, 150.3165"/>
@@ -328,7 +324,7 @@
 			<GetTo ZoneId="397" XYZ="103.7765, 102.3116, -42.40485"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SoSimpleDuty InteractNpcId="2005408" XYZ="103.7765, 102.3116, -42.40485" QuestId="67124" StepId="1">
 				<CheckPoints>
 					<CheckPoint XYZ="175.0911, 130.9083, -430.1"/>
@@ -354,7 +350,7 @@
 			<GetTo ZoneId="397" XYZ="465.0186, 162.5833, -522.9115"/>
 			<TurnIn QuestId="67124" NpcId="1012348" XYZ="465.0186, 162.5833, -522.9115"/>
 		</If>
-		
+
 		<!-- Knights Be Not Proud (Level 50) -->
 		<If Condition="IsQuestCompleted(67124) and not HasQuest(67125) and not IsQuestCompleted(67125)">
 			<GetTo ZoneId="397" XYZ="465.0186, 162.5833, -522.9115"/>
@@ -373,7 +369,7 @@
 			</If>
 			<TurnIn QuestId="67125" NpcId="1012328" XYZ="1.754761, 0.003450237, -9.750549"/>
 		</If>
-		
+
 		<!-- Onwards and Upwards (Level 50) -->
 		<If Condition="IsQuestCompleted(67125) and not HasQuest(67126) and not IsQuestCompleted(67126)">
 			<If Condition="not IsOnMap(433)">
@@ -400,7 +396,7 @@
 			<GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
 			<TurnIn QuestId="67126" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038"/>
 		</If>
-		
+
 		<!-- An Indispensable Ally (Level 50) -->
 		<If Condition="IsQuestCompleted(67126) and not HasQuest(67127) and not IsQuestCompleted(67127)">
 			<GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
@@ -418,27 +414,27 @@
 		</If>
 		<If Condition="HasQuest(67127) and not IsQuestCompleted(67127) and GetQuestStep(67127) == 255">
 			<GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67127" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" RewardSlot="0"/>
-				<AutoInventoryEquip/>					
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67127" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67127" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67127" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67127) and GetQuestStep(67127) == 255">
 				<TurnIn QuestId="67127" NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" RewardSlot="4"/>
-			</If>					 
+			</If>
 		</If>
-		
+
 		<!-- Meeting the Neighbors (Level 50) -->
 		<If Condition="IsQuestCompleted(67127) and not HasQuest(67128) and not IsQuestCompleted(67128)">
 			<GetTo ZoneId="401" XYZ="-277.6379, -184.5974, 741.6038"/>
@@ -458,7 +454,7 @@
 			<If Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 1">
 				<GetTo ZoneId="401" XYZ="-122.7894, -166.0029, 646.5095"/>
 				<UseObject NpcId="2005411" XYZ="-122.7894, -166.0029, 646.5095" Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 1" />
-			</If>			
+			</If>
 			<If Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 2">
 				<GetTo ZoneId="401" XYZ="-81.16278, -136.9802, 468.5282"/>
 				<UseObject NpcId="2005410" XYZ="-81.16278, -136.9802, 468.5282" Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 2" />
@@ -466,23 +462,23 @@
 		</If>
 		<If Condition="HasQuest(67128) and not IsQuestCompleted(67128) and GetQuestStep(67128) == 255">
 			<GetTo ZoneId="401" XYZ="-358.6633, -157.9937, 761.0131"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67128" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67128" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67128" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67128) and GetQuestStep(67128) == 255">
 				<TurnIn QuestId="67128" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="3"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Sense of Urgency (Level 50) -->
 		<If Condition="IsQuestCompleted(67128) and not HasQuest(67129) and not IsQuestCompleted(67129)">
 			<GetTo ZoneId="401" XYZ="-358.6633, -157.9937, 761.0131"/>
@@ -507,27 +503,27 @@
 		</If>
 		<If Condition="HasQuest(67129) and not IsQuestCompleted(67129) and GetQuestStep(67129) == 255">
 			<GetTo ZoneId="401" XYZ="-358.6633, -157.9937, 761.0131"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67129" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67129" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67129" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67129" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67129) and GetQuestStep(67129) == 255">
 				<TurnIn QuestId="67129" NpcId="1012060" XYZ="-358.6633, -157.9937, 761.0131" RewardSlot="4"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Hope Springs Eternal (Level 50) -->
 		<If Condition="IsQuestCompleted(67129) and not HasQuest(67130) and not IsQuestCompleted(67130)">
 			<GetTo ZoneId="401" XYZ="-358.6633, -157.9937, 761.0131"/>
@@ -553,23 +549,23 @@
 		</If>
 		<If Condition="HasQuest(67130) and not IsQuestCompleted(67130) and GetQuestStep(67130) == 255">
 			<GetTo ZoneId="401" XYZ="64.10315, -144.9241, 527.3669"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67130" NpcId="1012364" ItemId="2001574" XYZ="64.10315, -144.9241, 527.3669" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67130" NpcId="1012364" ItemId="2001574" XYZ="64.10315, -144.9241, 527.3669" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67130" NpcId="1012364" ItemId="2001574" XYZ="64.10315, -144.9241, 527.3669" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67130) and GetQuestStep(67130) == 255">
 				<TurnIn QuestId="67130" NpcId="1012364" ItemId="2001574" XYZ="64.10315, -144.9241, 527.3669" RewardSlot="3"/>
-			</If>					
+			</If>
 		</If>
-		
+
 		<!-- A Series of Unfortunate Events (Level 50) -->
 		<If Condition="IsQuestCompleted(67130) and not HasQuest(67131) and not IsQuestCompleted(67131)">
 			<GetTo ZoneId="401" XYZ="64.10315, -144.9241, 527.3669"/>
@@ -589,7 +585,7 @@
 			<GetTo ZoneId="401" XYZ="531.1816, -99.84944, 349.9656"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SoSimpleDuty InteractNpcId="1012366" XYZ="531.1816, -99.84944, 349.9656" QuestId="67131" StepId="3">
 				<InteractObjects>
 					<InteractObject Name="Brambleweed Rope" NpcId="2005710"/>
@@ -609,7 +605,7 @@
 			<GetTo ZoneId="401" XYZ="-678.2483, -110.6741, 481.7731"/>
 			<TurnIn QuestId="67131" NpcId="1012367" XYZ="-678.2483, -110.6741, 481.7731"/>
 		</If>
-		
+
 		<!-- A Reward Long in Coming (Level 50) -->
 		<If Condition="IsQuestCompleted(67131) and not HasQuest(67132) and not IsQuestCompleted(67132)">
 			<GetTo ZoneId="401" XYZ="-676.7529, -111.7149, 487.2662"/>
@@ -633,7 +629,7 @@
 			<TurnIn QuestId="67132" NpcId="1012329" XYZ="-7.309082, 0.003586963, -0.5036011" RewardSlot="0"/>
 			<LLDiscardItem ItemId="5677"/>
 		</If>
-		
+
 		<!-- Divine Intervention (Level 50) -->
 		<If Condition="IsQuestCompleted(67132) and not HasQuest(67133) and not IsQuestCompleted(67133)">
 			<If Condition="not IsOnMap(433)">
@@ -662,7 +658,7 @@
 			<GetTo ZoneId="419" XYZ="120.6531, 14.95313, -156.6339"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty InteractNpcId="1012381" XYZ="120.6531, 14.95313, -156.6339" QuestId="67133" StepId="3">
 				<HotSpots>
 					<HotSpot XYZ="2.144314, 0, 4.169504" Radius="90"/>
@@ -674,12 +670,12 @@
 				</TargetMobs>
 			</SimpleDuty>
 		</If>
-    <If Condition="GetQuestStep(67133) == 255">
-      <GetTo ZoneId="419" XYZ="121.2139, 14.95313, -153.4591"/>  
-      <LLTurnIn QuestId="67133" NpcId="1012381" XYZ="120.6531, 14.95313, -156.6339"/>
+		<If Condition="GetQuestStep(67133) == 255">
+			<GetTo ZoneId="419" XYZ="121.2139, 14.95313, -153.4591"/>
+			<LLTurnIn QuestId="67133" NpcId="1012381" XYZ="120.6531, 14.95313, -156.6339"/>
 			<UseInventoryItem ItemId="12075"/>
 		</If>
-		
+
 		<!-- Disclosure (Level 50) -->
 		<If Condition="IsQuestCompleted(67133) and not HasQuest(67134) and not IsQuestCompleted(67134)">
 			<GetTo ZoneId="419" XYZ="120.6531, 14.95313, -156.6339"/>
@@ -708,7 +704,7 @@
 			</If>
 			<TurnIn QuestId="67134" NpcId="1012387" XYZ="0.6866455, 0.02225424, 4.623413"/>
 		</If>
-		
+
 		<!-- Flame General Affairs (Level 51) -->
 		<If Condition="IsQuestCompleted(67134) and not HasQuest(67135) and not IsQuestCompleted(67135)">
 			<If Condition="not IsOnMap(433)">
@@ -727,9 +723,9 @@
 		<If Condition="HasQuest(67135) and not IsQuestCompleted(67135) and GetQuestStep(67135) == 255">
 			<GetTo ZoneId="156" XYZ="30.07544, 50.99997, -819.7299"/>
 			<TurnIn QuestId="67135" NpcId="1013018" XYZ="30.07544, 50.99997, -819.7299"/>
-			<AutoInventoryEquip/>		 
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- In Search of Raubahn (Level 51) -->
 		<If Condition="IsQuestCompleted(67135) and not HasQuest(67136) and not IsQuestCompleted(67136)">
 			<GetTo ZoneId="156" XYZ="30.07544, 50.99997, -819.7299"/>
@@ -745,7 +741,7 @@
 			<GetTo ZoneId="145" XYZ="-380.8805, -23.06451, 388.632"/>
 			<TurnIn QuestId="67136" NpcId="1013028" XYZ="-380.8805, -23.06451, 388.632"/>
 		</If>
-		
+
 		<!-- Keeping the Flame Alive (Level 51) -->
 		<If Condition="IsQuestCompleted(67136) and not HasQuest(67137) and not IsQuestCompleted(67137)">
 			<GetTo ZoneId="145" XYZ="-380.8805, -23.06451, 388.632"/>
@@ -757,7 +753,7 @@
 			<GetTo ZoneId="145" XYZ="-380.8805, -23.06451, 388.632"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SoSimpleDuty InteractNpcId="1013028" XYZ="-380.8805, -23.06451, 388.632" QuestId="67137" StepId="1">
 				<CheckPoints>
 					<CheckPoint XYZ="-43.55757, -10.7136, -123.0449"/>
@@ -806,28 +802,28 @@
 			<If Condition="IsOnMap(212) and IsOnSubMap(374)">
 				<UseTransport InteractDistance="3.0" NpcId="2001717" XYZ="25.4978, 2.090454, -0.01531982"/>
 			</If>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67137" NpcId="1013038" XYZ="1.998901, 1.147389E-06, -2.517761" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsSlayingClass()">	
+			<If Condition="IsSlayingClass()">
 				<TurnIn QuestId="67137" NpcId="1013038" XYZ="1.998901, 1.147389E-06, -2.517761" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67137" NpcId="1013038" XYZ="1.998901, 1.147389E-06, -2.517761" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
-			<If Condition="IsHealingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67137" NpcId="1013038" XYZ="1.998901, 1.147389E-06, -2.517761" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsCastingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67137" NpcId="1013038" XYZ="1.998901, 1.147389E-06, -2.517761" RewardSlot="4"/>
-				<AutoInventoryEquip/>									
-			</If>						
+				<AutoInventoryEquip/>
+			</If>
 		</If>
-		
+
 		<!-- To Siege or Not to Siege (Level 51) -->
 		<If Condition="IsQuestCompleted(67137) and not HasQuest(67138) and not IsQuestCompleted(67138)">
 			<If Condition="not IsOnMap(212)">
@@ -859,7 +855,7 @@
 			</If>
 			<TurnIn QuestId="67138" NpcId="1012579" XYZ="1.113892, 0.02225424, -4.409851"/>
 		</If>
-		
+
 		<!-- Alphinaud's Way (Level 51) -->
 		<If Condition="IsQuestCompleted(67138) and not HasQuest(67139) and not IsQuestCompleted(67139)">
 			<If Condition="not IsOnMap(433)">
@@ -886,7 +882,7 @@
 			<GetTo ZoneId="418" XYZ="107.6829, 24.3786, -6.698792"/>
 			<TurnIn QuestId="67139" NpcId="1012588" XYZ="107.6829, 24.3786, -6.698792"/>
 		</If>
-		
+
 		<!-- In Search of Iceheart (Level 51) -->
 		<If Condition="IsQuestCompleted(67139) and not HasQuest(67140) and not IsQuestCompleted(67140)">
 			<GetTo ZoneId="418" XYZ="107.6829, 24.3786, -6.698792"/>
@@ -928,7 +924,7 @@
 			<TurnIn QuestId="67140" NpcId="1012592" XYZ="459.1592, 162.512, -524.651"/>
 			<UseInventoryItem ItemId="10074"/>
 		</If>
-		
+
 		<!-- From One Heretic to Another (Level 51) -->
 		<If Condition="IsQuestCompleted(67140) and not HasQuest(67141) and not IsQuestCompleted(67141)">
 			<GetTo ZoneId="397" XYZ="459.1592, 162.512, -524.651"/>
@@ -951,7 +947,7 @@
 			<TurnIn QuestId="67141" NpcId="1012601" ItemId="2001578" XYZ="452.4147, 157.4083, -542.8397" RewardSlot="0"/>
 			<LLDiscardItem ItemId="5677"/>
 		</If>
-		
+
 		<!-- Sounding Out the Amphitheatre (Level 51) -->
 		<If Condition="IsQuestCompleted(67141) and not HasQuest(67142) and not IsQuestCompleted(67142)">
 			<GetTo ZoneId="397" XYZ="451.6517, 157.4083, -544.6708"/>
@@ -963,7 +959,7 @@
 			<GetTo ZoneId="397" XYZ="617.4868, 78.429, 217.3036"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty InteractNpcId="1011905" XYZ="617.4868, 78.429, 217.3036" QuestId="67142" StepId="1">
 				<HotSpots>
 					<HotSpot XYZ="-6.616748, 0, 2.033641" Radius="90"/>
@@ -986,7 +982,7 @@
 			<GetTo ZoneId="397" XYZ="-288.8686, 127.0664, 13.19904"/>
 			<TurnIn QuestId="67142" NpcId="1011907" XYZ="-288.8686, 127.0664, 13.19904"/>
 		</If>
-		
+
 		<!-- Camp of the Convictors (Level 51) -->
 		<If Condition="IsQuestCompleted(67142) and not HasQuest(67143) and not IsQuestCompleted(67143)">
 			<GetTo ZoneId="397" XYZ="-280.0794, 127.0303, 11.97827"/>
@@ -1010,7 +1006,7 @@
 			<GetTo ZoneId="397" XYZ="-311.1467, 126.5033, -6.729248"/>
 			<TurnIn QuestId="67143" NpcId="1012283" XYZ="-311.1467, 126.5033, -6.729248"/>
 		</If>
-		
+
 		<!-- Purple Flame, Purple Flame (Level 51) -->
 		<If Condition="IsQuestCompleted(67143) and not HasQuest(67144) and not IsQuestCompleted(67144)">
 			<GetTo ZoneId="397" XYZ="-307.5457, 126.6344, -3.280701"/>
@@ -1026,7 +1022,7 @@
 			<GetTo ZoneId="397" XYZ="-631.9219, 142.1073, -322.7131"/>
 			<TurnIn QuestId="67144" NpcId="1012670" ItemId="2001584" XYZ="-631.9219, 142.1073, -322.7131"/>
 		</If>
-		
+
 		<!-- Where the Chocobos Roam (Level 52) -->
 		<If Condition="IsQuestCompleted(67144) and not HasQuest(67145) and not IsQuestCompleted(67145)">
 			<GetTo ZoneId="397" XYZ="-688.777, 121.5179, -390.4937"/>
@@ -1045,27 +1041,27 @@
 		</If>
 		<If Condition="HasQuest(67145) and not IsQuestCompleted(67145) and GetQuestStep(67145) == 255">
 			<GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67145" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67145" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67145" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67145" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67145) and GetQuestStep(67145) == 255">
 				<TurnIn QuestId="67145" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079" RewardSlot="4"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- Worse than Dragons (Level 52) -->
 		<If Condition="IsQuestCompleted(67145) and not HasQuest(67146) and not IsQuestCompleted(67146)">
 			<GetTo ZoneId="398" XYZ="470.0236, -49.89133, 20.37079"/>
@@ -1087,23 +1083,23 @@
 		</If>
 		<If Condition="HasQuest(67146) and not IsQuestCompleted(67146) and GetQuestStep(67146) == 255">
 			<GetTo ZoneId="398" XYZ="169.604, -63.24872, -11.82581"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<LLTurnIn QuestId="67146" NpcId="2005489" XYZ="169.604, -63.24872, -11.82581" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<LLTurnIn QuestId="67146" NpcId="2005489" XYZ="169.604, -63.24872, -11.82581" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<LLTurnIn QuestId="67146" NpcId="2005489" XYZ="169.604, -63.24872, -11.82581" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67146) and GetQuestStep(67146) == 255">
 				<LLTurnIn QuestId="67146" NpcId="2005489" XYZ="169.604, -63.24872, -11.82581" RewardSlot="3"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- The Trine Towers (Level 52) -->
 		<If Condition="IsQuestCompleted(67146) and not HasQuest(67147) and not IsQuestCompleted(67147)">
 			<GetTo ZoneId="398" XYZ="167.2542, -63.61838, -9.23175"/>
@@ -1125,27 +1121,27 @@
 		</If>
 		<If Condition="HasQuest(67147) and not IsQuestCompleted(67147) and GetQuestStep(67147) == 255">
 			<GetTo ZoneId="398" XYZ="-212.726, -37.57478, 185.1682"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67147" NpcId="1012625" XYZ="-212.726, -37.57478, 185.1682" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67147" NpcId="1012625" XYZ="-212.726, -37.57478, 185.1682" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67147" NpcId="1012625" XYZ="-212.726, -37.57478, 185.1682" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67147" NpcId="1012625" XYZ="-212.726, -37.57478, 185.1682" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67147) and GetQuestStep(67147) == 255">
 				<TurnIn QuestId="67147" NpcId="1012625" XYZ="-212.726, -37.57478, 185.1682" RewardSlot="4"/>
-			</If>				 	 
+			</If>
 		</If>
-		
+
 		<!-- Gifts for the Outcasts (Level 52) -->
 		<If Condition="IsQuestCompleted(67147) and not HasQuest(67148) and not IsQuestCompleted(67148)">
 			<GetTo ZoneId="398" XYZ="-247.6387, -30.29022, 109.3918"/>
@@ -1163,23 +1159,23 @@
 		</If>
 		<If Condition="HasQuest(67148) and not IsQuestCompleted(67148) and GetQuestStep(67148) == 255">
 			<GetTo ZoneId="398" XYZ="200, -55.46249, -233.4478"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67148" NpcId="1012629" ItemId="2001580" XYZ="200, -55.46249, -233.4478" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67148" NpcId="1012629" ItemId="2001580" XYZ="200, -55.46249, -233.4478" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67148" NpcId="1012629" ItemId="2001580" XYZ="200, -55.46249, -233.4478" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67148) and GetQuestStep(67148) == 255">
 				<TurnIn QuestId="67148" NpcId="1012629" ItemId="2001580" XYZ="200, -55.46249, -233.4478" RewardSlot="3"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- The Nonmind (Level 52) -->
 		<If Condition="IsQuestCompleted(67148) and not HasQuest(67149) and not IsQuestCompleted(67149)">
 			<GetTo ZoneId="398" XYZ="200, -55.46249, -233.4478"/>
@@ -1193,28 +1189,28 @@
 		</If>
 		<If Condition="HasQuest(67149) and not IsQuestCompleted(67149) and GetQuestStep(67149) == 255">
 			<GetTo ZoneId="398" XYZ="73.19751, -49.19563, -139.0555"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67149" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsSlayingClass()">	
+			<If Condition="IsSlayingClass()">
 				<TurnIn QuestId="67149" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67149" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
-			<If Condition="IsHealingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67149" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsCastingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67149" NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" RewardSlot="4"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 		</If>
-		
+
 		<!-- A Gnathic Deity (Level 53) -->
 		<If Condition="IsQuestCompleted(67149) and not HasQuest(67150) and not IsQuestCompleted(67150)">
 			<GetTo ZoneId="398" XYZ="77.46997, -49.24018, -148.9739"/>
@@ -1250,7 +1246,7 @@
 			<GetTo ZoneId="398" XYZ="59.22021, -50.88858, -130.2358"/>
 			<TurnIn QuestId="67150" NpcId="1013582" XYZ="59.22021, -50.88858, -130.2358"/>
 		</If>
-		
+
 		<!-- Breaking into Hives (Level 53) -->
 		<If Condition="IsQuestCompleted(67150) and not HasQuest(67151) and not IsQuestCompleted(67151)">
 			<GetTo ZoneId="398" XYZ="59.22021, -50.88858, -130.2358"/>
@@ -1275,7 +1271,7 @@
 			<GetTo ZoneId="398" XYZ="394.3694, -93.98035, 731.8073"/>
 			<TurnIn QuestId="67151" NpcId="2006423" XYZ="394.3694, -93.98035, 731.8073"/>
 		</If>
-		
+
 		<!-- Lord of the Hive (Level 53) -->
 		<If Condition="IsQuestCompleted(67151) and not HasQuest(67152) and not IsQuestCompleted(67152)">
 			<GetTo ZoneId="398" XYZ="394.9492, -93.9111, 727.5348"/>
@@ -1300,7 +1296,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(432)">
@@ -1314,11 +1310,11 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67152) and not IsQuestCompleted(67152) and GetQuestStep(67152) == 4">
 			<WaitWhile condition="GetQuestStep(67152) == 4"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67152) and not IsQuestCompleted(67152) and GetQuestStep(67152) == 5">
 			<GetTo ZoneId="398" XYZ="-10.9408, -128.9908, 728.2673"/>
 			<TalkTo NpcId="1012656" XYZ="-10.9408, -128.9908, 728.2673" QuestId="67152" StepId="5"/>
@@ -1327,7 +1323,7 @@
 			<GetTo ZoneId="398" XYZ="56.35156, -50.57729, -142.5041"/>
 			<TurnIn QuestId="67152" NpcId="1014544" XYZ="56.35156, -50.57729, -142.5041"/>
 		</If>
-		
+
 		<!-- Mourn in Passing (Level 53) -->
 		<If Condition="IsQuestCompleted(67152) and not HasQuest(67153) and not IsQuestCompleted(67153)">
 			<GetTo ZoneId="398" XYZ="58.91504, -50.32516, -146.9597"/>
@@ -1345,13 +1341,13 @@
 		</If>
 		<If Condition="HasQuest(67153) and not IsQuestCompleted(67153) and GetQuestStep(67153) == 3">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/53 Sohm Al.xml"/>	
+				<LLoadProfile Path="Dungeons/Heavensward/53 Sohm Al.xml"/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(441)">
@@ -1365,11 +1361,11 @@
 						</If>
 					</If>
 				</If>
-			</If>		
+			</If>
 		</If>
 		<If Condition="HasQuest(67153) and not IsQuestCompleted(67153) and GetQuestStep(67153) == 4">
 			<WaitWhile condition="GetQuestStep(67153) == 4"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67153) and not IsQuestCompleted(67153) and GetQuestStep(67153) == 255">
 			<If Condition="not IsOnMap(398) and not IsOnMap(400)">
 				<GetTo ZoneId="398" XYZ="-300.4373, -21.13108, 37.52076"/>
@@ -1380,7 +1376,7 @@
 			</If>
 			<TurnIn QuestId="67153" NpcId="1012661" XYZ="240.3142, -42.31706, 615.1063"/>
 		</If>
-		
+
 		<!-- Beyond the Clouds (Level 53) -->
 		<If Condition="IsQuestCompleted(67153) and not HasQuest(67154) and not IsQuestCompleted(67154)">
 			<GetTo ZoneId="400" XYZ="240.3142, -42.31706, 615.1063"/>
@@ -1406,7 +1402,7 @@
 			<GetTo ZoneId="400" XYZ="364.3091, -74.10719, 654.322"/>
 			<TurnIn QuestId="67154" NpcId="1012664" XYZ="364.3091, -74.10719, 654.322"/>
 		</If>
-		
+
 		<!-- Mountaintop Diplomacy (Level 54) -->
 		<If Condition="IsQuestCompleted(67154) and not HasQuest(67155) and not IsQuestCompleted(67155)">
 			<GetTo ZoneId="400" XYZ="364.3091, -74.10719, 654.322"/>
@@ -1433,28 +1429,28 @@
 		</If>
 		<If Condition="HasQuest(67155) and not IsQuestCompleted(67155) and GetQuestStep(67155) == 255">
 			<GetTo ZoneId="400" XYZ="379.7316, -69.42947, 694.9561"/>
-			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">	
+			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<TurnIn QuestId="67155" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">	
+			<If Condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
 				<TurnIn QuestId="67155" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.DarkKnight">	
+			<If Condition="ClassName == ClassJobType.DarkKnight">
 				<TurnIn QuestId="67155" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.Samurai">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.Samurai">
 				<TurnIn QuestId="67155" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67155) and GetQuestStep(67155) == 255">
 				<TurnIn QuestId="67155" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5632"/>
-			</If>					 	 
+			</If>
 		</If>
-		
+
 		<!-- Moghan's Trial (Level 54) -->
 		<If Condition="IsQuestCompleted(67155) and not HasQuest(67156) and not IsQuestCompleted(67156)">
 			<GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
@@ -1474,28 +1470,28 @@
 		</If>
 		<If Condition="HasQuest(67156) and not IsQuestCompleted(67156) and GetQuestStep(67156) == 255">
 			<GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
-			<If Condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">	
+			<If Condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
 				<TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="379.9618, -69.53804, 696.1188" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">	
+			<If Condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
 				<TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="379.9618, -69.53804, 696.1188" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">	
+			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">
 				<TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="379.9618, -69.53804, 696.1188" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="379.9618, -69.53804, 696.1188" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67156) and GetQuestStep(67156) == 255">
 				<TurnIn QuestId="67156" NpcId="1012078" ItemId="2001581" XYZ="379.9618, -69.53804, 696.1188" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5722"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- Mogmug's Trial (Level 54) -->
 		<If Condition="IsQuestCompleted(67156) and not HasQuest(67157) and not IsQuestCompleted(67157)">
 			<GetTo ZoneId="400" XYZ="392.2026, -72.34356, 649.5612"/>
@@ -1509,28 +1505,28 @@
 		</If>
 		<If Condition="HasQuest(67157) and not IsQuestCompleted(67157) and GetQuestStep(67157) == 255">
 			<GetTo ZoneId="400" XYZ="392.2026, -72.34356, 649.5612"/>
-			<If Condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">	
+			<If Condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
 				<TurnIn QuestId="67157" NpcId="1012080" XYZ="392.2026, -72.34356, 649.5612" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Machinist">	
+			<If Condition="ClassName == ClassJobType.Machinist">
 				<TurnIn QuestId="67157" NpcId="1012080" XYZ="392.2026, -72.34356, 649.5612" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">	
+			<If Condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
 				<TurnIn QuestId="67157" NpcId="1012080" XYZ="392.2026, -72.34356, 649.5612" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
 				<TurnIn QuestId="67157" NpcId="1012080" XYZ="392.2026, -72.34356, 649.5612" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67157) and GetQuestStep(67157) == 255">
 				<TurnIn QuestId="67157" NpcId="1012080" XYZ="392.2026, -72.34356, 649.5612" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5722"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- Mogwin's Trial (Level 54) -->
 		<If Condition="IsQuestCompleted(67157) and not HasQuest(67158) and not IsQuestCompleted(67158)">
 			<GetTo ZoneId="400" XYZ="355.8556, -74.53787, 639.6123"/>
@@ -1560,28 +1556,28 @@
 		</If>
 		<If Condition="HasQuest(67158) and not IsQuestCompleted(67158) and GetQuestStep(67158) == 255">
 			<GetTo ZoneId="400" XYZ="355.8556, -74.53787, 639.6123"/>
-			<If Condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">	
+			<If Condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
 				<TurnIn QuestId="67158" NpcId="1012083" ItemId="2001583" XYZ="355.8556, -74.53787, 639.6123" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Scholar">	
+			<If Condition="ClassName == ClassJobType.Scholar">
 				<TurnIn QuestId="67158" NpcId="1012083" ItemId="2001583" XYZ="355.8556, -74.53787, 639.6123" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Astrologian">	
+			<If Condition="ClassName == ClassJobType.Astrologian">
 				<TurnIn QuestId="67158" NpcId="1012083" ItemId="2001583" XYZ="355.8556, -74.53787, 639.6123" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.RedMage">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.RedMage">
 				<TurnIn QuestId="67158" NpcId="1012083" ItemId="2001583" XYZ="355.8556, -74.53787, 639.6123" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67158) and GetQuestStep(67158) == 255">
 				<TurnIn QuestId="67158" NpcId="1012083" ItemId="2001583" XYZ="355.8556, -74.53787, 639.6123" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5672"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Moglin's Judgment (Level 54) -->
 		<If Condition="IsQuestCompleted(67158) and not HasQuest(67159) and not IsQuestCompleted(67159)">
 			<GetTo ZoneId="400" XYZ="379.7316, -69.42947, 694.9561"/>
@@ -1617,7 +1613,7 @@
 			<GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
 			<TurnIn QuestId="67159" NpcId="1012078" XYZ="379.9618, -69.53804, 696.1188"/>
 		</If>
-		
+
 		<!-- Leaving Moghome (Level 54) -->
 		<If Condition="IsQuestCompleted(67159) and not HasQuest(67160) and not IsQuestCompleted(67160)">
 			<GetTo ZoneId="400" XYZ="379.9618, -69.53804, 696.1188"/>
@@ -1637,7 +1633,7 @@
 			<GetTo ZoneId="400" XYZ="241.1992, -42.24947, 609.2775"/>
 			<TurnIn QuestId="67160" NpcId="1012682" XYZ="241.1992, -42.24947, 609.2775"/>
 		</If>
-		
+
 		<!-- The Road to Zenith (Level 54) -->
 		<If Condition="IsQuestCompleted(67160) and not HasQuest(67161) and not IsQuestCompleted(67161)">
 			<GetTo ZoneId="400" XYZ="241.1992, -42.24947, 609.2775"/>
@@ -1655,27 +1651,27 @@
 		</If>
 		<If Condition="HasQuest(67161) and not IsQuestCompleted(67161) and GetQuestStep(67161) == 255">
 			<GetTo ZoneId="400" XYZ="-79.88104, -8.844478, 206.2256"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67161" NpcId="1013202" XYZ="-79.88104, -8.844478, 206.2256" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67161" NpcId="1013202" XYZ="-79.88104, -8.844478, 206.2256" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67161" NpcId="1013202" XYZ="-79.88104, -8.844478, 206.2256" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67161" NpcId="1013202" XYZ="-79.88104, -8.844478, 206.2256" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67161) and GetQuestStep(67161) == 255">
 				<TurnIn QuestId="67161" NpcId="1013202" XYZ="-79.88104, -8.844478, 206.2256" RewardSlot="4"/>
-			</If>					 	 
+			</If>
 		</If>
-		
+
 		<!-- Waiting for the Wind to Change (Level 54) -->
 		<If Condition="IsQuestCompleted(67161) and not HasQuest(67162) and not IsQuestCompleted(67162)">
 			<GetTo ZoneId="400" XYZ="-79.88104, -8.844478, 206.2256"/>
@@ -1697,23 +1693,23 @@
 		</If>
 		<If Condition="HasQuest(67162) and not IsQuestCompleted(67162) and GetQuestStep(67162) == 255">
 			<GetTo ZoneId="400" XYZ="-261.8297, 30.37311, 557.946"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67162" NpcId="1012757" XYZ="-261.8297, 30.37311, 557.946" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67162" NpcId="1012757" XYZ="-261.8297, 30.37311, 557.946" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67162" NpcId="1012757" XYZ="-261.8297, 30.37311, 557.946" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67162) and GetQuestStep(67162) == 255">
 				<TurnIn QuestId="67162" NpcId="1012757" XYZ="-261.8297, 30.37311, 557.946" RewardSlot="3"/>
-			</If>					 	 
+			</If>
 		</If>
-		
+
 		<!-- Heart of Ice (Level 54) -->
 		<If Condition="IsQuestCompleted(67162) and not HasQuest(67163) and not IsQuestCompleted(67163)">
 			<GetTo ZoneId="400" XYZ="-258.5031, 30.37311, 562.2797"/>
@@ -1727,27 +1723,27 @@
 		</If>
 		<If Condition="HasQuest(67163) and not IsQuestCompleted(67163) and GetQuestStep(67163) == 255">
 			<GetTo ZoneId="400" XYZ="-758.3582, 123.7048, 214.496"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67163" NpcId="1012694" XYZ="-758.3276, 123.7287, 210.7423" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67163" NpcId="1012694" XYZ="-758.3276, 123.7287, 210.7423" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67163" NpcId="1012694" XYZ="-758.3276, 123.7287, 210.7423" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67163" NpcId="1012694" XYZ="-758.3276, 123.7287, 210.7423" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67163) and GetQuestStep(67163) == 255">
 				<TurnIn QuestId="67163" NpcId="1012694" XYZ="-758.3276, 123.7287, 210.7423" RewardSlot="4"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- The Wyrm's Lair (Level 54) -->
 		<If Condition="IsQuestCompleted(67163) and not HasQuest(67164) and not IsQuestCompleted(67164)">
 			<GetTo ZoneId="400" XYZ="-758.3276, 123.7287, 210.7423"/>
@@ -1769,23 +1765,23 @@
 		</If>
 		<If Condition="HasQuest(67164) and not IsQuestCompleted(67164) and GetQuestStep(67164) == 255">
 			<GetTo ZoneId="400" XYZ="569.1766, -1.191689, -370.2297"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67164" NpcId="1012698" XYZ="569.1766, -1.191689, -370.2297" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67164" NpcId="1012698" XYZ="569.1766, -1.191689, -370.2297" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67164" NpcId="1012698" XYZ="569.1766, -1.191689, -370.2297" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67164) and GetQuestStep(67164) == 255">
 				<TurnIn QuestId="67164" NpcId="1012698" XYZ="569.1766, -1.191689, -370.2297" RewardSlot="3"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- New Winds, Old Friends (Level 54) -->
 		<If Condition="IsQuestCompleted(67164) and not HasQuest(67165) and not IsQuestCompleted(67165)">
 			<GetTo ZoneId="400" XYZ="569.1766, -1.191689, -370.2297"/>
@@ -1815,7 +1811,7 @@
 			<GetTo ZoneId="418" XYZ="-160.5402, 16.97958, -39.96344"/>
 			<TurnIn QuestId="67165" NpcId="1012714" XYZ="-160.5402, 16.97958, -39.96344"/>
 		</If>
-		
+
 		<!-- A General Summons (Level 54) -->
 		<If Condition="IsQuestCompleted(67165) and not HasQuest(67166) and not IsQuestCompleted(67166)">
 			<GetTo ZoneId="418" XYZ="-162.4934, 16.97958, -37.52197"/>
@@ -1857,7 +1853,7 @@
 			<GetTo ZoneId="140" XYZ="-229.2058, 33.90731, 428.4275"/>
 			<TurnIn QuestId="67166" NpcId="1012729" XYZ="-229.2058, 33.90731, 428.4275"/>
 		</If>
-		
+
 		<!-- Awakening in Ul'dah (Level 54) -->
 		<If Condition="IsQuestCompleted(67166) and not HasQuest(67167) and not IsQuestCompleted(67167)">
 			<GetTo ZoneId="140" XYZ="-229.2058, 33.90731, 428.4275"/>
@@ -1873,7 +1869,7 @@
 			<GetTo ZoneId="131" XYZ="-23.91095, 37.76, 78.81274"/>
 			<TurnIn QuestId="67167" NpcId="1012731" XYZ="-23.91095, 37.76, 78.81274"/>
 		</If>
-		
+
 		<!-- A Brave Resolution (Level 54) -->
 		<If Condition="IsQuestCompleted(67167) and not HasQuest(67168) and not IsQuestCompleted(67168)">
 			<GetTo ZoneId="131" XYZ="-23.91095, 37.76, 78.81274"/>
@@ -1895,7 +1891,7 @@
 			</If>
 			<TurnIn QuestId="67168" NpcId="1012733" XYZ="-1.876892, 7.450581E-09, -9.079163"/>
 		</If>
-		
+
 		<!-- Ready to Fly (Level 55) -->
 		<If Condition="IsQuestCompleted(67168) and not HasQuest(67169) and not IsQuestCompleted(67169)">
 			<If Condition="not IsOnMap(351)">
@@ -1929,7 +1925,7 @@
 			<GetTo ZoneId="418" XYZ="107.4692, 24.37563, -8.407776"/>
 			<TurnIn QuestId="67169" NpcId="1012589" XYZ="107.4692, 24.37563, -8.407776"/>
 		</If>
-		
+
 		<!-- Into the Aery (Level 55) -->
 		<If Condition="IsQuestCompleted(67169) and not HasQuest(67170) and not IsQuestCompleted(67170)">
 			<GetTo ZoneId="418" XYZ="107.4692, 24.37563, -8.407776"/>
@@ -1943,13 +1939,13 @@
 		</If>
 		<If Condition="HasQuest(67170) and not IsQuestCompleted(67170) and GetQuestStep(67170) == 2">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/55 The Aery.xml"/>	
+				<LLoadProfile Path="Dungeons/Heavensward/55 The Aery.xml"/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(435)">
@@ -1963,17 +1959,17 @@
 						</If>
 					</If>
 				</If>
-			</If>		
+			</If>
 		</If>
 		<If Condition="HasQuest(67170) and not IsQuestCompleted(67170) and GetQuestStep(67170) == 3">
 			<WaitWhile condition="GetQuestStep(67170) == 3"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67170) and not IsQuestCompleted(67170) and GetQuestStep(67170) == 255">
 			<GetTo ZoneId="400" XYZ="550.4386, -1.191689, -354.9401"/>
 			<TurnIn QuestId="67170" NpcId="1012746" XYZ="550.4386, -1.191689, -354.9401"/>
 			<UseInventoryItem ItemId="12073"/>
 		</If>
-		
+
 		<!-- The Song Begins (Level 55) -->
 		<If Condition="IsQuestCompleted(67170) and not HasQuest(67171) and not IsQuestCompleted(67171)">
 			<GetTo ZoneId="400" XYZ="550.4386, -1.191689, -354.9401"/>
@@ -1985,7 +1981,7 @@
 			<GetTo ZoneId="400" XYZ="-756.0998, 123.7287, 214.8013"/>
 			<TurnIn QuestId="67171" NpcId="1013172" XYZ="-756.0998, 123.7287, 214.8013"/>
 		</If>
-		
+
 		<!-- Unrest in Ishgard (Level 56) -->
 		<If Condition="IsQuestCompleted(67171) and not HasQuest(67172) and not IsQuestCompleted(67172)">
 			<GetTo ZoneId="400" XYZ="-753.7194, 123.5725, 212.5734"/>
@@ -1995,23 +1991,23 @@
 		</If>
 		<If Condition="HasQuest(67172) and not IsQuestCompleted(67172) and GetQuestStep(67172) == 255">
 			<GetTo ZoneId="418" XYZ="-163.8972, 27.97913, -116.4111"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67172" NpcId="1012750" XYZ="-163.8972, 27.97913, -116.4111" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67172" NpcId="1012750" XYZ="-163.8972, 27.97913, -116.4111" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67172" NpcId="1012750" XYZ="-163.8972, 27.97913, -116.4111" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67172) and GetQuestStep(67172) == 255">
 				<TurnIn QuestId="67172" NpcId="1012750" XYZ="-163.8972, 27.97913, -116.4111" RewardSlot="3"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- He Who Would Not Be Denied (Level 56) -->
 		<If Condition="IsQuestCompleted(67172) and not HasQuest(67173) and not IsQuestCompleted(67173)">
 			<GetTo ZoneId="418" XYZ="-163.8972, 27.97913, -116.4111"/>
@@ -2031,27 +2027,27 @@
 				<GetTo ZoneId="419" XYZ="17.99036, 16.00967, -9.567444"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011217" XYZ="17.99036, 16.00967, -9.567444"/>
 			</If>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67173" NpcId="1012753" XYZ="-2.578735, -7.450581E-09, 7.644714" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67173" NpcId="1012753" XYZ="-2.578735, -7.450581E-09, 7.644714" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67173" NpcId="1012753" XYZ="-2.578735, -7.450581E-09, 7.644714" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67173" NpcId="1012753" XYZ="-2.578735, -7.450581E-09, 7.644714" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67173) and GetQuestStep(67173) == 255">
 				<TurnIn QuestId="67173" NpcId="1012753" XYZ="-2.578735, -7.450581E-09, 7.644714" RewardSlot="4"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Ill-weather Friends (Level 56) -->
 		<If Condition="IsQuestCompleted(67173) and not HasQuest(67174) and not IsQuestCompleted(67174)">
 			<If Condition="not IsOnMap(433)">
@@ -2080,23 +2076,23 @@
 		</If>
 		<If Condition="HasQuest(67174) and not IsQuestCompleted(67174) and GetQuestStep(67174) == 255">
 			<GetTo ZoneId="418" XYZ="94.95691, -22, 50.94983"/>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67174" NpcId="1013332" XYZ="94.95691, -22, 50.94983" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67174" NpcId="1013332" XYZ="94.95691, -22, 50.94983" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67174" NpcId="1013332" XYZ="94.95691, -22, 50.94983" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67174) and GetQuestStep(67174) == 255">
 				<TurnIn QuestId="67174" NpcId="1013332" XYZ="94.95691, -22, 50.94983" RewardSlot="3"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- The Spice of Life (Level 56) -->
 		<If Condition="IsQuestCompleted(67174) and not HasQuest(67529) and not IsQuestCompleted(67529)">
 			<GetTo ZoneId="418" XYZ="94.95691, -22, 50.94983"/>
@@ -2114,27 +2110,27 @@
 		</If>
 		<If Condition="HasQuest(67529) and not IsQuestCompleted(67529) and GetQuestStep(67529) == 255">
 			<GetTo ZoneId="418" XYZ="88.7396, 15.09468, 33.58984"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67529" NpcId="1011192" ItemId="2001591" XYZ="88.36499, 15.09468, 31.29626" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsMaimingClass()">	
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67529" NpcId="1011192" ItemId="2001591" XYZ="88.36499, 15.09468, 31.29626" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67529" NpcId="1011192" ItemId="2001591" XYZ="88.36499, 15.09468, 31.29626" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="IsScoutingClass()">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsScoutingClass()">
 				<TurnIn QuestId="67529" NpcId="1011192" ItemId="2001591" XYZ="88.36499, 15.09468, 31.29626" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67529) and GetQuestStep(67529) == 255">
 				<TurnIn QuestId="67529" NpcId="1011192" ItemId="2001591" XYZ="88.36499, 15.09468, 31.29626" RewardSlot="4"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Noble Indiscretions (Level 56) -->
 		<If Condition="IsQuestCompleted(67529) and not HasQuest(67530) and not IsQuestCompleted(67530)">
 			<GetTo ZoneId="418" XYZ="88.7396, 15.09468, 33.58984"/>
@@ -2150,7 +2146,7 @@
 			<GetTo ZoneId="418" XYZ="88.7396, 15.09468, 33.58984"/>
 			<TurnIn QuestId="67530" NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626"/>
 		</If>
-		
+
 		<!-- A Child Apart (Level 56) -->
 		<If Condition="IsQuestCompleted(67530) and not HasQuest(67531) and not IsQuestCompleted(67531)">
 			<GetTo ZoneId="418" XYZ="88.7396, 15.09468, 33.58984"/>
@@ -2166,7 +2162,7 @@
 			<GetTo ZoneId="418" XYZ="88.7396, 15.09468, 33.58984"/>
 			<TurnIn QuestId="67531" NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626"/>
 		</If>
-		
+
 		<!-- Bloodlines (Level 56) -->
 		<If Condition="IsQuestCompleted(67531) and not HasQuest(67532) and not IsQuestCompleted(67532)">
 			<GetTo ZoneId="418" XYZ="88.7396, 15.09468, 33.58984"/>
@@ -2182,7 +2178,7 @@
 			<GetTo ZoneId="418" XYZ="104.387, 15, 25.55884"/>
 			<TurnIn QuestId="67532" NpcId="1013260" XYZ="104.387, 15, 25.55884"/>
 		</If>
-		
+
 		<!-- Fire and Blood (Level 57) -->
 		<If Condition="IsQuestCompleted(67532) and not HasQuest(67175) and not IsQuestCompleted(67175)">
 			<GetTo ZoneId="418" XYZ="104.387, 15, 25.55884"/>
@@ -2206,7 +2202,7 @@
 			<GetTo ZoneId="418" XYZ="92.5459, 15.00001, 37.24719"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty InteractNpcId="1012773" XYZ="92.5459, 15.00001, 37.24719" QuestId="67175" StepId="4">
 				<HotSpots>
 					<HotSpot XYZ="69.20998, 23.97913, 6.114148" Radius="90"/>
@@ -2224,7 +2220,7 @@
 			<GetTo ZoneId="418" XYZ="86.38135, 23.97913, 12.80225"/>
 			<TurnIn QuestId="67175" NpcId="1012780" XYZ="86.38135, 23.97913, 12.80225"/>
 		</If>
-		
+
 		<!-- A Knight's Calling (Level 57) -->
 		<If Condition="IsQuestCompleted(67175) and not HasQuest(67176) and not IsQuestCompleted(67176)">
 			<GetTo ZoneId="418" XYZ="86.38135, 23.97913, 12.80225"/>
@@ -2242,13 +2238,13 @@
 		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 3">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/57 The Vault.xml"/>	
+				<LLoadProfile Path="Dungeons/Heavensward/57 The Vault.xml"/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(421)">
@@ -2262,26 +2258,26 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 4">
 			<WaitWhile condition="GetQuestStep(67176) == 4"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 5">
 			<GetTo ZoneId="419" XYZ="-6.790344, 42.34489, -207.0497"/>
 			<TalkTo NpcId="1012212" XYZ="-6.790344, 42.34489, -207.0497" QuestId="67176" StepId="5"/>
 		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 6">
-			<GetTo ZoneId="419" XYZ="15.85205, 16.00967, -10.20725"/>  
+			<GetTo ZoneId="419" XYZ="15.85205, 16.00967, -10.20725"/>
 			<!-- <TalkTo NpcId="1013101" InteractDistance="3.0" XYZ="17.99036, 16.00967, -9.567444"/>		-->
 			<WaitWhile Condition="HasQuest(67176) and not IsQuestCompleted(67176) and not GetQuestStep(67176) == 255"/>
 		</If>
-    <If Condition="GetQuestStep(67176) == 255">
-      <GetTo ZoneId="419" XYZ="15.09471, 16.00967, -6.036503"/>  
-      <LLTurnIn QuestId="67176" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289"/>
-      <LLSmallTalk/>
-    </If>
-		
+		<If Condition="GetQuestStep(67176) == 255">
+			<GetTo ZoneId="419" XYZ="15.09471, 16.00967, -6.036503"/>
+			<LLTurnIn QuestId="67176" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289"/>
+			<LLSmallTalk/>
+		</If>
+
 		<!-- The Sins of Antiquity (Level 57) -->
 		<If Condition="IsQuestCompleted(67176) and not HasQuest(67177) and not IsQuestCompleted(67177)">
 			<GetTo ZoneId="419" XYZ="14.8775, 16.00967, -4.196289"/>
@@ -2296,7 +2292,7 @@
 			</If>
 			<TurnIn QuestId="67177" NpcId="1013183" XYZ="-0.01531982, 0.01999969, -6.302063"/>
 		</If>
-		
+
 		<!-- In Search of the Soleil (Level 57) -->
 		<If Condition="IsQuestCompleted(67177) and not HasQuest(67178) and not IsQuestCompleted(67178)">
 			<GetTo ZoneId="418" XYZ="112.291, 24.39042, -4.470947"/>
@@ -2308,7 +2304,7 @@
 			<GetTo ZoneId="418" XYZ="-158.4955, 17.06621, -56.26001"/>
 			<TurnIn QuestId="67178" NpcId="1013261" XYZ="-158.4955, 17.06621, -56.26001"/>
 		</If>
-		
+
 		<!-- Into the Blue (Level 57) -->
 		<If Condition="IsQuestCompleted(67178) and not HasQuest(67179) and not IsQuestCompleted(67179)">
 			<GetTo ZoneId="418" XYZ="-158.3735, 17, -54.27637"/>
@@ -2333,7 +2329,7 @@
 			<GetTo ZoneId="401" XYZ="-805.5391, -57.82888, 157.6409"/>
 			<TurnIn QuestId="67179" NpcId="1013085" XYZ="-805.5391, -57.82888, 157.6409"/>
 		</If>
-		
+
 		<!-- Familiar Faces (Level 57) -->
 		<If Condition="IsQuestCompleted(67179) and not HasQuest(67180) and not IsQuestCompleted(67180)">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2362,7 +2358,7 @@
 			<SoSendChat XYZ="-761.8904, -38.69292, 75.92774" Emote="lookout"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty XYZ="-761.8904, -38.69292, 75.92774" QuestId="67180" StepId="2">
 				<HotSpots>
 					<HotSpot XYZ="69.20998, 23.97913, 6.114148" Radius="90"/>
@@ -2379,7 +2375,7 @@
 			<GetTo ZoneId="401" XYZ="-751.6747, -35.95642, 18.72278"/>
 			<TurnIn QuestId="67180" NpcId="1013089" XYZ="-751.6747, -35.95642, 18.72278"/>
 		</If>
-		
+
 		<!-- Devourer of Worlds (Level 57) -->
 		<If Condition="IsQuestCompleted(67180) and not HasQuest(67181) and not IsQuestCompleted(67181)">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2415,7 +2411,7 @@
 			<GetTo ZoneId="401" XYZ="-560.6927, -52.30738, -427.5731"/>
 			<TurnIn QuestId="67181" NpcId="1013095" XYZ="-560.6927, -52.30738, -427.5731"/>
 		</If>
-		
+
 		<!-- Black and the White (Level 57) -->
 		<If Condition="IsQuestCompleted(67181) and not HasQuest(67182) and not IsQuestCompleted(67182)">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2451,7 +2447,7 @@
 			<GetTo ZoneId="401" XYZ="-583.032, -52.12611, -447.4403"/>
 			<TurnIn QuestId="67182" NpcId="1014570" XYZ="-583.032, -52.12611, -447.4403"/>
 		</If>
-		
+
 		<!-- Bolt, Chain, and Island (Level 57) -->
 		<If Condition="IsQuestCompleted(67182) and not HasQuest(67183) and not IsQuestCompleted(67183)">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2495,7 +2491,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(421)">
@@ -2509,11 +2505,11 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 5">
 			<WaitWhile condition="GetQuestStep(67183) == 5"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 255">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
@@ -2522,7 +2518,7 @@
 			<GetTo ZoneId="401" XYZ="-156.6644, -14.15376, -543.0228"/>
 			<TurnIn QuestId="67183" NpcId="1014575" XYZ="-156.6644, -14.15376, -543.0228"/>
 		</If>
-		
+
 		<!-- A Difference of Opinion (Level 57) -->
 		<If Condition="IsQuestCompleted(67183) and not HasQuest(67184) and not IsQuestCompleted(67184)">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2551,7 +2547,7 @@
 			<TurnIn QuestId="67184" NpcId="1012195" XYZ="-155.9319, -14.15376, -542.1378"/>
 			<UseInventoryItem ItemId="12048"/>
 		</If>
-		
+
 		<!-- One Good Turn (Level 57) -->
 		<If Condition="IsQuestCompleted(67184) and not HasQuest(67185) and not IsQuestCompleted(67185)">
 			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
@@ -2567,7 +2563,7 @@
 			<GetTo ZoneId="419" XYZ="162.89, -15.13437, 37.0946"/>
 			<TurnIn QuestId="67185" NpcId="1013111" XYZ="162.89, -15.13437, 37.0946"/>
 		</If>
-		
+
 		<!-- An Engineering Enterprise (Level 57) -->
 		<If Condition="IsQuestCompleted(67185) and not HasQuest(67186) and not IsQuestCompleted(67186)">
 			<GetTo ZoneId="419" XYZ="162.005, -15.13437, 38.52893"/>
@@ -2587,7 +2583,7 @@
 			<GetTo ZoneId="418" XYZ="92.36279, 15.09468, 33.18835"/>
 			<TurnIn QuestId="67186" NpcId="1013162" XYZ="92.36279, 15.09468, 33.18835"/>
 		</If>
-		
+
 		<!-- Aetherial Trail (Level 57) -->
 		<If Condition="IsQuestCompleted(67186) and not HasQuest(67187) and not IsQuestCompleted(67187)">
 			<GetTo ZoneId="418" XYZ="92.36279, 15.09468, 33.18835"/>
@@ -2607,7 +2603,7 @@
 			<GetTo ZoneId="133" XYZ="-158.1903, 4, -21.19489"/>
 			<TurnIn QuestId="67187" NpcId="1012394" XYZ="-158.1903, 4, -21.19489"/>
 		</If>
-		
+
 		<!-- Lost in the Lifestream (Level 57) -->
 		<If Condition="IsQuestCompleted(67187) and not HasQuest(67188) and not IsQuestCompleted(67188)">
 			<GetTo ZoneId="133" XYZ="-158.1903, 4, -21.19489"/>
@@ -2635,7 +2631,7 @@
 			<GetTo ZoneId="132" XYZ="35.53821, -8, 98.13074"/>
 			<TurnIn QuestId="67188" NpcId="1012398" XYZ="35.53821, -8, 98.13074"/>
 		</If>
-		
+
 		<!-- Tataru's Surprise (Level 57) -->
 		<If Condition="IsQuestCompleted(67188) and not HasQuest(67189) and not IsQuestCompleted(67189)">
 			<GetTo ZoneId="132" XYZ="35.53821, -8, 98.13074"/>
@@ -2655,7 +2651,7 @@
 			<GetTo ZoneId="132" XYZ="35.53821, -8, 98.13074"/>
 			<TurnIn QuestId="67189" NpcId="1012398" ItemIds="2001798,2001799" XYZ="35.53821, -8, 98.13074"/>
 		</If>
-		
+
 		<!-- Onward to Sharlayan (Level 57) -->
 		<If Condition="IsQuestCompleted(67189) and not HasQuest(67190) and not IsQuestCompleted(67190)">
 			<GetTo ZoneId="132" XYZ="35.84338, -8, 99.35144"/>
@@ -2671,7 +2667,7 @@
 			<GetTo ZoneId="398" XYZ="587.457, -50.81134, 69.16907"/>
 			<TurnIn QuestId="67190" NpcId="1012406" XYZ="587.457, -50.81134, 69.16907"/>
 		</If>
-		
+
 		<!-- A Great New Nation (Level 58) -->
 		<If Condition="IsQuestCompleted(67190) and not HasQuest(67191) and not IsQuestCompleted(67191)">
 			<GetTo ZoneId="398" XYZ="587.457, -50.81134, 69.16907"/>
@@ -2701,28 +2697,28 @@
 				<RunCode Name="Move_Forward"/>
 			</If>
 			<GetTo ZoneId="478" XYZ="73.3501, 205.8894, 23.48358"/>
-			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">	
+			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<TurnIn QuestId="67191" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">	
+			<If Condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
 				<TurnIn QuestId="67191" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.DarkKnight">	
+			<If Condition="ClassName == ClassJobType.DarkKnight">
 				<TurnIn QuestId="67191" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.Samurai">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.Samurai">
 				<TurnIn QuestId="67191" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67191) and GetQuestStep(67191) == 255">
 				<TurnIn QuestId="67191" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5632"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Golems Begone (Level 58) -->
 		<If Condition="IsQuestCompleted(67191) and not HasQuest(67192) and not IsQuestCompleted(67192)">
 			<GetTo ZoneId="478" XYZ="73.3501, 205.8894, 23.48358"/>
@@ -2746,28 +2742,28 @@
 		</If>
 		<If Condition="HasQuest(67192) and not IsQuestCompleted(67192) and GetQuestStep(67192) == 255">
 			<GetTo ZoneId="478" XYZ="73.3501, 205.8894, 23.48358"/>
-			<If Condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">	
+			<If Condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
 				<TurnIn QuestId="67192" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">	
+			<If Condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
 				<TurnIn QuestId="67192" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">	
+			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">
 				<TurnIn QuestId="67192" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<TurnIn QuestId="67192" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67192) and GetQuestStep(67192) == 255">
 				<TurnIn QuestId="67192" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5682"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- An Illuminati Incident (Level 58) -->
 		<If Condition="IsQuestCompleted(67192) and not HasQuest(67193) and not IsQuestCompleted(67193)">
 			<GetTo ZoneId="478" XYZ="73.3501, 205.8894, 23.48358"/>
@@ -2779,7 +2775,7 @@
 			<GetTo ZoneId="399" XYZ="365.835, 80.11143, 6.332458"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty InteractNpcId="1012416" XYZ="365.835, 80.11143, 6.332458" QuestId="67193" StepId="1">
 				<HotSpots>
 					<HotSpot XYZ="347.3683, 77.63412, -6.711346" Radius="90"/>
@@ -2800,28 +2796,28 @@
 		</If>
 		<If Condition="HasQuest(67193) and not IsQuestCompleted(67193) and GetQuestStep(67193) == 255">
 			<GetTo ZoneId="478" XYZ="73.3501, 205.8894, 23.48358"/>
-			<If Condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">	
+			<If Condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
 				<TurnIn QuestId="67193" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Machinist">	
+			<If Condition="ClassName == ClassJobType.Machinist">
 				<TurnIn QuestId="67193" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">	
+			<If Condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
 				<TurnIn QuestId="67193" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
 				<TurnIn QuestId="67193" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67193) and GetQuestStep(67193) == 255">
 				<TurnIn QuestId="67193" NpcId="1012097" XYZ="73.3501, 205.8894, 23.48358" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5667"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Leaving Idyllshire (Level 58) -->
 		<If Condition="IsQuestCompleted(67193) and not HasQuest(67194) and not IsQuestCompleted(67194)">
 			<GetTo ZoneId="478" XYZ="73.3501, 205.8894, 23.48358"/>
@@ -2835,28 +2831,28 @@
 		</If>
 		<If Condition="HasQuest(67194) and not IsQuestCompleted(67194) and GetQuestStep(67194) == 255">
 			<GetTo ZoneId="478" XYZ="77.98877, 203.9799, 127.9163"/>
-			<If Condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">	
+			<If Condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
 				<TurnIn QuestId="67194" NpcId="1012421" XYZ="77.98877, 203.9799, 127.9163" RewardSlot="0"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Scholar">	
+			<If Condition="ClassName == ClassJobType.Scholar">
 				<TurnIn QuestId="67194" NpcId="1012421" XYZ="77.98877, 203.9799, 127.9163" RewardSlot="1"/>
-				<AutoInventoryEquip/>									
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Arcanist">	
+			<If Condition="ClassName == ClassJobType.Arcanist">
 				<TurnIn QuestId="67194" NpcId="1012421" XYZ="77.98877, 203.9799, 127.9163" RewardSlot="2"/>
-				<AutoInventoryEquip/>									
-			</If>		
-			<If Condition="ClassName == ClassJobType.RedMage">	
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="ClassName == ClassJobType.RedMage">
 				<TurnIn QuestId="67194" NpcId="1012421" XYZ="77.98877, 203.9799, 127.9163" RewardSlot="3"/>
-				<AutoInventoryEquip/>									
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67194) and GetQuestStep(67194) == 255">
 				<TurnIn QuestId="67194" NpcId="1012421" XYZ="77.98877, 203.9799, 127.9163" RewardSlot="4"/>
 				<LLDiscardItem ItemId="5717"/>
-			</If>				
+			</If>
 		</If>
-		
+
 		<!-- Matoya's Cave (Level 59) -->
 		<If Condition="IsQuestCompleted(67194) and not HasQuest(67195) and not IsQuestCompleted(67195)">
 			<GetTo ZoneId="478" XYZ="77.98877, 203.9799, 127.9163"/>
@@ -2876,9 +2872,9 @@
 			<GetTo ZoneId="399" XYZ="-476.585, 137.4297, 702.6931"/>
 			<TurnIn QuestId="67195" NpcId="1012423" XYZ="-476.585, 137.4297, 702.6931"/>
 			<WaitWhile Condition="not IsOnMap(463)"/>
-			<WaitTimer WaitTime="5"/>	   
+			<WaitTimer WaitTime="5"/>
 		</If>
-		
+
 		<!-- Forbidden Knowledge (Level 59) -->
 		<If Condition="IsQuestCompleted(67195) and not HasQuest(67196) and not IsQuestCompleted(67196)">
 			<If Condition="not IsOnMap(463)">
@@ -2918,7 +2914,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(416)">
@@ -2932,11 +2928,11 @@
 						</If>
 					</If>
 				</If>
-			</If>		
+			</If>
 		</If>
 		<If Condition="HasQuest(67196) and not IsQuestCompleted(67196) and GetQuestStep(67196) == 5">
 			<WaitWhile condition="GetQuestStep(67196) == 5"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67196) and not IsQuestCompleted(67196) and GetQuestStep(67196) == 255">
 			<If Condition="not IsOnMap(463)">
 				<GetTo ZoneId="399" XYZ="-488.7923, 138.9333, 741.0543"/>
@@ -2944,7 +2940,7 @@
 			</If>
 			<TurnIn QuestId="67196" NpcId="1012138" ItemId="2001575" XYZ="19.27209, 38.43, 15.85406"/>
 		</If>
-		
+
 		<!-- An Eye for Aether (Level 59) -->
 		<If Condition="IsQuestCompleted(67196) and not HasQuest(67197) and not IsQuestCompleted(67197)">
 			<If Condition="not IsOnMap(463)">
@@ -2969,7 +2965,7 @@
 			<GetTo ZoneId="419" XYZ="167.0404, -14.3133, 51.28552"/>
 			<TurnIn QuestId="67197" NpcId="1013163" XYZ="167.0404, -14.3133, 51.28552"/>
 		</If>
-		
+
 		<!-- Hour of Departure (Level 59) -->
 		<If Condition="IsQuestCompleted(67197) and not HasQuest(67198) and not IsQuestCompleted(67198)">
 			<GetTo ZoneId="419" XYZ="165.9418, -14.34896, 51.65173"/>
@@ -3007,7 +3003,7 @@
 			<GetTo ZoneId="419" XYZ="165.9418, -14.34896, 51.65173"/>
 			<TurnIn QuestId="67198" NpcId="1012430" XYZ="165.9418, -14.34896, 51.65173"/>
 		</If>
-		
+
 		<!-- The First Flight of the Excelsior (Level 59) -->
 		<If Condition="IsQuestCompleted(67198) and not HasQuest(67199) and not IsQuestCompleted(67199)">
 			<GetTo ZoneId="419" XYZ="165.9418, -14.34896, 51.65173"/>
@@ -3041,7 +3037,7 @@
 			<GetTo ZoneId="402" XYZ="-650.1717, -176.4502, -565.1484"/>
 			<TurnIn QuestId="67199" NpcId="1012792" XYZ="-650.1717, -176.4502, -565.1484"/>
 		</If>
-		
+
 		<!-- Systematic Exploration (Level 59) -->
 		<If Condition="IsQuestCompleted(67199) and not HasQuest(67200) and not IsQuestCompleted(67200)">
 			<If Condition="not IsOnMap(402)">
@@ -3089,11 +3085,11 @@
 				<UseTransport InteractDistance="3.0" NpcId="1012153" XYZ="168.4442, -14.34896, 49.57654"/>
 			</If>
 			<GetTo ZoneId="402" XYZ="-638.3612, -176.4502, -578.6679"/>
-			<AutoInventoryEquip/>	 	 
+			<AutoInventoryEquip/>
 			<TurnIn QuestId="67200" NpcId="1014675" XYZ="-638.3612, -176.4502, -578.6679" RewardSlot="0"/>
 			<LLDiscardItem ItemId="5632"/>
 		</If>
-		
+
 		<!-- In Node We Trust (Level 59) -->
 		<If Condition="IsQuestCompleted(67200) and not HasQuest(67201) and not IsQuestCompleted(67201)">
 			<If Condition="not IsOnMap(402)">
@@ -3144,9 +3140,9 @@
 			</If>
 			<GetTo ZoneId="402" XYZ="235.9807, -72.83498, -619.8978"/>
 			<TurnIn QuestId="67201" NpcId="1012802" XYZ="235.9807, -72.83498, -619.8978" RewardSlot="0"/>
-			<LLDiscardItem ItemId="5682"/> 
+			<LLDiscardItem ItemId="5682"/>
 		</If>
-		
+
 		<!-- Chimerical Maintenance (Level 59) -->
 		<If Condition="IsQuestCompleted(67201) and not HasQuest(67202) and not IsQuestCompleted(67202)">
 			<If Condition="not IsOnMap(402)">
@@ -3237,9 +3233,9 @@
 			<GetTo ZoneId="402" XYZ="776.4245, -17.94297, -486.3318"/>
 			<TurnIn QuestId="67202" InteractDistance="2.0" NpcId="2006364" XYZ="778.8052, -17.99042, -483.5432"/>
 			<WaitTimer WaitTime="5"/>
-			<LLDiscardItem ItemId="5677"/>	 	 
+			<LLDiscardItem ItemId="5677"/>
 		</If>
-		
+
 		<!-- Close Encounters of the Vith Kind (Level 59) -->
 		<If Condition="IsQuestCompleted(67202) and not HasQuest(67203) and not IsQuestCompleted(67203)">
 			<If Condition="not IsOnMap(402)">
@@ -3308,7 +3304,7 @@
 			<GetTo ZoneId="402" XYZ="228.2291, 14.93359, 553.9788"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty InteractNpcId="1012827" XYZ="228.2291, 14.93359, 553.9788" QuestId="67203" StepId="3">
 				<HotSpots>
 					<HotSpot XYZ="248.0971, 17.15141, 552.9381" Radius="30"/>
@@ -3345,7 +3341,7 @@
 			<GetTo ZoneId="402" XYZ="-197.8638, -102.783, 456.5347"/>
 			<TurnIn QuestId="67203" NpcId="1012834" XYZ="-197.8638, -102.783, 456.5347"/>
 		</If>
-		
+
 		<!-- Fetters of Lament (Level 59) -->
 		<If Condition="IsQuestCompleted(67203) and not HasQuest(67204) and not IsQuestCompleted(67204)">
 			<If Condition="not IsOnMap(402)">
@@ -3390,69 +3386,127 @@
 			<TurnIn QuestId="67204" NpcId="2005465" XYZ="-696.1318, -37.06427, 432.4253"/>
 			<WaitTimer WaitTime="10"/>
 		</If>
-		
+
 		<!-- Do class quests for experience -->
 		<If Condition="IsQuestCompleted(67204) and Core.Player.ClassLevel &lt; 60">
-			<!-- Summoner -->
-			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
-				<If condition="not IsQuestCompleted(68161)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>	
-				</If>	
-			</If>
-			<!-- Scholar -->
-			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
-				<If condition="not IsQuestCompleted(68459)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>	
-				</If>					
-			</If>			
-			<!-- Warrior -->
-			<If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
-				<If condition="not IsQuestCompleted(68436)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>	
-				</If>	
-			</If>	
-			<!-- Bard -->
-			<If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
-				<If condition="not IsQuestCompleted(68426)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>	
-				</If>	
-			</If>
-			<!-- White Mage -->
-			<If condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
-				<If condition="not IsQuestCompleted(67950)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>	
-				</If>	
-			</If>		
-			<!-- Dragoon -->
-			<If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
-				<If condition="not IsQuestCompleted(68446)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>	
-				</If>	
-			</If>
-			<!-- Black Mage -->
-			<If condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
-				<If condition="not IsQuestCompleted(68124)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>	
-				</If>	
-			</If>
 			<!-- Paladin -->
 			<If condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
-				<If condition="not IsQuestCompleted(68107)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>	
-				</If>	
-			</If>	
+				<If condition="not IsQuestCompleted(67572)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>
+				</If>
+			</If>
+
+			<!-- Warrior -->
+			<If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
+				<If condition="not IsQuestCompleted(66134)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>
+				</If>
+			</If>
+
+			<!-- Dark Knight -->
+			<If condition="ClassName == ClassJobType.DarkKnight">
+				<If condition="not IsQuestCompleted(67599)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Dark Knight.xml"/>
+				</If>
+			</If>
+
+			<!-- Gunbreaker doesn't have sub-60 class quests -->
+
 			<!-- Monk -->
 			<If condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
-				<If condition="not IsQuestCompleted(67962)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>	
-				</If>	
-			</If>				
-		</If>			
-		
+				<If condition="not IsQuestCompleted(67566)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>
+				</If>
+			</If>
+
+			<!-- Dragoon -->
+			<If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
+				<If condition="not IsQuestCompleted(67230)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>
+				</If>
+			</If>
+
+			<!-- Ninja -->
+			<If condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">
+				<If condition="not IsQuestCompleted(67223)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Rogue-Ninja.xml"/>
+				</If>
+			</If>
+
+			<!-- Samurai -->
+			<If condition="ClassName == ClassJobType.Samurai">
+				<If condition="not IsQuestCompleted(68100)">
+					<LLoadProfile Path="[OB][LB][LL] Class Quests - Samurai.xml"/>
+				</If>
+			</If>
+
+			<!-- Reaper doesn't have sub-60 class quests -->
+
+			<!-- White Mage -->
+			<If condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
+				<If condition="not IsQuestCompleted(67260)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>
+				</If>
+			</If>
+
+			<!-- Scholar -->
+			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
+				<If condition="not IsQuestCompleted(67211)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>
+				</If>
+			</If>
+
+			<!-- Astrologian -->
+			<If condition="ClassName == ClassJobType.Astrologian">
+				<If condition="not IsQuestCompleted(67560)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Astrologian.xml"/>
+				</If>
+			</If>
+
+			<!-- Sage doesn't have sub-60 class quests -->
+
+			<!-- Bard -->
+			<If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
+				<If condition="not IsQuestCompleted(67253)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>
+				</If>
+			</If>
+
+			<!-- Machinist -->
+			<If condition="ClassName == ClassJobType.Machinist">
+				<If condition="not IsQuestCompleted(67247)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Machinist.xml"/>
+				</If>
+			</If>
+
+			<!-- Dancer doesn't have sub-60 class quests -->
+
+			<!-- Black Mage -->
+			<If condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
+				<If condition="not IsQuestCompleted(67218)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>
+				</If>
+			</If>
+
+			<!-- Summoner -->
+			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
+				<If condition="not IsQuestCompleted(67640)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>
+				</If>
+			</If>
+
+			<!-- Red Mage -->
+			<If condition="ClassName == ClassJobType.RedMage">
+				<If condition="not IsQuestCompleted(68117)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Red Mage.xml"/>
+				</If>
+			</If>
+		</If>
+
 		<!-- Heavensward (Level 60) -->
 		<If Condition="IsQuestCompleted(67204) and not HasQuest(67205) and not IsQuestCompleted(67205)">
 			<RunCode name="Coffer"/>
-			<AutoInventoryEquip/>	
+			<AutoInventoryEquip/>
 			<LisbethTravel ZoneId="402" XYZ="-319.0204, 253, -5.233948"/>
 			<If Condition="IsQuestAcceptQualified(67205)">
 				<PickupQuest NpcId="1012848" QuestId="67205" XYZ="-319.0204, 253, -5.233948"/>
@@ -3475,7 +3529,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(438)">
@@ -3489,11 +3543,11 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 4">
 			<WaitWhile condition="GetQuestStep(67205) == 4"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 5">
 			<If condition="&UseCarry; == 0">
 				<UserDialog QuestId="67205" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the trial Singularity Reactor and hit continue." />
@@ -3502,7 +3556,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(437)">
@@ -3516,84 +3570,152 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 6">
 			<WaitWhile condition="GetQuestStep(67205) == 6"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 255">
 			<If condition="not IsOnMap(433)">
-				<GetTo ZoneId="419" XYZ="15.7465, 16.00967, -9.183701"/>  
-				<UseTransport NpcId="1011217" InteractDistance="3.0" XYZ="17.99036, 16.00967, -9.567444"/>	
-			</If>	
-			<MoveTo XYZ="0.5464361, 0.02225423, 6.108972"/> 
+				<GetTo ZoneId="419" XYZ="15.7465, 16.00967, -9.183701"/>
+				<UseTransport NpcId="1011217" InteractDistance="3.0" XYZ="17.99036, 16.00967, -9.567444"/>
+			</If>
+			<MoveTo XYZ="0.5464361, 0.02225423, 6.108972"/>
 			<LLTurnIn QuestId="67205" NpcId="1012857" XYZ="0.7476196, 0.02225424, 4.623413"/>
 			<LLSmallTalk/>
 		</If>
-		
+
 		<!-- Coerthas Western Highlands, Dravanian Forelands, Dravanian Hinterlands, The Churning Mists, The Sea of Clouds -->
 		<If condition="not AetherCurrentManager.IsZoneComplete(397) and not AetherCurrentManager.IsZoneComplete(398) and not AetherCurrentManager.IsZoneComplete(400) and not AetherCurrentManager.IsZoneComplete(401) and not AetherCurrentManager.IsZoneComplete(399)">
 			<LLoadProfile Path="Heavensward Aether Currents.xml"/>
 		</If>
-		
-		<!-- Do class quests -->
+
+		<!-- Do level 60 class quests -->
 		<If Condition="IsQuestCompleted(67204)">
-			<!-- Summoner -->
-			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
-				<If condition="not IsQuestCompleted(67641)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>	
-				</If>	
-			</If>
-			<!-- Scholar -->
-			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
-				<If condition="not IsQuestCompleted(67212)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>	
-				</If>					
-			</If>			
-			<!-- Warrior -->
-			<If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
-				<If condition="not IsQuestCompleted(66137)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>	
-				</If>	
-			</If>	
-			<!-- Bard -->
-			<If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
-				<If condition="not IsQuestCompleted(67254)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>	
-				</If>	
-			</If>
-			<!-- White Mage -->
-			<If condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
-				<If condition="not IsQuestCompleted(67950)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>	
-				</If>	
-			</If>		
-			<!-- Dragoon -->
-			<If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
-				<If condition="not IsQuestCompleted(67231)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>	
-				</If>	
-			</If>
-			<!-- Black Mage -->
-			<If condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
-				<If condition="not IsQuestCompleted(67219)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>	
-				</If>	
-			</If>
 			<!-- Paladin -->
 			<If condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<If condition="not IsQuestCompleted(67573)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>	
-				</If>	
-			</If>	
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>
+				</If>
+			</If>
+
+			<!-- Warrior -->
+			<If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
+				<If condition="not IsQuestCompleted(66137)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>
+				</If>
+			</If>
+
+			<!-- Dark Knight -->
+			<If condition="ClassName == ClassJobType.DarkKnight">
+				<If condition="not IsQuestCompleted(67600)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Dark Knight.xml"/>
+				</If>
+			</If>
+
+			<!-- Gunbreaker -->
+			<If condition="ClassName == ClassJobType.Gunbreaker">
+				<If condition="not IsQuestCompleted(68798)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gunbreaker.xml"/>
+				</If>
+			</If>
+
 			<!-- Monk -->
 			<If condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
 				<If condition="not IsQuestCompleted(67567)">
-					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>	
-				</If>	
-			</If>				
-		</If>		
-				
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>
+				</If>
+			</If>
+
+			<!-- Dragoon -->
+			<If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
+				<If condition="not IsQuestCompleted(67231)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>
+				</If>
+			</If>
+
+			<!-- Ninja -->
+			<If condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">
+				<If condition="not IsQuestCompleted(67224)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Rogue-Ninja.xml"/>
+				</If>
+			</If>
+
+			<!-- Samurai -->
+			<If condition="ClassName == ClassJobType.Samurai">
+				<If condition="not IsQuestCompleted(68101)">
+					<LLoadProfile Path="[OB][LB][LL] Class Quests - Samurai.xml"/>
+				</If>
+			</If>
+
+			<!-- Reaper doesn't have 60 class quests -->
+
+			<!-- White Mage -->
+			<If condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
+				<If condition="not IsQuestCompleted(67261)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>
+				</If>
+			</If>
+
+			<!-- Scholar -->
+			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
+				<If condition="not IsQuestCompleted(67212)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>
+				</If>
+			</If>
+
+			<!-- Astrologian -->
+			<If condition="ClassName == ClassJobType.Astrologian">
+				<If condition="not IsQuestCompleted(67561)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Astrologian.xml"/>
+				</If>
+			</If>
+
+			<!-- Sage doesn't have 60 class quests -->
+
+			<!-- Bard -->
+			<If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
+				<If condition="not IsQuestCompleted(67254)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>
+				</If>
+			</If>
+
+			<!-- Machinist -->
+			<If condition="ClassName == ClassJobType.Machinist">
+				<If condition="not IsQuestCompleted(67248)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Machinist.xml"/>
+				</If>
+			</If>
+
+			<!-- Dancer -->
+			<If condition="ClassName == ClassJobType.Dancer">
+				<If condition="not IsQuestCompleted(68786)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Dancer.xml"/>
+				</If>
+			</If>
+
+			<!-- Black Mage -->
+			<If condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
+				<If condition="not IsQuestCompleted(67219)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>
+				</If>
+			</If>
+
+			<!-- Summoner -->
+			<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
+				<If condition="not IsQuestCompleted(67641)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>
+				</If>
+			</If>
+
+			<!-- Red Mage -->
+			<If condition="ClassName == ClassJobType.RedMage">
+				<If condition="not IsQuestCompleted(68118)">
+					<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Red Mage.xml"/>
+				</If>
+			</If>
+		</If>
+
 		<!-- An Uncertain Future (Level 60) -->
 		<If Condition="IsQuestCompleted(67205) and not HasQuest(67692) and not IsQuestCompleted(67692)">
 			<If Condition="not IsOnMap(433)">
@@ -3622,7 +3744,7 @@
 			<TurnIn QuestId="67692" NpcId="1015978" XYZ="111.2839, 24.38816, -4.379395" RewardSlot="0"/>
 			<LLDiscardItem ItemId="12844"/>
 		</If>
-		
+
 		<!-- Breaking the Cycle (Level 60) -->
 		<If Condition="IsQuestCompleted(67692) and not HasQuest(67693) and not IsQuestCompleted(67693)">
 			<LisbethTravel ZoneId="418" XYZ="112.5352, 24.3917, -2.884033"/>
@@ -3642,7 +3764,7 @@
 			<LisbethTravel ZoneId="398" XYZ="-297.7493, 39.04307, 37.06409"/>
 			<TurnIn QuestId="67693" NpcId="1015983" XYZ="-297.7493, 39.04307, 37.06409"/>
 		</If>
-		
+
 		<!-- Another Time, Another Place (Level 60) -->
 		<If Condition="IsQuestCompleted(67693) and not HasQuest(67694) and not IsQuestCompleted(67694)">
 			<LisbethTravel ZoneId="398" XYZ="-297.7493, 39.04307, 37.06409"/>
@@ -3663,7 +3785,7 @@
 			<LisbethTravel ZoneId="399" XYZ="-478.1415, 137.4297, 700.8926"/>
 			<TurnIn QuestId="67694" NpcId="1015992" XYZ="-478.1415, 137.4297, 700.8926"/>
 		</If>
-		
+
 		<!-- In the Eye of the Beholder (Level 60) -->
 		<If Condition="IsQuestCompleted(67694) and not HasQuest(67695) and not IsQuestCompleted(67695)">
 			<LisbethTravel ZoneId="399" XYZ="-478.1415, 137.4297, 700.8926"/>
@@ -3704,7 +3826,7 @@
 			<TurnIn NpcId="2006610" XYZ="191.7906, -54.1543, -235.9503" QuestId="67695" RewardSlot="0"/>
 			<LLDiscardItem ItemId="13637"/>
 		</If>
-		
+
 		<!-- A Little Slow, a Little Late (Level 60) -->
 		<If Condition="IsQuestCompleted(67695) and not HasQuest(67696) and not IsQuestCompleted(67696)">
 			<LisbethTravel ZoneId="398" XYZ="192.4315, -54.18924, -234.3634"/>
@@ -3729,7 +3851,7 @@
 			<LisbethTravel ZoneId="398" XYZ="225.1163, -116.6398, 504.7227"/>
 			<TurnIn QuestId="67696" NpcId="1016002" XYZ="225.1163, -116.6398, 504.7227"/>
 		</If>
-		
+
 		<!-- Dreams of the Lost (Level 60) -->
 		<If Condition="IsQuestCompleted(67696) and not HasQuest(67697) and not IsQuestCompleted(67697)">
 			<LisbethTravel ZoneId="398" XYZ="222.4918, -116.9309, 504.0817"/>
@@ -3749,7 +3871,7 @@
 			<LisbethTravel ZoneId="418" XYZ="125.9326, 24.45884, -5.539063"/>
 			<TurnIn QuestId="67697" NpcId="1016008" XYZ="125.9326, 24.45884, -5.539063"/>
 		</If>
-		
+
 		<!-- Against the Dying of the Light (Level 60) -->
 		<If Condition="IsQuestCompleted(67697) and not HasQuest(67698) and not IsQuestCompleted(67698)">
 			<LisbethTravel ZoneId="418" XYZ="125.9326, 24.45884, -5.539063"/>
@@ -3784,25 +3906,25 @@
 		</If>
 		<If Condition="HasQuest(67698) and not IsQuestCompleted(67698) and GetQuestStep(67698) == 255">
 			<LisbethTravel ZoneId="418" XYZ="125.9326, 24.45884, -5.539063"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67698" NpcId="1016008" XYZ="125.9326, 24.45884, -5.539063" RewardSlot="0"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />	
+				<RunCode Name="Coffer" />
 				<WaitTimer WaitTime="2" />
-				<AutoInventoryEquip/>	
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsSlayingClass()">	
+			<If Condition="IsSlayingClass()">
 				<TurnIn QuestId="67698" NpcId="1016008" XYZ="125.9326, 24.45884, -5.539063" RewardSlot="1"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />		
+				<RunCode Name="Coffer" />
 				<WaitTimer WaitTime="2" />
-				<AutoInventoryEquip/>	
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67698) and GetQuestStep(67698) == 255">
 				<TurnIn QuestId="67698" NpcId="1016008" XYZ="125.9326, 24.45884, -5.539063" RewardSlot="2"/>
-			</If>				 	 
+			</If>
 		</If>
-		
+
 		<!-- As Goes Light, So Goes Darkness (Level 60) -->
 		<If Condition="IsQuestCompleted(67698) and not HasQuest(67699) and not IsQuestCompleted(67699)">
 			<LisbethTravel ZoneId="418" XYZ="125.9326, 24.45884, -5.539063"/>
@@ -3814,7 +3936,7 @@
 			<LisbethTravel ZoneId="419" XYZ="-182.3911, -0.2309884, -70.72565"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SoSimpleDuty InteractNpcId="1016034" XYZ="-182.3911, -0.2309884, -70.72565" QuestId="67699" StepId="1">
 				<InteractObjects>
 					<InteractObject Name="Refugees" NpcId="2006752"/>
@@ -3851,33 +3973,33 @@
 				<LisbethTravel ZoneId="419" XYZ="17.99036, 16.00967, -9.567444"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011217" XYZ="17.99036, 16.00967, -9.567444"/>
 			</If>
-			<If Condition="IsAimingClass()">	
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="0"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />				
+				<RunCode Name="Coffer" />
 				<WaitTimer WaitTime="2" />
-				<AutoInventoryEquip/>					
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="1"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />		
+				<RunCode Name="Coffer" />
 				<WaitTimer WaitTime="2" />
-				<AutoInventoryEquip/>					
+				<AutoInventoryEquip/>
 			</If>
-			<If Condition="IsCastingClass()">	
+			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="2"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />	
+				<RunCode Name="Coffer" />
 				<WaitTimer WaitTime="2" />
-				<AutoInventoryEquip/>					
-			</If>				
+				<AutoInventoryEquip/>
+			</If>
 			<If Condition="HasQuest(67699) and GetQuestStep(67699) == 255">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="3"/>
-			</If>			
+			</If>
 			<UseInventoryItem ItemId="13774"/>
 		</If>
-		
+
 		<!-- As It Once Was (Level 60) -->
 		<If Condition="IsQuestCompleted(67699) and not HasQuest(67767) and not IsQuestCompleted(67767)">
 			<LisbethTravel ZoneId="419" XYZ="16.00671, 16.00967, -3.189148"/>
@@ -3936,7 +4058,7 @@
 			<TurnIn QuestId="67767" NpcId="1016535" XYZ="-2.67041, 7.450581E-09, -5.264404" RewardSlot="0"/>
 			<LLDiscardItem ItemId="13742"/>
 		</If>
-		
+
 		<!-- The Word of the Mother (Level 60) -->
 		<If Condition="IsQuestCompleted(67767) and not HasQuest(67768) and not IsQuestCompleted(67768)">
 			<If Condition="not IsOnMap(351)">
@@ -3960,13 +4082,13 @@
 		</If>
 		<If Condition="HasQuest(67768) and not IsQuestCompleted(67768) and GetQuestStep(67768) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67768" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Antitower and hit continue." />					
+				<UserDialog QuestId="67768" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Antitower and hit continue." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(516)">
@@ -3980,11 +4102,11 @@
 						</If>
 					</If>
 				</If>
-			</If>	
+			</If>
 		</If>
 		<If Condition="HasQuest(67768) and not IsQuestCompleted(67768) and GetQuestStep(67768) == 4">
 			<WaitWhile condition="GetQuestStep(67768) == 4"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67768) and not IsQuestCompleted(67768) and GetQuestStep(67768) == 255">
 			<If Condition="not IsOnMap(463)">
 				<LisbethTravel ZoneId="399" XYZ="-488.7923, 138.9333, 741.0543"/>
@@ -3993,7 +4115,7 @@
 			<TurnIn QuestId="67768" NpcId="1016560" XYZ="19.48578, 38.4364, 6.973328"/>
 			<UseInventoryItem ItemId="14101"/>
 		</If>
-		
+
 		<!-- This War is Ours (Level 60) -->
 		<If Condition="IsQuestCompleted(67768) and not HasQuest(67769) and not IsQuestCompleted(67769)">
 			<If Condition="not IsOnMap(463)">
@@ -4013,7 +4135,7 @@
 			<LisbethTravel ZoneId="397" XYZ="481.4069, 225.0023, 793.0876"/>
 			<TurnIn QuestId="67769" NpcId="1016564" XYZ="481.4069, 225.0023, 793.0876"/>
 		</If>
-		
+
 		<!-- Staunch Conviction (Level 60) -->
 		<If Condition="IsQuestCompleted(67769) and not HasQuest(67770) and not IsQuestCompleted(67770)">
 			<LisbethTravel ZoneId="397" XYZ="481.4069, 225.0023, 793.0876"/>
@@ -4037,7 +4159,7 @@
 			<LisbethTravel ZoneId="397" XYZ="503.3494, 217.9515, 760.4639"/>
 			<TurnIn QuestId="67770" NpcId="1016565" XYZ="503.3494, 217.9515, 760.4639"/>
 		</If>
-		
+
 		<!-- Once More, a Favor (Level 60) -->
 		<If Condition="IsQuestCompleted(67770) and not HasQuest(67771) and not IsQuestCompleted(67771)">
 			<LisbethTravel ZoneId="397" XYZ="515.5565, 217.9515, 763.7291"/>
@@ -4067,7 +4189,7 @@
 			<TurnIn QuestId="67771" NpcId="1016566" XYZ="515.5565, 217.9515, 763.7291"/>
 			<LLDiscardItem ItemId="13637"/>
 		</If>
-		
+
 		<!-- For Those We Have Lost (Level 60) -->
 		<If Condition="IsQuestCompleted(67771) and not HasQuest(67772) and not IsQuestCompleted(67772)">
 			<LisbethTravel ZoneId="397" XYZ="515.5565, 217.9515, 763.7291"/>
@@ -4095,7 +4217,7 @@
 			<LisbethTravel ZoneId="397" XYZ="416.5254, 217.9514, 754.2076"/>
 			<TurnIn QuestId="67772" NpcId="1016580" XYZ="416.5254, 217.9514, 754.2076"/>
 		</If>
-		
+
 		<!-- Consequences (Level 60) -->
 		<If Condition="IsQuestCompleted(67772) and not HasQuest(67773) and not IsQuestCompleted(67773)">
 			<LisbethTravel ZoneId="397" XYZ="416.5254, 217.9514, 754.2076"/>
@@ -4113,24 +4235,24 @@
 		</If>
 		<If Condition="HasQuest(67773) and not IsQuestCompleted(67773) and GetQuestStep(67773) == 255">
 			<LisbethTravel ZoneId="397" XYZ="507.1641, 217.9515, 769.9243"/>
-			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">	
+			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<TurnIn QuestId="67773" NpcId="1016579" XYZ="507.1641, 217.9515, 769.9243" RewardSlot="0"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">	
+			<If Condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
 				<TurnIn QuestId="67773" NpcId="1016579" XYZ="507.1641, 217.9515, 769.9243" RewardSlot="1"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.DarkKnight">	
+			<If Condition="ClassName == ClassJobType.DarkKnight">
 				<TurnIn QuestId="67773" NpcId="1016579" XYZ="507.1641, 217.9515, 769.9243" RewardSlot="2"/>
-			</If>		
-			<If Condition="ClassName == ClassJobType.Samurai">	
+			</If>
+			<If Condition="ClassName == ClassJobType.Samurai">
 				<TurnIn QuestId="67773" NpcId="1016579" XYZ="507.1641, 217.9515, 769.9243" RewardSlot="3"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67773) and GetQuestStep(67773) == 255">
 				<TurnIn QuestId="67773" NpcId="1016579" XYZ="507.1641, 217.9515, 769.9243" RewardSlot="4"/>
-			</If>				
-			<AutoInventoryEquip/>		 	 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- Choices (Level 60) -->
 		<If Condition="IsQuestCompleted(67773) and not HasQuest(67774) and not IsQuestCompleted(67774)">
 			<LisbethTravel ZoneId="397" XYZ="507.1641, 217.9515, 769.9243"/>
@@ -4167,24 +4289,24 @@
 		</If>
 		<If Condition="HasQuest(67774) and not IsQuestCompleted(67774) and GetQuestStep(67774) == 255">
 			<LisbethTravel ZoneId="418" XYZ="112.5352, 24.39169, -2.914551"/>
-			<If Condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">	
+			<If Condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
 				<TurnIn QuestId="67773" NpcId="1016579" XYZ="507.1641, 217.9515, 769.9243" RewardSlot="0"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">	
+			<If Condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
 				<TurnIn QuestId="67774" NpcId="1016583" XYZ="112.5352, 24.39169, -2.914551" RewardSlot="1"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">	
+			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">
 				<TurnIn QuestId="67774" NpcId="1016583" XYZ="112.5352, 24.39169, -2.914551" RewardSlot="2"/>
-			</If>		
-			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">	
+			</If>
+			<If Condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
 				<TurnIn QuestId="67774" NpcId="1016583" XYZ="112.5352, 24.39169, -2.914551" RewardSlot="3"/>
-			</If>				
+			</If>
 			<If Condition="HasQuest(67774) and GetQuestStep(67774) == 255">
 				<TurnIn QuestId="67774" NpcId="1016583" XYZ="112.5352, 24.39169, -2.914551" RewardSlot="4"/>
-			</If>				
+			</If>
 			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- A Spectacle for the Ages (Level 60) -->
 		<If Condition="IsQuestCompleted(67774) and not HasQuest(67775) and not IsQuestCompleted(67775)">
 			<LisbethTravel ZoneId="418" XYZ="111.2839, 24.38816, -4.379395"/>
@@ -4200,7 +4322,7 @@
 			<LisbethTravel ZoneId="155" XYZ="-133.9285, 304.1539, -300.8317"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SimpleDuty InteractNpcId="1016587" XYZ="-133.9285, 304.1539, -300.8317" QuestId="67775" StepId="2">
 				<HotSpots>
 					<HotSpot XYZ="-41.52696, 298.9, -208.9486" Radius="90"/>
@@ -4225,24 +4347,24 @@
 		</If>
 		<If Condition="HasQuest(67775) and not IsQuestCompleted(67775) and GetQuestStep(67775) == 255">
 			<LisbethTravel ZoneId="155" XYZ="-136.6445, 304.1538, -308.3696"/>
-			<If Condition="ClassName == ClassJobType.Bard or ClassName == ClassJobType.Archer">	
+			<If Condition="ClassName == ClassJobType.Bard or ClassName == ClassJobType.Archer">
 				<LLTurnIn RewardSlot="0" QuestId="67775" NpcId="1016588" XYZ="-136.6445, 304.1538, -308.3696"/>
-			</If>	 
-			<If Condition="ClassName == ClassJobType.Machinist">	
+			</If>
+			<If Condition="ClassName == ClassJobType.Machinist">
 				<LLTurnIn RewardSlot="1" QuestId="67775" NpcId="1016588" XYZ="-136.6445, 304.1538, -308.3696"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.BlackMage or ClassName == ClassJobType.Thaumaturge">	
+			<If Condition="ClassName == ClassJobType.BlackMage or ClassName == ClassJobType.Thaumaturge">
 				<LLTurnIn RewardSlot="2" QuestId="67775" NpcId="1016588" XYZ="-136.6445, 304.1538, -308.3696"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Summoner or ClassName == ClassJobType.Arcanist">	
+			<If Condition="ClassName == ClassJobType.Summoner or ClassName == ClassJobType.Arcanist">
 				<LLTurnIn RewardSlot="3" QuestId="67775" NpcId="1016588" XYZ="-136.6445, 304.1538, -308.3696"/>
-			</If>		
-			<If Condition="HasQuest(67775) and GetQuestStep(67775) == 4">	
+			</If>
+			<If Condition="HasQuest(67775) and GetQuestStep(67775) == 4">
 				<LLTurnIn RewardSlot="4" QuestId="67775" NpcId="1016588" XYZ="-136.6445, 304.1538, -308.3696"/>
-			</If>		
-			<AutoInventoryEquip/>		 	 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- For Those We Can Yet Save (Level 60) -->
 		<If Condition="IsQuestCompleted(67775) and not HasQuest(67776) and not IsQuestCompleted(67776)">
 			<LisbethTravel ZoneId="155" XYZ="-139.849, 304.1538, -309.8955"/>
@@ -4260,23 +4382,23 @@
 		</If>
 		<If Condition="HasQuest(67776) and not IsQuestCompleted(67776) and GetQuestStep(67776) == 255">
 			<LisbethTravel ZoneId="397" XYZ="501.976, 217.9515, 762.7222"/>
-			<If Condition="ClassName == ClassJobType.WhiteMage or ClassName == ClassJobType.Conjurer">	
+			<If Condition="ClassName == ClassJobType.WhiteMage or ClassName == ClassJobType.Conjurer">
 				<LLTurnIn QuestId="67776" NpcId="1016590" XYZ="501.976, 217.9515, 762.7222" RewardSlot="0"/>
-			</If>	 
-			<If Condition="ClassName == ClassJobType.Scholar">	
+			</If>
+			<If Condition="ClassName == ClassJobType.Scholar">
 				<LLTurnIn QuestId="67776" NpcId="1016590" XYZ="501.976, 217.9515, 762.7222" RewardSlot="1"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Astrologian">	
+			<If Condition="ClassName == ClassJobType.Astrologian">
 				<LLTurnIn QuestId="67776" NpcId="1016590" XYZ="501.976, 217.9515, 762.7222" RewardSlot="2"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.RedMage">	
+			<If Condition="ClassName == ClassJobType.RedMage">
 				<LLTurnIn QuestId="67776" NpcId="1016590" XYZ="501.976, 217.9515, 762.7222" RewardSlot="3"/>
-			</If>		
-			<If Condition="HasQuest(67776) and GetQuestStep(67776) == 255">	
+			</If>
+			<If Condition="HasQuest(67776) and GetQuestStep(67776) == 255">
 				<TurnIn QuestId="67776" NpcId="1016590" XYZ="501.976, 217.9515, 762.7222" RewardSlot="4"/>
-			</If>		 	 
+			</If>
 		</If>
-		
+
 		<!-- Causes and Costs (Level 60) -->
 		<If Condition="IsQuestCompleted(67776) and not HasQuest(67777) and not IsQuestCompleted(67777)">
 			<LisbethTravel ZoneId="397" XYZ="501.976, 217.9515, 762.7222"/>
@@ -4300,27 +4422,27 @@
 		</If>
 		<If Condition="HasQuest(67777) and not IsQuestCompleted(67777) and GetQuestStep(67777) == 255">
 			<LisbethTravel ZoneId="419" XYZ="14.8775, 16.00967, -4.196289"/>
-			<If Condition="IsFendingClass()">	
+			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67777" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289" RewardSlot="0"/>
-			</If>	 
-			<If Condition="IsMaimingClass()">	
+			</If>
+			<If Condition="IsMaimingClass()">
 				<TurnIn QuestId="67777" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289" RewardSlot="1"/>
 			</If>
-			<If Condition="IsStrikingClass()">	
+			<If Condition="IsStrikingClass()">
 				<TurnIn QuestId="67777" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289" RewardSlot="2"/>
 			</If>
-			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">	
+			<If Condition="ClassName == ClassJobType.Rogue or ClassName == ClassJobType.Ninja">
 				<TurnIn QuestId="67777" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289" RewardSlot="3"/>
-			</If>		
-			<If Condition="HasQuest(67777) and GetQuestStep(67777) == 255">	
+			</If>
+			<If Condition="HasQuest(67777) and GetQuestStep(67777) == 255">
 				<TurnIn QuestId="67777" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289" RewardSlot="4"/>
-			</If>		 
+			</If>
 			<WaitTimer WaitTime="2" />
 			<RunCode Name="Coffer" />
-			<WaitTimer WaitTime="2"/>	
-			<AutoInventoryEquip/>		 	 
+			<WaitTimer WaitTime="2"/>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- The Man Within (Level 60) -->
 		<If Condition="IsQuestCompleted(67777) and not HasQuest(67778) and not IsQuestCompleted(67778)">
 			<LisbethTravel ZoneId="419" XYZ="15.91516, 15.96505, -0.2289429"/>
@@ -4340,28 +4462,28 @@
 			<LLTalkTo NpcId="1016807" XYZ="92.85107, 15.00001, 38.25439" QuestId="67778" StepId="2"/>
 		</If>
 		<If Condition="HasQuest(67778) and not IsQuestCompleted(67778) and GetQuestStep(67778) == 255">
-			<LisbethTravel ZoneId="418" XYZ="109.7275, 24.38438, -4.715088"/> 
-			<If Condition="IsAimingClass()">	
+			<LisbethTravel ZoneId="418" XYZ="109.7275, 24.38438, -4.715088"/>
+			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="0"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />				
+				<RunCode Name="Coffer" />
 			</If>
-			<If Condition="IsHealingClass()">	
+			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="1"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />								
+				<RunCode Name="Coffer" />
 			</If>
-			<If Condition="IsCastingClass">	
+			<If Condition="IsCastingClass">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="2"/>
 				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />								
-			</If>		
-			<If Condition="HasQuest(67778) and GetQuestStep(67778) == 255">	
+				<RunCode Name="Coffer" />
+			</If>
+			<If Condition="HasQuest(67778) and GetQuestStep(67778) == 255">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="3"/>
-			</If>	
-			<AutoInventoryEquip/>		 	 
+			</If>
+			<AutoInventoryEquip/>
 		</If>
-		
+
 		<!-- An Ally for Ishgard (Level 60) -->
 		<If Condition="IsQuestCompleted(67778) and not HasQuest(67779) and not IsQuestCompleted(67779)">
 			<LisbethTravel ZoneId="418" XYZ="109.7275, 24.38438, -4.715088"/>
@@ -4376,9 +4498,9 @@
 		<If Condition="HasQuest(67779) and not IsQuestCompleted(67779) and GetQuestStep(67779) == 255">
 			<LisbethTravel ZoneId="398" XYZ="-285.6337, 39.04305, 53.72693"/>
 			<TurnIn QuestId="67779" NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" RewardSlot="4"/>
-			<LLDiscardItem ItemId="14134"/>		 	 
+			<LLDiscardItem ItemId="14134"/>
 		</If>
-		
+
 		<!-- Winning Over the Wyrm (Level 60) -->
 		<If Condition="IsQuestCompleted(67779) and not HasQuest(67780) and not IsQuestCompleted(67780)">
 			<LisbethTravel ZoneId="398" XYZ="-291.4321, 39.04307, 33.6156"/>
@@ -4410,7 +4532,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(555)">
@@ -4424,17 +4546,17 @@
 						</If>
 					</If>
 				</If>
-			</If>		
+			</If>
 		</If>
 		<If Condition="HasQuest(67780) and not IsQuestCompleted(67780) and GetQuestStep(67780) == 6">
 			<WaitWhile condition="GetQuestStep(67780) == 6"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67780) and not IsQuestCompleted(67780) and GetQuestStep(67780) == 255">
 			<LisbethTravel ZoneId="400" XYZ="-758.3887, 123.7287, 210.7728"/>
 			<TurnIn QuestId="67780" NpcId="1017011" XYZ="-758.3887, 123.7287, 210.7728" RewardSlot="0"/>
-			<LLDiscardItem ItemId="13637"/> 	 
+			<LLDiscardItem ItemId="13637"/>
 		</If>
-		
+
 		<!-- An End to the Song (Level 60) -->
 		<If Condition="IsQuestCompleted(67780) and not HasQuest(67781) and not IsQuestCompleted(67781)">
 			<LisbethTravel ZoneId="400" XYZ="-755.3063, 123.7287, 210.9559"/>
@@ -4451,7 +4573,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(559)">
@@ -4465,16 +4587,16 @@
 						</If>
 					</If>
 				</If>
-			</If>		
+			</If>
 		</If>
 		<If Condition="HasQuest(67781) and not IsQuestCompleted(67781) and GetQuestStep(67781) == 3">
 			<WaitWhile condition="GetQuestStep(67781) == 3"/>
-		</If>		
+		</If>
 		<If Condition="HasQuest(67781) and not IsQuestCompleted(67781) and GetQuestStep(67781) == 255">
 			<LisbethTravel ZoneId="418" XYZ="7.400574, 1.279123, 104.3563"/>
 			<TurnIn QuestId="67781" NpcId="1016589" XYZ="7.400574, 1.279123, 104.3563"/>
 		</If>
-		
+
 		<!-- Heroes of the Hour (Level 60) -->
 		<If Condition="IsQuestCompleted(67781) and not HasQuest(67782) and not IsQuestCompleted(67782)">
 			<LisbethTravel ZoneId="418" XYZ="7.400574, 1.279123, 104.3563"/>
@@ -4500,7 +4622,7 @@
 			<LisbethTravel ZoneId="418" XYZ="124.4678, 24.45884, 0.4729614"/>
 			<TurnIn QuestId="67782" NpcId="1012380" XYZ="124.4678, 24.45884, 0.4729614"/>
 		</If>
-		
+
 		<!-- Litany of Peace (Level 60) -->
 		<If Condition="IsQuestCompleted(67782) and not HasQuest(67783) and not IsQuestCompleted(67783)">
 			<LisbethTravel ZoneId="418" XYZ="124.4678, 24.45884, 0.4729614"/>
@@ -4523,9 +4645,9 @@
 				<UseTransport InteractDistance="3.0" NpcId="1011217" XYZ="17.99036, 16.00967, -9.567444"/>
 			</If>
 			<TurnIn QuestId="67783" NpcId="1012857" XYZ="0.7476196, 0.02225424, 4.623413"/>
-			<UseInventoryItem ItemIds="15444,15830"/>	 	 
+			<UseInventoryItem ItemIds="15444,15830"/>
 		</If>
-		
+
 		<!-- Promises Kept (Level 60) -->
 		<If Condition="IsQuestCompleted(67783) and not HasQuest(67877) and not IsQuestCompleted(67877)">
 			<LisbethTravel ZoneId="419" XYZ="15.91516, 15.96505, -0.2289429"/>
@@ -4551,7 +4673,7 @@
 			</If>
 			<TurnIn QuestId="67877" NpcId="1017721" XYZ="2.059875, 0.02225424, -1.327576" RewardSlot="3"/>
 		</If>
-		
+
 		<!-- Shadows of the First (Level 60) -->
 		<If Condition="IsQuestCompleted(67877) and not HasQuest(67878) and not IsQuestCompleted(67878)">
 			<If Condition="not IsOnMap(433)">
@@ -4578,7 +4700,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(572)">
@@ -4592,7 +4714,7 @@
 						</If>
 					</If>
 				</If>
-			</If>		
+			</If>
 		</If>
 		<If Condition="HasQuest(67878) and not IsQuestCompleted(67878) and GetQuestStep(67878) == 4">
 			<LisbethTravel ZoneId="155" XYZ="248.4015, 302, -260.853"/>
@@ -4607,7 +4729,7 @@
 			<TurnIn QuestId="67878" NpcId="1017724" XYZ="601.9531, 331.8172, -308.8579"/>
 			<UseInventoryItem ItemId="16818"/>
 		</If>
-		
+
 		<!-- Two Sides of a Coin (Level 60) -->
 		<If Condition="IsQuestCompleted(67878) and not HasQuest(67879) and not IsQuestCompleted(67879)">
 			<LisbethTravel ZoneId="155" XYZ="601.9531, 331.8172, -308.8579"/>
@@ -4634,7 +4756,7 @@
 			<LisbethTravel ZoneId="180" XYZ="-141.558, 64.59769, -212.2683"/>
 			<TurnIn QuestId="67879" NpcId="1006325" XYZ="-141.558, 64.59769, -212.2683"/>
 		</If>
-		
+
 		<!-- Unlikely Allies (Level 60) -->
 		<If Condition="IsQuestCompleted(67879) and not HasQuest(67880) and not IsQuestCompleted(67880)">
 			<LisbethTravel ZoneId="180" XYZ="-141.558, 64.59769, -212.2683"/>
@@ -4669,7 +4791,7 @@
 			<LisbethTravel ZoneId="180" XYZ="-42.00812, 64.50034, -228.4734"/>
 			<TurnIn QuestId="67880" NpcId="1017736" XYZ="-42.00812, 64.50034, -228.4734"/>
 		</If>
-		
+
 		<!-- The Beast That Mourned at the Heart of the Mountain (Level 60) -->
 		<If Condition="IsQuestCompleted(67880) and not HasQuest(67881) and not IsQuestCompleted(67881)">
 			<LisbethTravel ZoneId="180" XYZ="-39.10895, 64.40771, -226.8864"/>
@@ -4713,7 +4835,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(293)">
@@ -4727,16 +4849,16 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67881) and not IsQuestCompleted(67881) and GetQuestStep(67881) == 9">
 			<WaitWhile condition="GetQuestStep(67881) == 9"/>
-		</If>		
+		</If>
 		<If Condition="HasQuest(67881) and not IsQuestCompleted(67881) and GetQuestStep(67881) == 255">
 			<LisbethTravel ZoneId="180" XYZ="-48.29486, 64.43991, -235.5841"/>
 			<TurnIn QuestId="67881" NpcId="1017744" XYZ="-48.29486, 64.43991, -235.5841"/>
 		</If>
-		
+
 		<!-- Beneath a Star-filled Sky (Level 60) -->
 		<If Condition="IsQuestCompleted(67881) and not HasQuest(67882) and not IsQuestCompleted(67882)">
 			<LisbethTravel ZoneId="180" XYZ="-48.29486, 64.43991, -235.5841"/>
@@ -4774,7 +4896,7 @@
 			<LisbethTravel ZoneId="146" XYZ="-169.3599, 27.48653, -397.1161"/>
 			<TurnIn QuestId="67882" NpcId="1017751" XYZ="-169.3599, 27.48653, -397.1161"/>
 		</If>
-		
+
 		<!-- When We Were Free (Level 60) -->
 		<If Condition="IsQuestCompleted(67882) and not HasQuest(67883) and not IsQuestCompleted(67883)">
 			<LisbethTravel ZoneId="146" XYZ="-170.5806, 27.66024, -397.7264"/>
@@ -4810,7 +4932,7 @@
 			<LisbethTravel ZoneId="146" XYZ="179.797, 13.12442, -443.1678"/>
 			<TurnIn QuestId="67883" NpcId="1017757" XYZ="179.797, 13.12442, -443.1678"/>
 		</If>
-		
+
 		<!-- Honorable Heroes (Level 60) -->
 		<If Condition="IsQuestCompleted(67883) and not HasQuest(67884) and not IsQuestCompleted(67884)">
 			<LisbethTravel ZoneId="146" XYZ="179.6139, 13.09844, -441.4893"/>
@@ -4837,7 +4959,7 @@
 			<LisbethTravel ZoneId="146" XYZ="-106.9505, 21.88423, -478.9044"/>
 			<TurnIn QuestId="67884" NpcId="1017762" XYZ="-106.9505, 21.88423, -478.9044" RewardSlot="3"/>
 		</If>
-		
+
 		<!-- One Life for One World (Level 60) -->
 		<If Condition="IsQuestCompleted(67884) and not HasQuest(67885) and not IsQuestCompleted(67885)">
 			<LisbethTravel ZoneId="146" XYZ="-106.9505, 21.88423, -478.9044"/>
@@ -4853,7 +4975,7 @@
 			<LisbethTravel ZoneId="146" XYZ="4.226685, 0.9134139, -9.720032"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
-			</If>				
+			</If>
 			<SoSimpleDuty InteractNpcId="1017764" XYZ="4.226685, 0.9134139, -9.720032" InteractInCombat="True" QuestId="67885" StepId="2">
 				<InteractObjects>
 					<InteractObject Name="Blade of Light" NpcId="2007454"/>
@@ -4875,7 +4997,7 @@
 			<LisbethTravel ZoneId="146" XYZ="1.327454, 0.9078357, -3.463867"/>
 			<TurnIn QuestId="67885" NpcId="1017767" XYZ="1.327454, 0.9078357, -3.463867"/>
 		</If>
-		
+
 		<!-- An Ending to Mark a New Beginning (Level 60) -->
 		<If Condition="IsQuestCompleted(67885) and not HasQuest(67886) and not IsQuestCompleted(67886)">
 			<LisbethTravel ZoneId="146" XYZ="1.327454, 0.9078357, -3.463867"/>
@@ -4907,7 +5029,7 @@
 			<TurnIn QuestId="67886" NpcId="1017776" XYZ="-3.585876, 0.01804011, -6.912354"/>
 			<UseInventoryItem ItemId="16927"/>
 		</If>
-		
+
 		<!-- Tidings from Gyr Abania (Level 60) -->
 		<If Condition="IsQuestCompleted(67886) and not HasQuest(67887) and not IsQuestCompleted(67887)">
 			<If Condition="not IsOnMap(351)">
@@ -4926,7 +5048,7 @@
 			<LisbethTravel ZoneId="418" XYZ="125.6885, 24.45884, 2.456604"/>
 			<TurnIn QuestId="67887" NpcId="1013167" XYZ="125.6885, 24.45884, 2.456604"/>
 		</If>
-		
+
 		<!-- An Envoy for Ishgard (Level 60) -->
 		<If Condition="IsQuestCompleted(67887) and not HasQuest(67888) and not IsQuestCompleted(67888)">
 			<LisbethTravel ZoneId="418" XYZ="125.9326, 24.45884, -5.539063"/>
@@ -4946,7 +5068,7 @@
 			<LisbethTravel ZoneId="132" XYZ="8.407715, -1.509768, 13.93146"/>
 			<TurnIn QuestId="67888" NpcId="1018015" XYZ="8.407715, -1.509768, 13.93146"/>
 		</If>
-		
+
 		<!-- An Allied Decision (Level 60) -->
 		<If Condition="IsQuestCompleted(67888) and not HasQuest(67889) and not IsQuestCompleted(67889)">
 			<LisbethTravel ZoneId="132" XYZ="8.407715, -1.509768, 13.93146"/>
@@ -4966,7 +5088,7 @@
 			<LisbethTravel ZoneId="156" XYZ="34.1344, 20.495, -655.5734"/>
 			<TurnIn QuestId="67889" NpcId="1018020" XYZ="34.1344, 20.495, -655.5734" RewardSlot="3"/>
 		</If>
-		
+
 		<!-- Griffin, Griffin on the Wall (Level 60) -->
 		<If Condition="IsQuestCompleted(67889) and not HasQuest(67890) and not IsQuestCompleted(67890)">
 			<LisbethTravel ZoneId="156" XYZ="34.1344, 20.495, -655.5734"/>
@@ -5008,7 +5130,7 @@
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
 					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
+					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(615)">
@@ -5022,17 +5144,17 @@
 						</If>
 					</If>
 				</If>
-			</If>			
+			</If>
 		</If>
 		<If Condition="HasQuest(67890) and not IsQuestCompleted(67890) and GetQuestStep(67890) == 7">
 			<WaitWhile condition="GetQuestStep(67890) == 7"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67890) and not IsQuestCompleted(67890) and GetQuestStep(67890) == 255">
 			<LisbethTravel ZoneId="152" XYZ="39.59705, 6.826768, 489.8602"/>
 			<TurnIn QuestId="67890" NpcId="1018026" XYZ="39.59705, 6.826768, 489.8602"/>
 			<UseInventoryItem ItemId="17635"/>
 		</If>
-		
+
 		<!-- Louisoix's Finest Student (Level 60) -->
 		<If Condition="IsQuestCompleted(67890) and not HasQuest(67891) and not IsQuestCompleted(67891)">
 			<LisbethTravel ZoneId="152" XYZ="36.05701, 7.170873, 485.4352"/>
@@ -5049,7 +5171,7 @@
 			<WaitWhile Condition="QuestLogManager.InCutscene"/>
 			<UseInventoryItem ItemId="17631"/>
 		</If>
-		
+
 		<!-- An Obvious Solution (Level 60) -->
 		<If Condition="IsQuestCompleted(67891) and not HasQuest(67892) and not IsQuestCompleted(67892)">
 			<If Condition="not IsOnMap(351)">
@@ -5070,7 +5192,7 @@
 			<TurnIn QuestId="67892" NpcId="1012395" XYZ="-154.1009, 4, -15.45746"/>
 			<UseInventoryItem ItemId="17629"/>
 		</If>
-		
+
 		<!-- The Greater Obeisance (Level 60) -->
 		<If Condition="IsQuestCompleted(67892) and not HasQuest(67893) and not IsQuestCompleted(67893)">
 			<LisbethTravel ZoneId="133" XYZ="-154.1009, 4, -15.45746"/>
@@ -5100,7 +5222,7 @@
 			</If>
 			<TurnIn QuestId="67893" NpcId="1018041" XYZ="13.19904, -3.72529E-09, -8.590881"/>
 		</If>
-		
+
 		<!-- Fly Free, My Pretty (Level 60) -->
 		<If Condition="IsQuestCompleted(67893) and not HasQuest(67894) and not IsQuestCompleted(67894)">
 			<If Condition="not IsOnMap(351)">
@@ -5114,12 +5236,12 @@
 		<If Condition="HasQuest(67894) and not IsQuestCompleted(67894) and GetQuestStep(67894) == 1">
 			<GetTo ZoneId="156" XYZ="127.7333, -15.35372, -421.1338"/>
 			<UserDialog QuestId="67894" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
-			<!--	  
+			<!--
 				<SimpleDuty InteractNpcId="1018044" XYZ="127.7333, -15.35372, -421.1338" QuestId="67894" StepId="1">
-        <HotSpots>
+				<HotSpots>
 				<HotSpot XYZ="-0.09591391, 29, 0.1687869" Radius="90"/>
-        </HotSpots>
-        <TargetMobs>
+				</HotSpots>
+				<TargetMobs>
 				<TargetMob Id="5583" Weight="15000"/>
 				<TargetMob Id="5581" Weight="7000"/>
 				<TargetMob Id="5582" Weight="6000"/>
@@ -5128,14 +5250,14 @@
 				<TargetMob Id="5578" Weight="3000"/>
 				<TargetMob Id="5577" Weight="2000"/>
 				<TargetMob Id="5576" Weight="1000"/>
-        </TargetMobs>
+				</TargetMobs>
 				</SimpleDuty>
-				<WaitWhile Condition="HasQuest(67894) and not IsQuestCompleted(67894) and not GetQuestStep(67894) == 3"/>    
+				<WaitWhile Condition="HasQuest(67894) and not IsQuestCompleted(67894) and not GetQuestStep(67894) == 3"/>
 			-->
 		</If>
 		<If Condition="HasQuest(67894) and not IsQuestCompleted(67894) and GetQuestStep(67894) == 2">
 			<WaitWhile condition="GetQuestStep(67894) == 2"/>
-		</If>	
+		</If>
 		<If Condition="HasQuest(67894) and not IsQuestCompleted(67894) and GetQuestStep(67894) == 3">
 			<If Condition="not IsOnMap(636)">
 				<LisbethTravel ZoneId="156" XYZ="126.2319, -15.19656, -422.849"/>
@@ -5149,7 +5271,7 @@
 			<TurnIn QuestId="67894" NpcId="1018046" XYZ="40.60425, -19.00001, 92.36279"/>
 			<UseInventoryItem ItemId="17627,17628"/>
 		</If>
-		
+
 		<!-- The Far Edge of Fate (Level 60) -->
 		<If Condition="IsQuestCompleted(67894) and not HasQuest(67895) and not IsQuestCompleted(67895)">
 			<LisbethTravel ZoneId="132" XYZ="41.82495, -19.00003, 93.30884"/>
@@ -5184,9 +5306,8 @@
 			<LLTurnIn QuestId="67895" NpcId="1018331" XYZ="-2.639893, 7.450581E-09, -7.400635"/>
 			<LLSellItem ItemIDs="5824,5825,5826"/> <!-- Sell Allagen peices that we collected -->
 		</If>
-		
-		<LLoadProfile Path="../Start.xml"/>	
-		
+
+		<LLoadProfile Path="../Start.xml"/>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="Move_Forward">
@@ -5198,22 +5319,23 @@
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Weathered_Gear">
-			<![CDATA[ 
+			<![CDATA[
 				await Coroutine.Sleep(1000);
 				foreach (BagSlot slot in InventoryManager.FilledInventoryAndArmory)
 				{
-				BagSlot Body = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body];
-				BagSlot Legs = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Legs];
-				if (slot.RawItemId == 2995)
-				{
-				slot.Move(Body);
-				await Coroutine.Sleep(1000);
-				}
-				if (slot.RawItemId == 3306)
-				{
-				slot.Move(Legs);
-				await Coroutine.Sleep(1000);
-				}
+					BagSlot Body = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body];
+					BagSlot Legs = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Legs];
+
+					if (slot.RawItemId == 2995)
+					{
+						slot.Move(Body);
+						await Coroutine.Sleep(1000);
+					}
+					else if (slot.RawItemId == 3306)
+					{
+						slot.Move(Legs);
+						await Coroutine.Sleep(1000);
+					}
 				}
 			]]>
 		</CodeChunk>
@@ -5221,131 +5343,133 @@
 			<![CDATA[
 				foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
 				{
-				try
+					try
+					{
+						if (!plugin.Enabled)
+						{
+							break;
+						}
+						else
+						{
+							plugin.Enabled = false;
+						}
+					}
+					catch (Exception ex)
+					{
+					}
+				}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Coffer">
+			<![CDATA[
+				foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
 				{
-				if (!plugin.Enabled)
-			{
-			break;
-      }
-      else
-      {
-			plugin.Enabled = false;
-      }
-			}
-			catch (Exception ex) { }
-			}
+					bagslot.UseItem();
+					await Coroutine.Sleep(5000);
+				}
 			]]>
-			</CodeChunk>
-			<CodeChunk Name="Coffer">
-			<![CDATA[		
-			foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
-			{
-			bagslot.UseItem();
-			await Coroutine.Sleep(5000);
-			}
-			]]> 
-			</CodeChunk>
-			<CodeChunk Name="AutoEquip">
-			<![CDATA[ 
-			var patternFinder = new GreyMagic.PatternFinder(Core.Memory);
-			IntPtr agentVtable = patternFinder.Find("48 8D 05 ? ? ? ? C6 43 ? ? 48 89 03 48 8B C3 C7 43 ? ? ? ? ? Add 3 TraceRelative");
-			int id = AgentModule.FindAgentIdByVtable(agentVtable);
-			
-			AtkAddonControl windowByName = RaptureAtkUnitManager.GetWindowByName("RecommendEquip");
-			
-			if (windowByName == null)
-			{
-			AgentModule.GetAgentInterfaceById(id).Toggle();
-			}
-			
-			await Coroutine.Wait(10000, () => RaptureAtkUnitManager.GetWindowByName("RecommendEquip") != null);
-			
-			windowByName = RaptureAtkUnitManager.GetWindowByName("RecommendEquip");
-			
-			if (windowByName != null)
-			{
-			windowByName.SendAction(1, 3, 0);
-			}
+		</CodeChunk>
+		<CodeChunk Name="AutoEquip">
+			<![CDATA[
+				var patternFinder = new GreyMagic.PatternFinder(Core.Memory);
+				IntPtr agentVtable = patternFinder.Find("48 8D 05 ? ? ? ? C6 43 ? ? 48 89 03 48 8B C3 C7 43 ? ? ? ? ? Add 3 TraceRelative");
+				int id = AgentModule.FindAgentIdByVtable(agentVtable);
+
+				AtkAddonControl windowByName = RaptureAtkUnitManager.GetWindowByName("RecommendEquip");
+
+				if (windowByName == null)
+				{
+					AgentModule.GetAgentInterfaceById(id).Toggle();
+				}
+
+				await Coroutine.Wait(10000, () => RaptureAtkUnitManager.GetWindowByName("RecommendEquip") != null);
+
+				windowByName = RaptureAtkUnitManager.GetWindowByName("RecommendEquip");
+
+				if (windowByName != null)
+				{
+					windowByName.SendAction(1, 3, 0);
+				}
 			]]>
-			</CodeChunk>
-			<CodeChunk Name="UpdateGearSet">
-			<![CDATA[ 
-			var patternFinder = new GreyMagic.PatternFinder(Core.Memory);
-			IntPtr agentCharVtable = patternFinder.Find("48 8D 05 ? ? ? ? 89 77 ? Add 3 TraceRelative");
-			int idChar = AgentModule.FindAgentIdByVtable(agentCharVtable);
-			
-			AtkAddonControl windowByName = RaptureAtkUnitManager.GetWindowByName("Character");
-			
-			if (windowByName == null)
-			{
-			AgentModule.GetAgentInterfaceById(idChar).Toggle();
-			}
-			
-			await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("Character") != null);
-			
-			windowByName = RaptureAtkUnitManager.GetWindowByName("Character");
-			
-			if (windowByName != null)
-			{
-			windowByName.SendAction(1, 3, 0xF);
-			}
-			
-			await Coroutine.Wait(1000, () => SelectYesno.IsOpen);
-			
-			if (SelectYesno.IsOpen)
-			SelectYesno.Yes();
-			
-			await Coroutine.Wait(1000, () => !SelectYesno.IsOpen);
-			
-			await Coroutine.Sleep(200);
-			
-			windowByName = RaptureAtkUnitManager.GetWindowByName("Character");
-			
-			if (windowByName != null)
-			{
-			AgentModule.GetAgentInterfaceById(idChar).Toggle();
-			}
-			
+		</CodeChunk>
+		<CodeChunk Name="UpdateGearSet">
+			<![CDATA[
+				var patternFinder = new GreyMagic.PatternFinder(Core.Memory);
+				IntPtr agentCharVtable = patternFinder.Find("48 8D 05 ? ? ? ? 89 77 ? Add 3 TraceRelative");
+				int idChar = AgentModule.FindAgentIdByVtable(agentCharVtable);
+
+				AtkAddonControl windowByName = RaptureAtkUnitManager.GetWindowByName("Character");
+
+				if (windowByName == null)
+				{
+					AgentModule.GetAgentInterfaceById(idChar).Toggle();
+				}
+
+				await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("Character") != null);
+
+				windowByName = RaptureAtkUnitManager.GetWindowByName("Character");
+
+				if (windowByName != null)
+				{
+					windowByName.SendAction(1, 3, 0xF);
+				}
+
+				await Coroutine.Wait(1000, () => SelectYesno.IsOpen);
+
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.Yes();
+				}
+
+				await Coroutine.Wait(1000, () => !SelectYesno.IsOpen);
+
+				await Coroutine.Sleep(200);
+
+				windowByName = RaptureAtkUnitManager.GetWindowByName("Character");
+
+				if (windowByName != null)
+				{
+					AgentModule.GetAgentInterfaceById(idChar).Toggle();
+				}
 			]]>
-			</CodeChunk>
+		</CodeChunk>
 		<CodeChunk Name="LeaveParty">
-			<![CDATA[		
+			<![CDATA[
 				ChatManager.SendChat("/pcmd leave");
 				await Buddy.Coroutines.Coroutine.Sleep(1000);
-			]]> 
-		</CodeChunk>			
-			</CodeChunks>
-			<GrindAreas>
-			<GrindArea Name="Deepeye">
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+	<GrindAreas>
+		<GrindArea Name="Deepeye">
 			<Hotspots>
-			<Hotspot XYZ="403.5994, 167.5542, 293.2362" Radius="90"/>
+				<Hotspot XYZ="403.5994, 167.5542, 293.2362" Radius="90"/>
 			</Hotspots>
 			<TargetMobs>
-			<TargetMob Id="3471"/>
+				<TargetMob Id="3471"/>
 			</TargetMobs>
 			<MinLevel/>
 			<MaxLevel/>
-			</GrindArea>
-			<GrindArea Name="Wooly_Yak">
+		</GrindArea>
+		<GrindArea Name="Wooly_Yak">
 			<Hotspots>
-			<Hotspot XYZ="-334.3916, 80.6248, -299.0159" Radius="90"/>
+				<Hotspot XYZ="-334.3916, 80.6248, -299.0159" Radius="90"/>
 			</Hotspots>
 			<TargetMobs>
-			<TargetMob Id="3479"/>
+				<TargetMob Id="3479"/>
 			</TargetMobs>
 			<MinLevel/>
 			<MaxLevel/>
-			</GrindArea>
-			<GrindArea Name="Clearwater_Nanka">
+		</GrindArea>
+		<GrindArea Name="Clearwater_Nanka">
 			<Hotspots>
-			<Hotspot XYZ="307.6536, -63.51617, -13.85168" Radius="90"/>
+				<Hotspot XYZ="307.6536, -63.51617, -13.85168" Radius="90"/>
 			</Hotspots>
 			<TargetMobs>
-			<TargetMob Id="3570"/>
+				<TargetMob Id="3570"/>
 			</TargetMobs>
 			<MinLevel/>
 			<MaxLevel/>
-			</GrindArea>
-			</GrindAreas>
-			</Profile>
-						
+		</GrindArea>
+	</GrindAreas>
+</Profile>
