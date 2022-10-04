@@ -505,8 +505,6 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <GetTo ZoneId="820" XYZ="57.75255, 83.00106, -70.54283"/>
         </If>
         <BotSettings BlockSkippingCutscenes="1"/>
-        <!-- <RunCode Name="Announce_Manual_Completion"/>
-        <WaitWhile Condition="not GetQuestStep(68824) == 3"/> -->
         <LLTalkTo NpcId="1027575" XYZ="59.12866, 83.00108, -70.08472" QuestId="68824" StepId="2"/>
         <BotSettings BlockSkippingCutscenes="0"/>
       </If>
@@ -515,8 +513,6 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <GetTo ZoneId="820" XYZ="57.75255, 83.00106, -70.54283"/>
         </If>
         <BotSettings BlockSkippingCutscenes="1"/>
-        <!-- <RunCode Name="Announce_Manual_Completion"/>
-        <WaitWhile Condition="not GetQuestStep(68824) == 4"/> -->
         <LLTalkTo NpcId="1027575" XYZ="59.12866, 83.00108, -70.08472" QuestId="68824" StepId="3"/>
         <BotSettings BlockSkippingCutscenes="0"/>
       </If>
@@ -4849,7 +4845,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
             <GetTo ZoneId="818" XYZ="405.5002, 361.2451, -415.4251"/>
           </If>
           <NoCombatMoveTo XYZ="394.4427, 360.71, -429.5342" Distance="2"/>
-          <RunCode Name="Announce_Manual_Completion"/>
+          <UserDialog QuestId="69185" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom and hit continue." />
         </If>
       </If>
       <If Condition="GetQuestStep(69185) == 3">
@@ -5192,14 +5188,14 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(818)">
           <GetTo ZoneId="818" XYZ="-421.7408, -229.0648, 844.2729"/>
         </If>
-        <UserDialog QuestId="69190" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the Duty Amaurot manually." />
+        <UserDialog QuestId="69190" StepId="7" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon Amaurot." />
       </If>
       <If Condition="GetQuestStep(69190) == 9">
         <If Condition="not IsOnMap(847)">
           <GetTo ZoneId="818" XYZ="-423.6298, -229.0648, 856.9341"/>
           <UseTransport InteractDistance="3.0" NpcId="1030575" XYZ="-422.8733, -229.0648, 859.4644"/>
         </If>
-        <RunCode Name="Announce_Manual_Completion"/>
+        <UserDialog QuestId="69190" StepId="9" IsBotContinueAllowed="True" DialogText="Please manually complete the trial The Dying Gasp." />
       </If>
       <If Condition="GetQuestStep(69190) == 11">
         <If Condition="not IsOnMap(844)">
@@ -5294,7 +5290,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <TalkTo NpcId="1031726" XYZ="-116.8079, -0.6811357, 651.026" QuestId="69210" StepId="1"/>
       </If>
       <If Condition="GetQuestStep(69210) == 2">
-        <RunCode Name="Announce_Manual_Completion"/>
+        <UserDialog QuestId="69210" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon The Grand Cosmos." />
       </If>
       <If Condition="GetQuestStep(69210) == 255">
         <TurnIn QuestId="69210" NpcId="1032451" XYZ="-113.3593, -0.6671538, 656.7941"/>
@@ -5474,7 +5470,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <TeleportTo AetheryteId="139" Name="Tomra"/>
           <FlyTo XYZ="-424.0846, 339.3427, -161.0342" Land="True"/>
         </If>
-        <RunCode Name="Announce_Manual_Completion"/>
+        <UserDialog QuestId="69216" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom and hit continue." />
       </If>
       <If Condition="GetQuestStep(69216) == 3">
         <If Condition="not IsOnMap(814)">
@@ -5531,7 +5527,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <LisbethTravel ZoneId="156" XYZ="21.79132, 21.25273, -632.7344"/>
         <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
         <MoveTo XYZ="-2.426208, 7.450581E-09, -9.10968"/>
-        <RunCode Name="Announce_Manual_Completion"/>
+        <UserDialog QuestId="69218" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the solo duty and hit continue.\nEstinien vs. Arch Ultima" />
       </If>
       <If Condition="GetQuestStep(69218) == 255">
         <If Condition="not IsOnMap(351)">
@@ -6164,7 +6160,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <TalkTo NpcId="1033830" XYZ="23.81927, 82.05, 16.34241" QuestId="69313" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69313) == 3">
-      <RunCode Name="Announce_Manual_Completion"/>
+      <UserDialog QuestId="69313" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon The Heroes' Gauntlet." />
     </If>
     <If Condition="GetQuestStep(69313) == 5">
       <FlyTo ZoneId="813" XYZ="289.5783, 10.08115, 151.0817"/>
@@ -6186,7 +6182,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
     </If>
     <If Condition="GetQuestStep(69314) == 2">
-      <RunCode Name="Announce_Manual_Completion"/>
+      <UserDialog QuestId="69314" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the trial The Seat of Sacrifice." />
     </If>
     <If Condition="GetQuestStep(69314) == 255">
       <TurnIn QuestId="69314" NpcId="1033856" XYZ="53.42175, 0.01941726, -0.04577637"/>
@@ -6703,10 +6699,10 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
     </If>
     <If Condition="GetQuestStep(69598) == 2">
       <!--
-	  <If condition="not IsOnSubMap(654)">
+    <If condition="not IsOnSubMap(654)">
         <LisbethTravel Zone="130" Subzone="640" Position="-21.34449, 9.999999, -43.98389"/>
-	    <UseTransport DialogOption="0" NpcId="1001834" InteractDistance="3.0" XYZ="-23.33112, 10, -43.44244"/>
-	  </If>	-->
+      <UseTransport DialogOption="0" NpcId="1001834" InteractDistance="3.0" XYZ="-23.33112, 10, -43.44244"/>
+    </If>  -->
       <LisbethTravel Zone="130" Subzone="654" Position="-22.70683, 83.19999, 10.58135"/>
       <LLTalkTo NpcId="1036374" XYZ="-25.0401, 83.19998, 10.45239" QuestId="69598" StepId="2"/>
     </If>
@@ -7456,17 +7452,6 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(10000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
       ]]>
     </CodeChunk>
-    <CodeChunk Name="Announce_Manual_Completion">
-      <![CDATA[
-        var _msg = String.Empty;
-#if RB_CN
-        _msg = "请手动完成下一个任务。";
-#else
-        _msg = "Complete the next objective manually.";
-#endif
-        Core.OverlayManager.AddToast(() => _msg, TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-      ]]>
-    </CodeChunk>
     <CodeChunk Name="Role_Quests">
       <![CDATA[
         var _msg = String.Empty;
@@ -7527,54 +7512,54 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
             await Coroutine.Wait(2000, () => SelectString.IsOpen);
             SelectString.ClickLineContains("Cancel");
             await Coroutine.Wait(2000, () => !Shop.Open && !SelectString.IsOpen && !MovementManager.IsOccupied);
-		  ]]>
+      ]]>
     </CodeChunk>
     <CodeChunk Name="Use_And_Open_Items">
       <![CDATA[
-            await Coroutine.Wait(15000, () => !QuestLogManager.InCutscene && !ff14bot.Behavior.CommonBehaviors.IsLoading && !DutyManager.InInstance);
-            await Coroutine.Sleep(3000);
+        await Coroutine.Wait(15000, () => !QuestLogManager.InCutscene && !ff14bot.Behavior.CommonBehaviors.IsLoading && !DutyManager.InInstance);
+        await Coroutine.Sleep(3000);
 
-            string[] itemNames =
-            {
-                "Deepgold",
-                "Bluespirit",
-                "White Oak",
-                "Titanbronze",
-                "High Mythril"
-            };
+        string[] itemNames =
+        {
+          "Deepgold",
+          "Bluespirit",
+          "White Oak",
+          "Titanbronze",
+          "High Mythril"
+        };
 
-            ItemUiCategory[] itemCategories =
-            {
-                ItemUiCategory.Minion,
-                ItemUiCategory.Orchestrion_Roll,
-                ItemUiCategory.Triple_Triad_Card
-            };
+        ItemUiCategory[] itemCategories =
+        {
+          ItemUiCategory.Minion,
+          ItemUiCategory.Orchestrion_Roll,
+          ItemUiCategory.Triple_Triad_Card
+        };
 
-            IEnumerable<BagSlot> items = InventoryManager.FilledSlots.Where(bs => (itemNames.Any(bs.EnglishName.Contains) && bs.EnglishName.EndsWith("Coffer") || itemCategories.Contains(bs.Item.EquipmentCatagory)) && bs.Item.ItemAction > 0 && bs.CanUse());
-            BagSlot[] bagSlots = items as BagSlot[] ?? items.ToArray();
+        IEnumerable<BagSlot> items = InventoryManager.FilledSlots.Where(bs => (itemNames.Any(bs.EnglishName.Contains) && bs.EnglishName.EndsWith("Coffer") || itemCategories.Contains(bs.Item.EquipmentCatagory)) && bs.Item.ItemAction > 0 && bs.CanUse());
+        BagSlot[] bagSlots = items as BagSlot[] ?? items.ToArray();
 
-            foreach (var bag in bagSlots)
-            {
-                Logging.Write("Using {0}", bag.EnglishName);
-                bag.UseItem();
-                await Coroutine.Wait(4500, () => Core.Me.IsCasting);
-                if (Core.Me.IsCasting)
-                {
-                    await Coroutine.Wait(5000, () => !Core.Me.IsCasting);
-                    if (bag.EnglishName.Contains("Coffer")) await Coroutine.Sleep(1000);
-                    await Coroutine.Sleep(2500);
-                }
-            }
-		  ]]>
+        foreach (var bag in bagSlots)
+        {
+          Logging.Write("Using {0}", bag.EnglishName);
+          bag.UseItem();
+          await Coroutine.Wait(4500, () => Core.Me.IsCasting);
+          if (Core.Me.IsCasting)
+          {
+            await Coroutine.Wait(5000, () => !Core.Me.IsCasting);
+            if (bag.EnglishName.Contains("Coffer")) { await Coroutine.Sleep(1000); }
+            await Coroutine.Sleep(2500);
+          }
+        }
+      ]]>
     </CodeChunk>
     <CodeChunk Name="Summon_Chocobo">
       <![CDATA[
-			if(!ChocoboManager.Summoned)
-			{
-				  ChocoboManager.Summon();
-				  await Coroutine.Sleep(2000);
-			}
-		  ]]>
+      if(!ChocoboManager.Summoned)
+      {
+        ChocoboManager.Summon();
+        await Coroutine.Sleep(2000);
+      }
+      ]]>
     </CodeChunk>
     <CodeChunk Name="Geyser">
       <![CDATA[
@@ -8220,8 +8205,8 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           var _loc = rock.Location;
           while (Core.Player.Location.Distance(_loc) > 1.5f)
           {
-             Navigator.PlayerMover.MoveTowards(_loc);
-             await Coroutine.Yield();
+            Navigator.PlayerMover.MoveTowards(_loc);
+            await Coroutine.Yield();
           }
           MovementManager.MoveStop();
           if (Core.Me.IsMounted) { ActionManager.Dismount(); }
@@ -8300,8 +8285,8 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           var _flyto = new ff14bot.Pathing.FlyToParameters(_loc) { CheckIndoors = false };
           while (Core.Player.Location.Distance(_loc) > 1.5f)
           {
-             ff14bot.Pathing.Flightor.MoveTo(_flyto);
-             await Coroutine.Yield();
+            ff14bot.Pathing.Flightor.MoveTo(_flyto);
+            await Coroutine.Yield();
           }
           MovementManager.MoveStop();
           if (Core.Me.IsMounted) { ActionManager.Dismount(); }
@@ -8327,8 +8312,8 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         var pos = aetheryte.Location;
         while (Core.Player.Location.Distance2D(pos) > 5.5f)
         {
-           Navigator.PlayerMover.MoveTowards(pos);
-           await Coroutine.Yield();
+          Navigator.PlayerMover.MoveTowards(pos);
+          await Coroutine.Yield();
         }
         Navigator.PlayerMover.MoveStop();
 
@@ -8339,8 +8324,8 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 
         while (Core.Player.Location.Distance2D(exitPos) > 1.5f)
         {
-           Navigator.PlayerMover.MoveTowards(exitPos);
-           await Coroutine.Yield();
+          Navigator.PlayerMover.MoveTowards(exitPos);
+         await Coroutine.Yield();
         }
         Navigator.PlayerMover.MoveStop();
       ]]>
@@ -8387,8 +8372,8 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         else if (SelectYesno.IsOpen) { SelectYesno.Yes(); }
         else
         {
-         Logging.Write("Duty window didn't open.");
-         TreeRoot.Stop();
+          Logging.Write("Duty window didn't open.");
+          TreeRoot.Stop();
         }
         await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
         await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
@@ -9208,7 +9193,10 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
     </CodeChunk>
     <CodeChunk Name="68931">
       <![CDATA[
-        if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
+        if (Core.Me.IsMounted)
+        {
+          ActionManager.Dismount();
+        }
         await Coroutine.Sleep(1000);
         ChatManager.SendChat("/s Kenn Gyuf");
       ]]>
@@ -9224,9 +9212,15 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
     </CodeChunk>
     <CodeChunk Name="Lyhe_Ghia">
       <![CDATA[
-        if (Core.Me.InCombat)  {  await Coroutine.Yield();  }
+        if (Core.Me.InCombat)
+        {
+          await Coroutine.Yield();
+        }
 
-        if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
+        if (Core.Me.IsMounted)
+        {
+          ActionManager.Dismount();
+        }
 
         var vector3Array = new Vector3[]
         {
@@ -9276,7 +9270,10 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <![CDATA[
         var target = GameObjectManager.GetObjectByNPCId(2010031);
 
-        if (target.IsVisible)  {  target.Interact();  }
+        if (target.IsVisible)
+        {
+          target.Interact();
+        }
 
         await Coroutine.Sleep(1000);
         await Coroutine.Wait(10000, ()=> !Core.Me.IsCasting);
@@ -9309,7 +9306,11 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
     </CodeChunk>
     <CodeChunk Name="2010053">
       <![CDATA[
-        if (Core.Me.IsMounted)  { ActionManager.Dismount();  }
+        if (Core.Me.IsMounted)
+        {
+          ActionManager.Dismount();
+        }
+
         var vector3Array = new Vector3[]
         {
           new Vector3(-305.4146f, -62.86976f, 432.4416f),
@@ -9371,7 +9372,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc4) > 2) {  await Coroutine.Yield();  }
 
-Navigator.PlayerMover.MoveTowards(loc5);
+        Navigator.PlayerMover.MoveTowards(loc5);
         await Coroutine.Sleep(500);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc5) > 0.5f) {  await Coroutine.Yield();  }
@@ -9489,12 +9490,12 @@ Navigator.PlayerMover.MoveTowards(loc5);
     </CodeChunk>
     <CodeChunk Name="Coffer">
       <![CDATA[
-			foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
-					{
-					bagslot.UseItem();
-					await Coroutine.Sleep(5000);
-					}
-			]]>
+        foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
+        {
+          bagslot.UseItem();
+          await Coroutine.Sleep(5000);
+        }
+      ]]>
     </CodeChunk>
   </CodeChunks>
 </Profile>
