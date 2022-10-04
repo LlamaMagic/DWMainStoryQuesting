@@ -1212,7 +1212,7 @@ Profile and fixes by Anges
 			<If Condition="HasQuest(67499)">
 				<If Condition="GetQuestStep(67499) == 1">
 					<If Condition="not IsOnMap(399)">
-						<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+						<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 					</If>
 					<NoCombatMoveTo Name="Midnight Dew" XYZ="-475.761, 155.8605, -209.7658"/>
 					<LLTalkTo NpcId="1013651" XYZ="-475.761, 155.8605, -209.7658" QuestId="67499" StepId="1"/>
@@ -1220,21 +1220,21 @@ Profile and fixes by Anges
 				</If>
 				<If Condition="GetQuestStep(67499) == 2">
 					<If Condition="not IsOnMap(399)">
-						<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+						<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 					</If>
 					<NoCombatMoveTo Name="Stolen Items" XYZ="-403.2807, 155.3521, 82.84119"/>
 					<Grind grindRef="Taking_Stock" while="HasQuest(67499) and GetQuestStep(67499) == 2"/>
 				</If>
 				<If Condition="GetQuestStep(67499) == 3">
 					<If Condition="not IsOnMap(399)">
-						<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+						<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 					</If>
 					<NoCombatMoveTo Name="Stolen Items" XYZ="-403.2807, 155.3521, 82.84119"/>
 					<UseObject NpcId="2005885" XYZ="-403.2807, 155.3521, 82.84119" Radius="10" QuestId="67499" StepId="3"/>
 				</If>
 				<If Condition="GetQuestStep(67499) == 255">
 					<If Condition="not IsOnMap(399)">
-						<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+						<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 					</If>
 					<NoCombatMoveTo Name="Midnight Dew" XYZ="-475.761, 155.8605, -209.7658"/>
 					<LLTurnIn QuestId="67499" NpcId="1013651" ItemId="2001699" XYZ="-475.761, 155.8605, -209.7658"/>
@@ -1248,7 +1248,7 @@ Profile and fixes by Anges
 		<If Condition="not IsQuestCompleted(67502)">
 			<If Condition="not HasQuest(67502)">
 				<If Condition="not IsOnMap(399) and not IsOnMap(463)">
-					<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+					<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 				</If>
 				<If Condition="IsOnMap(399)">
 					<NoCombatMoveTo Name="Cave Entrance" XYZ="-488.7923, 138.9333, 741.0543"/>
@@ -1267,7 +1267,7 @@ Profile and fixes by Anges
 			<If Condition="HasQuest(67502)">
 				<If Condition="GetQuestStep(67502) == 1">
 					<If Condition="not IsOnMap(399) and not IsOnMap(463)">
-						<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+						<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 					</If>
 					<If Condition="IsOnMap(463)">
 						<UseTransport Name="Cave Exit" InteractDistance="3.0" NpcId="2005337" XYZ="7.765594, 38.9395, -50.9989"/>
@@ -1283,7 +1283,7 @@ Profile and fixes by Anges
 				</If>
 				<If Condition="GetQuestStep(67502) == 255">
 					<If Condition="not IsOnMap(399) and not IsOnMap(463)">
-						<GetTo ZoneId="399" XYZ="-529.9246, 150.2556, -467.4438"/><!-- The Dravanian Hinterlands (West) -->
+						<GetTo ZoneId="399" XYZ="-529.695, 152.3194, -481.8167"/><!-- The Dravanian Hinterlands (West) -->
 					</If>
 					<If Condition="IsOnMap(399)">
 						<NoCombatMoveTo Name="Cave Entrance" XYZ="-488.7923, 138.9333, 741.0543"/>
