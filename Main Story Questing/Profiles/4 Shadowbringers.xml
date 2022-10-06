@@ -6055,11 +6055,13 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
     <If Condition="GetQuestStep(69311) == 3">
       <RunCode Name="Enable_SideStep"/>
       <If Condition="not DutyManager.InInstance">
-        <If Condition="not IsOnMap(918)">
+        <If Condition="not IsOnMap(918) and not IsOnMap(898)">
           <LogMessage Message="Get to Anamnesis Anyder and restart the profile."/>
           <StopBot/>
         </If>
-        <RunCode Name="DutyCommence"/>
+        <If Condition="IsOnMap(898)">
+          <RunCode Name="DutyCommence"/>
+        </If>
       </If>
       <MoveTo XYZ="-110.1903, -283.1755, 229.2498"/>
       <RunCode Name="Wait_For_Enemies"/>
