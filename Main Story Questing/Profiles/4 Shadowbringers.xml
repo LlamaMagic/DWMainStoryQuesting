@@ -6851,8 +6851,9 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <LLSmallTalk/>
     </If>
 
-
     <RunCode Name="Use_And_Open_Items"/>
+
+    <LLoadProfile Path="../Start.xml"/>
   </Order>
   <GrindAreas>
     <GrindArea Name="Brood_Ziz">
