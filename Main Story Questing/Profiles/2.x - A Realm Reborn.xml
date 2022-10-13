@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <!--
-Profile:  [Orderbot] A Realm Reborn Main Scenario
-Authors:  Sodimm, y2krazy, kagamihiiragi17
-Version:  1.2.5
-Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
+Profile: [OrderBot][MSQ] 2.x - A Realm Reborn
+Authors: Sodimm, y2krazy, kagamihiiragi17
+Version: 1.2.5
+Known Issues:
+  - GetTo sometimes doesn't get into range of an Aetheryte.
 -->
 
 <!DOCTYPE Profile [
@@ -12,14 +13,14 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   <!-- Should we auto invite a carry to do dungeons? -->
   <!ENTITY UseCarry "0">
   <!-- What's the carry's name? -->
-  <!ENTITY CarryName "Shark Tooth">
+  <!ENTITY CarryName "First Last">
 ]>
 
 <Profile>
-  <Name>[OrderBot] A Realm Reborn Main Scenario</Name>
+  <Name>[OrderBot][MSQ] 2.x - A Realm Reborn</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-
+    <!-- Profile starts here -->
     <!-- Buy Eggs -->
     <If condition="not HasAtLeast(4650,50)">
       <GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975" />
@@ -4796,29 +4797,6 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </SimpleDuty>
     </If>
     <If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 4">
-      <!--
-			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="70057" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the trial Cape Westwind and hit continue." />
-			</If>
-			<If condition="&UseCarry; == 1">
-				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14" Force="True"/>
-					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>			
-				</If>
-				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
-					<If condition="not IsOnMap(140)">
-						<LLJoinDuty DutyId="62" />
-					</If>
-					<If condition="IsOnMap(140)">
-						<WaitWhile condition="not IsDutyEnded()"/>
-						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
-							<LLLeaveDuty/>
-						</If>
-					</If>
-				</If>
-			</If>			-->
       <WaitWhile condition="not GetQuestStep(70057) == 255" />
     </If>
     <If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 255">
@@ -5388,7 +5366,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(66726) and not IsQuestCompleted(66726) and GetQuestStep(66726) == 7">
       <If condition="&UseCarry; == 0">
-        <UserDialog QuestId="66726" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the trial Thornmarch (Hard) and hit continue." />
+        <UserDialog QuestId="66726" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Thornmarch (Hard)." />
       </If>
       <If condition="&UseCarry; == 1">
         <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -6089,7 +6067,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(66897) and not IsQuestCompleted(66897) and GetQuestStep(66897) == 1">
       <If condition="&UseCarry; == 0">
-        <UserDialog QuestId="66897" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the trial Whorleater (Hard) and hit continue." />
+        <UserDialog QuestId="66897" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Whorleater (Hard)." />
       </If>
       <If condition="&UseCarry; == 1">
         <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -6417,7 +6395,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(69421) and not IsQuestCompleted(69421) and GetQuestStep(69421) == 5">
       <If condition="&UseCarry; == 0">
-        <UserDialog QuestId="69421" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the trial The Striking Tree (Hard) and hit continue." />
+        <UserDialog QuestId="69421" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Striking Tree (Hard)." />
       </If>
       <If condition="&UseCarry; == 1">
         <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -7372,7 +7350,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(65620) and not IsQuestCompleted(65620) and GetQuestStep(65620) == 4">
       <If condition="&UseCarry; == 0">
-        <UserDialog QuestId="65620" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the trial Akh Afah Amphitheatre (Hard) and hit continue." />
+        <UserDialog QuestId="65620" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Akh Afah Amphitheatre (Hard)." />
       </If>
       <If condition="&UseCarry; == 1">
         <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -7593,7 +7571,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
       <If Condition="not IsQuestAcceptQualified(66693)">
         <If condition="&UseCarry; == 0">
-          <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the trail Bowl of Embers (Hard) and hit continue." while="not IsQuestAcceptQualified(66693)" />
+          <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Bowl of Embers (Hard)." while="not IsQuestAcceptQualified(66693)" />
         </If>
         <If condition="&UseCarry; == 1">
           <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -7643,7 +7621,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
       <If Condition="not IsQuestAcceptQualified(66694)">
         <If condition="&UseCarry; == 0">
-          <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the trail The Howling Eye (Hard) and hit continue." while="not IsQuestAcceptQualified(66694)" />
+          <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Howling Eye (Hard)." while="not IsQuestAcceptQualified(66694)" />
         </If>
         <If condition="&UseCarry; == 1">
           <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -7692,7 +7670,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
       <If Condition="not IsQuestAcceptQualified(65899)">
         <If condition="&UseCarry; == 0">
-          <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the trail The Naval (Hard) and hit continue." while="not IsQuestAcceptQualified(65899)" />
+          <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Navel (Hard)." while="not IsQuestAcceptQualified(65899)" />
         </If>
         <If condition="&UseCarry; == 1">
           <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -8009,7 +7987,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(65905) and not IsQuestCompleted(65905) and GetQuestStep(65905) == 3">
       <If condition="&UseCarry; == 0">
-        <UserDialog QuestId="65905" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the trial The Chrysalis and hit continue." />
+        <UserDialog QuestId="65905" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Chrysalis." />
       </If>
       <If condition="&UseCarry; == 1">
         <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -8343,7 +8321,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(65955) and not IsQuestCompleted(65955) and GetQuestStep(65955) == 1">
       <If condition="&UseCarry; == 0">
-        <UserDialog QuestId="65955" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the duty The Steps of Faith and hit continue." />
+        <UserDialog QuestId="65955" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith." />
       </If>
       <If condition="&UseCarry; == 1">
         <If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -8751,7 +8729,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <UseObject NpcId="2002897" XYZ="573.1744, -1.724304, -262.7756" QuestId="66738" StepId="1" />
     </If>
     <If Condition="GetQuestStep(66738) == 2">
-      <UserDialog QuestId="66738" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the raid Labyrinth of the Ancients and hit continue." />
+      <UserDialog QuestId="66738" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 24-player raid Labyrinth of the Ancients." />
     </If>
     <If Condition="GetQuestStep(66738) == 3">
       <WaitWhile condition="GetQuestStep(66738) == 3" />
@@ -8798,7 +8776,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1009376" XYZ="730.7391, 15.42845, -56.16852" QuestId="67010" StepId="3" />
     </If>
     <If Condition="GetQuestStep(67010) == 4">
-      <UserDialog QuestId="67010" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the raid Syrcus Tower and hit continue." />
+      <UserDialog QuestId="67010" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 24-player raid Syrcus Tower." />
     </If>
     <If Condition="GetQuestStep(67010) == 255">
       <LisbethTravel ZoneId="156" XYZ="445.3788, -5.371428, -466.6502" />
@@ -8827,7 +8805,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1011640" XYZ="732.0515, 15.33271, -68.65039" QuestId="66030" StepId="2" />
     </If>
     <If Condition="GetQuestStep(66030) == 3">
-      <UserDialog QuestId="66030" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the raid The World of Darkness and hit continue." />
+      <UserDialog QuestId="66030" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 24-player raid The World of Darkness." />
     </If>
     <If Condition="GetQuestStep(66030) == 4">
       <WaitWhile condition="GetQuestStep(66030) == 4" />
@@ -8938,7 +8916,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(65964) and not IsQuestCompleted(65964) and GetQuestStep(65964) == 255">
       <LisbethTravel ZoneId="155" XYZ="264.9119, 302.2624, -223.7126" />
       <LLTurnIn QuestId="65964" NpcId="1007603" XYZ="264.9119, 302.2624, -223.7126" />
-      <LLSellItem ItemIDs="5824,5825,5826" /> <!-- Sell Allagen peices that we collected -->
+      <LLSellItem ItemIDs="5824,5825,5826" /> <!-- Sell Allagen pieces that we collected -->
     </If>
 
     <LLoadProfile Path="../Start.xml" />
@@ -9496,7 +9474,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       ]]>
     </CodeChunk>
     <CodeChunk Name="Camp_Tranquil_Jump">
-      <![CDATA[ 
+      <![CDATA[
         if(Core.Player.IsMounted)
         {
           ActionManager.Dismount();
@@ -9511,7 +9489,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       ]]>
     </CodeChunk>
     <CodeChunk Name="Imperial_Garb">
-      <![CDATA[ 
+      <![CDATA[
         foreach(BagSlot slot in InventoryManager.FilledInventoryAndArmory)
     {
       BagSlot EquipSlot = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
@@ -9530,13 +9508,13 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       ]]>
     </CodeChunk>
     <CodeChunk Name="LeaveParty">
-      <![CDATA[		
+      <![CDATA[
 				ChatManager.SendChat("/pcmd leave");
 				await Buddy.Coroutines.Coroutine.Sleep(1000);
 			]]>
     </CodeChunk>
     <CodeChunk Name="Coffer">
-      <![CDATA[		
+      <![CDATA[
 			foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
 					{
 					bagslot.UseItem();
@@ -9550,7 +9528,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 			]]>
     </CodeChunk>
     <CodeChunk Name="Summon_Chocobo">
-      <![CDATA[ 
+      <![CDATA[
         if(!ChocoboManager.Summoned)
         {
           ChocoboManager.Summon();
@@ -9559,12 +9537,12 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       ]]>
     </CodeChunk>
     <CodeChunk Name="HandleContentsTutorial">
-      <![CDATA[        
-    
+      <![CDATA[
+
         var npc = new LlamaLibrary.Helpers.NPC.Npc(1004472, 138, new Vector3(335.4086f, 9.635179f, 17.13586f));
 
         await LlamaLibrary.Helpers.Navigation.GetToNpc(npc);
-        
+
         var npcObj = GameObjectManager.GetObjectByNPCId(npc.NpcId);
         npcObj.Target();
         npcObj.Interact();

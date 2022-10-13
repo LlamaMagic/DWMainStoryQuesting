@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Profile:  [OrderBot] ShB MSQ Automation
-Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
+Profile: [OrderBot][MSQ] 5.x - Shadowbringers
+Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 -->
 <Profile>
-  <Name>[OrderBot] ShB MSQ Automation</Name>
+  <Name>[OrderBot][MSQ] 5.x - Shadowbringers</Name>
   <Order>
+    <!-- Profile starts here -->
+    <If Condition="not IsQuestCompleted(68721)">
+      <Log Message="Must complete Stormblood before starting Shadowbringers. Returning to Start.xml" />
+      <LLoadProfile Path="../Start.xml"/>
+    </If>
+
     <!-- (Patch 5.0) The Syrcus Trench (Level 70) -->
     <If Condition="IsQuestCompleted(68721) and not HasQuest(68815) and not IsQuestCompleted(68815)">
       <GetTo ZoneId="156" XYZ="21.79132, 21.25273, -632.7344"/>
@@ -290,7 +296,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
       <If Condition="GetQuestStep(68821) == 2">
         <GetTo ZoneId="814" XYZ="-276.7405, 18.08076, 654.7615"/>
-        <UserDialog QuestId="68821" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+        <UserDialog QuestId="68821" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the blue-haired cat boy." />
       </If>
       <If Condition="GetQuestStep(68821) == 3">
         <GetTo ZoneId="814" XYZ="-321.9621, 21.21397, 776.0409"/>
@@ -661,7 +667,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
       <If Condition="GetQuestStep(68828) == 2">
         <GetTo ZoneId="815" XYZ="308.8456, 1.468583, -186.6473"/>
-        <UserDialog QuestId="68828" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+        <UserDialog QuestId="68828" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\Aim for each of the four foods." />
       </If>
       <If Condition="GetQuestStep(68828) == 255">
         <GetTo ZoneId="815" XYZ="269.4944, 4.0297, -145.8798"/>
@@ -2120,7 +2126,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(816)">
           <GetTo ZoneId="816" XYZ="-142.0314, 115.2709, -273.7599"/>
         </If>
-        <UserDialog QuestId="68856" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the trial The Dancing Plague." />
+        <UserDialog QuestId="68856" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Dancing Plague." />
       </If>
       <If Condition="GetQuestStep(68856) == 3">
         <RunCode Name="Handle_Cutscene_Talking"/>
@@ -2237,7 +2243,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(813)">
           <GetTo ZoneId="813" XYZ="723.1733, -1.898337, -92.94218"/>
         </If>
-        <UserDialog QuestId="68859" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+        <UserDialog QuestId="68859" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the tablet on the right side of the table's shelf." />
       </If>
       <If Condition="GetQuestStep(68859) == 255">
         <If Condition="not IsOnMap(813)">
@@ -2581,7 +2587,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
       <If Condition="GetQuestStep(68866) == 4">
         <GetTo ZoneId="817" XYZ="-818.3071, 38.56141, -358.0817"/>
-        <UserDialog QuestId="68866" StepId="4" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+        <UserDialog QuestId="68866" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the three murals on the cave wall." />
       </If>
       <If Condition="GetQuestStep(68866) == 255">
         <If Condition="not IsOnMap(817)">
@@ -3899,7 +3905,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
       <If Condition="GetQuestStep(69155) == 2">
         <GetTo ZoneId="815" XYZ="3.931121, 45.61908, -590.1807"/>
-        <UserDialog QuestId="69155" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the solo duty Full Steam Ahead.\n\nThis is the Thancred vs. Ran'jit fight.\n\nYes, it sucks." />
+        <UserDialog QuestId="69155" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Full Steam Ahead.\n\nThis is the Thancred vs. Ran'jit fight.\n\nYes, it sucks." />
       </If>
       <If Condition="GetQuestStep(69155) == 3">
         <WaitWhile condition="GetQuestStep(69155) == 3"/>
@@ -4203,7 +4209,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(814)">
           <GetTo ZoneId="814" XYZ="-417.3336, 354.3414, 22.40183"/>
         </If>
-        <UserDialog QuestId="69170" StepId="4" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+        <UserDialog QuestId="69170" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the white-haired human boy amongst the rocks. " />
       </If>
       <If Condition="GetQuestStep(69170) == 5">
         <GetTo ZoneId="814" XYZ="-149.2363, 352.3582, -216.6674"/>
@@ -4297,11 +4303,11 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
       <If Condition="GetQuestStep(69173) == 3">
         <GetTo ZoneId="814" XYZ="-442.9381, 417.1726, -618.2719"/>
-        <UserDialog QuestId="69173" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom.\n\nShoot the dwarf with the red hat." />
+        <UserDialog QuestId="69173" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the dwarf with the red hat." />
       </If>
       <If Condition="GetQuestStep(69173) == 4">
         <GetTo ZoneId="814" XYZ="-442.9381, 417.1726, -618.2719"/>
-        <UserDialog QuestId="69173" StepId="4" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom.\n\nShoot the dwarf with the red hat." />
+        <UserDialog QuestId="69173" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the dwarf with the red hat." />
       </If>
       <If Condition="GetQuestStep(69173) == 255">
         <If Condition="not IsOnMap(814)">
@@ -4601,7 +4607,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <GetTo ZoneId="814" XYZ="-173.4306, 460.431, -796.9117"/>
           <UseTransport InteractDistance="3.0" NpcId="1030320" XYZ="-164.2329, 460.689, -804.5319"/>
         </If>
-        <UserDialog QuestId="69179" StepId="5" IsBotContinueAllowed="True" DialogText="Please manually complete the trial Crown of the Immaculate." />
+        <UserDialog QuestId="69179" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Crown of the Immaculate." />
       </If>
       <If Condition="GetQuestStep(69179) == 255">
         <If Condition="not IsOnMap(880)">
@@ -4843,7 +4849,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
             <GetTo ZoneId="818" XYZ="405.5002, 361.2451, -415.4251"/>
           </If>
           <NoCombatMoveTo XYZ="394.4427, 360.71, -429.5342" Distance="2"/>
-          <UserDialog QuestId="69185" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+          <UserDialog QuestId="69185" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the windows at the top." />
         </If>
       </If>
       <If Condition="GetQuestStep(69185) == 3">
@@ -5186,14 +5192,14 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <If Condition="not IsOnMap(818)">
           <GetTo ZoneId="818" XYZ="-421.7408, -229.0648, 844.2729"/>
         </If>
-        <UserDialog QuestId="69190" StepId="7" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon Amaurot." />
+        <UserDialog QuestId="69190" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Amaurot." />
       </If>
       <If Condition="GetQuestStep(69190) == 9">
         <If Condition="not IsOnMap(847)">
           <GetTo ZoneId="818" XYZ="-423.6298, -229.0648, 856.9341"/>
           <UseTransport InteractDistance="3.0" NpcId="1030575" XYZ="-422.8733, -229.0648, 859.4644"/>
         </If>
-        <UserDialog QuestId="69190" StepId="9" IsBotContinueAllowed="True" DialogText="Please manually complete the trial The Dying Gasp." />
+        <UserDialog QuestId="69190" StepId="9" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Dying Gasp." />
       </If>
       <If Condition="GetQuestStep(69190) == 11">
         <If Condition="not IsOnMap(844)">
@@ -5288,7 +5294,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <TalkTo NpcId="1031726" XYZ="-116.8079, -0.6811357, 651.026" QuestId="69210" StepId="1"/>
       </If>
       <If Condition="GetQuestStep(69210) == 2">
-        <UserDialog QuestId="69210" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon The Grand Cosmos." />
+        <UserDialog QuestId="69210" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Grand Cosmos." />
       </If>
       <If Condition="GetQuestStep(69210) == 255">
         <TurnIn QuestId="69210" NpcId="1032451" XYZ="-113.3593, -0.6671538, 656.7941"/>
@@ -5468,7 +5474,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
           <TeleportTo AetheryteId="139" Name="Tomra"/>
           <FlyTo XYZ="-424.0846, 339.3427, -161.0342" Land="True"/>
         </If>
-        <UserDialog QuestId="69216" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the zoomie-zoom." />
+        <UserDialog QuestId="69216" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nClick on Chai-Nuzz whenever all monsters are looking away." />
       </If>
       <If Condition="GetQuestStep(69216) == 3">
         <If Condition="not IsOnMap(814)">
@@ -5525,7 +5531,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
         <LisbethTravel ZoneId="156" XYZ="21.79132, 21.25273, -632.7344"/>
         <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
         <MoveTo XYZ="-2.426208, 7.450581E-09, -9.10968"/>
-        <UserDialog QuestId="69218" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the solo duty Vows of Virtue, Deeds of Cruelty.\n\nEstinien vs. Arch Ultima" />
+        <UserDialog QuestId="69218" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Vows of Virtue, Deeds of Cruelty.\n\nEstinien vs. Arch Ultima" />
       </If>
       <If Condition="GetQuestStep(69218) == 255">
         <If Condition="not IsOnMap(351)">
@@ -6160,7 +6166,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <TalkTo NpcId="1033830" XYZ="23.81927, 82.05, 16.34241" QuestId="69313" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69313) == 3">
-      <UserDialog QuestId="69313" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon The Heroes' Gauntlet." />
+      <UserDialog QuestId="69313" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Heroes' Gauntlet." />
     </If>
     <If Condition="GetQuestStep(69313) == 5">
       <FlyTo ZoneId="813" XYZ="289.5783, 10.08115, 151.0817"/>
@@ -6182,7 +6188,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       </If>
     </If>
     <If Condition="GetQuestStep(69314) == 2">
-      <UserDialog QuestId="69314" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the trial The Seat of Sacrifice." />
+      <UserDialog QuestId="69314" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Seat of Sacrifice." />
     </If>
     <If Condition="GetQuestStep(69314) == 255">
       <TurnIn QuestId="69314" NpcId="1033856" XYZ="53.42175, 0.01941726, -0.04577637"/>
@@ -6447,7 +6453,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <TalkTo NpcId="1035380" XYZ="382.7725, 75.28701, -222.0341" QuestId="69547" StepId="3"/>
     </If>
     <While Condition="GetQuestStep(69547) == 4">
-      <UserDialog QuestId="69547" StepId="4" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon Matoya's Relict." />
+      <UserDialog QuestId="69547" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Matoya's Relict." />
     </While>
     <If Condition="GetQuestStep(69547) == 255">
       <LisbethTravel ZoneId="399" XYZ="380.5968, 75.26852, -219.3463" Land="True"/>
@@ -6534,7 +6540,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <LisbethTravel Area="Outer La Noscea" Position="143.0769, 23.80429, -648.6438"/>
       <GetTo ZoneId="180" XYZ="144.524, 24.276, -634.4476" />
       <While Condition="GetQuestStep(69551) == 2">
-        <UserDialog QuestId="69551" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the solo duty The Great Ship Vylbrand." />
+        <UserDialog QuestId="69551" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Great Ship Vylbrand." />
       </While>
     </If>
     <If Condition="GetQuestStep(69551) == 255">
@@ -6705,7 +6711,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
       <LLTalkTo NpcId="1036374" XYZ="-25.0401, 83.19998, 10.45239" QuestId="69598" StepId="2"/>
     </If>
     <While Condition="GetQuestStep(69598) == 3">
-      <UserDialog QuestId="69598" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon Paglth'an." />
+      <UserDialog QuestId="69598" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Paglth'an." />
     </While>
     <If Condition="GetQuestStep(69598) == 255">
       <LisbethTravel Zone="130" Subzone="654" Position="-22.70683, 83.19999, 10.58135"/>
@@ -6838,7 +6844,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
     <If Condition="GetQuestStep(69602) == 2">
       <LisbethTravel Zone="132" Subzone="549" Position="33.15565, -19, 102.0125"/>
       <While condition="GetQuestStep(69602) == 2">
-        <UserDialog QuestId="69602" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete solo duty Death Unto Dawn." />
+        <UserDialog QuestId="69602" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete solo duty Death Unto Dawn." />
       </While>
     </If>
     <If Condition="GetQuestStep(69602) == 255">

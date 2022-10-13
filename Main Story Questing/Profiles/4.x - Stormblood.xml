@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Profile:  [Orderbot] Stormblood Main Scenario
-Authors:  Sodimm, TuckMeintoBread
-Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
+Profile: [OrderBot][MSQ] 4.x - Stormblood
+Authors: Sodimm, TuckMeintoBread
+Known Issues:
+  - GetTo sometimes doesn't get into range of an Aetheryte.
 -->
 
 <!DOCTYPE Profile [
@@ -10,13 +11,19 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 <!-- Should we auto invite a carry to do dungeons? -->
 <!ENTITY UseCarry "0">	
 <!-- What's the carry's name? -->
-<!ENTITY CarryName "Shark Tooth">
+<!ENTITY CarryName "First Last">
 
 ]>
 <Profile>
-  <Name>[OrderBot] Stormblood Main Scenario 2.0</Name>
+  <Name>[OrderBot][MSQ] 4.x - Stormblood</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+    <!-- Profile starts here -->
+    <If Condition="not IsQuestCompleted(67895)">
+      <Log Message="Must complete Heavensward before starting Stormblood. Returning to Start.xml" />
+      <LLoadProfile Path="../Start.xml"/>
+    </If>
+
     <RunCode Name="Disable_Flight"/>
 
     <!-- Beyond the Great Wall (Level 60) -->
@@ -696,7 +703,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68005) and not IsQuestCompleted(68005) and GetQuestStep(68005) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="68005" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty Sirensong Sea and hit continue." />
+				<UserDialog QuestId="68005" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Sirensong Sea." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -848,7 +855,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="2008134" XYZ="-0.01531982, 1.144348, 13.50421"/>
       </If>
       <GetTo ZoneId="628" XYZ="-50.65513, 16.76604, -6.563137"/>
-			<UserDialog QuestId="68010" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+			<UserDialog QuestId="68010" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty It's Probably a Trap hit continue." />
     </If>
     <If Condition="HasQuest(68010) and not IsQuestCompleted(68010) and GetQuestStep(68010) == 255">
       <GetTo ZoneId="628" XYZ="147.6232, 14.77572, 92.13142"/>
@@ -1392,7 +1399,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <UseObject NpcIds="2007853" XYZ="-838.6819, 51.63837, 38.55779" QuestId="68025" StepId="1"/>
     </If>
     <If Condition="HasQuest(68025) and not IsQuestCompleted(68025) and GetQuestStep(68025) == 2">
-			<UserDialog QuestId="68025" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the Pool of Tribute and hit continue." />
+			<UserDialog QuestId="68025" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Pool of Tribute." />
     </If>
     <If Condition="HasQuest(68025) and not IsQuestCompleted(68025) and GetQuestStep(68025) == 4">
       <GetTo ZoneId="613" XYZ="-726.7028, 0.2673199, -316.119"/>
@@ -1610,11 +1617,11 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 4">
       <GetTo ZoneId="614" XYZ="498.9214, 78.11392, 147.0668"/>
-			<UserDialog QuestId="68031" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoom-zoom manually and hit continue." />
+			<UserDialog QuestId="68031" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom." />
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 5">
       <GetTo ZoneId="614" XYZ="535.1069, 54.54139, 236.5954"/>
-			<UserDialog QuestId="68031" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoom-zoom manually and hit continue." />
+			<UserDialog QuestId="68031" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom." />
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 6">
       <GetTo ZoneId="614" XYZ="303.2831, 16.61997, 585.0649"/>
@@ -1622,7 +1629,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 7">
       <GetTo ZoneId="614" XYZ="329.7429, 32.98788, 603.2724"/>
-			<UserDialog QuestId="68031" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the zoom-zoom manually and hit continue." />
+			<UserDialog QuestId="68031" StepId="7" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom." />
     </If>
     <If Condition="HasQuest(68031) and not IsQuestCompleted(68031) and GetQuestStep(68031) == 8">
       <GetTo ZoneId="614" XYZ="303.843, 16.77227, 584.6717"/>
@@ -2030,7 +2037,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(68043) and not IsQuestCompleted(68043) and GetQuestStep(68043) == 1">
       <GetTo ZoneId="622" XYZ="-507.7792, 71.22987, -512.024"/>
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="68043" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the dungeon Bardam's Mettle and hit continue." />
+				<UserDialog QuestId="68043" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Bardam's Mettle." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2102,7 +2109,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="1023089" XYZ="66.20763, 114.905, -8.062243"/>
       </If>
       <NoCombatMoveTo XYZ="-0.9057157, 1.986998, 182.9323"/>
-			<UserDialog QuestId="68045" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the underwater part here manually." />
+			<UserDialog QuestId="68045" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the underwater dive for Swordgrass." />
       <!--<UseObject NpcIds="2008250,2008251,2008252,2008253,2008254,2008255,2008256,2008257" UseDistance="0.5" QuestId="68045" StepId="3">
         <HotSpots>
           <HotSpot XYZ="61.0015, -73.53041, 11.13224" Radius="20"/>
@@ -2118,8 +2125,8 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </UseObject>-->
     </If>
     <If Condition="HasQuest(68045) and not IsQuestCompleted(68045) and GetQuestStep(68045) == 4">
-      <If Condition="not IsOnMap(622)">
-        <GetTo ZoneId="622" XYZ="102.9981, 114.905, 70.99219"/>
+      <If Condition="not IsOnSubMap(2822)">
+        <TeleportTo AetheryteId="110" Force="True"/>
       </If>
       <NoCombatMoveTo XYZ="61.60059, 8.799953, 41.12305"/>
       <UseTransport NpcId="1019423" InteractDistance="3.0" XYZ="61.60059, 8.799953, 41.12305"/>
@@ -2160,7 +2167,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     <If Condition="HasQuest(68046) and not IsQuestCompleted(68046) and GetQuestStep(68046) == 3">
 			<If condition="not IsOnSubMap(2822)">
 				<TeleportTo AetheryteId="110" Force="True"/>
-			</If>				
+			</If>
       <MoveTo ZoneId="622" XYZ="-30.99069, 114.905, -37.41487"/>
       <TalkTo NpcId="1019426" XYZ="-30.99069, 114.905, -37.41487" QuestId="68046" StepId="3"/>
     </If>
@@ -2313,7 +2320,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 3">
       <GetTo ZoneId="622" XYZ="498.3189, 40.8361, -508.2768"/>
-			<UserDialog QuestId="68051" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the next duty manually." />
+			<UserDialog QuestId="68051" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Naadam." />
     </If>
     <If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 255">
       <GetTo ZoneId="622" XYZ="486.7548, 40.07708, -465.6007"/>
@@ -2624,7 +2631,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="68060" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the dungeon Doma Castle and hit continue." />
+				<UserDialog QuestId="68060" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Doma Castle." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2856,7 +2863,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <LLTalkTo NpcId="1020593" InteractDistance="3.0" XYZ="2.322173, -5.169944, -13.20637" DialogOption="2" QuestId="68068" StepId="4"/>
     </If>
     <If Condition="HasQuest(68068) and not IsQuestCompleted(68068) and GetQuestStep(68068) == 5">
-			<UserDialog QuestId="68068" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the trial Emanation and hit continue." />
+			<UserDialog QuestId="68068" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Emanation." />
     </If>
     <If Condition="HasQuest(68068) and not IsQuestCompleted(68068) and GetQuestStep(68068) == 6">
 			<WaitWhile condition="GetQuestStep(68068) == 6"/>
@@ -3238,7 +3245,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <UseObject UseDistance="3.0" NpcId="2008212" XYZ="431.113, 335.6526, 487.1747" QuestId="68080" StepId="5"/>
     </If>
     <If Condition="HasQuest(68080) and not IsQuestCompleted(68080) and GetQuestStep(68080) == 6">
-			<UserDialog QuestId="68080" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete Castrum Abania and hit continue." />
+			<UserDialog QuestId="68080" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Castrum Abania." />
     </If>
     <If Condition="HasQuest(68080) and not IsQuestCompleted(68080) and GetQuestStep(68080) == 6">
 			<WaitWhile condition="GetQuestStep(68080) == 7"/>
@@ -3342,7 +3349,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 1">
       <GetTo ZoneId="621" XYZ="-651.2444, 50.00002, -1.255357"/>
-			<UserDialog QuestId="68085" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually." />
+			<UserDialog QuestId="68085" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Key to Victory." />
     </If>
     <If Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 255">
       <GetTo ZoneId="621" XYZ="65.57979, 45.41022, 764.3596"/>
@@ -3378,7 +3385,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <RunCode Name="68086a"/>
         <RunCode Name="68086b"/>
       </If>
-			<UserDialog QuestId="68086" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually." />
+			<UserDialog QuestId="68086" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Resonant." />
     </If>
     <If Condition="HasQuest(68086) and not IsQuestCompleted(68086) and GetQuestStep(68086) == 5">
 			<WaitWhile condition="GetQuestStep(68086) == 5"/>
@@ -3435,7 +3442,6 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68088) and not IsQuestCompleted(68088) and GetQuestStep(68088) == 2">
       <GetTo ZoneId="621" XYZ="509.8133, 111.1596, -106.27"/>
-			<!-- <UserDialog QuestId="68088" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually." /> -->
       <LLSimpleDuty InteractNpcId="1022738" XYZ="509.6055,111.162,-107.1336"  QuestId="68088" StepId="2">
 				<Hotspots>
 					<Hotspot Radius="90" XYZ="509.6055,111.162,-107.1336" />
@@ -3461,72 +3467,72 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <If Condition="IsQuestAcceptQualified(68089)">
         <PickupQuest QuestId="68089" InteractDistance="3.0" NpcId="1021724" XYZ="558.255, 162, 71.67701"/>
       </If>
+      <If condition="CurrentItemLevel() &lt; 280">
+        <!-- Summoner -->
+        <If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
+          <If condition="not IsQuestCompleted(68165)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>
+          </If>
+        </If>
+        <!-- Scholar -->
+        <If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
+          <If condition="not IsQuestCompleted(68463)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>
+          </If>
+        </If>
+        <!-- Warrior -->
+        <If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
+          <If condition="not IsQuestCompleted(68440)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>
+          </If>
+        </If>
+        <!-- Bard -->
+        <If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
+          <If condition="not IsQuestCompleted(68430)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>
+          </If>
+        </If>
+        <!-- White Mage -->
+        <If condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
+          <If condition="not IsQuestCompleted(67954)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>
+          </If>
+        </If>
+        <!-- Dragoon -->
+        <If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
+          <If condition="not IsQuestCompleted(68450)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>
+          </If>
+        </If>
+        <!-- Black Mage -->
+        <If condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
+          <If condition="not IsQuestCompleted(68128)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>
+          </If>
+        </If>
+        <!-- Paladin -->
+        <If condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
+          <If condition="not IsQuestCompleted(68111)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>
+          </If>
+        </If>
+        <!-- Monk -->
+        <If condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
+          <If condition="not IsQuestCompleted(67966)">
+            <LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>
+          </If>
+        </If>
+        <UserDialog DialogText="Please upgrade your gear to i280 or better for the next." />
+      </If>
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 1">
-			<UserDialog QuestId="68089" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the Ala Mhigo duty manually." />
+			<UserDialog QuestId="68089" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Ala Mhigo." />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 2">
 			<WaitWhile condition="GetQuestStep(68089) == 2"/>
     </If>		
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 3">
-			<If condition="CurrentItemLevel() &lt; 280">
-				<!-- Summoner -->
-				<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Summoner">
-					<If condition="not IsQuestCompleted(68165)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>	
-					</If>	
-				</If>
-				<!-- Scholar -->
-				<If condition="ClassName == ClassJobType.Arcanist or ClassName == ClassJobType.Scholar">
-					<If condition="not IsQuestCompleted(68463)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>	
-					</If>					
-				</If>			
-				<!-- Warrior -->
-				<If condition="ClassName == ClassJobType.Marauder or ClassName == ClassJobType.Warrior">
-					<If condition="not IsQuestCompleted(68440)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>	
-					</If>	
-				</If>	
-				<!-- Bard -->
-				<If condition="ClassName == ClassJobType.Archer or ClassName == ClassJobType.Bard">
-					<If condition="not IsQuestCompleted(68430)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>	
-					</If>	
-				</If>
-				<!-- White Mage -->
-				<If condition="ClassName == ClassJobType.Conjurer or ClassName == ClassJobType.WhiteMage">
-					<If condition="not IsQuestCompleted(67954)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>	
-					</If>	
-				</If>		
-				<!-- Dragoon -->
-				<If condition="ClassName == ClassJobType.Lancer or ClassName == ClassJobType.Dragoon">
-					<If condition="not IsQuestCompleted(68450)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>	
-					</If>	
-				</If>
-				<!-- Black Mage -->
-				<If condition="ClassName == ClassJobType.Thaumaturge or ClassName == ClassJobType.BlackMage">
-					<If condition="not IsQuestCompleted(68128)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>	
-					</If>	
-				</If>
-				<!-- Paladin -->
-				<If condition="ClassName == ClassJobType.Gladiator or ClassName == ClassJobType.Paladin">
-					<If condition="not IsQuestCompleted(68111)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>	
-					</If>	
-				</If>	
-				<!-- Monk -->
-				<If condition="ClassName == ClassJobType.Pugilist or ClassName == ClassJobType.Monk">
-					<If condition="not IsQuestCompleted(67966)">
-						<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>	
-					</If>	
-				</If>			
-				<UserDialog DialogText="Please upgrade your gear to iLvl 290 to be able to do the next dungeon." />
-			</If>
-			<UserDialog QuestId="68089" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the Royal Menagerie duty manually." />
+			<UserDialog QuestId="68089" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Royal Menagerie." />
     </If>
     <If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 4">
 			<WaitWhile condition="GetQuestStep(68089) == 4"/>
@@ -3739,14 +3745,14 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <UseObject NpcId="2009054" XYZ="258.2283, -274.2809, -12.8634" UseDistance="5.0" QuestId="68500" StepId="3"/>
     </If>
     <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 4">
-      <RunCode Name="Announce_Manual_Completion"/>
+      <UserDialog QuestId="68500" StepId="4" IsBotContinueAllowed="True" DialogText="Please dive to the next quest objective and unlock the dungeon." />
     </If>
     <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 5">
-			<UserDialog QuestId="68500" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the Drowned City of Skalla duty manually and hit continue." />
-    </If>		
-   <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 6">
+			<UserDialog QuestId="68500" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Drowned City of Skalla." />
+    </If>
+    <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 6">
 		<WaitWhile condition="GetQuestStep(68500) == 6"/>
-    </If>			
+    </If>
     <If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 255">
       <If Condition="not IsOnMap(621)">
         <LisbethTravel ZoneId="621" XYZ="530.8156, 70, 576.0128"/>
@@ -4025,7 +4031,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <FlyTo XYZ="-285.47, 11.18326, 190.2811" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       </If>
       <MoveTo XYZ="-240.2812, 1.682302, 198.3816"/>
-			<UserDialog QuestId="68506" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom manually and hit continue." />
+			<UserDialog QuestId="68506" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Yabby's jaws." />
     </If>
     <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 4">
       <If Condition="not IsOnMap(621)">
@@ -4036,7 +4042,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
     </If>
     <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 5">
       <LisbethTravel ZoneId="621" XYZ="7.366835, 4.852146, 283.4615" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-			<UserDialog QuestId="68506" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom manually and hit continue." />
+			<UserDialog QuestId="68506" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim between the Phoebad's eyes." />
     </If>
     <If Condition="HasQuest(68506) and not IsQuestCompleted(68506) and GetQuestStep(68506) == 6">
       <LisbethTravel ZoneId="621" XYZ="-3.108308, 3.22073, 251.354" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
@@ -4103,7 +4109,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809"/>
       </If>
       <MoveTo XYZ="245.0751, 122, -349.0807" Distance="1"/>
-			<UserDialog QuestId="68508" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty and hit continue." />
+			<UserDialog QuestId="68508" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Return of the Bull." />
     </If>
     <If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 4">
 			<WaitWhile condition="GetQuestStep(68508) == 4"/>
@@ -4191,7 +4197,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <TeleportTo Name="Onokoro" AetheryteId="106"/>
         <FlyTo XYZ="885.0995, 1.179207, 861.387" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
       </If>
-			<UserDialog QuestId="68560" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+			<UserDialog QuestId="68560" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Hope on the Waves." />
     </If>
     <If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 4">
       <If Condition="not IsOnMap(613)">
@@ -4363,7 +4369,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <MoveTo XYZ="328.5023, 21.67948, -552.327"/>
       </If>
       <FlyTo XYZ="-348.9281, 1.230035, -344.1367" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-			<UserDialog QuestId="68563" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+			<UserDialog QuestId="68563" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty His Forgotten Home." />
     </If>
     <If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 255">
       <If Condition="not IsOnMap(614)">
@@ -4677,7 +4683,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <WaitWhile Condition="not IsOnMap(786)"/>
     </If>
     <If Condition="HasQuest(68610) and not IsQuestCompleted(68610) and GetQuestStep(68610) == 2">
-			<UserDialog QuestId="68610" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the duty and hit continue." />
+			<UserDialog QuestId="68610" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Castrum Fluminis." />
     </If>
     <If Condition="HasQuest(68610) and not IsQuestCompleted(68610) and GetQuestStep(68610) == 3">
       <WaitWhile condition="GetQuestStep(68610) == 3"/>
@@ -4761,7 +4767,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
       </If>
       <LisbethTravel ZoneId="351" XYZ="-4.066441, 0.009977883, -2.351795"/>  
-			<UserDialog QuestId="68612" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+			<UserDialog QuestId="68612" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Emissary of the Dawn." />
     </If>
     <If Condition="HasQuest(68612) and not IsQuestCompleted(68612) and GetQuestStep(68612) == 2">
 			<WaitWhile condition="GetQuestStep(68612) == 2"/>
@@ -4831,7 +4837,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <TalkTo NpcId="1026261" XYZ="337.7888, 54.86068, -531.2734" QuestId="68680" StepId="1"/>
     </If>
     <If Condition="HasQuest(68680) and not IsQuestCompleted(68680) and GetQuestStep(68680) == 2">
-			<UserDialog QuestId="68680" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the Burn duty manually and hit continue." />
+			<UserDialog QuestId="68680" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Burn." />
     </If>
     <If Condition="HasQuest(68680) and not IsQuestCompleted(68680) and GetQuestStep(68680) == 3">
 			<WaitWhile condition="GetQuestStep(68680) == 3"/>
@@ -4980,7 +4986,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
 			<LoadDungeonAssist />	
 			<Grind GrindRef="WilloftheMoon" PostCombatDelay="3.0" While="not Core.Player.HasAura(1534)"/>
 			<WaitWhile condition="GetQuestStep(68683) == 4 and DutyManager.InInstance"/> -->
-			<UserDialog QuestId="68683" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty and hit continue." />
+			<UserDialog QuestId="68683" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Will of the Moon." />
     </While>
     <If Condition="HasQuest(68683) and not IsQuestCompleted(68683) and GetQuestStep(68683) == 5">
 			<WaitWhile condition="GetQuestStep(68683) == 5"/>
@@ -5244,7 +5250,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
     </If>
     <If Condition="HasQuest(68719) and not IsQuestCompleted(68719) and GetQuestStep(68719) == 1">
-			<UserDialog QuestId="68719" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the Ghimlyt Dark duty and hit continue." />
+			<UserDialog QuestId="68719" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Ghimlyt Dark." />
     </If>
     <If Condition="HasQuest(68719) and not IsQuestCompleted(68719) and GetQuestStep(68719) == 2">
       <WaitWhile condition="GetQuestStep(68719) == 2"/>
@@ -5309,7 +5315,7 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
         <UseTransport InteractDistance="3.0" NpcId="1026804" XYZ="-524.5594, 8.698304, -15.48798"/>
       </If>
 			<MoveTo XYZ="-476.6766,107.63,103.7461" />
-			<UserDialog QuestId="68721" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty and hit continue." />
+			<UserDialog QuestId="68721" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty A Requiem for Heroes." />
     </If>
     <If Condition="HasQuest(68721) and not IsQuestCompleted(68721) and GetQuestStep(68721) == 2">
 			<WaitWhile condition="GetQuestStep(68721) == 2"/>
@@ -5387,13 +5393,13 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
   <CodeChunks>
     <CodeChunk Name="Profile">
       <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "From Patch 4.1 onwards, this profile will assume you can Fly.\n Please ensure you are attuned to the Stormblood zones.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        Core.OverlayManager.AddToast(() => "From Patch 4.1 onwards, this profile will assume you can fly.\n Please ensure you are attuned to the Stormblood zones.", TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(6000);
       ]]>
     </CodeChunk>
     <CodeChunk Name="Flightor">
       <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "From this point, this profile assumes you can Fly.\n If you can not. Please attune to the Stormblood zones before continuing.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        Core.OverlayManager.AddToast(() => "From this point, this profile assumes you can fly.\n If you can not. Please attune to the Stormblood zones before continuing.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
         await Coroutine.Sleep(26000);
       ]]>
     </CodeChunk>
@@ -5407,12 +5413,6 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
           }
           catch (Exception ex) {  }
         }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Announce_Manual_Completion">
-      <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(26000);
       ]]>
     </CodeChunk>
     <CodeChunk Name="House_of_The_Fierce">

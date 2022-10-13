@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Endwalker Main Story Quests
-  Authors: DomesticWarlord86, Angles24
+Profile: [OrderBot][MSQ] 6.x - Endwalker
+Authors: DomesticWarlord86, Angles24
 
-  This profile is in early beta. By running this profile,
-  you accept that a lot of it may not work properly yet.
+This profile is in early beta. By running this profile,
+you accept that a lot of it may not work properly yet.
 
-  Known Issues:
+Known Issues:
   A Labyrinthine Descent - Line 224
     Find a better way to follow Alisaie
   The Full Report, Warts and All - Line 395
@@ -33,23 +33,24 @@
 <!-- Profile Settings -->
 
 <!-- Which fates should we blacklist? -->
-<!ENTITY NorthernThanBlacklistFates "556,446,647">	   
+<!ENTITY NorthernThanBlacklistFates "556,446,647">
 
 <!-- Should we auto invite a carry to do dungeons? -->
-<!ENTITY UseCarry "0">	
+<!ENTITY UseCarry "0">
 
 <!-- What's the carry's name? -->
-<!ENTITY CarryName "Shark Tooth">
+<!ENTITY CarryName "First Last">
 
 ]>
 
 <Profile>
-  <Name>Endwalker Main Story Quests</Name>
+  <Name>[OrderBot][MSQ] 6.0 - Endwalker</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-    <If Condition="not IsQuestCompleted(69601)">
-      <LLToast message="Please complete all the post-Shadowbringers content before starting this profile!"/>
-      <StopBot/>
+    <!-- Profile starts here -->
+    <If Condition="not IsQuestCompleted(69602)">
+      <Log Message="Must complete Shadowbringers before starting Endwalker. Returning to Start.xml" />
+      <LLoadProfile Path="../Start.xml"/>
     </If>
 
 		<!-- Buy Eggs -->
@@ -58,8 +59,8 @@
 			<BuyItem ItemIds="4650" DialogOption="0" ItemCount="99" NpcId="1003253" XYZ="-149.9504,18.2,36.94202"/>
 			<RunCode name="SetFood"/>
 			<EnablePlugin name="Gluttony"/>
-		</If>	
-		
+		</If>
+
     <!-- The Next Ship to Sail -->
     <If Condition="not IsQuestCompleted(69893)">
 			<If condition="not HasQuest(69893)">
@@ -74,7 +75,7 @@
 					<LLPickupQuest QuestId="69893" NpcId="1036452"/>
 					<LLSmallTalk/>
 				</If>
-			</If>			
+			</If>
 			<If Condition="GetQuestStep(69893) == 1">
 				<GetTo ZoneId="129" XYZ="-373.2449, 7.999985, 46.1327"/>
 				<LLTalkTo NpcId="1038570" XYZ="-374.6853, 7.999938, 45.82275" QuestId="69893" StepId="1"/>
@@ -87,10 +88,10 @@
 				<LLTurnIn QuestId="69893" NpcId="1038578" XYZ="49.69861, -16.247, 145.2201"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>				
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- Old Sharlayan, New to You -->
     <If Condition="IsQuestCompleted(69893) and not IsQuestCompleted(69894)">
 			<If Condition="not HasQuest(69894)">
@@ -141,7 +142,7 @@
 				<LLTurnIn QuestId="69894" NpcId="1038586" XYZ="-0.01531982, 1.907349E-06, -0.7781982"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
 
@@ -192,7 +193,7 @@
 				<LLTurnIn QuestId="69895" NpcId="1038679" XYZ="-275.5932, 19.00388, 13.32104"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
 
@@ -243,7 +244,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- A Labyrinthine Descent -->
     <If Condition="IsQuestCompleted(69896) and not IsQuestCompleted(69897)">
       <If Condition="not HasQuest(69897)">
@@ -289,7 +290,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Glorified Ratcatcher -->
     <If Condition="IsQuestCompleted(69897) and not IsQuestCompleted(69898)">
       <If Condition="not HasQuest(69898)">
@@ -332,8 +333,8 @@
 				<LLTurnIn QuestId="69898" NpcId="1038702" XYZ="394.2778, 165.95, -521.294"/>
 				<LLSmallTalk/>
 			</If>
-		</If>	
-			
+		</If>
+
 
     <!-- Deeper into the Maze -->
     <If Condition="IsQuestCompleted(69898) and not IsQuestCompleted(69899)">
@@ -366,17 +367,17 @@
 			</If>
 			<If Condition="GetQuestStep(69899) == 5">
 				<GetTo ZoneId="956" XYZ="574.7405, 169.4404, -518.2614"/>
-				<UserDialog QuestId="69899" StepId="5" IsBotContinueAllowed="True" DialogText="Please manually sedate the Large Green Bird with the sleeping dart." />			
+				<UserDialog QuestId="69899" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Large Green Bird." />
 			</If>
 			<If Condition="GetQuestStep(69899) == 255">
 				<GetTo ZoneId="956" XYZ="643.4731, 184.8565, -130.9254"/>
 				<LLTurnIn QuestId="69899" NpcId="1038718" XYZ="644.9835, 185.1472, -130.2358"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- The Medial Circuit -->
     <If Condition="IsQuestCompleted(69899) and not IsQuestCompleted(69900)">
 			<If Condition="not HasQuest(69900)">
@@ -424,7 +425,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- The Full Report, Warts and All -->
     <If Condition="IsQuestCompleted(69900) and not IsQuestCompleted(69901)">
 			<If Condition="not HasQuest(69901)">
@@ -464,7 +465,7 @@
 				<LLTurnIn QuestId="69901" NpcId="1038740" XYZ="-256.2753, 79.75535, -502.1286"/>
 				<LLSmallTalk/>
 			</If>
-		</If>	
+		</If>
 
     <!-- A Guide of Sorts -->
     <If Condition="IsQuestCompleted(69901) and not IsQuestCompleted(69902)">
@@ -489,7 +490,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Estate Visitor -->
     <If Condition="IsQuestCompleted(69902) and not IsQuestCompleted(69903)">
       <If Condition="not HasQuest(69903)">
@@ -525,7 +526,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Thavnair Branch -->
     <!-- For Thavnair Bound -->
     <If Condition="IsQuestCompleted(69903) and not IsQuestCompleted(69904)">
@@ -571,7 +572,7 @@
 				<LLDiscardItem ItemId="36039"/> <!-- Amra Lassi -->
 			</If>
 		</If>
-		
+
     <!-- On Low Tide -->
     <If Condition="IsQuestCompleted(69904) and not IsQuestCompleted(69905)">
       <If Condition="not HasQuest(69905)">
@@ -606,10 +607,10 @@
 				<LLTurnIn QuestId="69905" NpcId="1038608" XYZ="197.5585, 1.769939, 737.972"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- A Fisherman's Friend -->
     <If Condition="IsQuestCompleted(69905) and not IsQuestCompleted(69906)">
       <If Condition="not HasQuest(69906)">
@@ -653,7 +654,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- House of Divinities -->
     <If Condition="IsQuestCompleted(69906) and not IsQuestCompleted(69907)">
       <If Condition="not HasQuest(69907)">
@@ -697,7 +698,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- The Great Work -->
     <If Condition="IsQuestCompleted(69907) and not IsQuestCompleted(69908)">
       <If Condition="not HasQuest(69908)">
@@ -770,7 +771,7 @@
 				<LLTurnIn ItemId="2003181" QuestId="69908" NpcId="1038635" XYZ="-487.1443, 49.16134, 153.4294"/>
 				<LLSmallTalk/>
 			</If>
-		</If>	
+		</If>
 
     <!-- Shadowed Footsteps -->
     <If Condition="IsQuestCompleted(69908) and not IsQuestCompleted(69909)">
@@ -808,7 +809,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- A Boy's Errand -->
     <If Condition="IsQuestCompleted(69909) and not IsQuestCompleted(69910)">
       <If Condition="not HasQuest(69910)">
@@ -863,7 +864,7 @@
 				<LLTurnIn QuestId="69910" NpcId="1037649" XYZ="-92.97333, 89.5583, -642.3591"/>
 				<LLSmallTalk/>
 			</If>
-		</If>	
+		</If>
 
     <!-- Tipping the Scale -->
     <If Condition="IsQuestCompleted(69910) and not IsQuestCompleted(69911)">
@@ -891,7 +892,7 @@
 				<LLTurnIn QuestId="69911" NpcId="1038653" XYZ="-492.0577, 4.567674, 17.53253"/>
 				<LLSmallTalk/>
 			</If>
-		</If>	
+		</If>
 
     <!-- The Satrap of Radz-at-Han -->
     <If Condition="IsQuestCompleted(69911) and not IsQuestCompleted(69912)">
@@ -920,7 +921,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- In the Dark of the Tower -->
     <If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912) and not IsQuestCompleted(69913)">
 			<If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912)">
@@ -934,7 +935,7 @@
 						<LLPickupQuest QuestId="69913" NpcId="1040291"/>
 						<LLSmallTalk/>
 					</If>
-				</If>	
+				</If>
 			</If>
 			<If Condition="GetQuestStep(69913) == 1">
 				<GetTo ZoneId="957" XYZ="-569.1623, 9.817484, -571.8511"/>
@@ -946,7 +947,6 @@
 			</If>
 			<If Condition="GetQuestStep(69913) == 3">
 				<LLoadProfile Path="Dungeons/Endwalker/81 The Tower of Zot.xml"/>
-				<!--<UserDialog QuestId="69913" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Tower of Zot and hit continue." /> -->			
 			</If>
 			<If Condition="GetQuestStep(69913) == 4">
 				<WaitWhile condition="GetQuestStep(69913) == 4"/>
@@ -957,7 +957,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- The Jewel of Thavnair -->
     <If Condition="IsQuestCompleted(69913) and not IsQuestCompleted(69914)">
       <If Condition="not HasQuest(69914)">
@@ -1019,7 +1019,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- The Color of Joy -->
     <If Condition="IsQuestCompleted(69914) and not IsQuestCompleted(69915)">
       <If Condition="not HasQuest(69915)">
@@ -1076,7 +1076,7 @@
 				<LLDiscardItem ItemId="36036"/> <!-- Archon Loaf -->
 			</If>
 		</If>
-		
+
     <!-- Sound the Bell, School's In -->
     <If Condition="IsQuestCompleted(69915) and not IsQuestCompleted(69916)">
       <If Condition="not HasQuest(69916)">
@@ -1111,10 +1111,10 @@
 				<LLTurnIn QuestId="69916" NpcId="1038780" XYZ="-394.9188, 20.8, -107.9271"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- A Capital Idea -->
     <If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69917)">
       <If Condition="not HasQuest(69917)">
@@ -1142,10 +1142,10 @@
 				<LLTurnIn QuestId="69917" NpcId="1038796" XYZ="745.9678, 69.99995, 525.2003"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- A Void at All Costs -->
     <If Condition="IsQuestCompleted(69917) and not IsQuestCompleted(69918)">
       <If Condition="not HasQuest(69918)">
@@ -1193,7 +1193,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- A Frosty Reception -->
     <If Condition="IsQuestCompleted(69918) and not IsQuestCompleted(69919)">
       <If Condition="not HasQuest(69919)">
@@ -1206,33 +1206,30 @@
 			<If Condition="GetQuestStep(69919) == 1">
 				<While condition="GetQuestStep(69919) == 1 and not IsOnMap(1010) and not Core.Player.HasAura(1534)">
 					<GetTo ZoneId="621" XYZ="744.5336, 70, 539.2463"/>
-					<LLToast Message="Please complete the Thancred portion of this solo duty."/>
-					<WaitTimer WaitTime="26"/>
+					<UserDialog QuestId="69919" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete Thancred's section of the solo duty A Frosty Reception.\n\nThe fight after Thancred's section is automated." />
 				</While>
-				<While condition="Core.Player.HasAura(1534)">
-					<WaitWhile condition="Core.Player.HasAura(1534)"/>
-				</While>
+				<WaitWhile condition="Core.Player.HasAura(1534)"/>
 				<While condition="GetQuestStep(69919) == 1 and IsOnMap(1010)">
 					<SimpleDuty InteractNpcId="1038825" XYZ="-307.7592, -41.67242, 695.3993" QuestId="69919" StepId="1">
 						<HotSpots>
 							<Hotspot Radius="90" XYZ="0.8627971, 0.1996017, 274.4379" name="Name"/>
 							<Hotspot Radius="90" XYZ="-0.09660663, 0.1992257, 226.1187" name="Name"/>
 							<Hotspot Radius="90" XYZ="-0.4773064, 0.2, 171.6892" name="Name"/>
-							<Hotspot Radius="90" XYZ="-0.08701375, 0.2, 130.7756" name="Name"/>						
+							<Hotspot Radius="90" XYZ="-0.08701375, 0.2, 130.7756" name="Name"/>
 						</HotSpots>
 						<TargetMobs>
-							<TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->			
+							<TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->
 							<TargetMob Id="10549" Weight="1"/> <!-- Tempered Imperial -->
 							<TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->
 							<TargetMob Id="11212" Weight="1"/> <!-- Tempered Imperial -->
 							<TargetMob Id="10560" Weight="1"/> <!-- Telotek Sky Armor -->
-							<TargetMob Id="10561" Weight="10"/> <!-- Telotek Reaper -->							
+							<TargetMob Id="10561" Weight="10"/> <!-- Telotek Reaper -->
 							<TargetMob Id="10562" Weight="1"/> <!-- Telotek Predator -->
 							<TargetMob Id="10552" Weight="1"/> <!-- Telocanis -->
 							<TargetMob Id="10572" Weight="1"/> <!-- Vergilia van Corculum -->
 							<TargetMob Id="10550" Weight="1"/> <!-- Tempered Imperial -->
 							<TargetMob Id="10552" Weight="1"/> <!-- Telocanis -->
-							<TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->			
+							<TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->
 						</TargetMobs>
 					</SimpleDuty>
 				</While>
@@ -1263,7 +1260,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Tracks In The Snow -->
     <If Condition="IsQuestCompleted(69919) and not IsQuestCompleted(69920)">
       <If Condition="not HasQuest(69920)">
@@ -1318,7 +1315,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- How The Mighty Are Fallen -->
     <If Condition="IsQuestCompleted(69920) and not IsQuestCompleted(69921)">
 			<If Condition="not HasQuest(69921)">
@@ -1361,10 +1358,10 @@
 				<LLTurnIn QuestId="69921" NpcId="1038856" XYZ="137.6516, -13.27878, 648.249"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- At the End of the Trail -->
     <If Condition="IsQuestCompleted(69921) and not IsQuestCompleted(69922)">
       <If Condition="not HasQuest(69922)">
@@ -1404,7 +1401,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- A Way Forward -->
     <If Condition="IsQuestCompleted(69922) and not IsQuestCompleted(69923)">
       <If Condition="not HasQuest(69923)">
@@ -1443,10 +1440,10 @@
 				<LLTurnIn QuestId="69923" NpcId="1039883" XYZ="64.65234, 0.2142759, 147.8446"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- The Last Bsstion -->
     <If Condition="IsQuestCompleted(69923) and not IsQuestCompleted(69924)">
 			<If Condition="not HasQuest(69924)">
@@ -1502,7 +1499,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Personae non Gratae -->
     <If Condition="IsQuestCompleted(69924) and not IsQuestCompleted(69925)">
       <If Condition="not HasQuest(69925)">
@@ -1550,7 +1547,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- His Park Materials -->
     <If Condition="IsQuestCompleted(69925) and not IsQuestCompleted(69926)">
       <If Condition="not HasQuest(69926)">
@@ -1588,10 +1585,10 @@
 				<LLTurnIn ItemId="2003228" QuestId="69926" NpcId="1039906" XYZ="432.2423, 15.55817, -611.902"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- No Good Deed -->
     <If Condition="IsQuestCompleted(69926) and not IsQuestCompleted(69927)">
       <If Condition="not HasQuest(69927)">
@@ -1623,7 +1620,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Alea Iacta Est -->
     <If Condition="IsQuestCompleted(69927) and not IsQuestCompleted(69928)">
       <If Condition="not HasQuest(69928)">
@@ -1655,7 +1652,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Strange Bedfellows -->
     <If Condition="IsQuestCompleted(69928) and not IsQuestCompleted(69929)">
       <If Condition="not HasQuest(69929)">
@@ -1719,10 +1716,10 @@
 				<LLTurnIn QuestId="69929" NpcId="1039931" XYZ="-351.1559, 23.7426, 418.4176"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- In from the Cold -->
     <If Condition="IsQuestCompleted(69929) and not IsQuestCompleted(69930)">
       <If Condition="not HasQuest(69930)">
@@ -1734,7 +1731,7 @@
 			</If>
 			<If Condition="GetQuestStep(69930) == 1">
 				<GetTo ZoneId="958" XYZ="-360.438, 22, 487.1302"/>
-				<UserDialog QuestId="69930" StepId="1" IsBotContinueAllowed="True" DialogText="Please manually complete the solo duty." />				
+				<UserDialog QuestId="69930" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty In from the Cold.\n\nYes, this is the creepy body-snatcher thing.\n\nThe Magitek Fuel is much closer if you intentionally die and set it to Very Easy." />
 			</If>
 			<If Condition="GetQuestStep(69930) == 255">
 				<GetTo ZoneId="958" XYZ="-368.5879, 22.22248, 402.2648"/>
@@ -1742,7 +1739,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Gateway of the Gods -->
     <If Condition="IsQuestCompleted(69930) and not IsQuestCompleted(69931)">
       <If Condition="not HasQuest(69931)">
@@ -1768,7 +1765,6 @@
 			</If>
 			<If Condition="GetQuestStep(69931) == 4">
 				<LLoadProfile Path="Dungeons/Endwalker/83 The Tower of Babil.xml"/>
-				<!-- <UserDialog QuestId="69931" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty The Tower of Babil and hit continue." /> -->
 			</If>
 			<If Condition="GetQuestStep(69931) == 5">
 				<WaitWhile condition="GetQuestStep(69931) == 5"/>
@@ -1783,7 +1779,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- A Trip To The Moon -->
     <If Condition="IsQuestCompleted(69931) and not IsQuestCompleted(69932)">
       <If Condition="not HasQuest(69932)">
@@ -1827,7 +1823,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Sea of Sorrow -->
     <If Condition="IsQuestCompleted(69932) and not IsQuestCompleted(69933)">
       <If Condition="not HasQuest(69933)">
@@ -1899,7 +1895,7 @@
 				<LLTurnIn QuestId="69933" NpcId="1039984" XYZ="183.3981, 58.83443, 427.2982"/>
 				<LLSmallTalk/>
 			</If>
-		</If>	
+		</If>
 
     <!-- The Martyr -->
     <If Condition="IsQuestCompleted(69933) and not IsQuestCompleted(69934)">
@@ -1917,18 +1913,18 @@
 				<WaitWhile condition="GetQuestStep(69934) == 1"/>
 			</If>
 			<If Condition="GetQuestStep(69934) == 2">
-				<UserDialog QuestId="69934" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the trial The Dark Inside and hit continue." />		
+				<UserDialog QuestId="69934" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Dark Inside." />
 			</If>
 			<If Condition="GetQuestStep(69934) == 3">
 				<WaitWhile condition="GetQuestStep(69934) == 3"/>
-			</If>			
+			</If>
 			<If Condition="GetQuestStep(69934) == 255">
 				<GetTo ZoneId="959" XYZ="-277.0482, 75.79068, 483.013"/>
 				<LLTurnIn QuestId="69934" NpcId="1039989" XYZ="-279.9573, 76.14732, 480.9186"/>
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- In Shadow's Wake -->
     <If Condition="IsQuestCompleted(69934) and not IsQuestCompleted(69935)">
       <If Condition="not HasQuest(69935)">
@@ -1963,10 +1959,10 @@
 				<LLTurnIn QuestId="69935" NpcId="1038876" XYZ="-445.5482, 136.0188, 552.5748"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- Helping Hands -->
     <If Condition="IsQuestCompleted(69935) and not IsQuestCompleted(69936)">
 			<If Condition="not HasQuest(69936)">
@@ -2003,7 +1999,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- A Harey Situation -->
     <If Condition="IsQuestCompleted(69936) and not IsQuestCompleted(69937)">
       <If Condition="not HasQuest(69937)">
@@ -2030,10 +2026,10 @@
 				<LLTurnIn QuestId="69937" NpcId="1038903" XYZ="-17.95996, -47.19207, -494.316"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- A Taste of the Moon -->
     <If Condition="IsQuestCompleted(69937) and not IsQuestCompleted(69938)">
       <If Condition="not HasQuest(69938)">
@@ -2077,7 +2073,7 @@
 				<LLDiscardItem ItemId="27854"/> <!-- Purple Carrot Juice -->
 			</If>
 		</If>
-		
+
     <!-- Styled a Hero -->
     <If Condition="IsQuestCompleted(69938) and not IsQuestCompleted(69939)">
       <If Condition="not HasQuest(69939)">
@@ -2138,10 +2134,10 @@
 				<LLTurnIn QuestId="69939" NpcId="1038927" XYZ="2.090454, -49.5896, -699.733"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
 		</If>
-		
+
     <!-- All's Vale That Endsvale -->
     <If Condition="IsQuestCompleted(69939) and not IsQuestCompleted(69940)">
       <If Condition="not HasQuest(69940)">
@@ -2203,7 +2199,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- Back to Old Tricks -->
     <If Condition="IsQuestCompleted(69940) and not IsQuestCompleted(69941)">
       <If Condition="not HasQuest(69941)">
@@ -2239,10 +2235,10 @@
 				<LLTurnIn QuestId="69941" NpcId="1038935" XYZ="68.5282, 75.72459, -23.51416"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
-		
+
     <!-- Setting Things Straight -->
     <If Condition="IsQuestCompleted(69941) and not IsQuestCompleted(69942)">
       <If Condition="not HasQuest(69942)">
@@ -2275,20 +2271,20 @@
 			</If>
 			<If Condition="GetQuestStep(69942) == 6">
 				<GetTo ZoneId="959" XYZ="466.9865, -168, -652.0822"/>
-				<UserDialog QuestId="69942" StepId="6" IsBotContinueAllowed="True" DialogText="PPlease manually shoot the Lopporit that *runs* and talks." />
+				<UserDialog QuestId="69942" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Loporrit who RUNS and TALKS." />
 			</If>
 			<If Condition="GetQuestStep(69942) == 7">
 				<WaitWhile condition="GetQuestStep(69942) == 7"/>
-			</If>			
+			</If>
 			<If Condition="GetQuestStep(69942) == 255">
 				<GetTo ZoneId="959" XYZ="360.8968, -168, -630.6654"/>
 				<LLTurnIn QuestId="69942" NpcId="1038944" XYZ="361.6541, -168, -628.1987"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
-		
+
     <!-- Heart of the Matter -->
     <If Condition="IsQuestCompleted(69942) and not IsQuestCompleted(69943)">
       <If Condition="not HasQuest(69943)">
@@ -2315,7 +2311,7 @@
 				<LLSmallTalk/>
 			</If>
     </If>
-		
+
     <!-- Returning Home -->
     <If Condition="IsQuestCompleted(69943) and not IsQuestCompleted(69944)">
       <If Condition="not HasQuest(69944)">
@@ -2358,21 +2354,21 @@
 				<LLTurnIn QuestId="69944" NpcId="1038588" XYZ="-101.7625, 4.357494, 0.7476196"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
-		
+
 		<!-- Level to 85 to take the next quest -->
 		<While Condition="Core.Player.ClassLevel &lt; 85">
 			<If condition="not IsOnMap(957)">
 				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
-			</If>		
-			<Log Message="Starting Thavnair Fates without flight support." /> 
+			</If>
+			<Log Message="Starting Thavnair Fates without flight support." />
 			<While condition="IsOnMap(957) and Core.Player.ClassLevel &lt; 85">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" BlacklistIds="1764,1772,1773,1774,1775,1776,1777,1778,1779" while="IsOnMap(957) and Core.Player.ClassLevel &lt; 85"/>	
-			</While>	
-		</While>		
-		
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" BlacklistIds="1764,1772,1773,1774,1775,1776,1777,1778,1779" while="IsOnMap(957) and Core.Player.ClassLevel &lt; 85"/>
+			</While>
+		</While>
+
     <!-- Skies Aflame -->
     <If Condition="IsQuestCompleted(69944) and not IsQuestCompleted(69945)">
       <If Condition="not HasQuest(69945)">
@@ -2397,16 +2393,15 @@
 			</If>
 			<If Condition="GetQuestStep(69945) == 4">
 				<LLoadProfile Path="Dungeons/Endwalker/85 Vanaspati.xml"/>
-				<!-- <UserDialog QuestId="69945" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty Vanaspati and hit continue." /> -->
 			</If>
 			<If Condition="GetQuestStep(69945) == 5">
 				<WaitWhile condition="GetQuestStep(69945) == 5"/>
 			</If>
 			<If Condition="GetQuestStep(69945) == 255">
 				<If condition="not IsOnMap(963)">
-					<GetTo ZoneId="957" XYZ="211.1728, 60.95395, -600.88"/>  
-					<UseTransport NpcId="1037650" InteractDistance="3.0" XYZ="210.3151, 60.71239, -600.7629"/>		
-				</If>	
+					<GetTo ZoneId="957" XYZ="211.1728, 60.95395, -600.88"/>
+					<UseTransport NpcId="1037650" InteractDistance="3.0" XYZ="210.3151, 60.71239, -600.7629"/>
+				</If>
 				<GetTo ZoneId="963" XYZ="4.600305, -1.999996, 95.08058"/>
 				<LLTurnIn QuestId="69945" NpcId="1038992" XYZ="4.653992, -1.999996, 93.49207" RewardSlot="3"/>
 				<LLSmallTalk/>
@@ -2580,7 +2575,7 @@
 				<LLSmallTalk/>
 			</If>
 		</If>
-		
+
     <!-- That We Might Live -->
     <If Condition="IsQuestCompleted(69948) and not IsQuestCompleted(69949)">
       <If Condition="not HasQuest(69949)">
@@ -2846,7 +2841,7 @@
 				<LLTurnIn QuestId="69955" NpcId="1039992" XYZ="-65.26294, -37.7, -208.8503"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -2896,7 +2891,7 @@
 			</If>
 			<If Condition="GetQuestStep(69956) == 5">
 				<WaitWhile condition="GetQuestStep(69956) == 5"/>
-			</If>			
+			</If>
 			<If Condition="GetQuestStep(69956) == 255">
 				<LLSmallTalk/>
 				<GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>
@@ -3058,7 +3053,7 @@
 				<LLSmallTalk/>
 				<RunCode name="TurnOnMount"/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3136,7 +3131,7 @@
 				<LLTurnIn QuestId="69961" NpcId="1040069" XYZ="134.905, 10.38586, 88.91431"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3155,7 +3150,7 @@
       </If>
 			<If Condition="GetQuestStep(69962) == 1">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->				
+					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
 				</If>
 				<MoveTo ZoneId="961" XYZ="-162.289, -40.20119, 374.1307"/>
 				<LLTalkTo NpcId="1040073" XYZ="-164.1108, -41.02881, 377.3707" QuestId="69962" StepId="1"/>
@@ -3181,7 +3176,7 @@
 				<LLTurnIn QuestId="69962" NpcId="1040084" XYZ="-661.1277, -22.39482, 527.8857"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3304,23 +3299,23 @@
 				<LLTurnIn QuestId="69964" NpcId="1040100" XYZ="-638.1476, -22.39482, 504.9058"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
-		
+
 		<While condition="IsQuestCompleted(69964) and Core.Player.ClassLevel &lt; 87">
 			<If condition="not IsOnMap(961)">
 				<TeleportTo AetheryteId="176"/> <!-- The Twelve Wonders -->
 			</If>
 			<!-- Buy Greens -->
 			<If condition="not HasAtLeast(4868,50)">
-      <GetTo ZoneId="961" XYZ="140.683, 10.461, 163.2933"/>  
+      <GetTo ZoneId="961" XYZ="140.683, 10.461, 163.2933"/>
 				<BuyItem ItemIds="4868" DialogOption="6" ItemCount="99" NpcId="1037907" XYZ="140.683, 10.461, 163.2933"/>
-			</If>				
+			</If>
 			<While condition="IsOnMap(961) and Core.Player.ClassLevel &lt; 87">
-				<LLFate UseFlight="False" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1831,1832,1833,1834,1835,1836,1837,1838" while="IsOnMap(961) and Core.Player.ClassLevel &lt; 87"/>	
+				<LLFate UseFlight="False" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1831,1832,1833,1834,1835,1836,1837,1838" while="IsOnMap(961) and Core.Player.ClassLevel &lt; 87"/>
 			</While>
-		</While>		
+		</While>
 
     <!-- Travelers at the Crossroads -->
     <If Condition="IsQuestCompleted(69964) and not IsQuestCompleted(69965)">
@@ -3453,7 +3448,7 @@
 				<LLTurnIn QuestId="69967" NpcId="1040128" XYZ="-664.4236, 178.0787, -334.5846"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3480,11 +3475,7 @@
 						<TargetMob Id="10499" Weight="5000"/> <!-- Thelema Agape -->
 						<TargetMob Id="10589" Weight="5000"/> <!-- Thelema -->
 					</TargetMobs>
-				</SimpleDuty>			
-				<!--
-				<GetTo ZoneId="961" XYZ="-626.2192, 138.676, 64.52769"/>
-				<LLToast message="Please manually complete the solo duty."/>
-				<StopBot/> -->
+				</SimpleDuty>
 			</If>
 			<If Condition="GetQuestStep(69968) == 3">
 				<WaitWhile condition="GetQuestStep(69968) == 3"/>
@@ -3644,11 +3635,10 @@
 			</If>
 			<If Condition="GetQuestStep(69973) == 2">
 				<LLoadProfile Path="Dungeons/Endwalker/87 Ktisis Hyperboreia.xml"/>
-				<!-- <UserDialog QuestId="69973" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the duty Ktisis Hyperboreia and hit continue." /> -->
 			</If>
 			<If Condition="GetQuestStep(69973) == 3">
 				<WaitWhile condition="GetQuestStep(69973) == 3"/>
-			</If>			
+			</If>
 			<If Condition="GetQuestStep(69973) == 255">
 				<GetTo ZoneId="961" XYZ="475.585, -17.55379, 52.03789"/>
 				<LLTurnIn QuestId="69973" NpcId="1040159" XYZ="473.1975, -17.13116, 49.66809"/>
@@ -3702,7 +3692,7 @@
       </If>
 			<If Condition="GetQuestStep(69975) == 1">
 				<GetTo ZoneId="958" XYZ="-393.0665, 22, 500.7714"/>
-				<UserDialog QuestId="69975" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+				<UserDialog QuestId="69975" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty As the Heavens Burn.\n\nRoleplay as Alphinaud, Alisaie, then self vs. Blasphemy monsters." />
 			</If>
 			<If Condition="GetQuestStep(69975) == 2">
 				<WaitWhile condition="GetQuestStep(69975) == 2"/>
@@ -3712,7 +3702,7 @@
 				<LLTurnIn QuestId="69975" NpcId="1039675" XYZ="-404.8982, 22, 416.3423"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3791,7 +3781,7 @@
 				<LLTurnIn QuestId="69977" NpcId="1039740" XYZ="-19.05853, -30.15554, 637.0793"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3842,7 +3832,7 @@
 			</If>
 			<If Condition="GetQuestStep(69979) == 2">
 				<GetTo ZoneId="956" XYZ="124.1743, -17.53038, -74.18906"/>
-				<UserDialog QuestId="69979" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually look at the blue Tanks, brass Metallic Tube, and brass Mushroom-like Thing." />
+				<UserDialog QuestId="69979" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the blue Tanks, brass Metallic Tube, and brass Mushroom-like Thing." />
 			</If>
 			<If Condition="GetQuestStep(69979) == 3">
 				<GetTo ZoneId="956" XYZ="217.4243, -25.87816, 103.0777"/>
@@ -3864,7 +3854,7 @@
 				<LLTurnIn QuestId="69979" NpcId="1040397" XYZ="372.3964, 79.69138, 299.1836"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -3986,7 +3976,7 @@
 				<LLTurnIn QuestId="69981" NpcId="1040436" XYZ="-78.26355, -29.53, -58.85406"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -4024,7 +4014,7 @@
 				<LLTurnIn QuestId="69982" NpcId="1040447" XYZ="-710.0176, -31.53043, 322.5909"/>
 				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>						
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -4094,9 +4084,9 @@
 			<If Condition="GetQuestStep(69984) == 255">
 				<GetTo ZoneId="956" XYZ="-408.6238, -220.1825, 302.1053"/>
 				<LLTurnIn QuestId="69984" NpcId="1040478" XYZ="-406.9734, -220.1835, 304.1886"/>
-				<LLSmallTalk/>	
+				<LLSmallTalk/>
 				<RunCode Name="Coffer" />
-				<AutoInventoryEquip/>		
+				<AutoInventoryEquip/>
 			</If>
     </If>
 
@@ -4107,31 +4097,31 @@
 		<!-- Garlemald Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(958)">
 			<LLoadProfile Path="Endwalker Aether Currents.xml"/>
-		</If>		
+		</If>
 		<!-- Labyrinthos Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(956)">
 			<LLoadProfile Path="Endwalker Aether Currents.xml"/>
-		</If>		
+		</If>
 		<!-- Mare Lamentorum Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(959)">
 			<LLoadProfile Path="Endwalker Aether Currents.xml"/>
-		</If>	
+		</If>
 		<!-- Elpis Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(961)">
 			<LLoadProfile Path="Endwalker Aether Currents.xml"/>
-		</If>		
-		
+		</If>
+
 		<!-- Hit 89 to accept next quest -->
 		<While condition="IsQuestCompleted(69984) and Core.Player.ClassLevel &lt; 89">
 			<If condition="not IsOnMap(956)">
 				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
-			</If>		
-			<Log Message="Starting Labyrinthos Fates to hit 89." /> 
+			</If>
+			<Log Message="Starting Labyrinthos Fates to hit 89." />
 			<While condition="IsOnMap(956) and Core.Player.ClassLevel &lt; 89">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1754" while="IsOnMap(956) and Core.Player.ClassLevel &lt; 89"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1754" while="IsOnMap(956) and Core.Player.ClassLevel &lt; 89"/>
 			</While>
-		</While>			
-		
+		</While>
+
     <!-- Her Children, One and All -->
     <If Condition="IsQuestCompleted(69984) and not IsQuestCompleted(69985) and Core.Player.ClassLevel &gt; 88">
       <If Condition="not HasQuest(69985)">
@@ -4146,15 +4136,15 @@
 				<LLTalkTo NpcId="1040487" XYZ="-234.6991, -224.3827, 349.0195" QuestId="69985" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69985) == 2">
-				<UserDialog QuestId="69985" StepId="2" IsBotContinueAllowed="True" DialogText="Please manually complete the dungeon: Lv. 89 The Aitiascope and hit continue." />			
+				<UserDialog QuestId="69985" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Aitiascope." />
 			</If>
 			<If Condition="GetQuestStep(69985) == 3">
 				<WaitWhile condition="GetQuestStep(69985) == 3"/>
 			</If>
 			<If Condition="GetQuestStep(69985) == 4">
 				<WaitTimer waitTime="1" />
-				<AutoInventoryEquip/>	
-				<UserDialog QuestId="69985" StepId="4" IsBotContinueAllowed="True" DialogText="Please manually complete the trial: Lv. 89 The Mothercrystal and hit continue." />							
+				<AutoInventoryEquip/>
+				<UserDialog QuestId="69985" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Mothercrystal." />
 			</If>
 			<If Condition="GetQuestStep(69985) == 5">
 				<WaitWhile condition="GetQuestStep(69985) == 5"/>
@@ -4567,7 +4557,7 @@
 			</If>
 			<If Condition="GetQuestStep(69996) == 4">
 				<GetTo ZoneId="960" XYZ="527.8383, 441.0412, 376.7456"/>
-				<UserDialog QuestId="69996" StepId="4" IsBotContinueAllowed="True" DialogText="Please do the zoomie zoom manually and hit continue." />			
+				<UserDialog QuestId="69996" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the super fast-moving Omicron robot." />
 			</If>
 			<If Condition="GetQuestStep(69996) == 5">
 				<GetTo ZoneId="960" XYZ="633.9286, 438.6276, 249.8538"/>
@@ -4599,7 +4589,7 @@
 			</If>
 			<If Condition="GetQuestStep(69997) == 2">
 				<GetTo ZoneId="960" XYZ="606.0432, 440.5609, 396.3582"/>
-				<UserDialog QuestId="69997" StepId="2" IsBotContinueAllowed="True" DialogText="Please do the zoomie zoom manually and hit continue." />			
+				<UserDialog QuestId="69997" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Omicron robot's sparking body part." />
 			</If>
 			<If Condition="GetQuestStep(69997) == 3">
 				<GetTo ZoneId="960" XYZ="624.3486, 441.9763, 437.4992"/>
@@ -4715,31 +4705,31 @@
           <LLSmallTalk/>
         </If>
       </If>
-			
+
 			<!-- Ultima Thule Flying -->
 			<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(960)">
 				<LLoadProfile Path="Endwalker Aether Currents.xml"/>
-			</If>					
-				
-			
+			</If>
+
+
 			<If Condition="GetQuestStep(70000) == 1">
-				<UserDialog QuestId="70000" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the duty The Dead Ends and hit continue." />
+				<UserDialog QuestId="70000" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Dead Ends." />
 			</If>
 			<If Condition="GetQuestStep(70000) == 2">
 				<WaitWhile condition="GetQuestStep(70000) == 2"/>
-			</If>			
+			</If>
 			<If Condition="GetQuestStep(70000) == 3">
-				<UserDialog QuestId="70000" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the trial The Final Day and hit continue." />
+				<UserDialog QuestId="70000" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Final Day." />
 			</If>
 			<If Condition="GetQuestStep(70000) == 4">
 				<WaitWhile condition="GetQuestStep(70000) == 4"/>
-			</If>				
+			</If>
 			<If Condition="GetQuestStep(70000) == 5">
-				<UserDialog QuestId="70000" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+				<UserDialog QuestId="70000" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the solo duty.\n\nPlayer vs. Zenos punch-out." />
 			</If>
 			<If Condition="GetQuestStep(70000) == 6">
 				<WaitWhile condition="GetQuestStep(70000) == 6"/>
-			</If>				
+			</If>
 			<If Condition="GetQuestStep(70000) == 7 and GetQuestById(70000).QuestI8A == 0">
 				<GetTo ZoneId="351" XYZ="0.6265226, 0, -2.114728"/>
 				<LLTalkTo NpcId="1041188" XYZ="-0.1679077, 0, 0.8086548" QuestId="70000" StepId="7"/>
@@ -4778,9 +4768,8 @@
 				<LLSmallTalk/>
 			</If>
     </If>
-		
-		<LLoadProfile Path="../Start.xml"/>
 
+		<LLoadProfile Path="../Start.xml"/>
 
   </Order>
   <GrindAreas>
@@ -4797,17 +4786,17 @@
         <Hotspot Radius="90" XYZ="-0.07499886, 0.3000001, -66" name="Name"/>
       </Hotspots>
       <TargetMobs>
-        <TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->			
+        <TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->
         <TargetMob Id="10549" Weight="1"/> <!-- Tempered Imperial -->
         <TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->
         <TargetMob Id="11212" Weight="1"/> <!-- Tempered Imperial -->
         <TargetMob Id="10560" Weight="1"/> <!-- Telotek Sky Armor -->
         <TargetMob Id="10562" Weight="1"/> <!-- Telotek Predator -->
         <TargetMob Id="10552" Weight="1"/> <!-- Telocanis -->
-				
+
       </TargetMobs>
     </GrindArea>
-		
+
   </GrindAreas>
   <CodeChunks>
     <CodeChunk Name="TurnOffMount">
@@ -4841,13 +4830,13 @@
         {
           var _target = npcId.Location;
           Navigator.PlayerMover.MoveTowards(_target);
-          
+
           while (_target.Distance2D(Core.Me.Location) >= 4)
           {
             Navigator.PlayerMover.MoveTowards(_target);
             await Coroutine.Sleep(100);
           }
-          
+
           Navigator.PlayerMover.MoveStop();
         }
 
@@ -5119,18 +5108,18 @@
       ]]>
     </CodeChunk>
 	<CodeChunk Name="Coffer">
-	  <![CDATA[		
+	  <![CDATA[
 		foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
         {
         bagslot.UseItem();
         await Coroutine.Sleep(5000);
         }
-	  ]]> 
+	  ]]>
 	</CodeChunk>
     <CodeChunk Name="SetFood">
 			<![CDATA[
 				Gluttony.Settings.Instance.Id = 4650;
 			]]>
-		</CodeChunk>		
+		</CodeChunk>
   </CodeChunks>
 </Profile>

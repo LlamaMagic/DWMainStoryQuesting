@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Endwalker 6-2 Buried Memory
-  Authors: DomesticWarlord86
+Profile: [OrderBot][MSQ] 6.2 - Endwalker - Buried Memory
+Authors: DomesticWarlord86
 -->
 <Profile>
-  <Name>Endwalker 6-2 Buried Memory</Name>
+  <Name>[OrderBot][MSQ] 6.2 - Endwalker - Buried Memory</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+    <!-- Profile starts here -->
+    <If Condition="not IsQuestCompleted(70071)">
+      <Log Message="Must complete Endwalker 6.1 before starting Endwalker 6.2. Returning to Start.xml" />
+      <LLoadProfile Path="../Start.xml"/>
+    </If>
 
     <!-- In Search of Azdaja -->
     <If Condition="not IsQuestCompleted(70128)">
@@ -29,7 +34,7 @@
         <TalkTo NpcId="1039663" XYZ="110.8262, -350, -81.9563" QuestId="70128" StepId="3" />
       </If>
       <If Condition="GetQuestStep(70128) == 4">
-        <UserDialog QuestId="70128" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty Fell Court of Troia and hit continue." />
+        <UserDialog QuestId="70128" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Fell Court of Troia." />
       </If>
       <If Condition="GetQuestStep(70128) == 5">
         <WaitWhile condition="GetQuestStep(70128) == 5" />
@@ -108,7 +113,6 @@
           <UseTransport NpcId="2013112" InteractDistance="3.0" XYZ="259.9318, -706.408, 90.01325" QuestId="70130" />
         </If>
         <MoveTo XYZ="-0.195353, -698.0104, -149.0991" />
-        <!--<UserDialog QuestId="70130" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete the solo duty." />-->
         <SimpleDuty InteractNpcId="1043808" XYZ="-0.195353, -698.0104, -149.0991" QuestId="70130" StepId="3">
           <HotSpots>
             <Hotspot Radius="90" XYZ="0, -698.0104, -162" name="Name" />
@@ -235,7 +239,7 @@
         <WaitWhile condition="GetQuestStep(70133) == 2" />
       </If>
       <If Condition="GetQuestStep(70133) == 3">
-        <UserDialog QuestId="70133" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete the Storm's Crown duty." />
+        <UserDialog QuestId="70133" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Storm's Crown." />
       </If>
       <If Condition="GetQuestStep(70133) == 4">
         <WaitWhile condition="GetQuestStep(70133) == 4" />

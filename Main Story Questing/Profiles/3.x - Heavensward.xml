@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <!--
-	Profile: [Orderbot] Heavensward Main Scenario
-	Authors: Sodimm, y2krazy, kagamihiiragi17
-	Version: 1.3.5
-	Known Issues: GetTo sometimes doesn't get into range of an Aetheryte.
+Profile: [OrderBot][MSQ] 3.x - Heavensward
+Authors: Sodimm, y2krazy, kagamihiiragi17
+Version: 1.3.5
+Known Issues:
+  - GetTo sometimes doesn't get into range of an Aetheryte.
 -->
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
@@ -13,8 +14,14 @@
 	<!ENTITY CarryName "First Last">
 ]>
 <Profile>
-	<Name>[OrderBot] Heavensward Main Scenario 2.0</Name>
+	<Name>[OrderBot][MSQ] 3.x - Heavensward</Name>
 	<Order>
+		<!-- Profile starts here -->
+		<If Condition="not IsQuestCompleted(65964)">
+			<Log Message="Must complete A Realm Reborn before starting Heavensward. Returning to Start.xml" />
+			<LLoadProfile Path="../Start.xml"/>
+		</If>
+
 		<!-- Buy Eggs -->
 		<If condition="not HasAtLeast(4650,50)">
 			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975" />
@@ -1290,7 +1297,7 @@
 		</If>
 		<If Condition="HasQuest(67152) and GetQuestStep(67152) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67152" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the trial Thok ast Thok and hit continue." />
+				<UserDialog QuestId="67152" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Thok ast Thok (Hard)." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2485,7 +2492,7 @@
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67183" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the trial Limitless Blue (Hard) and hit continue." />
+				<UserDialog QuestId="67183" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Limitless Blue (Hard)." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2908,7 +2915,7 @@
 		</If>
 		<If Condition="HasQuest(67196) and not IsQuestCompleted(67196) and GetQuestStep(67196) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67196" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the duty the Great Gubal Library and hit continue." />
+				<UserDialog QuestId="67196" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Great Gubal Library." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -3523,7 +3530,7 @@
 		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67205" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Aetherochemical Research Facility and hit continue." />
+				<UserDialog QuestId="67205" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Aetherochemical Research Facility." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -3550,7 +3557,7 @@
 		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 5">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67205" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the trial Singularity Reactor and hit continue." />
+				<UserDialog QuestId="67205" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Singularity Reactor." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4082,7 +4089,7 @@
 		</If>
 		<If Condition="HasQuest(67768) and not IsQuestCompleted(67768) and GetQuestStep(67768) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67768" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Antitower and hit continue." />
+				<UserDialog QuestId="67768" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Antitower." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4526,7 +4533,7 @@
 		</If>
 		<If Condition="HasQuest(67780) and not IsQuestCompleted(67780) and GetQuestStep(67780) == 5">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67780" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the duty Sohr Khai and hit continue." />
+				<UserDialog QuestId="67780" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Sohr Khai." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4567,7 +4574,7 @@
 		</If>
 		<If Condition="HasQuest(67781) and not IsQuestCompleted(67781) and GetQuestStep(67781) == 2">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67781" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the trial The Final Steps of Faith and hit continue." />
+				<UserDialog QuestId="67781" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Final Steps of Faith." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4694,7 +4701,7 @@
 		</If>
 		<If Condition="HasQuest(67878) and not IsQuestCompleted(67878) and GetQuestStep(67878) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67878" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the duty Xelphatol and hit continue." />
+				<UserDialog QuestId="67878" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Xelphatol." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4829,7 +4836,7 @@
 		</If>
 		<If Condition="HasQuest(67881) and not IsQuestCompleted(67881) and GetQuestStep(67881) == 8">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67881" StepId="8" IsBotContinueAllowed="True" DialogText="Please complete the trial The Navel (Hard) and hit continue." />
+				<UserDialog QuestId="67881" StepId="8" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Navel (Hard)." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -5124,7 +5131,7 @@
 		</If>
 		<If Condition="HasQuest(67890) and not IsQuestCompleted(67890) and GetQuestStep(67890) == 6">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67890" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the duty Baelsar's Wall and hit continue." />
+				<UserDialog QuestId="67890" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Baelsar's Wall." />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -5235,7 +5242,7 @@
 		</If>
 		<If Condition="HasQuest(67894) and not IsQuestCompleted(67894) and GetQuestStep(67894) == 1">
 			<GetTo ZoneId="156" XYZ="127.7333, -15.35372, -421.1338"/>
-			<UserDialog QuestId="67894" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty manually and hit continue." />
+			<UserDialog QuestId="67894" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty." />
 			<!--
 				<SimpleDuty InteractNpcId="1018044" XYZ="127.7333, -15.35372, -421.1338" QuestId="67894" StepId="1">
 				<HotSpots>
