@@ -909,25 +909,9 @@ Author: Angles24, Manta
 				</If>
 			</If>
 			<If Condition="GetQuestStep(69824) == 1">
-				<!--
-				<RunCode name="TurnOffMount"/>
-				<GetTo ZoneId="961" XYZ="-614.5603, -22.39482, 510.7697"/>
-				<UseObject InteractDistance="0.5" NpcId="1041141" XYZ="-614.313, -22.39482, 509.7277" UseTimes="1"/>
-				<WaitTimer WaitTime="2"/>
-				<MoveTo XYZ="-654.0692, -22.39482, 501.2624" Distance="0.5"/>
-				<WaitTimer WaitTime="2"/>
-				<MoveTo XYZ="-684.5287, -25.72213, 445.0641" Distance="0.5"/>
-				<WaitTimer WaitTime="2"/>
-				<MoveTo XYZ="-735.5807, -25.99029, 486.281" Distance="0.5"/>
-				<WaitTimer WaitTime="2"/>
-				<GetTo ZoneId="961" XYZ="-819.6994, -38.65795, 506.4315"/>
-				<WaitTimer WaitTime="2"/>
-
-				<LLSmallTalk/>
-				<WaitTimer WaitTime="2"/> -->
 				<UseObject InteractDistance="0.5" NpcId="1041141" XYZ="-614.313, -22.39482, 509.7277" UseTimes="1"/>
 				<WaitTimer WaitTime="5"/>
-				<LLTalkTo InteractDistance="0.5" NpcId="1041141" XYZ="-819.6994, -38.65795, 506.4315" QuestId="69824" StepId="1"/>
+				<LLTalkTo InteractDistance="0.5" NpcId="1041137" XYZ="-819.6994, -38.65795, 506.4315" QuestId="69824" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69824) == 2">
 				<RunCode name="TurnOnMount"/>
