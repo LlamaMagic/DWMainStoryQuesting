@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Holminster Switch
-  Authors: DomesticWarlord86
+Profile: Holminster Switch
+Authors: DomesticWarlord86
 	Version: 1.0
 -->
 
@@ -11,155 +11,152 @@
 ]>
 
 <Profile>
-  <Name>Holminster Switch</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	<While condition="1 == 1">
-	
-	<If condition="not DutyManager.InInstance">
-		<JoinSupportDuty DutyId="676"/>
-	</If>
-	
-	<If condition="DutyManager.InInstance">
-	
-		<LoadDungeonAssist />
+	<Name>Holminster Switch</Name>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<JoinSupportDuty DutyId="676"/>
+		</If>
 
-		<!-- Arrive at the Wound: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Arrive at the Wound: 0/1" />
-			<If condition="GameObjectManager.GetObjectByNPCId(8302) and not GameObjectManager.GetObjectByNPCId(8302).IsTargetable">
-				<MoveTo XYZ="-139.0178, 2.400368, 406.1569" />
-				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(8302).IsTargetable"/>
+		<If condition="DutyManager.InInstance">
+			<LoadDungeonAssist/>
+
+			<!-- Arrive at the Wound: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the Wound: 0/1"/>
+				<If condition="GameObjectManager.GetObjectByNPCId(8302) and not GameObjectManager.GetObjectByNPCId(8302).IsTargetable">
+					<MoveTo XYZ="-139.0178, 2.400368, 406.1569"/>
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(8302).IsTargetable"/>
+				</If>
+				<MoveTo XYZ="-15.45125, 0, 255.4083"/>
 			</If>
-			<MoveTo XYZ="-15.45125, 0, 255.4083" />
-		</If>
-		
-		<!-- Clear the Wound: 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-			<Log Message="Clear the Wound: 0/1" />
-			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Forgiven Dissonance -->	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-14.69446,-0.01531982,227.3746" />
-				<LLOpenChest/>
-				<AutoInventoryEquip />
-			</If>			
-		</If>
-		
-		<!-- Arrive in the Auction: 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-			<Log Message="Arrive in the Auction: 0/1" />
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-4.867676,-1.266479,106.4011" />
-				<LLOpenChest/>
-				<AutoInventoryEquip />
-			</If>	
-			<MoveTo XYZ="77.76148, 0, -66.04057" />
-		</If>	
-		
-		<!-- Clear the Auction: 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-			<Log Message="Clear the Auction: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700"/>
-			</If>						
-			<RunCode name="AddIceAvoids"/>
-			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Tesleen, the Forgiven -->	
-			<RunCode name="RemoveAvoids"/>
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="77.98877,-0.01531982,-94.28558" />
-				<LLOpenChest/>
-				<AutoInventoryEquip />
-			</If>			
-		</If>
-		
-		<!-- Arrive in the Manor House Courtyard: 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-			<Log Message="Arrive in the Manor House Courtyard: 0/1" />
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="86.13721,0.503479,-189.4714" />
-				<LLOpenChest/>
-				<AutoInventoryEquip />
-			</If>	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="71.42737,1.480042,-326.3752" />
-				<LLOpenChest/>
-				<AutoInventoryEquip />
-			</If>				
-			<MoveTo XYZ="133.804, 23, -450.9321" />
-		</If>		
-		
-		<!-- Clear the Auction: 0/1 -->
-		<!--
-		Fierce Beating
-		-->
-		<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-			<Log Message="Clear the Auction: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700"/>
-			</If>				
-			<MoveTo XYZ="133.804, 23, -450.9321" />
-			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Philia -->	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="134,23,-477" />
-				<LLOpenChest/>
-				<AutoInventoryEquip />
-			</If>			
-		</If>		
-		
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>		
-		
-  </If>
-	
-	</While>
-	
-	<!-- <LLoadProfile Path="../../../Start.xml"/> -->
 
+			<!-- Clear the Wound: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear the Wound: 0/1"/>
+				<!-- Forgiven Dissonance -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-14.69446,-0.01531982,227.3746"/>
+					<LLOpenChest/>
+					<AutoInventoryEquip/>
+				</If>
+			</If>
+
+			<!-- Arrive in the Auction: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive in the Auction: 0/1"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-4.867676,-1.266479,106.4011"/>
+					<LLOpenChest/>
+					<AutoInventoryEquip/>
+				</If>
+				<MoveTo XYZ="77.76148, 0, -66.04057"/>
+			</If>
+
+			<!-- Clear the Auction: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear the Auction: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700"/>
+				</If>
+				<RunCode name="AddIceAvoids"/>
+				<!-- Tesleen, the Forgiven -->
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/>
+				<RunCode name="RemoveAvoids"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="77.98877,-0.01531982,-94.28558"/>
+					<LLOpenChest/>
+					<AutoInventoryEquip/>
+				</If>
+			</If>
+
+			<!-- Arrive in the Manor House Courtyard: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive in the Manor House Courtyard: 0/1"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="86.13721,0.503479,-189.4714"/>
+					<LLOpenChest/>
+					<AutoInventoryEquip/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="71.42737,1.480042,-326.3752"/>
+					<LLOpenChest/>
+					<AutoInventoryEquip/>
+				</If>
+				<MoveTo XYZ="133.804, 23, -450.9321"/>
+			</If>
+
+			<!-- Clear the Auction: 0/1 -->
+			<!-- Fierce Beating -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Clear the Auction: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700"/>
+				</If>
+				<MoveTo XYZ="133.804, 23, -450.9321"/>
+				<!-- Philia -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="134,23,-477"/>
+					<LLOpenChest/>
+					<AutoInventoryEquip/>
+				</If>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
+		<LLoadProfile Path="../../../Start.xml"/>
 	</Order>
-  <GrindAreas>
-    <GrindArea name="FirstBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-14.02307,0,231.9219"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8299" Weight="1"/> <!-- Forgiven Dissonance -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="78.32446,-2.427252E-11,-88.88385"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8300" Weight="1"/> <!-- Tesleen, the Forgiven -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="FinalBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="133.7482,23.01,-472.4284"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8301" Weight="1"/> <!-- Philia -->
-        <TargetMob Id="8570" Weight="10"/> <!-- Iron Chain -->				
-      </TargetMobs>
-    </GrindArea>	
-  </GrindAreas>
-  <CodeChunks>
-	<CodeChunk Name="AddIceAvoids">
-			<![CDATA[ 
-					AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
-					var ids = GameObjectManager.GetObjectsByNPCId(1073923157).Select(i => i.ObjectId).ToArray();
-					AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 7f, ids);
-					var id2s = GameObjectManager.GetObjectsByNPCId(1073923227).Select(i => i.ObjectId).ToArray();
-					AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 7f, id2s);					
+
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-14.02307,0,231.9219" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Forgiven Dissonance -->
+				<TargetMob Id="8299" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="78.32446,-2.427252E-11,-88.88385" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Tesleen, the Forgiven -->
+				<TargetMob Id="8300" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="133.7482,23.01,-472.4284" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Philia -->
+				<TargetMob Id="8301" Weight="1"/>
+				<!-- Iron Chain -->
+				<TargetMob Id="8570" Weight="10"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<CodeChunks>
+		<CodeChunk Name="AddIceAvoids">
+			<![CDATA[
+				AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+				var ids = GameObjectManager.GetObjectsByNPCId(1073923157).Select(i => i.ObjectId).ToArray();
+				AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 7f, ids);
+				var id2s = GameObjectManager.GetObjectsByNPCId(1073923227).Select(i => i.ObjectId).ToArray();
+				AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 7f, id2s);
 			]]>
-	</CodeChunk>
-	<CodeChunk Name="RemoveAvoids">
-					<![CDATA[ 
-							AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
-					]]>
-	</CodeChunk>    	
-  </CodeChunks>		
+		</CodeChunk>
+		<CodeChunk Name="RemoveAvoids">
+			<![CDATA[
+				AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+			]]>
+		</CodeChunk>
+	</CodeChunks>
 </Profile>

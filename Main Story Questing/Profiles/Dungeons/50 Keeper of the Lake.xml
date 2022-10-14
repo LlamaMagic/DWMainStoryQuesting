@@ -1,166 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Keeper of the Lake
-  Authors: DomesticWarlord
+Profile: Keeper of the Lake
+Authors: DomesticWarlord
 -->
 
 <!DOCTYPE Profile [
 	<!-- Profile Settings -->
-	<!ENTITY openchest "1">
+<!ENTITY openchest "1">
 ]>
 
 <Profile>
 	<Name>Keeper of the Lake</Name>
-	<BehaviorDirectory></BehaviorDirectory>
 	<Order>
-
 		<If condition="not DutyManager.InInstance">
-			<JoinSupportDuty DutyId="32" /> <!-- Keeper of the Lake -->
+			<!-- Keeper of the Lake -->
+			<JoinSupportDuty DutyId="32"/>
 		</If>
 
 		<If condition="DutyManager.InInstance and IsOnMap(1063)">
-
 			<EnablePlugin names="Trust,SideStep"/>
 
 			<!-- Shortcut available -->
 			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20" />
+				<UseShortcut NpcId="2000700" Distance="20"/>
 			</If>
 
 			<!-- Clear the Agrius hull 0/1 -->
 			<If Condition="GetInstanceTodo(0) == 0">
-				<Log Message="Clear the Agrius hull 0/1" />
-				<MoveTo XYZ="33.00225, 26.48348, -24.45932" />
-				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0" /> <!-- Einhander -->
+				<Log Message="Clear the Agrius hull 0/1"/>
+				<MoveTo XYZ="33.00225, 26.48348, -24.45932"/>
+				<!-- Einhander -->
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0"/>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="5.325378,26.47437,-10.48297" />
-					<LLOpenChest />
+					<MoveTo XYZ="5.325378,26.47437,-10.48297"/>
+					<LLOpenChest/>
 				</If>
 			</If>
 
 			<!-- Deactivate the Garlean barriers 0/2 -->
 			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-				<Log Message="Deactivate the Garlean barriers 0/2" />
+				<Log Message="Deactivate the Garlean barriers 0/2"/>
 				<If condition="IsOnSubMap(1503)">
-					<MoveTo XYZ="-8.078124, 22.20572, -3.370753" />
-					<LLChangeZone Heading="5.20977" />
+					<MoveTo XYZ="-8.078124, 22.20572, -3.370753"/>
+					<LLChangeZone Heading="5.20977"/>
 				</If>
-				<MoveTo XYZ="-96.63544,329.0185,-127.4586" />
-				<UseObject NpcId="2004844" XYZ="-96.63544,329.0185,-127.4586" Radius="50" condition="not HasAtLeast(2001567,1)" />
+				<MoveTo XYZ="-96.63544,329.0185,-127.4586"/>
+				<UseObject NpcId="2004844" XYZ="-96.63544,329.0185,-127.4586" Radius="50" condition="not HasAtLeast(2001567,1)"/>
 				<While condition="GameObjectManager.GetObjectByNPCId(2004829).IsTargetable">
-					<UseTransport NpcId="2004829" InteractDistance="3.0" XYZ="-104.6912, 328.8777, -135.1714" />
+					<UseTransport NpcId="2004829" InteractDistance="3.0" XYZ="-104.6912, 328.8777, -135.1714"/>
 				</While>
-				<WaitWhile condition="GetInstanceTodo(1) == 0" />
+				<WaitWhile condition="GetInstanceTodo(1) == 0"/>
 			</If>
 
-			<!-- Deactivate the Garlean barriers  1/2 -->
+			<!-- Deactivate the Garlean barriers	1/2 -->
 			<If Condition="GetInstanceTodo(1) == 1">
-				<Log Message="Deactivate the Garlean barriers 1/2" />
+				<Log Message="Deactivate the Garlean barriers 1/2"/>
 				<If condition="IsOnSubMap(1503)">
-					<MoveTo XYZ="-8.078124, 22.20572, -3.370753" />
-					<LLChangeZone Heading="5.20977" />
-					<MoveTo XYZ="-99.56541, 333.8499, -150.0172" />
+					<MoveTo XYZ="-8.078124, 22.20572, -3.370753"/>
+					<LLChangeZone Heading="5.20977"/>
+					<MoveTo XYZ="-99.56541, 333.8499, -150.0172"/>
 				</If>
-				<MoveTo XYZ="-96.68403, 338.6898, -162.6739" InCombat="True" />
+				<MoveTo XYZ="-96.68403, 338.6898, -162.6739" InCombat="True"/>
 				<While condition="not HasAtLeast(2001567,1) and not GameObjectManager.GetObjectByNPCId(2004975)">
-					<Grind GrindRef="ColossusArea" while="not GameObjectManager.GetObjectByNPCId(2004975)" />
-					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2004975).IsTargetable" />
+					<Grind GrindRef="ColossusArea" while="not GameObjectManager.GetObjectByNPCId(2004975)"/>
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2004975).IsTargetable"/>
 				</While>
 				<While condition="not HasAtLeast(2001567,1) and (GameObjectManager.GetObjectByNPCId(2004975) and GameObjectManager.GetObjectByNPCId(2004975).IsTargetable)">
-					<UseObject NpcId="2004975" Radius="5000" XYZ="-51.99129,338.3494,-219.451" condition="not HasAtLeast(2001567,1)" />
+					<UseObject NpcId="2004975" Radius="5000" XYZ="-51.99129,338.3494,-219.451" condition="not HasAtLeast(2001567,1)"/>
 				</While>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="-69.99316,338.4298,-233.9971" />
-					<LLOpenChest />
-					<MoveTo XYZ="-84.18408,338.7045,-192.8283" />
-					<LLOpenChest />
+					<MoveTo XYZ="-69.99316,338.4298,-233.9971"/>
+					<LLOpenChest/>
+					<MoveTo XYZ="-84.18408,338.7045,-192.8283"/>
+					<LLOpenChest/>
 				</If>
 				<While condition="HasAtLeast(2001567,1) and GameObjectManager.GetObjectByNPCId(2004834).IsTargetable">
-					<UseTransport NpcId="2004834" InteractDistance="3.0" XYZ="-33.98703, 338.6129, -200.5452" />
+					<UseTransport NpcId="2004834" InteractDistance="3.0" XYZ="-33.98703, 338.6129, -200.5452"/>
 				</While>
-				<WaitWhile condition="GetInstanceTodo(1) == 1" />
+				<WaitWhile condition="GetInstanceTodo(1) == 1"/>
 			</If>
 
 			<!-- Clear the ceruleum spill 0/1 -->
 			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 2">
-				<Log Message="Clear the ceruleum spill 0/1" />
+				<Log Message="Clear the ceruleum spill 0/1"/>
 				<If condition="IsOnSubMap(1503)">
-					<MoveTo XYZ="-8.078124, 22.20572, -3.370753" />
-					<LLChangeZone Heading="5.20977" />
+					<MoveTo XYZ="-8.078124, 22.20572, -3.370753"/>
+					<LLChangeZone Heading="5.20977"/>
 				</If>
-				<MoveTo XYZ="8.491731, 346.0237, -165.5812" InCombat="True" />
-				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(2) == 0" /> <!-- Magitek Gunship -->
+				<MoveTo XYZ="8.491731, 346.0237, -165.5812" InCombat="True"/>
+				<!-- Magitek Gunship -->
+				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(2) == 0"/>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="8.056391, 346.0237, -134.8548" />
-					<LLOpenChest />
+					<MoveTo XYZ="8.056391, 346.0237, -134.8548"/>
+					<LLOpenChest/>
 				</If>
 			</If>
 
 			<!-- Defeat ??? 0/1-->
 			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-				<Log Message="Defeat ??? 0/1" />
+				<Log Message="Defeat ??? 0/1"/>
 				<If condition="IsOnSubMap(1505)">
-					<MoveTo XYZ="7.067364, 345.3749, -117.5825" />
-					<LLChangeZone Heading="0.05085659" />
+					<MoveTo XYZ="7.067364, 345.3749, -117.5825"/>
+					<LLChangeZone Heading="0.05085659"/>
 				</If>
-				<MoveTo XYZ="-40.91491, 641.057, -73.75008" distance="1" />
-				<Grind GrindRef="FinalBoss" while="not IsDutyEnded()" />
+				<MoveTo XYZ="-40.91491, 641.057, -73.75008" distance="1"/>
+				<Grind GrindRef="FinalBoss" while="not IsDutyEnded()"/>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="-40.78741,641.0162,-90.92853" />
-					<LLOpenChest />
+					<MoveTo XYZ="-40.78741,641.0162,-90.92853"/>
+					<LLOpenChest/>
 				</If>
 				<While condition="DutyManager.InInstance and IsDutyEnded()">
-					<WaitTimer WaitTime="5" />
-					<LLLeaveDuty />
+					<WaitTimer WaitTime="5"/>
+					<LLLeaveDuty/>
 				</While>
 			</If>
-
 		</If>
 
-		<LLoadProfile Path="../../Start.xml" />
-
+		<LLoadProfile Path="../../Start.xml"/>
 	</Order>
+
 	<GrindAreas>
 		<GrindArea name="FirstBoss">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="21.68942, 26.63201, -18.63268" name="Name" />
+				<Hotspot Radius="90" XYZ="21.68942, 26.63201, -18.63268"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3369" Weight="1" /> <!-- Einhander -->
+				<!-- Einhander -->
+				<TargetMob Id="3369" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="ColossusArea">
 			<Hotspots>
-				<Hotspot Radius="100" XYZ="-93.24486, 338.584, -174.468" />
-				<Hotspot Radius="100" XYZ="-53.59384, 338.3209, -214.4281" />
+				<Hotspot Radius="100" XYZ="-93.24486, 338.584, -174.468"/>
+				<Hotspot Radius="100" XYZ="-53.59384, 338.3209, -214.4281"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3361" Weight="100" /> <!-- 6th Cohort Eques -->
-				<TargetMob Id="3363" Weight="100" /> <!-- 6th Cohort Centurion -->
-				<TargetMob Id="3362" Weight="100" /> <!-- 6th Cohort Laquearius -->
-				<TargetMob Id="3379" Weight="10" /> <!-- Magitek Field Inductor -->
-				<TargetMob Id="3359" Weight="100" /> <!-- 6th Cohort Signifer -->
-				<TargetMob Id="3358" Weight="1" /> <!-- 6th Cohort Colossus -->
+				<!-- 6th Cohort Eques -->
+				<TargetMob Id="3361" Weight="100"/>
+				<!-- 6th Cohort Centurion -->
+				<TargetMob Id="3363" Weight="100"/>
+				<!-- 6th Cohort Laquearius -->
+				<TargetMob Id="3362" Weight="100"/>
+				<!-- Magitek Field Inductor -->
+				<TargetMob Id="3379" Weight="10"/>
+				<!-- 6th Cohort Signifer -->
+				<TargetMob Id="3359" Weight="100"/>
+				<!-- 6th Cohort Colossus -->
+				<TargetMob Id="3358" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="SecondBoss">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="8.613714, 346.0237, -167.0903" name="Name" />
+				<Hotspot Radius="90" XYZ="8.613714, 346.0237, -167.0903"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3373" Weight="1" /> <!-- Magitek Gunship -->
+				<!-- Magitek Gunship -->
+				<TargetMob Id="3373" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="FinalBoss">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="-41.25554, 641.0569, -72.27277" />
+				<Hotspot Radius="200" XYZ="-41.25554, 641.0569, -72.27277"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3374" Weight="1" /> <!-- Midgardsormr -->
-				<TargetMob Id="3375" Weight="100" /> <!-- Mirage Dragon -->
-				<TargetMob Id="3370" Weight="1000" /> <!-- Astraea -->
+				<!-- Midgardsormr -->
+				<TargetMob Id="3374" Weight="1"/>
+				<!-- Mirage Dragon -->
+				<TargetMob Id="3375" Weight="100"/>
+				<!-- Astraea -->
+				<TargetMob Id="3370" Weight="1000"/>
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
-	<CodeChunks></CodeChunks>
 </Profile>

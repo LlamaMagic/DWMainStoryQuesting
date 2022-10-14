@@ -1,245 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE Profile [
-  <!-- Profile Settings -->
-  <!ENTITY openchest "1">
-  <!ENTITY EquipAfterChestOpen "1">
+	<!-- Profile Settings -->
+<!ENTITY openchest "1">
+<!ENTITY EquipAfterChestOpen "1">
 ]>
 
 <Profile>
-  <Name>87 Ktisis Hyperboreia</Name>
-  <Order>
+	<Name>87 Ktisis Hyperboreia</Name>
+	<Order>
+		<If Condition="not IsOnMap(974)">
+			<JoinSupportDuty DutyId="787"/>
+		</If>
 
-    <If Condition="not IsOnMap(974)">
-      <JoinSupportDuty DutyId="787" />
-    </If>
+		<If Condition="IsOnMap(974)">
+			<EnablePlugin Names="SideStep,Trust"/>
 
-    <If Condition="IsOnMap(974)">
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>
+			</If>
 
-      <EnablePlugin Names="SideStep,Trust" />
+			<!-- Arrive at the Frozen Sphere 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the Frozen Sphere 0/1"/>
+				<If Condition="IsOnSubMap(3760)">
+					<MoveTo XYZ="-143.9605, 495.9999, 66.25065" Distance="0.5"/>
+				</If>
+			</If>
 
-      <!-- Shortcut available -->
-      <If condition="IsNearShortcut(2000700)">
-        <UseShortcut NpcId="2000700" Distance="20" />
-      </If>
+			<!-- Arrive at the Frozen Sphere 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Arrive at the Frozen Sphere 0/1"/>
+				<If Condition="IsOnSubMap(3760)">
+					<MoveTo XYZ="-143.9605, 495.9999, 66.25065" Distance="0.5"/>
+				</If>
+				<If Condition="IsOnSubMap(3766)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<Grind GrindRef="Lyssa" PostCombatDelay="2.0" While="ObjectExistsWithId(10396)"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-144.3962,496.1166,37.03357"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+			</If>
 
-      <!-- Arrive at the Frozen Sphere 0/1 -->
-      <If Condition="GetInstanceTodo(0) == 0">
-        <Log Message="Arrive at the Frozen Sphere 0/1" />
-        <If Condition="IsOnSubMap(3760)">
-          <MoveTo XYZ="-143.9605, 495.9999, 66.25065" Distance="0.5" />
-        </If>
-      </If>
+			<!-- Arrive at Concept Review 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at Concept Review 0/1"/>
+				<If Condition="IsOnSubMap(3766)">
+					<MoveTo XYZ="-139.5833, 500, 10.65856"/>
+					<LLChangeZone Heading="2.612756"/>
+				</If>
+				<If Condition="IsOnSubMap(3761)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-105.2415,623.9872,118.9441"/>
+						<LLOpenChest/>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="5.386414,623.926,121.6907"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="-0.1270234, 630.0001, 63.1016" Distance="0.5"/>
+				</If>
+			</If>
 
-      <!-- Arrive at the Frozen Sphere 0/1 -->
-      <If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-        <Log Message="Arrive at the Frozen Sphere 0/1" />
-        <If Condition="IsOnSubMap(3760)">
-          <MoveTo XYZ="-143.9605, 495.9999, 66.25065" Distance="0.5" />
-        </If>
-        <If Condition="IsOnSubMap(3766)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <Grind GrindRef="Lyssa" PostCombatDelay="2.0" While="ObjectExistsWithId(10396)" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-144.3962,496.1166,37.03357" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-      </If>
+			<!-- Arrive at Concept Review 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Arrive at Concept Review 0/1"/>
+				<If Condition="IsOnSubMap(3766)">
+					<MoveTo XYZ="-139.5833, 500, 10.65856"/>
+					<LLChangeZone Heading="2.612756"/>
+				</If>
+				<If Condition="IsOnSubMap(3761)">
+					<MoveTo XYZ="-0.1270234, 630.0001, 63.1016" Distance="0.5"/>
+				</If>
+				<If Condition="IsOnSubMap(3767)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<Grind GrindRef="LadonLord" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-0.01531982,629.9688,34.8363"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+			</If>
 
-      <!-- Arrive at Concept Review 0/1 -->
-      <If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-        <Log Message="Arrive at Concept Review 0/1" />
-        <If Condition="IsOnSubMap(3766)">
-          <MoveTo XYZ="-139.5833, 500, 10.65856" />
-          <LLChangeZone Heading="2.612756" />
-        </If>
-        <If Condition="IsOnSubMap(3761)">
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-105.2415,623.9872,118.9441" />
-            <LLOpenChest />
-          </If>
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="5.386414,623.926,121.6907" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-          <MoveTo XYZ="-0.1270234, 630.0001, 63.1016" Distance="0.5" />
-        </If>
-      </If>
+			<!-- Arrive at the Celestial Sphere 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at the Celestial Sphere 0/1"/>
+				<!-- Post Boss Movement to Next Area -->
+				<If Condition="IsOnSubMap(3767)">
+					<MoveTo XYZ="-0.04708901, 630.0001, -0.05946518"/>
+					<LLChangeZone Heading="3.14683"/>
+				</If>
+				<If Condition="IsOnSubMap(3762)">
+					<MoveTo XYZ="-0.04975196, -699.7429, 0.4384257" Distance="0.5"/>
+					<WaitWhile Condition="not IsOnSubMap(3764)"/>
+				</If>
+				<If Condition="IsOnSubMap(3764)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="36.75033, -600, -43.81325"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="29.57607, -599.7429, -71.85575" Distance="0.5"/>
+					<WaitWhile Condition="not IsOnSubMap(3765)"/>
+				</If>
+				<If Condition="IsOnSubMap(3765)">
+					<MoveTo XYZ="-29.98282, -140, 20.09882"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-44.90735,-140.0016,29.52612"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="-33.25174, -140, 1.282965" Distance="0.5"/>
+					<While Condition="IsOnSubMap(3765)">
+						<RunCode Name="Transition3"/>
+					</While>
+					<WaitWhile Condition="not IsOnSubMap(3768)"/>
+					<MoveTo XYZ="0.08620146, 1.192093E-07, -34.03904" Distance="0.5"/>
+				</If>
+			</If>
 
+			<!-- Defeat Hermes 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat Hermes 0/1"/>
+				<If Condition="IsOnSubMap(3767)">
+					<MoveTo XYZ="-0.04708901, 630.0001, -0.05946518"/>
+					<LLChangeZone Heading="3.14683"/>
+				</If>
+				<If Condition="IsOnSubMap(3762)">
+					<MoveTo XYZ="-0.04975196, -699.7429, 0.4384257" Distance="0.5"/>
+					<WaitWhile Condition="not IsOnSubMap(3764)"/>
+				</If>
+				<If Condition="IsOnSubMap(3764)">
+					<MoveTo XYZ="29.57607, -599.7429, -71.85575" Distance="0.5"/>
+					<WaitWhile Condition="not IsOnSubMap(3765)"/>
+				</If>
+				<If Condition="IsOnSubMap(3765)">
+					<MoveTo XYZ="-29.98282, -140, 20.09882"/>
+					<MoveTo XYZ="-33.25174, -140, 1.282965" Distance="0.5"/>
+					<While Condition="IsOnSubMap(3765)">
+						<RunCode Name="Transition3"/>
+					</While>
+					<WaitWhile Condition="not IsOnSubMap(3768)"/>
+					<MoveTo XYZ="0.08620146, 1.192093E-07, -34.03904" Distance="0.5"/>
+				</If>
+				<If Condition="IsOnSubMap(3768)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<Grind GrindRef="Hermes" PostCombatDelay="2.0" While="not IsDutyEnded()"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="0.1067505,-0.01531982,-62.11957"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+			</If>
 
-      <!-- Arrive at Concept Review 0/1 -->
-      <If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-        <Log Message="Arrive at Concept Review 0/1" />
-        <If Condition="IsOnSubMap(3766)">
-          <MoveTo XYZ="-139.5833, 500, 10.65856" />
-          <LLChangeZone Heading="2.612756" />
-        </If>
-        <If Condition="IsOnSubMap(3761)">
-          <MoveTo XYZ="-0.1270234, 630.0001, 63.1016" Distance="0.5" />
-        </If>
-        <If Condition="IsOnSubMap(3767)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <Grind GrindRef="LadonLord" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-0.01531982,629.9688,34.8363" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-      </If>
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
 
-      <!-- Arrive at the Celestial Sphere 0/1 -->
-      <If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-        <Log Message="Arrive at the Celestial Sphere 0/1" />
-        <!-- Post Boss Movement to Next Area -->
-        <If Condition="IsOnSubMap(3767)">
-          <MoveTo XYZ="-0.04708901, 630.0001, -0.05946518" />
-          <LLChangeZone Heading="3.14683" />
-        </If>
-        <If Condition="IsOnSubMap(3762)">
-          <MoveTo XYZ="-0.04975196, -699.7429, 0.4384257" Distance="0.5" />
-          <WaitWhile Condition="not IsOnSubMap(3764)" />
-        </If>
-        <If Condition="IsOnSubMap(3764)">
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="36.75033, -600, -43.81325" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-          <MoveTo XYZ="29.57607, -599.7429, -71.85575" Distance="0.5" />
-          <WaitWhile Condition="not IsOnSubMap(3765)" />
-        </If>
-        <If Condition="IsOnSubMap(3765)">
-          <MoveTo XYZ="-29.98282, -140, 20.09882" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-44.90735,-140.0016,29.52612" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-          <MoveTo XYZ="-33.25174, -140, 1.282965" Distance="0.5" />
-          <While Condition="IsOnSubMap(3765)">
-            <RunCode Name="Transition3" />
-          </While>
-          <WaitWhile Condition="not IsOnSubMap(3768)" />
-          <MoveTo XYZ="0.08620146, 1.192093E-07, -34.03904" Distance="0.5" />
-        </If>
-      </If>
+		<LLoadProfile Path="../../../Start.xml"/>
 
-      <!-- Defeat Hermes 0/1 -->
-      <If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-        <Log Message="Defeat Hermes 0/1" />
-        <If Condition="IsOnSubMap(3767)">
-          <MoveTo XYZ="-0.04708901, 630.0001, -0.05946518" />
-          <LLChangeZone Heading="3.14683" />
-        </If>
-        <If Condition="IsOnSubMap(3762)">
-          <MoveTo XYZ="-0.04975196, -699.7429, 0.4384257" Distance="0.5" />
-          <WaitWhile Condition="not IsOnSubMap(3764)" />
-        </If>
-        <If Condition="IsOnSubMap(3764)">
-          <MoveTo XYZ="29.57607, -599.7429, -71.85575" Distance="0.5" />
-          <WaitWhile Condition="not IsOnSubMap(3765)" />
-        </If>
-        <If Condition="IsOnSubMap(3765)">
-          <MoveTo XYZ="-29.98282, -140, 20.09882" />
-          <MoveTo XYZ="-33.25174, -140, 1.282965" Distance="0.5" />
-          <While Condition="IsOnSubMap(3765)">
-            <RunCode Name="Transition3" />
-          </While>
-          <WaitWhile Condition="not IsOnSubMap(3768)" />
-          <MoveTo XYZ="0.08620146, 1.192093E-07, -34.03904" Distance="0.5" />
-        </If>
-        <If Condition="IsOnSubMap(3768)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <Grind GrindRef="Hermes" PostCombatDelay="2.0" While="not IsDutyEnded()" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="0.1067505,-0.01531982,-62.11957" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-      </If>
+	</Order>
 
-      <While condition="DutyManager.InInstance and IsDutyEnded()">
-        <WaitTimer WaitTime="5" />
-        <LLLeaveDuty />
-      </While>
-    </If>
-
-    <LLoadProfile Path="../../../Start.xml" />
-
-  </Order>
-  <GrindAreas>
-    <GrindArea Name="Lyssa">
-      <Hotspots>
-        <Hotspot XYZ="-144.0204, 496, 42.26397" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10396" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="LadonLord">
-      <Hotspots>
-        <Hotspot XYZ="0.3116317, 630.0001, 41.52773" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10398" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="Hermes">
-      <Hotspots>
-        <Hotspot XYZ="0, 2.087062E-07, -60" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10399" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-  </GrindAreas>
-  <CodeChunks>
-    <CodeChunk Name="Transition1">
-      <![CDATA[
-            Core.Me.SetFacing(2.604102f);
-            MovementManager.MoveForwardStart();
-            await Coroutine.Sleep(2000);
-            Navigator.PlayerMover.MoveStop();
-            ]]>
-    </CodeChunk>
-    <CodeChunk Name="Transition2">
-      <![CDATA[
-            Core.Me.SetFacing(3.155864f);
-            MovementManager.MoveForwardStart();
-            await Coroutine.Sleep(2000);
-            Navigator.PlayerMover.MoveStop();
-            ]]>
-    </CodeChunk>
-    <CodeChunk Name="Transition3">
-      <![CDATA[
-            Core.Me.SetFacing(3.305412f);
-            MovementManager.MoveForwardStart();
-            await Coroutine.Sleep(2000);
-            Navigator.PlayerMover.MoveStop();
-            ]]>
-    </CodeChunk>
-  </CodeChunks>
+	<GrindAreas>
+		<GrindArea Name="Lyssa">
+			<Hotspots>
+				<Hotspot XYZ="-144.0204, 496, 42.26397" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10396"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="LadonLord">
+			<Hotspots>
+				<Hotspot XYZ="0.3116317, 630.0001, 41.52773" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10398"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Hermes">
+			<Hotspots>
+				<Hotspot XYZ="0, 2.087062E-07, -60" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10399"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	
+	<CodeChunks>
+		<CodeChunk Name="Transition1">
+			<![CDATA[
+				Core.Me.SetFacing(2.604102f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(2000);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Transition2">
+			<![CDATA[
+				Core.Me.SetFacing(3.155864f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(2000);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Transition3">
+			<![CDATA[
+				Core.Me.SetFacing(3.305412f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(2000);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+	</CodeChunks>
 </Profile>

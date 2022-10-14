@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Steps of Faith
-  Authors: Zamphire, Angles24
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: The Steps of Faith
+Authors: Zamphire, Angles24
+Code Credit: TuckMeIntoBread, Kayla.
 -->
 
 <!DOCTYPE Profile [
@@ -11,37 +11,35 @@
 ]>
 
 <Profile>
-  <Name>The Steps of Faith</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	<If condition="DutyManager.InInstance">
-		<MoveTo XYZ="0.5068925, 0.07999945, 279.2936" usemesh="false"/> <!-- Move to center -->
-		<Grind GrindRef="Vishap" While="not GameObjectManager.GetObjectByNPCId(3330).CurrentHealth == 0"/> <!-- Kill Vishap -->
-		<If Condition="&openchest; == 1">
-			<LLOpenChest />
+	<Name>The Steps of Faith</Name>
+	<Order>
+		<If condition="DutyManager.InInstance">
+			<!-- Move to center -->
+			<MoveTo XYZ="0.5068925, 0.07999945, 279.2936" usemesh="false"/>
+			<!-- Kill Vishap -->
+			<Grind GrindRef="Vishap" While="not GameObjectManager.GetObjectByNPCId(3330).CurrentHealth == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<While condition="DutyManager.InInstance">
+				<WaitTimer WaitTime="10"/>
+				<LLLeaveDuty/>
+			</While>
 		</If>
-		<While condition="DutyManager.InInstance">	
-			<WaitTimer WaitTime="10" />
-			<LLLeaveDuty/>
-		</While>
-	</If>
+	</Order>
 
-	
- </Order>
-  <GrindAreas>
-	<GrindArea name="Vishap">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="0.5068925, 0.07999945, 279.2936" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Vishap" Id="3330" Weight="1" />
-			<TargetMob Name="Horde Dragonfly" Id="3323" Weight="2" />
-			<TargetMob Name="Horde Wyvern" Id="3321" Weight="2" />
-			<TargetMob Name="Horde Shield Dragon" Id="3322" Weight="2" />
-			<TargetMob Name="Horde Biast" Id="3329" Weight="2" />
-        </TargetMobs>
-	</GrindArea>
-  </GrindAreas>		
-  <CodeChunks>
-  </CodeChunks>  
-</Profile>    
+	<GrindAreas>
+		<GrindArea name="Vishap">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="0.5068925, 0.07999945, 279.2936"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Vishap" Id="3330" Weight="1"/>
+				<TargetMob Name="Horde Dragonfly" Id="3323" Weight="2"/>
+				<TargetMob Name="Horde Wyvern" Id="3321" Weight="2"/>
+				<TargetMob Name="Horde Shield Dragon" Id="3322" Weight="2"/>
+				<TargetMob Name="Horde Biast" Id="3329" Weight="2"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

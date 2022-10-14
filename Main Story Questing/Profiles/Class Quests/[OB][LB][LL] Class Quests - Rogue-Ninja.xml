@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 #####################################
-# Profile: Class Quests				#
-#		   Rogue-Ninja				#
+# Profile: Class Quests             #
+#          Rogue-Ninja              #
 #####################################
 # Authors: y2krazy                  #
 #          kagamihiiragi17          #
@@ -15,62 +15,60 @@
 # Required Level: 1+                #
 #####################################
 # Required Setup:                   #
-#  LLamaLibrary & Lisbeth		    #
+#  LLamaLibrary & Lisbeth           #
 #####################################
 -->
 <Profile>
 	<Name>[OB][LB][LL] Class Quests - Rogue-Ninja</Name>
-	<KillRadius>90</KillRadius>
-	<Order>	
-	
-	<!-- Unlocking Rogue -->
-	<!-- So You Want to Be a Rogue -->
-	<If Condition="not IsQuestCompleted(65637)">
-		<If Condition="not HasQuest(65637)">
-			<GetTo ZoneId= "129" XYZ="-148.6992, 2.905223, 241.7078"/>
-			<If Condition="IsQuestAcceptQualified(65637)">
-				<LLPickupQuest NpcId="1009944" QuestId="65637" XYZ="-148.6992, 2.905223, 241.7078"/>
-				<LLSmallTalk/>
-			</If>
-		</If>
-	</If>
-	<!-- My First Daggers -->
-	<If Condition="not IsQuestCompleted(65638)">
-		<If Condition="not HasQuest(65638)">
-			<GetTo ZoneId= "129" XYZ="-148.6992, 2.905223, 241.7078"/>
-			<If Condition="IsQuestAcceptQualified(65638)">
-				<LLPickupQuest NpcId="1009944" QuestId="65638" XYZ="-148.6992, 2.905223, 241.7078"/>
-				<LLSmallTalk/>
-				<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &gt; 10">
-					<UseTransport NpcId="1009944" InteractDistance="2.0" XYZ="-148.6992, 2.905223, 241.7078"/>
-				</If>
-			</If>
-			<If Condition="GetQuestStep(65638) == 255">
-				<LLTurnIn QuestId="65638" StepId="255" NpcId="1009943" InteractDistance="1.0" XYZ="-155.1694, -129.4397, 265.0255"/>
-				<LLSmallTalk/>
-				<WaitTimer WaitTime="2"/>
-				<If Condition="ClassName != ClassJobType.Rogue">
-					<ChangeClass Job="Rogue"/>
-				</If>		
-				<If Condition="ClassName == ClassJobType.Rogue">
-					<AutoEquip UpdateGearSet="true"/>
-					<WaitTimer WaitTime="5"/>
-				</If>
-				<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &lt; 10">
-				   <UseTransport NpcId="2004936" InteractDistance="2.0" XYZ="-152.0483, -129.4397, 258.218"/>
+	<Order>
+		<!-- Unlocking Rogue -->
+		<!-- So You Want to Be a Rogue -->
+		<If Condition="not IsQuestCompleted(65637)">
+			<If Condition="not HasQuest(65637)">
+				<GetTo ZoneId= "129" XYZ="-148.6992, 2.905223, 241.7078"/>
+				<If Condition="IsQuestAcceptQualified(65637)">
+					<LLPickupQuest NpcId="1009944" QuestId="65637" XYZ="-148.6992, 2.905223, 241.7078"/>
+					<LLSmallTalk/>
 				</If>
 			</If>
 		</If>
-	</If>
-	
-	<If Condition="ClassName != ClassJobType.Rogue and not IsQuestCompleted(65748)">
-		<ChangeClass Job="Rogue" Force="True"/>
-	</If>		
-	<If Condition="ClassName != ClassJobType.Ninja and IsQuestCompleted(65748)">
-		<ChangeClass Job="Ninja" Force="True"/>
-	</If>
-	
-        <If condition="Core.Me.CurrentJob == ClassJobType.Rogue or Core.Me.CurrentJob == ClassJobType.Ninja">
+		<!-- My First Daggers -->
+		<If Condition="not IsQuestCompleted(65638)">
+			<If Condition="not HasQuest(65638)">
+				<GetTo ZoneId= "129" XYZ="-148.6992, 2.905223, 241.7078"/>
+				<If Condition="IsQuestAcceptQualified(65638)">
+					<LLPickupQuest NpcId="1009944" QuestId="65638" XYZ="-148.6992, 2.905223, 241.7078"/>
+					<LLSmallTalk/>
+					<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &gt; 10">
+						<UseTransport NpcId="1009944" InteractDistance="2.0" XYZ="-148.6992, 2.905223, 241.7078"/>
+					</If>
+				</If>
+				<If Condition="GetQuestStep(65638) == 255">
+					<LLTurnIn QuestId="65638" StepId="255" NpcId="1009943" InteractDistance="1.0" XYZ="-155.1694, -129.4397, 265.0255"/>
+					<LLSmallTalk/>
+					<WaitTimer WaitTime="2"/>
+					<If Condition="ClassName != ClassJobType.Rogue">
+						<ChangeClass Job="Rogue"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Rogue">
+						<AutoEquip UpdateGearSet="true"/>
+						<WaitTimer WaitTime="5"/>
+					</If>
+					<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &lt; 10">
+						<UseTransport NpcId="2004936" InteractDistance="2.0" XYZ="-152.0483, -129.4397, 258.218"/>
+					</If>
+				</If>
+			</If>
+		</If>
+
+		<If Condition="ClassName != ClassJobType.Rogue and not IsQuestCompleted(65748)">
+			<ChangeClass Job="Rogue" Force="True"/>
+		</If>
+		<If Condition="ClassName != ClassJobType.Ninja and IsQuestCompleted(65748)">
+			<ChangeClass Job="Ninja" Force="True"/>
+		</If>
+
+		<If condition="Core.Me.CurrentJob == ClassJobType.Rogue or Core.Me.CurrentJob == ClassJobType.Ninja">
 			<!-- Rogue -->
 			<If Condition="ClassName == ClassJobType.Rogue">
 				<!-- Stabbers in Yer Fambles -->
@@ -83,7 +81,8 @@
 							<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 							<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 						</If>
-						<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+						<!-- Jacke -->
+						<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 						<If Condition="IsQuestAcceptQualified(65640)">
 							<LLPickupQuest NpcId="1009943" QuestId="65640" XYZ="-153.3685, -129.4397, 265.8884"/>
 							<LLSmallTalk/>
@@ -92,15 +91,15 @@
 					<If Condition="HasQuest(65640)">
 						<If Condition="GetQuestStep(65640) == 1">
 							<If Condition="not IsTodoChecked(65640, 1, 2)">
-								<GetTo ZoneId="134" XYZ="44.76048, 48.27649, 0.7976724"/> <!-- Grinding Area -->
+								<GetTo ZoneId="134" XYZ="44.76048, 48.27649, 0.7976724"/>
 								<Grind grindRef="Stabbers_in_Yer_Fambles3" while="not IsTodoChecked(65640, 1, 2)"/>
 							</If>
 							<If Condition="not IsTodoChecked(65640, 1, 1)">
-								<GetTo ZoneId="134" XYZ="44.76048, 48.27649, 0.7976724"/> <!-- Grinding Area -->
+								<GetTo ZoneId="134" XYZ="44.76048, 48.27649, 0.7976724"/>
 								<Grind grindRef="Stabbers_in_Yer_Fambles2" while="not IsTodoChecked(65640, 1, 1)"/>
 							</If>
 							<If Condition="not IsTodoChecked(65640, 1, 0)">
-								<GetTo ZoneId="134" XYZ="44.76048, 48.27649, 0.7976724"/> <!-- Grinding Area -->
+								<GetTo ZoneId="134" XYZ="44.76048, 48.27649, 0.7976724"/>
 								<Grind grindRef="Stabbers_in_Yer_Fambles" while="not IsTodoChecked(65640, 1, 0)"/>
 							</If>
 						</If>
@@ -112,7 +111,8 @@
 								<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 								<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 							</If>
-							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+							<!-- Jacke -->
+							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 							<LLTurnIn QuestId="65640" NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
@@ -130,7 +130,8 @@
 								<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 								<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 							</If>
-							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+							<!-- Jacke -->
+							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 							<If Condition="IsQuestAcceptQualified(65646)">
 								<LLPickupQuest NpcId="1009943" QuestId="65646" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLSmallTalk/>
@@ -145,11 +146,12 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-150.988, -129.4397, 266.3157"/> <!-- Perimu Haurimu -->
+								<!-- Perimu Haurimu -->
+								<GetTo ZoneId="129" XYZ="-150.988, -129.4397, 266.3157"/>
 								<TalkTo NpcId="1010197" XYZ="-150.988, -129.4397, 266.3157" QuestId="65646" StepId="1"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 2">
-								<GetTo ZoneId="135" XYZ="113.7739, 68.01595, 327.9957"/> <!-- Grinding Area -->
+								<GetTo ZoneId="135" XYZ="113.7739, 68.01595, 327.9957"/>
 								<Grind grindRef="A_Dainty_Dilemma" while="HasQuest(65646) and GetQuestStep(65646) == 2"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 3">
@@ -160,26 +162,30 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-150.988, -129.4397, 266.3157"/> <!-- Perimu Haurimu -->
+								<!-- Perimu Haurimu -->
+								<GetTo ZoneId="129" XYZ="-150.988, -129.4397, 266.3157"/>
 								<TalkTo NpcId="1010197" XYZ="-150.988, -129.4397, 266.3157" QuestId="65646" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 4">
 								<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &lt; 10">
 									<UseTransport Name="Guild Exit" InteractDistance="3.0" NpcId="2004936" XYZ="-151.9036, -128.1606, 256.8551"/>
 								</If>
-								<GetTo ZoneId="128" XYZ="13.41266, 40.2, -13.26007"/> <!-- I'tolwann -->
+								<!-- I'tolwann -->
+								<GetTo ZoneId="128" XYZ="13.41266, 40.2, -13.26007"/>
 								<LLTalkTo NpcId="1005411" DialogOption="2" XYZ="13.41266, 40.2, -13.26007" QuestId="65646" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 5">
-								<GetTo ZoneId="134" XYZ="107.7134, 47.78386, 50.73621"/> <!-- Perimu Haurimu -->
+								<!-- Perimu Haurimu -->
+								<GetTo ZoneId="134" XYZ="107.7134, 47.78386, 50.73621"/>
 								<TalkTo NpcId="1010206" XYZ="107.7134, 47.78386, 50.73621" QuestId="65646" StepId="5"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 6">
-								<GetTo ZoneId="134" XYZ="88.61414, 50.77141, -14.98808"/> <!-- Grinding Area -->
+								<GetTo ZoneId="134" XYZ="88.61414, 50.77141, -14.98808"/>
 								<Grind grindRef="A_Dainty_Dilemma2" while="HasQuest(65646) and GetQuestStep(65646) == 6"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 7">
-								<GetTo ZoneId="134" XYZ="107.7134, 47.78386, 50.73621"/> <!-- Perimu Haurimu -->
+								<!-- Perimu Haurimu -->
+								<GetTo ZoneId="134" XYZ="107.7134, 47.78386, 50.73621"/>
 								<HandOver ItemId="2001507" QuestId="65646" StepId="7" NpcId="1010206" XYZ="107.7134, 47.78386, 50.73621"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 8">
@@ -190,7 +196,8 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<HandOver ItemId="2001507" QuestId="65646" StepId="8" NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884"/>
 							</If>
 							<If Condition="GetQuestStep(65646) == 255">
@@ -201,7 +208,8 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLTurnIn QuestId="65646" NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -220,7 +228,8 @@
 								<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 								<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 							</If>
-							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+							<!-- Jacke -->
+							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 							<If Condition="IsQuestAcceptQualified(65662)">
 								<LLPickupQuest NpcId="1009943" QuestId="65662" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLSmallTalk/>
@@ -235,66 +244,82 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-152.1172, -129.4397, 267.1091"/> <!-- V'kebbe -->
+								<!-- V'kebbe -->
+								<GetTo ZoneId="129" XYZ="-152.1172, -129.4397, 267.1091"/>
 								<TalkTo NpcId="1010198" XYZ="-152.1172, -129.4397, 267.1091" QuestId="65662" StepId="1"/>
 							</If>
 							<If Condition="GetQuestStep(65662) == 2">
 								<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &lt; 10">
 									<UseTransport Name="Guild Exit" InteractDistance="3.0" NpcId="2004936" XYZ="-151.9036, -128.1606, 256.8551"/>
 								</If>
-								<GetTo ZoneId="128" XYZ="-50.8584, 40, 111.4061"/> <!-- Fishmonger -->
+								<!-- Fishmonger -->
+								<GetTo ZoneId="128" XYZ="-50.8584, 40, 111.4061"/>
 								<TalkTo NpcId="1010212" XYZ="-50.8584, 40, 111.4061" QuestId="65662" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(65662) == 3">
-								<GetTo ZoneId="128" XYZ="-42.22174, 42.24913, 115.8922"/> <!-- V'kebbe -->
+								<!-- V'kebbe -->
+								<GetTo ZoneId="128" XYZ="-42.22174, 42.24913, 115.8922"/>
 								<TalkTo NpcId="1010211" XYZ="-42.22174, 42.24913, 115.8922" QuestId="65662" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(65662) == 4">
 								<While Condition="not IsTodoChecked(65662, 4, 0)">
-									<GetTo ZoneId="128" XYZ="-73.46866, 42.04493, -149.6751"/> <!-- The Bismarck -->
+									<!-- The Bismarck -->
+									<GetTo ZoneId="128" XYZ="-73.46866, 42.04493, -149.6751"/>
 									<RunCode Name="Rogue_Hide"/>
 									<MoveTo Name="Diving Dove" XYZ="-52.65894, 42.69984, -160.235"/>
 								</While>
 								<While Condition="not IsTodoChecked(65662, 4, 2)">
-									<GetTo ZoneId="129" XYZ="-142.5273, 18, 24.58443"/> <!-- East Hawkers' Alley -->
+									<!-- East Hawkers' Alley -->
+									<GetTo ZoneId="129" XYZ="-142.5273, 18, 24.58443"/>
 									<RunCode Name="Rogue_Hide"/>
 									<MoveTo Name="Gerulf" XYZ="-151.0256, 18.2, 34.07727"/>
 								</While>
 								<While Condition="not IsTodoChecked(65662, 4, 1)">
-									<GetTo ZoneId="129" XYZ="-183.9383, 4, 181.6412"/> <!-- Lominsan Ferry Docks -->
+									<!-- Lominsan Ferry Docks -->
+									<GetTo ZoneId="129" XYZ="-183.9383, 4, 181.6412"/>
 									<RunCode Name="Rogue_Hide"/>
 									<MoveTo Name="Rerenasu" XYZ="-192.0043, 0.9999907, 211.6884"/>
 								</While>
 							</If>
 							<If Condition="GetQuestStep(65662) == 5">
-								<GetTo ZoneId="129" XYZ="-161.12, 1.95, 239.3071"/> <!-- V'kebbe -->
+								<!-- V'kebbe -->
+								<GetTo ZoneId="129" XYZ="-161.12, 1.95, 239.3071"/>
 								<TalkTo NpcId="1010213" XYZ="-161.12, 1.95, 239.3071" QuestId="65662" StepId="5"/>
 							</If>
 							<If Condition="GetQuestStep(65662) == 6">
-								<GetTo ZoneId="129" XYZ="-161.12, 1.95, 239.3071"/> <!-- V'kebbe -->
+								<!-- V'kebbe -->
+								<GetTo ZoneId="129" XYZ="-161.12, 1.95, 239.3071"/>
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
 								</If>
 								<LLSimpleDuty InteractNpcId="1010213" XYZ="-161.12, 1.95, 239.3071" QuestId="65662" StepId="6">
 									<HotSpots>
-										<HotSpot XYZ="-162.5223, 1.996135, 223.7008" Radius="90"/> <!-- Start Hide for Stolen Firearms -->
-										<HotSpot XYZ="-219.3833, 4.9081, 272.2307" Radius="90"/> <!-- Stolen Firearms -->
-										<HotSpot XYZ="-184.1264, 1.999995, 207.9486" Radius="90"/> <!-- Start Hide for Hand Off -->
-										<HotSpot XYZ="-193.6879, 9.428031, 71.95404" Radius="90"/> <!-- Hand Off -->
+										<!-- Start Hide for Stolen Firearms -->
+										<HotSpot XYZ="-162.5223, 1.996135, 223.7008" Radius="90"/>
+										<!-- Stolen Firearms -->
+										<HotSpot XYZ="-219.3833, 4.9081, 272.2307" Radius="90"/>
+										<!-- Start Hide for Hand Off -->
+										<HotSpot XYZ="-184.1264, 1.999995, 207.9486" Radius="90"/>
+										<!-- Hand Off -->
+										<HotSpot XYZ="-193.6879, 9.428031, 71.95404" Radius="90"/>
 									</HotSpots>
 									<InteractObjects>
 										<InteractObject Name="Stolen Firearms" NpcId="2004733" XYZ="-219.3833, 4.9081, 272.2307"/>
 										<InteractObject Name="Hand Off" NpcId="2004926" XYZ="-193.6879, 9.428031, 71.95404"/>
 									</InteractObjects>
 									<TargetMobs>
-										<TargetMob Id="3131" Weight="3000"/> <!-- Hired Bow -->
-										<TargetMob Id="3132" Weight="2000"/> <!-- Hired Muscle -->
-										<TargetMob Id="3130" Weight="1000"/> <!-- Hired Axe -->
+										<!-- Hired Bow -->
+										<TargetMob Id="3131" Weight="3000"/>
+										<!-- Hired Muscle -->
+										<TargetMob Id="3132" Weight="2000"/>
+										<!-- Hired Axe -->
+										<TargetMob Id="3130" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
 							<If Condition="GetQuestStep(65662) == 7">
-								<GetTo ZoneId="129" XYZ="-161.12, 1.95, 239.3071"/> <!-- V'kebbe -->
+								<!-- V'kebbe -->
+								<GetTo ZoneId="129" XYZ="-161.12, 1.95, 239.3071"/>
 								<TalkTo NpcId="1010213" XYZ="-161.12, 1.95, 239.3071" QuestId="65662" StepId="7"/>
 							</If>
 							<If Condition="GetQuestStep(65662) == 255">
@@ -305,7 +330,8 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLTurnIn QuestId="65662" NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -324,7 +350,8 @@
 								<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 								<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 							</If>
-							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+							<!-- Jacke -->
+							<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 							<If Condition="IsQuestAcceptQualified(65680)">
 								<LLPickupQuest NpcId="1009943" QuestId="65680" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLSmallTalk/>
@@ -339,32 +366,40 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<TalkTo NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884" QuestId="65680" StepId="1"/>
 							</If>
 							<If Condition="GetQuestStep(65680) == 2">
-								<GetTo ZoneId="135" XYZ="256.1227, 21.09796, 581.3839"/> <!-- Swarsynt -->
+								<!-- Swarsynt -->
+								<GetTo ZoneId="135" XYZ="256.1227, 21.09796, 581.3839"/>
 								<TalkTo NpcId="1010199" XYZ="256.1227, 21.09796, 581.3839" QuestId="65680" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(65680) == 3">
-								<GetTo ZoneId="135" XYZ="-131.6396, 0.503479, 729.9762"/> <!-- Destination -->
+								<GetTo ZoneId="135" XYZ="-131.6396, 0.503479, 729.9762"/>
 								<UseObject NpcId="2004861" XYZ="-131.6396, 0.503479, 729.9762" Radius="10" QuestId="65680" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(65680) == 4">
-								<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/>
 								<TalkTo NpcId="1010218" XYZ="319.4476, -36.35382, 346.7612" QuestId="65680" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(65680) == 5">
-								<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/>
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
 								</If>
 								<LLSimpleDuty InteractNpcId="1010218" XYZ="319.4476, -36.35382, 346.7612" QuestId="65680" StepId="5">
 									<HotSpots>
-										<HotSpot XYZ="324.1761, -35.55294, 317.1326" Radius="15"/> <!-- Bindings -->
-										<HotSpot XYZ="323.9337, -31.34907, 265.4001" Radius="15"/> <!-- Bindings -->
-										<HotSpot XYZ="328.1146, -24.39923, 253.6506" Radius="15"/> <!-- Bindings -->
-										<HotSpot XYZ="328.9824, -24.24879, 254.0822" Radius="15"/> <!-- Bindings -->
+										<!-- Bindings -->
+										<HotSpot XYZ="324.1761, -35.55294, 317.1326" Radius="15"/>
+										<!-- Bindings -->
+										<HotSpot XYZ="323.9337, -31.34907, 265.4001" Radius="15"/>
+										<!-- Bindings -->
+										<HotSpot XYZ="328.1146, -24.39923, 253.6506" Radius="15"/>
+										<!-- Bindings -->
+										<HotSpot XYZ="328.9824, -24.24879, 254.0822" Radius="15"/>
 									</HotSpots>
 									<InteractObjects>
 										<InteractObject Name="Bindings" NpcId="2004819" XYZ="324.1761, -35.55294, 317.1326"/>
@@ -373,12 +408,14 @@
 										<InteractObject Name="Bindings" NpcId="2004823" XYZ="328.9824, -24.24879, 254.0822"/>
 									</InteractObjects>
 									<TargetMobs>
-										<TargetMob Id="3134" Weight="1100"/> <!-- Axe-wielding Adventurer -->
+										<!-- Axe-wielding Adventurer -->
+										<TargetMob Id="3134" Weight="1100"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
 							<If Condition="GetQuestStep(65680) == 255">
-								<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/>
 								<LLTurnIn QuestId="65680" NpcId="1010218" XYZ="319.4476, -36.35382, 346.7612"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -390,7 +427,8 @@
 				<If Condition="not IsQuestCompleted(65681) and IsQuestCompleted(65680)">
 					<If Condition="Core.Player.ClassLevel &gt; 14">
 						<If Condition="not HasQuest(65681)">
-							<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/> <!-- Jacke -->
+							<!-- Jacke -->
+							<GetTo ZoneId="138" XYZ="319.4476, -36.35382, 346.7612"/>
 							<If Condition="IsQuestAcceptQualified(65681)">
 								<LLPickupQuest NpcId="1010218" QuestId="65681" XYZ="319.4476, -36.35382, 346.7612"/>
 								<LLSmallTalk/>
@@ -398,7 +436,8 @@
 						</If>
 						<If Condition="HasQuest(65681)">
 							<If Condition="GetQuestStep(65681) == 1">
-								<GetTo ZoneId="138" XYZ="594.1709, 43.89398, 303.7614"/> <!-- Beggarly Boy -->
+								<!-- Beggarly Boy -->
+								<GetTo ZoneId="138" XYZ="594.1709, 43.89398, 303.7614"/>
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
 								</If>
@@ -407,10 +446,14 @@
 										<HotSpot XYZ="591.4781, 41.49831, 310.9883" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3142" Weight="4000"/> <!-- Game Fowl -->
-										<TargetMob Id="3140" Weight="3000"/> <!-- Jolly Merchant Barber -->
-										<TargetMob Id="3141" Weight="2000"/> <!-- Jolly Merchant Waister -->
-										<TargetMob Id="3139" Weight="1000"/> <!-- Jolly Merchant Lodesman -->
+										<!-- Game Fowl -->
+										<TargetMob Id="3142" Weight="4000"/>
+										<!-- Jolly Merchant Barber -->
+										<TargetMob Id="3140" Weight="3000"/>
+										<!-- Jolly Merchant Waister -->
+										<TargetMob Id="3141" Weight="2000"/>
+										<!-- Jolly Merchant Lodesman -->
+										<TargetMob Id="3139" Weight="1000"/>
 									</TargetMobs>
 								</SimpleDuty>
 							</If>
@@ -425,7 +468,8 @@
 									<GetTo ZoneId="129" XYZ="-152.6666, 2.856241, 243.183"/>
 									<LLTalkTo Name="Lonwoerd" InteractDistance="3.0" NpcId="1009944" XYZ="-152.6666, 2.856241, 243.183"/>
 								</If>
-								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="129" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLTurnIn QuestId="65681" NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -495,13 +539,20 @@
 										<HotSpot XYZ="0.2462107, 14.84725, -6.881947" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3149" Weight="7000"/> <!-- The Growler -->
-										<TargetMob Id="3147" Weight="6000"/> <!-- Grinning Cur Stitcher -->
-										<TargetMob Id="3146" Weight="5000"/> <!-- Grinning Cur Cannonier -->
-										<TargetMob Id="3145" Weight="4000"/> <!-- Grinning Cur Carpenter -->
-										<TargetMob Id="3144" Weight="3000"/> <!-- Grinning Cur Cutter -->
-										<TargetMob Id="3143" Weight="2000"/> <!-- Grinning Cur Swab -->
-										<TargetMob Id="3148" Weight="1000"/> <!-- Grinning Cur Cap'n -->
+										<!-- The Growler -->
+										<TargetMob Id="3149" Weight="7000"/>
+										<!-- Grinning Cur Stitcher -->
+										<TargetMob Id="3147" Weight="6000"/>
+										<!-- Grinning Cur Cannonier -->
+										<TargetMob Id="3146" Weight="5000"/>
+										<!-- Grinning Cur Carpenter -->
+										<TargetMob Id="3145" Weight="4000"/>
+										<!-- Grinning Cur Cutter -->
+										<TargetMob Id="3144" Weight="3000"/>
+										<!-- Grinning Cur Swab -->
+										<TargetMob Id="3143" Weight="2000"/>
+										<!-- Grinning Cur Cap'n -->
+										<TargetMob Id="3148" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 								<WaitWhile Condition="not IsOnMap(135)"/>
@@ -574,14 +625,20 @@
 								</If>
 								<LLSimpleDuty InteractNpcId="1010251" XYZ="450.8278, 16.18121, 406.6987" QuestId="65684" StepId="5">
 									<HotSpots>
-										<HotSpot XYZ="559.9659, 14.58707, 393.2331" Radius="30"/> <!-- Bodyguards -->
-										<HotSpot XYZ="543.1564, 18.32838, 454.4327" Radius="30"/> <!-- Captain Jacke -->
-										<HotSpot XYZ="611.3012, 23.93624, 468.3748" Radius="5"/> <!-- Bodyguards -->
+										<!-- Bodyguards -->
+										<HotSpot XYZ="559.9659, 14.58707, 393.2331" Radius="30"/>
+										<!-- Captain Jacke -->
+										<HotSpot XYZ="543.1564, 18.32838, 454.4327" Radius="30"/>
+										<!-- Bodyguards -->
+										<HotSpot XYZ="611.3012, 23.93624, 468.3748" Radius="5"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3152" Weight="3000"/> <!-- Security Mammet -->
-										<TargetMob Id="3150" Weight="2000"/> <!-- Sellsword -->
-										<TargetMob Id="3151" Weight="1000"/> <!-- Sellsword Captain -->
+										<!-- Security Mammet -->
+										<TargetMob Id="3152" Weight="3000"/>
+										<!-- Sellsword -->
+										<TargetMob Id="3150" Weight="2000"/>
+										<!-- Sellsword Captain -->
+										<TargetMob Id="3151" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 								<WaitWhile Condition="IsOnMap(137) and not IsOnSubMap(206)"/>
@@ -677,7 +734,7 @@
 							<While Condition="GetQuestStep(65691) == 1">
 								<If Condition="IsOnMap(129) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-153.3685, -129.4397, 265.8884)) &lt; 10">
 									<UseTransport Name="Guild Exit" InteractDistance="3.0" NpcId="2004936" XYZ="-151.9036, -128.1606, 256.8551"/>
-								</If>							
+								</If>
 								<If Condition="not DutyManager.InInstance">
 									<GetTo ZoneId="128" XYZ="4.440308, 44.47998, 121.2938"/>
 									<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
@@ -685,44 +742,44 @@
 									</If>
 									<RunCode Name="DutyCommence"/>
 								</If>
-								<If Condition="DutyManager.InInstance">			
-									<If Condition="DutyManager.InInstance">							
+								<If Condition="DutyManager.InInstance">
+									<If Condition="DutyManager.InInstance">
 										<MoveTo XYZ="-48.26155, 40, 114.3296" InCombat="True"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<Grind grindRef="Cloying_Victory_1" while="NumAttackableEnemies(40, Array[int]([3160,3154,3158,3156,3155,3153,3189,3157,3159])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<MoveTo XYZ="-47.88676, 40, 63.73321" InCombat="True"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<Grind grindRef="Cloying_Victory_2" while="NumAttackableEnemies(40, Array[int]([3160,3154,3158,3156,3155,3153,3189,3157,3159])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
-										<RunCode Name="Cloying_Move_1" InCombat="True"/>	
-									</If>		
-									<If Condition="DutyManager.InInstance">								
+									<If Condition="DutyManager.InInstance">
+										<RunCode Name="Cloying_Move_1" InCombat="True"/>
+									</If>
+									<If Condition="DutyManager.InInstance">
 										<Grind grindRef="Cloying_Victory_3" while="NumAttackableEnemies(10, Array[int]([3160])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<RunCode Name="Cloying_Move_2" InCombat="True"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<Grind grindRef="Cloying_Victory_4" while="NumAttackableEnemies(10, Array[int]([3160])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<MoveTo XYZ="19.79649, 39.99997, 33.54923" InCombat="True"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<Grind grindRef="Cloying_Victory_5" while="NumAttackableEnemies(10, Array[int]([3160])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<MoveTo XYZ="-33.21069, 40.00498, 29.27364" InCombat="True"/>
 									</If>
-									<If Condition="DutyManager.InInstance">		
+									<If Condition="DutyManager.InInstance">
 										<Grind grindRef="Cloying_Victory_6" while="NumAttackableEnemies(40, Array[int]([3160,3154,3158,3156,3155,3153,3189,3157,3159])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
-									</If>	
-								</If>	
+									</If>
+								</If>
 							</While>
 							<If Condition="GetQuestStep(65691) == 255">
 								<If Condition="not IsOnMap(129)">
@@ -848,9 +905,12 @@
 										<HotSpot XYZ="-4.348877, 39.53194, 247.6387" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3162" Weight="3000"/> <!-- Onibi -->
-										<TargetMob Id="3163" Weight="2000"/> <!-- Ogama -->
-										<TargetMob Id="3164" Weight="1000"/> <!-- Oboro Moonrise -->
+										<!-- Onibi -->
+										<TargetMob Id="3162" Weight="3000"/>
+										<!-- Ogama -->
+										<TargetMob Id="3163" Weight="2000"/>
+										<!-- Oboro Moonrise -->
+										<TargetMob Id="3164" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -915,7 +975,7 @@
 								<If Condition="IsOnMap(137) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-33.21893, -24.67445, 257.9841)) &lt; 20">
 									<UseTransport Name="Storehouse Exit" InteractDistance="3.0" NpcId="2004966" XYZ="-16.12885, -23.3006, 258.1368"/>
 								</If>
-									<GetTo ZoneId="137" XYZ="-9.592283, 39.76007, 266.9477"/>
+								<GetTo ZoneId="137" XYZ="-9.592283, 39.76007, 266.9477"/>
 								<RunCode Name="Once_Upon_a_Time_in_Doma"/>
 							</If>
 							<If Condition="GetQuestStep(65751) == 2">
@@ -946,9 +1006,12 @@
 										<HotSpot XYZ="-570.8248, -1.493519, -12.61926" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3166" Weight="3000"/> <!-- Imperial Shadow -->
-										<TargetMob Id="3167" Weight="2000"/> <!-- Imperial Nightshadow -->
-										<TargetMob Id="3165" Weight="1000"/> <!-- Karasu Redbeak -->
+										<!-- Imperial Shadow -->
+										<TargetMob Id="3166" Weight="3000"/>
+										<!-- Imperial Nightshadow -->
+										<TargetMob Id="3167" Weight="2000"/>
+										<!-- Karasu Redbeak -->
+										<TargetMob Id="3165" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -1021,7 +1084,7 @@
 										<MoveTo Name="Jump Spot" Distance="1" XYZ="461.3328, 12.42364, 61.42312"/>
 										<MoveTo Name="Jump" Distance="1" UseMesh="False" XYZ="453.5377, 12.78679, 66.69644"/>
 									</If>
-								</If>	
+								</If>
 								<GetTo ZoneId="139" XYZ="439.7803, 12.16138, 70.54236"/>
 								<UseObject NpcId="2004930" XYZ="439.7803, 12.16138, 70.54236" Radius="10" QuestId="65753" StepId="1"/>
 								<MoveTo Name="Jump" Distance="1" UseMesh="False" XYZ="439.5464, 4.110248, 82.75983"/>
@@ -1045,7 +1108,7 @@
 										<MoveTo Name="Jump Spot" Distance="1" XYZ="461.3328, 12.42364, 61.42312"/>
 										<MoveTo Name="Jump" Distance="1" UseMesh="False" XYZ="453.5377, 12.78679, 66.69644"/>
 									</If>
-								</If>	
+								</If>
 								<GetTo ZoneId="139" XYZ="441.947, 15.39665, 65.65955"/>
 								<TalkTo NpcId="1010621" XYZ="441.947, 15.39665, 65.65955" QuestId="65753" StepId="4"/>
 								<MoveTo Name="Jump" Distance="1" UseMesh="False" XYZ="439.5464, 4.110248, 82.75983"/>
@@ -1057,15 +1120,22 @@
 								</If>
 								<LLSimpleDuty InteractNpcId="2004931" XYZ="305.5924, -25.0401, 229.6329" QuestId="65753" StepId="5">
 									<HotSpots>
-										<HotSpot XYZ="261.0496, -25.00004, 265.117" Radius="1"/> <!-- Hide Spot -->
-										<HotSpot XYZ="206.3857, -24.98584, 246.2086" Radius="1"/> <!-- Hide Spot -->
-										<HotSpot XYZ="213.2676, -36.40339, 309.0858" Radius="1"/> <!-- End Spot -->
+										<!-- Hide Spot -->
+										<HotSpot XYZ="261.0496, -25.00004, 265.117" Radius="1"/>
+										<!-- Hide Spot -->
+										<HotSpot XYZ="206.3857, -24.98584, 246.2086" Radius="1"/>
+										<!-- End Spot -->
+										<HotSpot XYZ="213.2676, -36.40339, 309.0858" Radius="1"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3170" Weight="4000"/> <!-- Shadow Bat -->
-										<TargetMob Id="3166" Weight="3000"/> <!-- Imperial Shadow -->
-										<TargetMob Id="3167" Weight="2000"/> <!-- Imperial Nightshadow -->
-										<TargetMob Id="3165" Weight="1000"/> <!-- Karasu Redbeak -->
+										<!-- Shadow Bat -->
+										<TargetMob Id="3170" Weight="4000"/>
+										<!-- Imperial Shadow -->
+										<TargetMob Id="3166" Weight="3000"/>
+										<!-- Imperial Nightshadow -->
+										<TargetMob Id="3167" Weight="2000"/>
+										<!-- Karasu Redbeak -->
+										<TargetMob Id="3165" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -1104,21 +1174,21 @@
 						</If>
 						<If Condition="HasQuest(65768)">
 							<If Condition="GetQuestStep(65768) == 1">
-									<GetTo ZoneId="134" XYZ="-188.4642, 30.72319, -685.1759"/>
+								<GetTo ZoneId="134" XYZ="-188.4642, 30.72319, -685.1759"/>
 								<TalkTo NpcId="1010573" XYZ="-188.4642, 30.72319, -685.1759" QuestId="65768" StepId="1"/>
 								<Grind grindRef="Tough_Guys" while="HasQuest(65768) and GetQuestStep(65768) == 1"/>
 							</If>
 							<If Condition="GetQuestStep(65768) == 2">
-									<GetTo ZoneId="134" XYZ="-189.6544, 30.83744, -685.298"/>
+								<GetTo ZoneId="134" XYZ="-189.6544, 30.83744, -685.298"/>
 								<TalkTo NpcId="1010627" XYZ="-189.6544, 30.83744, -685.298" QuestId="65768" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(65768) == 3">
-									<GetTo ZoneId="135" XYZ="491.0505, 68.14364, -198.5046"/>
+								<GetTo ZoneId="135" XYZ="491.0505, 68.14364, -198.5046"/>
 								<TalkTo NpcId="1010571" XYZ="491.0505, 68.14364, -198.5046" QuestId="65768" StepId="3"/>
 								<Grind grindRef="Tough_Guys2" while="HasQuest(65768) and GetQuestStep(65768) == 3"/>
 							</If>
 							<If Condition="GetQuestStep(65768) == 4">
-									<GetTo ZoneId="135" XYZ="492.8815, 68.95544, -197.5891"/>
+								<GetTo ZoneId="135" XYZ="492.8815, 68.95544, -197.5891"/>
 								<UseObject NpcId="2005006" XYZ="492.8815, 68.95544, -197.5891" Radius="10" QuestId="65768" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(65768) == 5">
@@ -1149,7 +1219,7 @@
 								<UseObject NpcId="2005009" XYZ="-77.19543, 64.49988, -240.7111" Radius="10" QuestId="65768" StepId="10"/>
 							</If>
 							<If Condition="GetQuestStep(65768) == 255">
-									<GetTo ZoneId="134" XYZ="-182.8184, 30.5332, -684.9318"/>
+								<GetTo ZoneId="134" XYZ="-182.8184, 30.5332, -684.9318"/>
 								<LLTurnIn QuestId="65768" NpcId="2004932" XYZ="-182.8184, 30.5332, -684.9318"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1161,7 +1231,7 @@
 				<If Condition="not IsQuestCompleted(65769) and IsQuestCompleted(65768)">
 					<If Condition="Core.Player.ClassLevel &gt; 44">
 						<If Condition="not HasQuest(65769)">
-								<GetTo ZoneId="134" XYZ="-189.0135, 30.93738, -687.2816"/>
+							<GetTo ZoneId="134" XYZ="-189.0135, 30.93738, -687.2816"/>
 							<If Condition="IsQuestAcceptQualified(65769)">
 								<LLPickupQuest NpcId="1010628" QuestId="65769" XYZ="-189.0135, 30.93738, -687.2816"/>
 								<LLSmallTalk/>
@@ -1182,10 +1252,14 @@
 										<HotSpot XYZ="-70.93927, 36.04747, 475.6696" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3171" Weight="4000"/> <!-- Medium Circle -->
-										<TargetMob Id="3170" Weight="3000"/> <!-- Shadow Bat -->
-										<TargetMob Id="3167" Weight="2000"/> <!-- Imperial Nightshadow -->
-										<TargetMob Id="3165" Weight="1000"/> <!-- Karasu Redbeak -->
+										<!-- Medium Circle -->
+										<TargetMob Id="3171" Weight="4000"/>
+										<!-- Shadow Bat -->
+										<TargetMob Id="3170" Weight="3000"/>
+										<!-- Imperial Nightshadow -->
+										<TargetMob Id="3167" Weight="2000"/>
+										<!-- Karasu Redbeak -->
+										<TargetMob Id="3165" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -1242,7 +1316,7 @@
 								<If Condition="not IsOnMap(139)">
 									<GetTo ZoneId="139" XYZ="-570.8248, -1.493519, -12.61926"/>
 								</If>
-									<GetTo ZoneId="139" XYZ="-570.8248, -1.493519, -12.61926"/>
+								<GetTo ZoneId="139" XYZ="-570.8248, -1.493519, -12.61926"/>
 								<TalkTo NpcId="1010633" XYZ="-570.8248, -1.493519, -12.61926" QuestId="65770" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(65770) == 3">
@@ -1250,7 +1324,7 @@
 								<TalkTo NpcId="1010634" XYZ="-560.0519, -1.796486, -14.57245" QuestId="65770" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(65770) == 4">
-									<GetTo ZoneId="135" XYZ="-10.422, 8.921356, 831.6013"/>
+								<GetTo ZoneId="135" XYZ="-10.422, 8.921356, 831.6013"/>
 								<TalkTo NpcId="1002515" XYZ="-10.422, 8.921356, 831.6013" QuestId="65770" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(65770) == 5">
@@ -1263,11 +1337,16 @@
 										<HotSpot XYZ="-0.671795, 8.921356, 853.2977" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3173" Weight="5000"/> <!-- Ten -->
-										<TargetMob Id="3174" Weight="4000"/> <!-- Chi -->
-										<TargetMob Id="3175" Weight="3000"/> <!-- Jin -->
-										<TargetMob Id="3168" Weight="2000"/> <!-- Imperial Darkshadow -->
-										<TargetMob Id="3172" Weight="1000"/> <!-- Gekkai the Blind -->
+										<!-- Ten -->
+										<TargetMob Id="3173" Weight="5000"/>
+										<!-- Chi -->
+										<TargetMob Id="3174" Weight="4000"/>
+										<!-- Jin -->
+										<TargetMob Id="3175" Weight="3000"/>
+										<!-- Imperial Darkshadow -->
+										<TargetMob Id="3168" Weight="2000"/>
+										<!-- Gekkai the Blind -->
+										<TargetMob Id="3172" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -1453,10 +1532,14 @@
 										<HotSpot XYZ="-185.4124, 0.01519775, 678.8281" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3171" Weight="4000"/> <!-- Medium Circle -->
-										<TargetMob Id="3170" Weight="3000"/> <!-- Shadow Bat -->
-										<TargetMob Id="4241" Weight="2000"/> <!-- Imperial Deserter -->
-										<TargetMob Id="4243" Weight="1000"/> <!-- Redway the Relinquished -->
+										<!-- Medium Circle -->
+										<TargetMob Id="3171" Weight="4000"/>
+										<!-- Shadow Bat -->
+										<TargetMob Id="3170" Weight="3000"/>
+										<!-- Imperial Deserter -->
+										<TargetMob Id="4241" Weight="2000"/>
+										<!-- Redway the Relinquished -->
+										<TargetMob Id="4243" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -1591,7 +1674,8 @@
 									<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 									<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLTurnIn QuestId="67223" NpcId="1010139" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1610,7 +1694,8 @@
 								<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 								<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 							</If>
-							<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+							<!-- Oboro -->
+							<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 							<If Condition="IsQuestAcceptQualified(67224)">
 								<LLPickupQuest NpcId="1010139" QuestId="67224" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLSmallTalk/>
@@ -1624,7 +1709,7 @@
 								<If Condition="IsOnMap(137) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-33.21893, -24.67445, 257.9841)) &lt; 20">
 									<UseTransport Name="Storehouse Exit" InteractDistance="3.0" NpcId="2004966" XYZ="-16.12885, -23.3006, 258.1368"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-4.867676, 39.41406, 263.7826"/> <!-- Destination -->
+								<LisbethTravel ZoneId="137" XYZ="-4.867676, 39.41406, 263.7826"/>
 								<EmoteNPC NpcId="2005940" Emote="doze" XYZ="-4.867676, 39.41406, 263.7826" Radius="10" UseTimes="1" QuestId="67224" StepId="1"/>
 								<EmoteNPC NpcId="2005941" Emote="doze" XYZ="-47.10461, 39.74963, 255.6648" Radius="10" UseTimes="1" QuestId="67224" StepId="1"/>
 							</While>
@@ -1636,23 +1721,27 @@
 									<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 									<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<TalkTo NpcId="1010139" XYZ="-33.21893, -24.67444, 257.9841" QuestId="67224" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(67224) == 3">
-								<LisbethTravel ZoneId="135" XYZ="103.9902, 53.59641, 674.8607"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="135" XYZ="103.9902, 53.59641, 674.8607"/>
 								<TalkTo NpcId="1013916" XYZ="103.9902, 53.59641, 674.8607" QuestId="67224" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(67224) == 4">
-								<LisbethTravel ZoneId="135" XYZ="122.5452, 60.65454, 934.4777"/> <!-- Destination -->
+								<LisbethTravel ZoneId="135" XYZ="122.5452, 60.65454, 934.4777"/>
 								<UseObject NpcId="2005942" XYZ="122.5452, 60.65454, 934.4777" Radius="10" QuestId="67224" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(67224) == 5">
-								<LisbethTravel ZoneId="135" XYZ="259.6017, 4.403121, 715.3887"/> <!-- Akagi -->
+								<!-- Akagi -->
+								<LisbethTravel ZoneId="135" XYZ="259.6017, 4.403121, 715.3887"/>
 								<TalkTo NpcId="1013920" XYZ="259.6017, 4.403121, 715.3887" QuestId="67224" StepId="5"/>
 							</If>
 							<If Condition="GetQuestStep(67224) == 6">
-								<LisbethTravel ZoneId="135" XYZ="259.6017, 4.403121, 715.3887"/> <!-- Akagi -->
+								<!-- Akagi -->
+								<LisbethTravel ZoneId="135" XYZ="259.6017, 4.403121, 715.3887"/>
 								<BotSettings BlockSkippingCutscenes="1"/>
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
@@ -1662,14 +1751,22 @@
 										<HotSpot XYZ="220.0603, 64.6908, -11.24079" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="3171" Weight="8000"/> <!-- Medium Circle -->
-										<TargetMob Id="3170" Weight="7000"/> <!-- Shadow Bat -->
-										<TargetMob Id="4246" Weight="5000"/> <!-- Truehound Cutter -->
-										<TargetMob Id="4245" Weight="6000"/> <!-- Truehound Gunner -->
-										<TargetMob Id="4091" Weight="4000"/> <!-- Truehound Swab -->
-										<TargetMob Id="4092" Weight="3000"/> <!-- Truehound Lodesman -->
-										<TargetMob Id="4243" Weight="2000"/> <!-- Redway the Relinquished -->
-										<TargetMob Id="4244" Weight="1000"/> <!-- Rosalinde Bloodfang -->
+										<!-- Medium Circle -->
+										<TargetMob Id="3171" Weight="8000"/>
+										<!-- Shadow Bat -->
+										<TargetMob Id="3170" Weight="7000"/>
+										<!-- Truehound Cutter -->
+										<TargetMob Id="4246" Weight="5000"/>
+										<!-- Truehound Gunner -->
+										<TargetMob Id="4245" Weight="6000"/>
+										<!-- Truehound Swab -->
+										<TargetMob Id="4091" Weight="4000"/>
+										<!-- Truehound Lodesman -->
+										<TargetMob Id="4092" Weight="3000"/>
+										<!-- Redway the Relinquished -->
+										<TargetMob Id="4243" Weight="2000"/>
+										<!-- Rosalinde Bloodfang -->
+										<TargetMob Id="4244" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 								<BotSettings BlockSkippingCutscenes="0"/>
@@ -1682,7 +1779,8 @@
 									<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 									<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLTurnIn QuestId="67224" NpcId="1010139" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1701,7 +1799,8 @@
 								<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 								<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 							</If>
-							<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+							<!-- Oboro -->
+							<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 							<If Condition="IsQuestAcceptQualified(68484)">
 								<LLPickupQuest NpcId="1010139" QuestId="68484" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLSmallTalk/>
@@ -1720,23 +1819,28 @@
 								<TalkTo NpcId="1009943" XYZ="-153.3685, -129.4397, 265.8884" QuestId="68484" StepId="1"/>
 							</If>
 							<If Condition="GetQuestStep(68484) == 2">
-								<GetTo ZoneId="128" XYZ="13.41266, 40.2, -13.26007"/> <!-- I'tolwann -->
+								<!-- I'tolwann -->
+								<GetTo ZoneId="128" XYZ="13.41266, 40.2, -13.26007"/>
 								<LLTalkTo NpcId="1005411" DialogOption="2" XYZ="13.41266, 40.2, -13.26007" QuestId="68484" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(68484) == 3">
-								<GetTo ZoneId="129" XYZ="0.6256104, 20.33334, 5.935669"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<GetTo ZoneId="129" XYZ="0.6256104, 20.33334, 5.935669"/>
 								<TalkTo NpcId="1023751" XYZ="0.6256104, 20.33334, 5.935669" QuestId="68484" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(68484) == 4">
-								<LisbethTravel ZoneId="137" XYZ="-3.891113, 66.76015, 45.30396"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<LisbethTravel ZoneId="137" XYZ="-3.891113, 66.76015, 45.30396"/>
 								<TalkTo NpcId="1023545" XYZ="-3.891113, 66.76015, 45.30396" QuestId="68484" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(68484) == 5">
-								<LisbethTravel ZoneId="137" XYZ="468.803, 10.5382, 774.1359"/> <!-- Rough-hewn Hingan -->
+								<!-- Rough-hewn Hingan -->
+								<LisbethTravel ZoneId="137" XYZ="468.803, 10.5382, 774.1359"/>
 								<TalkTo NpcId="1023547" XYZ="468.803, 10.5382, 774.1359" QuestId="68484" StepId="5"/>
 							</If>
 							<If Condition="GetQuestStep(68484) == 6">
-								<LisbethTravel ZoneId="137" XYZ="477.1038, 11.54393, 232.288"/> <!-- Jacke -->
+								<!-- Jacke -->
+								<LisbethTravel ZoneId="137" XYZ="477.1038, 11.54393, 232.288"/>
 								<TalkTo NpcId="1023550" XYZ="477.1038, 11.54393, 232.288" QuestId="68484" StepId="6"/>
 							</If>
 							<If Condition="GetQuestStep(68484) == 255">
@@ -1747,7 +1851,8 @@
 									<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 									<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLTurnIn QuestId="68484" NpcId="1010139" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1766,7 +1871,8 @@
 								<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 								<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 							</If>
-							<LisbethTravel ZoneId="137" XYZ="-28.85486, -24.77324, 265.3086"/> <!-- Yomei -->
+							<!-- Yomei -->
+							<LisbethTravel ZoneId="137" XYZ="-28.85486, -24.77324, 265.3086"/>
 							<If Condition="IsQuestAcceptQualified(68485)">
 								<LLPickupQuest NpcId="1010778" QuestId="68485" XYZ="-28.85486, -24.77324, 265.3086"/>
 								<LLSmallTalk/>
@@ -1774,11 +1880,13 @@
 						</If>
 						<If Condition="HasQuest(68485)">
 							<If Condition="GetQuestStep(68485) == 1">
-								<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/>
 								<TalkTo NpcId="1023555" XYZ="116.35, 11.99354, -40.45172" QuestId="68485" StepId="1"/>
 							</If>
 							<While Condition="GetQuestStep(68485) == 2">
-								<GetTo ZoneId="628" XYZ="-35.00498, 0.0298152, -68.1834"/> <!-- Shiokaze Hostelry -->
+								<!-- Shiokaze Hostelry -->
+								<GetTo ZoneId="628" XYZ="-35.00498, 0.0298152, -68.1834"/>
 								<RunCode Name="Rogue_Hide"/>
 								<MoveTo Name="Garnet League Members" XYZ="-49.4156, 3.013504, -71.45861" Distance="0.5"/>
 								<MoveTo Name="Rakuza District" XYZ="-67.67547, -6.890152, -106.8051" Distance="0.5"/>
@@ -1786,11 +1894,13 @@
 								<MoveTo Name="Garnet League Members" XYZ="-82.41079, -7.300003, -112.4815" Distance="0.5"/>
 							</While>
 							<If Condition="GetQuestStep(68485) == 3">
-								<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/>
 								<TalkTo NpcId="1023555" XYZ="116.35, 11.99354, -40.45172" QuestId="68485" StepId="3"/>
 							</If>
 							<While Condition="GetQuestStep(68485) == 4">
-								<GetTo ZoneId="628" XYZ="-71.05771, 18, -162.8531"/> <!-- Painting Location #2 Start -->
+								<!-- Painting Location #2 Start -->
+								<GetTo ZoneId="628" XYZ="-71.05771, 18, -162.8531"/>
 								<RunCode Name="Ninja_Bathin_Redux"/>
 								<MoveTo Name="Walk on Roof" Distance="0.1" UseMesh="False" XYZ="-40.42299, 20.37195, -163.9135"/>
 								<ClimbHill Name="Jump over Roof Peak" Distance="0.1" Start="-40.42299, 20.37195, -163.9135" End="-40.44627, 21.62523, -157.689"/>
@@ -1800,19 +1910,22 @@
 								<MoveTo Name="Jump" Distance="0.1" UseMesh="False" XYZ="-33.98598, 5.86844, -143.2727"/>
 							</While>
 							<If Condition="GetQuestStep(68485) == 5">
-								<GetTo ZoneId="628" XYZ="-117.5708, 13.41266, -134.3557"/> <!-- Bathhouse Basket -->
+								<!-- Bathhouse Basket -->
+								<GetTo ZoneId="628" XYZ="-117.5708, 13.41266, -134.3557"/>
 								<UseObject NpcId="2008934" XYZ="-117.5708, 13.41266, -134.3557" Radius="10" QuestId="68485" StepId="5"/>
 							</If>
 							<If Condition="GetQuestStep(68485) == 6">
-								<GetTo ZoneId="628" XYZ="-118.1812, 13.19904, -143.145"/> <!-- Bathhouse Basket -->
+								<!-- Bathhouse Basket -->
+								<GetTo ZoneId="628" XYZ="-118.1812, 13.19904, -143.145"/>
 								<UseObject NpcId="2008935" XYZ="-118.1812, 13.19904, -143.145" Radius="10" QuestId="68485" StepId="6"/>
 							</If>
 							<If Condition="GetQuestStep(68485) == 7">
-								<GetTo ZoneId="628" XYZ="-107.4999, 19.24152, -201.3123"/> <!-- Bathhouse Basket -->
+								<!-- Bathhouse Basket -->
+								<GetTo ZoneId="628" XYZ="-107.4999, 19.24152, -201.3123"/>
 								<UseObject NpcId="2008936" XYZ="-107.4999, 19.24152, -201.3123" Radius="10" QuestId="68485" StepId="7"/>
 							</If>
 							<If Condition="GetQuestStep(68485) == 255">
-								<GetTo ZoneId="628" XYZ="116.8077, 11.97827, -38.34595"/> <!-- Destination -->
+								<GetTo ZoneId="628" XYZ="116.8077, 11.97827, -38.34595"/>
 								<LLTurnIn QuestId="68485" NpcId="2008937" XYZ="116.8077, 11.97827, -38.34595"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1824,7 +1937,8 @@
 				<If Condition="not IsQuestCompleted(68486) and IsQuestCompleted(68485)">
 					<If Condition="Core.Player.ClassLevel &gt; 64">
 						<If Condition="not HasQuest(68486)">
-							<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/> <!-- Oboro -->
+							<!-- Oboro -->
+							<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/>
 							<If Condition="IsQuestAcceptQualified(68486)">
 								<LLPickupQuest NpcId="1023555" QuestId="68486" XYZ="116.35, 11.99354, -40.45172"/>
 								<LLSmallTalk/>
@@ -1832,50 +1946,63 @@
 						</If>
 						<If Condition="HasQuest(68486)">
 							<If Condition="GetQuestStep(68486) == 1">
-								<GetTo ZoneId="628" XYZ="60.77661, 2.011992, 34.04285"/> <!-- Yuki -->
+								<!-- Yuki -->
+								<GetTo ZoneId="628" XYZ="60.77661, 2.011992, 34.04285"/>
 								<TalkTo NpcId="1023565" XYZ="60.77661, 2.011992, 34.04285" QuestId="68486" StepId="1"/>
 							</If>
 							<If Condition="GetQuestStep(68486) == 2">
-								<GetTo ZoneId="628" XYZ="8.682312, 3.999999, 49.88171"/> <!-- Akagi -->
+								<!-- Akagi -->
+								<GetTo ZoneId="628" XYZ="8.682312, 3.999999, 49.88171"/>
 								<TalkTo NpcId="1023566" XYZ="8.682312, 3.999999, 49.88171" QuestId="68486" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(68486) == 3">
-								<GetTo ZoneId="628" XYZ="60.77661, 2.011992, 34.04285"/> <!-- Yuki -->
+								<!-- Yuki -->
+								<GetTo ZoneId="628" XYZ="60.77661, 2.011992, 34.04285"/>
 								<TalkTo NpcId="1023565" XYZ="60.77661, 2.011992, 34.04285" QuestId="68486" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(68486) == 4">
-								<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<GetTo ZoneId="628" XYZ="116.35, 11.99354, -40.45172"/>
 								<TalkTo NpcId="1023555" XYZ="116.35, 11.99354, -40.45172" QuestId="68486" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(68486) == 5">
-                    			<LisbethTravel ZoneId="613" XYZ="696.681, -0.05143756, 22.65961"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="613" XYZ="696.681, -0.05143756, 22.65961"/>
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
 								</If>
 								<LLSimpleDuty InteractNpcId="1023567" XYZ="696.681, -0.05143756, 22.65961" QuestId="68486" StepId="5">
 									<HotSpots>
-										<HotSpot XYZ="652.4329, 22.22583, 57.33592" Radius="10"/> <!-- V'kebbe the Stray -->
+										<!-- V'kebbe the Stray -->
+										<HotSpot XYZ="652.4329, 22.22583, 57.33592" Radius="10"/>
 										<HotSpot XYZ="579.2309, 39.88651, 19.87102" Radius="90"/>
-										<HotSpot XYZ="519.9241, 52.63891, -24.31592" Radius="10"/> <!-- Perimu Haurimu Underfoot -->
+										<!-- Perimu Haurimu Underfoot -->
+										<HotSpot XYZ="519.9241, 52.63891, -24.31592" Radius="10"/>
 										<HotSpot XYZ="523.2573, 52.87864, -26.75093" Radius="90"/>
 									</HotSpots>
 									<InteractObjects>
 										<InteractObject Name="Shackles" NpcId="2008896"/>
 									</InteractObjects>
 									<TargetMobs>
-										<TargetMob Id="6681" Weight="5000"/> <!-- Garnet Lookout -->
-										<TargetMob Id="6680" Weight="4000"/> <!-- Garnet Bounder -->
-										<TargetMob Id="6682" Weight="3000"/> <!-- Garnet Brute -->
-										<TargetMob Id="3165" Weight="2000"/> <!-- Karasu Redbeak -->
-										<TargetMob Id="6679" Weight="1000"/> <!-- Zakuro Brightblood -->
+										<!-- Garnet Lookout -->
+										<TargetMob Id="6681" Weight="5000"/>
+										<!-- Garnet Bounder -->
+										<TargetMob Id="6680" Weight="4000"/>
+										<!-- Garnet Brute -->
+										<TargetMob Id="6682" Weight="3000"/>
+										<!-- Karasu Redbeak -->
+										<TargetMob Id="3165" Weight="2000"/>
+										<!-- Zakuro Brightblood -->
+										<TargetMob Id="6679" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
 							<If Condition="GetQuestStep(68486) == 6">
-                    			<WaitWhile Condition="not GetQuestStep(68486) == 255"/>
+								<WaitWhile Condition="not GetQuestStep(68486) == 255"/>
 							</If>
 							<If Condition="GetQuestStep(68486) == 255">
-								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLTurnIn QuestId="68486" NpcId="1023570" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1887,7 +2014,8 @@
 				<If Condition="not IsQuestCompleted(68487) and IsQuestCompleted(68486)">
 					<If Condition="Core.Player.ClassLevel &gt; 67">
 						<If Condition="not HasQuest(68487)">
-							<LisbethTravel ZoneId="614" XYZ="413.0769, 68.02851, -99.32104"/> <!-- Jacke -->
+							<!-- Jacke -->
+							<LisbethTravel ZoneId="614" XYZ="413.0769, 68.02851, -99.32104"/>
 							<If Condition="IsQuestAcceptQualified(68487)">
 								<LLPickupQuest NpcId="1023571" DialogOption="2" QuestId="68487" XYZ="413.0769, 68.02851, -99.32104"/>
 								<LLSmallTalk/>
@@ -1895,35 +2023,41 @@
 						</If>
 						<If Condition="HasQuest(68487)">
 							<If Condition="GetQuestStep(68487) == 1">
-								<LisbethTravel ZoneId="614" XYZ="703.2424, 107.839, -341.4512"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="703.2424, 107.839, -341.4512"/>
 								<TalkTo NpcId="1023573" XYZ="703.2424, 107.839, -341.4512" QuestId="68487" StepId="1"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 2">
-								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLTalkTo NpcId="1023570" XYZ="412.1614, 68.02851, -96.75751" QuestId="68487" StepId="2"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 3">
 								<LisbethTravel ZoneId="614" XYZ="693.2936, 171.374, 84.82483"/>
-                    			<TalkTo NpcId="1023577" XYZ="693.2936, 171.374, 84.82483" QuestId="68487" StepId="3"/>
+								<TalkTo NpcId="1023577" XYZ="693.2936, 171.374, 84.82483" QuestId="68487" StepId="3"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 4">
-								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/>
 								<TalkTo NpcId="1023570" XYZ="412.1614, 68.02851, -96.75751" QuestId="68487" StepId="4"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 5">
-								<LisbethTravel ZoneId="614" XYZ="577.1782, 8.791731, 407.5306"/> <!-- Grinding Area -->
-                    			<Grind grindRef="True_Enlightenment" while="HasQuest(68487) and GetQuestStep(68487) == 5"/>
+								<LisbethTravel ZoneId="614" XYZ="577.1782, 8.791731, 407.5306"/>
+								<Grind grindRef="True_Enlightenment" while="HasQuest(68487) and GetQuestStep(68487) == 5"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 6">
-                    			<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLHandOver ItemId="2002382" QuestId="68487" StepId="6" NpcId="1023570" XYZ="412.1614, 68.02851, -96.75751"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 7">
-								<LisbethTravel ZoneId="614" XYZ="693.2936, 171.374, 84.82483"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="693.2936, 171.374, 84.82483"/>
 								<TalkTo NpcId="1023577" XYZ="693.2936, 171.374, 84.82483" QuestId="68487" StepId="7"/>
 							</If>
 							<If Condition="GetQuestStep(68487) == 255">
-								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLTurnIn QuestId="68487" NpcId="1023570" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
@@ -1935,7 +2069,8 @@
 				<If Condition="not IsQuestCompleted(68488) and IsQuestCompleted(68487)">
 					<If Condition="Core.Player.ClassLevel &gt; 69">
 						<If Condition="not HasQuest(68488)">
-							<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/> <!-- Oboro -->
+							<!-- Oboro -->
+							<LisbethTravel ZoneId="614" XYZ="412.1614, 68.02851, -96.75751"/>
 							<If Condition="IsQuestAcceptQualified(68488)">
 								<LLPickupQuest NpcId="1023570" QuestId="68488" XYZ="412.1614, 68.02851, -96.75751"/>
 								<LLSmallTalk/>
@@ -1943,7 +2078,7 @@
 						</If>
 						<If Condition="HasQuest(68488)">
 							<If Condition="GetQuestStep(68488) == 1">
-                    			<LisbethTravel ZoneId="622" XYZ="-174.609, 1.113892, 767.5134"/> <!-- Destination -->
+								<LisbethTravel ZoneId="622" XYZ="-174.609, 1.113892, 767.5134"/>
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
 								</If>
@@ -1952,8 +2087,10 @@
 										<HotSpot XYZ="-174.4213, 1.181022, 761.1149" Radius="90"/>
 									</HotSpots>
 									<TargetMobs>
-										<TargetMob Id="6340" Weight="2000"/> <!-- Mirrored Hanzo -->
-										<TargetMob Id="6338" Weight="1000"/> <!-- Hanzo the Hidden -->
+										<!-- Mirrored Hanzo -->
+										<TargetMob Id="6340" Weight="2000"/>
+										<!-- Hanzo the Hidden -->
+										<TargetMob Id="6338" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
 							</If>
@@ -1968,10 +2105,11 @@
 									<LisbethTravel ZoneId="137" XYZ="-14.75549, 41.39178, 258.1368"/>
 									<LLTalkTo Name="Byakubu" InteractDistance="3.0" NpcId="1010601" XYZ="-14.75549, 41.39178, 258.1368"/>
 								</If>
-								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/> <!-- Oboro -->
+								<!-- Oboro -->
+								<LisbethTravel ZoneId="137" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLTurnIn QuestId="68488" NpcId="1010139" XYZ="-33.21893, -24.67444, 257.9841"/>
 								<LLSmallTalk/>
-								<RunCode name="Coffer"/>															
+								<RunCode name="Coffer"/>
 								<AutoInventoryEquip/>
 							</If>
 						</If>
@@ -1979,28 +2117,31 @@
 				</If>
 			</If>
 		</If>
-		
-		<LLoadProfile Path="../../Start.xml"/>	
-	
-	
+
+		<LLoadProfile Path="../../Start.xml"/>
 	</Order>
+
 	<CodeChunks>
 		<CodeChunk Name="Coffer">
-			<![CDATA[		
-			foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
-					{
+			<![CDATA[
+				foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
+				{
 					bagslot.UseItem();
 					await Coroutine.Sleep(5000);
-					}
-			]]> 
-		</CodeChunk>	
+				}
+			]]>
+		</CodeChunk>
 		<CodeChunk Name="Rogue_Hide">
-			<![CDATA[ SpellData data;
-				if (!Core.Me.HasAura(614) && ActionManager.CurrentActions.TryGetValue(2245, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(2245, Core.Me);
+			<![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(614) && ActionManager.CurrentActions.TryGetValue(2245, out data) && ActionManager.CanCast(data, Core.Me))
+				{
+					ActionManager.DoAction(2245, Core.Me);
+				}
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="My_First_Mudra">
-			<![CDATA[ 
+			<![CDATA[
 				GameObject target;
 
 				await Coroutine.Sleep(1000);
@@ -2020,11 +2161,12 @@
 					ActionManager.DoAction(2265,target);
 					await Coroutine.Sleep(500);
 				}
+
 				await Coroutine.Sleep(2000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Once_Upon_a_Time_in_Doma">
-			<![CDATA[ 
+			<![CDATA[
 				GameObject target;
 
 				await Coroutine.Sleep(1000);
@@ -2044,12 +2186,13 @@
 					ActionManager.DoAction(2261,target);
 					await Coroutine.Sleep(500);
 				}
+
 				ActionManager.DoAction(2260,target);
 				await Coroutine.Sleep(2000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Once_Upon_a_Time_in_Doma2">
-			<![CDATA[ 
+			<![CDATA[
 				GameObject target;
 
 				await Coroutine.Sleep(1000);
@@ -2069,17 +2212,19 @@
 					ActionManager.DoAction(2259,target);
 					await Coroutine.Sleep(500);
 				}
+
 				ActionManager.DoAction(2260,target);
 				await Coroutine.Sleep(2000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Ninja_Bathin_Jump">
-			<![CDATA[ 
+			<![CDATA[
 				if(Core.Player.IsMounted)
 				{
 					ff14bot.Managers.ActionManager.Dismount();
 					await Coroutine.Sleep(3000);
 				}
+
 				ff14bot.Managers.MovementManager.SetFacing(4.564095f);
 				ff14bot.Managers.MovementManager.MoveForwardStart();
 				await Coroutine.Sleep(500);
@@ -2089,7 +2234,7 @@
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Ninja_Assassin">
-			<![CDATA[ 
+			<![CDATA[
 				GameObject target;
 
 				await Coroutine.Sleep(1000);
@@ -2109,14 +2254,16 @@
 					ActionManager.DoAction(2261,target);
 					await Coroutine.Sleep(500);
 				}
+
 				ActionManager.DoAction(2260,target);
 				await Coroutine.Sleep(5000);
+
 				ff14bot.RemoteWindows.Talk.Next();
 				await Coroutine.Sleep(2000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Ninja_Assassin2">
-			<![CDATA[ 
+			<![CDATA[
 				GameObject target;
 
 				await Coroutine.Sleep(1000);
@@ -2136,8 +2283,10 @@
 					ActionManager.DoAction(2261,target);
 					await Coroutine.Sleep(500);
 				}
+
 				ActionManager.DoAction(2260,target);
 				await Coroutine.Sleep(5000);
+
 				ff14bot.RemoteWindows.Talk.Next();
 				await Coroutine.Sleep(2000);
 				ff14bot.RemoteWindows.Talk.Next();
@@ -2145,7 +2294,7 @@
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="Ninja_Assassin3">
-			<![CDATA[ 
+			<![CDATA[
 				GameObject target;
 
 				await Coroutine.Sleep(1000);
@@ -2165,42 +2314,44 @@
 					ActionManager.DoAction(2261,target);
 					await Coroutine.Sleep(500);
 				}
+
 				ActionManager.DoAction(2260,target);
 				await Coroutine.Sleep(5000);
+
 				ff14bot.RemoteWindows.Talk.Next();
 				await Coroutine.Sleep(2000);
 				ff14bot.RemoteWindows.Talk.Next();
 				await Coroutine.Sleep(2000);
 			]]>
 		</CodeChunk>
-        <CodeChunk Name="EquipNINCrystal">
-            <![CDATA[ 
-                await Coroutine.Sleep(1000);
-                BagSlot EquipSlot = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.SoulCrystal];
+		<CodeChunk Name="EquipNINCrystal">
+			<![CDATA[
+				await Coroutine.Sleep(1000);
+				BagSlot EquipSlot = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.SoulCrystal];
 
-                foreach(BagSlot slot in InventoryManager.FilledInventoryAndArmory)
-                {
-                if(slot.RawItemId == 7886)
-                {
-                    slot.Move(EquipSlot);
-                }
-                }
-                await Coroutine.Sleep(1000);
-            ]]>
-        </CodeChunk>
-        <CodeChunk Name="Cloying_Victory">
-            <![CDATA[ 
-                while (ConditionParser.GetQuestStep(65691) == 1)
-                {
-                    System.Windows.Media.Color textColor = System.Windows.Media.Color.FromRgb(29,213,226);
-                    System.Windows.Media.Color shadowColor = System.Windows.Media.Color.FromRgb(13,106,175);
-                    Core.OverlayManager.AddToast(() => "[Class and Job Quests]\nPlease manually complete the Cloying Victory duty!", TimeSpan.FromMilliseconds(25000), textColor, shadowColor, new System.Windows.Media.FontFamily("Gautami"));
-                    await Coroutine.Sleep(26000);
-                }
-            ]]>
-        </CodeChunk>
+				foreach(BagSlot slot in InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 7886)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+				await Coroutine.Sleep(1000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Cloying_Victory">
+			<![CDATA[
+				while (ConditionParser.GetQuestStep(65691) == 1)
+				{
+					System.Windows.Media.Color textColor = System.Windows.Media.Color.FromRgb(29,213,226);
+					System.Windows.Media.Color shadowColor = System.Windows.Media.Color.FromRgb(13,106,175);
+					Core.OverlayManager.AddToast(() => "[Class and Job Quests]\nPlease manually complete the Cloying Victory duty!", TimeSpan.FromMilliseconds(25000), textColor, shadowColor, new System.Windows.Media.FontFamily("Gautami"));
+					await Coroutine.Sleep(26000);
+				}
+			]]>
+		</CodeChunk>
 		<CodeChunk Name="Ninja_Bathin_Redux">
-			<![CDATA[ 
+			<![CDATA[
 				MovementManager.SetFacing(1.585401f);
 				MovementManager.MoveForwardStart();
 				await Coroutine.Sleep(1000);
@@ -2209,109 +2360,128 @@
 				MovementManager.Jump();
 				await Coroutine.Sleep(1000);
 				MovementManager.MoveStop();
-        	]]>
+			]]>
 		</CodeChunk>
-    <CodeChunk Name="DutyCommence">
-      <![CDATA[
-        Logging.Write("Commencing duty.");
-        uint[] npcIds = { 2004863 };
-        var dutyNpc = GameObjectManager.GameObjects.Where(r => r.IsTargetable && npcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
-        while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
-        {
-          await Coroutine.Yield();
-          Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
-        }
-        Navigator.PlayerMover.MoveStop();
-        dutyNpc.Interact();
-        await Coroutine.Wait(5000, () => Talk.DialogOpen || DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
-        while (!(DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen))
-        {
-          Talk.Next();
-          await Coroutine.Yield();
-        }
-        await Coroutine.Wait(5000, () => DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
-        if (DifficultySelectYesNo.IsOpen) { DifficultySelectYesNo.Proceed(2); }
-        else if (SelectYesno.IsOpen) { SelectYesno.Yes(); }
-        else
-        {
-         Logging.Write("Duty window didn't open.");
-         TreeRoot.Stop();
-        }
-        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
-        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-        while (QuestLogManager.InCutscene)
-        {
-          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
-          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
-          if (Talk.DialogOpen) { Talk.Next(); }
-          await Coroutine.Yield();
-        }
-        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
-        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
-        Logging.Write("Duty commenced.");
-        await Coroutine.Sleep(1500);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Cloying_Move_1">
-      <![CDATA[
-        var vector3Array = new Vector3[]
-        {
-          new Vector3(-45.94231f, 40.03208f, 15.35122f),
-          new Vector3(-39.09391f, 39.99997f, -23.83099f),
-          new Vector3(-15.8341f, 44f, -37.34334f)
-        };
-        foreach (var pos in vector3Array)
-        {
-          Navigator.PlayerMover.MoveTowards(pos);
-          while (Core.Me.Location.Distance2D(pos) > 0.5f)
-          {
-            await Coroutine.Yield();
-            Navigator.PlayerMover.MoveTowards(pos);
-          }
-        }
-        Navigator.PlayerMover.MoveStop();
-        await Coroutine.Sleep(1000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Cloying_Move_2">
-      <![CDATA[
-        var vector3Array = new Vector3[]
-        {
-          new Vector3(-27.69446f, 43.37358f, -36.28551f),
-          new Vector3(-42.31695f, 40f, -13.29175f),
-          new Vector3(-35.88639f, 38.83962f, -11.47515f),
-          new Vector3(-21.58907f, 32f, -33.61335f),
-          new Vector3(-35.80517f, 31.99998f, -16.44617f),
-          new Vector3(-35.94568f, 31.99994f, 3.631114f)
-        };
-        foreach (var pos in vector3Array)
-        {
-          Navigator.PlayerMover.MoveTowards(pos);
-          while (Core.Me.Location.Distance2D(pos) > 0.5f)
-          {
-            await Coroutine.Yield();
-            Navigator.PlayerMover.MoveTowards(pos);
-          }
-        }
-        Navigator.PlayerMover.MoveStop();
-        await Coroutine.Sleep(1000);
+		<CodeChunk Name="DutyCommence">
+			<![CDATA[
+				Logging.Write("Commencing duty.");
+				uint[] npcIds = { 2004863 };
+
+				var dutyNpc = GameObjectManager.GameObjects.Where(r => r.IsTargetable && npcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+				while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
+				{
+					await Coroutine.Yield();
+					Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
+				}
+
+				Navigator.PlayerMover.MoveStop();
+				dutyNpc.Interact();
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen || DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
+				while (!(DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen))
+				{
+					Talk.Next();
+					await Coroutine.Yield();
+				}
+
+				await Coroutine.Wait(5000, () => DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
+				if (DifficultySelectYesNo.IsOpen)
+				{
+					DifficultySelectYesNo.Proceed(2);
+				}
+				else if (SelectYesno.IsOpen)
+				{
+					SelectYesno.Yes();
+				}
+				else
+				{
+					Logging.Write("Duty window didn't open.");
+					TreeRoot.Stop();
+				}
+
+				await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+
+				while (QuestLogManager.InCutscene)
+				{
+					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
+					if (Talk.DialogOpen) { Talk.Next(); }
+					await Coroutine.Yield();
+				}
+
+				await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+				await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
+				Logging.Write("Duty commenced.");
+				await Coroutine.Sleep(1500);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Cloying_Move_1">
+			<![CDATA[
+				var vector3Array = new Vector3[]
+				{
+					new Vector3(-45.94231f, 40.03208f, 15.35122f),
+					new Vector3(-39.09391f, 39.99997f, -23.83099f),
+					new Vector3(-15.8341f, 44f, -37.34334f)
+				};
+
+				foreach (var pos in vector3Array)
+				{
+					Navigator.PlayerMover.MoveTowards(pos);
+					while (Core.Me.Location.Distance2D(pos) > 0.5f)
+					{
+						await Coroutine.Yield();
+						Navigator.PlayerMover.MoveTowards(pos);
+					}
+				}
+
+				Navigator.PlayerMover.MoveStop();
+				await Coroutine.Sleep(1000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Cloying_Move_2">
+			<![CDATA[
+				var vector3Array = new Vector3[]
+				{
+					new Vector3(-27.69446f, 43.37358f, -36.28551f),
+					new Vector3(-42.31695f, 40f, -13.29175f),
+					new Vector3(-35.88639f, 38.83962f, -11.47515f),
+					new Vector3(-21.58907f, 32f, -33.61335f),
+					new Vector3(-35.80517f, 31.99998f, -16.44617f),
+					new Vector3(-35.94568f, 31.99994f, 3.631114f)
+				};
+
+				foreach (var pos in vector3Array)
+				{
+					Navigator.PlayerMover.MoveTowards(pos);
+					while (Core.Me.Location.Distance2D(pos) > 0.5f)
+					{
+						await Coroutine.Yield();
+						Navigator.PlayerMover.MoveTowards(pos);
+					}
+				}
+
+				Navigator.PlayerMover.MoveStop();
+				await Coroutine.Sleep(1000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="LeaveParty">
-			<![CDATA[		
+			<![CDATA[
 				ChatManager.SendChat("/pcmd leave");
 				await Buddy.Coroutines.Coroutine.Sleep(1000);
-			]]> 
+			]]>
 		</CodeChunk>
 	</CodeChunks>
+
 	<GrindAreas>
 		<GrindArea name="Stabbers_in_Yer_Fambles">
 			<Hotspots>
 				<Hotspot Radius="90" XYZ="53.59859, 52.37904, 208.1335" name="Lost Lambs"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="392"/> <!-- Lost Lamb -->
+				<!-- Lost Lamb -->
+				<TargetMob Id="392"/>
 			</TargetMobs>
 			<MinLevel>1</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2321,7 +2491,8 @@
 				<Hotspot Radius="90" XYZ="15.40125, 42.52365, 118.8592" name="Wharf Rats"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="417"/> <!-- Wharf Rat -->
+				<!-- Wharf Rat -->
+				<TargetMob Id="417"/>
 			</TargetMobs>
 			<MinLevel>1</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2331,7 +2502,8 @@
 				<Hotspot Radius="90" XYZ="12.399, 42.39729, 44.50257" name="Pugils"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="640"/> <!-- Pugil -->
+				<!-- Pugil -->
+				<TargetMob Id="640"/>
 			</TargetMobs>
 			<MinLevel>1</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2361,8 +2533,10 @@
 				<Hotspot Radius="90" XYZ="7.217468, 57.91382, -307.1183" name="Qiqirn Mobs"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3184"/> <!-- Qiqirn Roostkeep -->
-				<TargetMob Id="3183"/> <!-- Qiqirn Plucker -->
+				<!-- Qiqirn Roostkeep -->
+				<TargetMob Id="3184"/>
+				<!-- Qiqirn Plucker -->
+				<TargetMob Id="3183"/>
 			</TargetMobs>
 			<MinLevel>20</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2372,7 +2546,8 @@
 				<Hotspot Radius="90" XYZ="508.2322, 95.95811, -449.8207" name="Kobold Doorman"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3185"/> <!-- Kobold Doorman -->
+				<!-- Kobold Doorman -->
+				<TargetMob Id="3185"/>
 			</TargetMobs>
 			<MinLevel>25</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2382,8 +2557,10 @@
 				<Hotspot Radius="90" XYZ="-436.4631, -2.000525, 48.40558" name="Bloody Executioner Mobs"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3154" Weight="2000"/> <!-- Bloody Executioner Leech -->
-				<TargetMob Id="3153" Weight="1000"/> <!-- Bloody Executioner Deckhand -->
+				<!-- Bloody Executioner Leech -->
+				<TargetMob Id="3154" Weight="2000"/>
+				<!-- Bloody Executioner Deckhand -->
+				<TargetMob Id="3153" Weight="1000"/>
 			</TargetMobs>
 			<MinLevel>30</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2393,7 +2570,8 @@
 				<Hotspot Radius="90" XYZ="-188.4642, 30.72319, -685.1759" name="Imperial Shadow"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3166"/> <!-- Imperial Shadow -->
+				<!-- Imperial Shadow -->
+				<TargetMob Id="3166"/>
 			</TargetMobs>
 			<MinLevel>45</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2403,7 +2581,8 @@
 				<Hotspot Radius="90" XYZ="491.0505, 68.14364, -198.5046" name="Imperial Shadow"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3166"/> <!-- Imperial Shadow -->
+				<!-- Imperial Shadow -->
+				<TargetMob Id="3166"/>
 			</TargetMobs>
 			<MinLevel>45</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2413,7 +2592,8 @@
 				<Hotspot Radius="90" XYZ="516.6855, 9.414734, 351.1252" name="Imperial Shadow"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3166"/> <!-- Imperial Shadow -->
+				<!-- Imperial Shadow -->
+				<TargetMob Id="3166"/>
 			</TargetMobs>
 			<MinLevel>45</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2423,7 +2603,8 @@
 				<Hotspot Radius="90" XYZ="209.2164, -2.07005, 260.3036" name="Imperial Shadow"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3166"/> <!-- Imperial Shadow -->
+				<!-- Imperial Shadow -->
+				<TargetMob Id="3166"/>
 			</TargetMobs>
 			<MinLevel>45</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2433,7 +2614,8 @@
 				<Hotspot Radius="90" XYZ="-76.98181, 64.50076, -241.5656" name="Imperial Shadow"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="3166"/> <!-- Imperial Shadow -->
+				<!-- Imperial Shadow -->
+				<TargetMob Id="3166"/>
 			</TargetMobs>
 			<MinLevel>45</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2443,7 +2625,8 @@
 				<Hotspot Radius="90" XYZ="508.7509, 95.94249, -450.2785" name="Qiqirn Nogbeater"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="4090"/> <!-- Qiqirn Nogbeater -->
+				<!-- Qiqirn Nogbeater -->
+				<TargetMob Id="4090"/>
 			</TargetMobs>
 			<MinLevel>56</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -2453,78 +2636,106 @@
 				<Hotspot Radius="250" XYZ="577.1782, 8.791731, 407.5306" name="Doman Weasels"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="5758"/> <!-- Doman Weasel -->
+				<!-- Doman Weasel -->
+				<TargetMob Id="5758"/>
 			</TargetMobs>
 			<MinLevel>68</MinLevel>
 			<MaxLevel>71</MaxLevel>
-		</GrindArea> 
+		</GrindArea>
 		<GrindArea name="Cloying_Victory_1">
 			<HotSpots>
-				<HotSpot XYZ="-48.26155, 40, 114.3296" Radius="20"/> 
+				<HotSpot XYZ="-48.26155, 40, 114.3296" Radius="20"/>
 			</HotSpots>
 			<TargetMobs>
-				<TargetMob Id="3154" Weight="8000"/> <!-- Bloody Executioner Leech -->
-				<TargetMob Id="3158" Weight="7000"/> <!-- Bloody Executioner Seamster -->
-				<TargetMob Id="3156" Weight="6000"/> <!-- Bloody Executioner Gunner -->
-				<TargetMob Id="3155" Weight="5000"/> <!-- Bloody Executioner Boatswain -->
-				<TargetMob Id="3153" Weight="4000"/> <!-- Bloody Executioner Deckhand -->
-				<TargetMob Id="3189" Weight="3000"/> <!-- Bloody Executioner Lodesman -->
-				<TargetMob Id="3157" Weight="2000"/> <!-- Bloody Executioner Steersman -->
-				<TargetMob Id="3159" Weight="1000"/> <!-- Aisibhir Badwind -->
+				<!-- Bloody Executioner Leech -->
+				<TargetMob Id="3154" Weight="8000"/>
+				<!-- Bloody Executioner Seamster -->
+				<TargetMob Id="3158" Weight="7000"/>
+				<!-- Bloody Executioner Gunner -->
+				<TargetMob Id="3156" Weight="6000"/>
+				<!-- Bloody Executioner Boatswain -->
+				<TargetMob Id="3155" Weight="5000"/>
+				<!-- Bloody Executioner Deckhand -->
+				<TargetMob Id="3153" Weight="4000"/>
+				<!-- Bloody Executioner Lodesman -->
+				<TargetMob Id="3189" Weight="3000"/>
+				<!-- Bloody Executioner Steersman -->
+				<TargetMob Id="3157" Weight="2000"/>
+				<!-- Aisibhir Badwind -->
+				<TargetMob Id="3159" Weight="1000"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Cloying_Victory_2">
 			<HotSpots>
-				<HotSpot XYZ="-47.88676, 40, 63.73321" Radius="20"/> 
+				<HotSpot XYZ="-47.88676, 40, 63.73321" Radius="20"/>
 			</HotSpots>
 			<TargetMobs>
-				<TargetMob Id="3154" Weight="8000"/> <!-- Bloody Executioner Leech -->
-				<TargetMob Id="3158" Weight="7000"/> <!-- Bloody Executioner Seamster -->
-				<TargetMob Id="3156" Weight="6000"/> <!-- Bloody Executioner Gunner -->
-				<TargetMob Id="3155" Weight="5000"/> <!-- Bloody Executioner Boatswain -->
-				<TargetMob Id="3153" Weight="4000"/> <!-- Bloody Executioner Deckhand -->
-				<TargetMob Id="3189" Weight="3000"/> <!-- Bloody Executioner Lodesman -->
-				<TargetMob Id="3157" Weight="2000"/> <!-- Bloody Executioner Steersman -->
-				<TargetMob Id="3159" Weight="1000"/> <!-- Aisibhir Badwind -->
+				<!-- Bloody Executioner Leech -->
+				<TargetMob Id="3154" Weight="8000"/>
+				<!-- Bloody Executioner Seamster -->
+				<TargetMob Id="3158" Weight="7000"/>
+				<!-- Bloody Executioner Gunner -->
+				<TargetMob Id="3156" Weight="6000"/>
+				<!-- Bloody Executioner Boatswain -->
+				<TargetMob Id="3155" Weight="5000"/>
+				<!-- Bloody Executioner Deckhand -->
+				<TargetMob Id="3153" Weight="4000"/>
+				<!-- Bloody Executioner Lodesman -->
+				<TargetMob Id="3189" Weight="3000"/>
+				<!-- Bloody Executioner Steersman -->
+				<TargetMob Id="3157" Weight="2000"/>
+				<!-- Aisibhir Badwind -->
+				<TargetMob Id="3159" Weight="1000"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Cloying_Victory_3">
 			<HotSpots>
-				<HotSpot XYZ="-15.06801, 44, -36.41334" Radius="10"/> 
+				<HotSpot XYZ="-15.06801, 44, -36.41334" Radius="10"/>
 			</HotSpots>
 			<TargetMobs>
-				<TargetMob Id="3160" Weight="9000"/> <!-- Detonator -->
+				<!-- Detonator -->
+				<TargetMob Id="3160" Weight="9000"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Cloying_Victory_4">
 			<HotSpots>
-				<HotSpot XYZ="-35.84512, 31.99994, 3.838394" Radius="10"/> 
+				<HotSpot XYZ="-35.84512, 31.99994, 3.838394" Radius="10"/>
 			</HotSpots>
 			<TargetMobs>
-				<TargetMob Id="3160" Weight="9000"/> <!-- Detonator -->
+				<!-- Detonator -->
+				<TargetMob Id="3160" Weight="9000"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Cloying_Victory_5">
 			<HotSpots>
-				<HotSpot XYZ="19.79649, 39.99997, 33.54923" Radius="10"/> 
+				<HotSpot XYZ="19.79649, 39.99997, 33.54923" Radius="10"/>
 			</HotSpots>
 			<TargetMobs>
-				<TargetMob Id="3160" Weight="9000"/> <!-- Detonator -->
+				<!-- Detonator -->
+				<TargetMob Id="3160" Weight="9000"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Cloying_Victory_6">
 			<HotSpots>
-				<HotSpot XYZ="-33.21069, 40.00498, 29.27364" Radius="20"/> 
+				<HotSpot XYZ="-33.21069, 40.00498, 29.27364" Radius="20"/>
 			</HotSpots>
 			<TargetMobs>
-				<TargetMob Id="3154" Weight="8000"/> <!-- Bloody Executioner Leech -->
-				<TargetMob Id="3158" Weight="7000"/> <!-- Bloody Executioner Seamster -->
-				<TargetMob Id="3156" Weight="6000"/> <!-- Bloody Executioner Gunner -->
-				<TargetMob Id="3155" Weight="5000"/> <!-- Bloody Executioner Boatswain -->
-				<TargetMob Id="3153" Weight="4000"/> <!-- Bloody Executioner Deckhand -->
-				<TargetMob Id="3189" Weight="3000"/> <!-- Bloody Executioner Lodesman -->
-				<TargetMob Id="3157" Weight="2000"/> <!-- Bloody Executioner Steersman -->
-				<TargetMob Id="3159" Weight="1000"/> <!-- Aisibhir Badwind -->
+				<!-- Bloody Executioner Leech -->
+				<TargetMob Id="3154" Weight="8000"/>
+				<!-- Bloody Executioner Seamster -->
+				<TargetMob Id="3158" Weight="7000"/>
+				<!-- Bloody Executioner Gunner -->
+				<TargetMob Id="3156" Weight="6000"/>
+				<!-- Bloody Executioner Boatswain -->
+				<TargetMob Id="3155" Weight="5000"/>
+				<!-- Bloody Executioner Deckhand -->
+				<TargetMob Id="3153" Weight="4000"/>
+				<!-- Bloody Executioner Lodesman -->
+				<TargetMob Id="3189" Weight="3000"/>
+				<!-- Bloody Executioner Steersman -->
+				<TargetMob Id="3157" Weight="2000"/>
+				<!-- Aisibhir Badwind -->
+				<TargetMob Id="3159" Weight="1000"/>
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>

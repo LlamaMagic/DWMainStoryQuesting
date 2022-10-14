@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Cutter's Cry
-  Authors: Zamphire
+Profile: Cutter's Cry
+Authors: Zamphire
 -->
 
 <!DOCTYPE Profile [
@@ -10,124 +10,140 @@
 ]>
 
 <Profile>
-  <Name>Cutter's Cry</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	<If condition="DutyManager.InInstance">
-		<!-- Slay all the enemies 0/8 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Slay all the enemies 0/8" />
-			<Grind GrindRef="ClearFirstRoom" While="GetInstanceTodo(0) &lt; 8"/> <!-- Clear first room -->
-			<MoveTo XYZ="259.5017,-3.5003,88.0854" distance="1"/> <!-- Move to Shifting Sands -->				
-			<RunCode name="ShiftingSands1"/>	
-		</If>
-		
-		<!-- Slay all the enemies 0/8 -->
-		<If Condition="GetInstanceTodo(1) == 0">
-			<Log Message="Slay all the enemies 0/8" />
-			<Grind GrindRef="ClearSecondRoom" While="GetInstanceTodo(1) &lt; 8"/> <!-- Clear second room -->
-			<MoveTo XYZ="79.08752,0.2892196,152.2087" distance="1"/> <!-- Move to Shifting Sands -->
-			<RunCode name="ShiftingSands2"/>	
-		</If>
+	<Name>Cutter's Cry</Name>
+	<Order>
+		<If condition="DutyManager.InInstance">
+			<!-- Slay all the enemies 0/8 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Slay all the enemies 0/8"/>
+				<!-- Clear first room -->
+				<Grind GrindRef="ClearFirstRoom" While="GetInstanceTodo(0) &lt; 8"/>
+				<!-- Move to Shifting Sands -->
+				<MoveTo XYZ="259.5017,-3.5003,88.0854" distance="1"/>
+				<RunCode name="ShiftingSands1"/>
+			</If>
 
-		<!-- Clear the Feeding Pit 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 0">
-			<Log Message="Clear the Feeding Pit 0/1" />
-			<MoveTo XYZ="-53.66629, -3.073627, 184.9704"/>
-			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1585).CurrentHealth == 0"/> <!-- Fight first Boss -->	
-			<If Condition="&openchest; == 1">
-				<LLOpenChest/>
+			<!-- Slay all the enemies 0/8 -->
+			<If Condition="GetInstanceTodo(1) == 0">
+				<Log Message="Slay all the enemies 0/8"/>
+				<!-- Clear second room -->
+				<Grind GrindRef="ClearSecondRoom" While="GetInstanceTodo(1) &lt; 8"/>
+				<!-- Move to Shifting Sands -->
+				<MoveTo XYZ="79.08752,0.2892196,152.2087" distance="1"/>
+				<RunCode name="ShiftingSands2"/>
 			</If>
-			<MoveTo XYZ="-8.133057,-5.813782,215.7168" distance="1"/> <!-- Move to Shifting Sands -->
-			<RunCode name="ShiftingSands3"/>	
-		</If>
 
-		<!-- Clear the Sunken Antechamber 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 0">
-			<Log Message="Clear the Sunken Antechamber 0/1" />
-			<MoveTo XYZ="301.8386,-0.7172241,-111.0399" distance="1"/> <!-- Move to Shifting Sands -->
-			<RunCode name="ShiftingSands4"/>
-			<MoveTo XYZ="319.0203,0.2593384,-232.6543" distance="1"/>	<!-- Move to Shifting Sands -->
-			<RunCode name="ShiftingSands5"/>
-			<MoveTo XYZ="-144.1552, -3.247438, 179.403" usemesh="false" />
-			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1589).CurrentHealth == 0"/> <!-- Fight second Boss -->
-			<If Condition="&openchest; == 1">
-				<LLOpenChest/>
+			<!-- Clear the Feeding Pit 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0">
+				<Log Message="Clear the Feeding Pit 0/1"/>
+				<MoveTo XYZ="-53.66629, -3.073627, 184.9704"/>
+				<!-- Fight first Boss -->
+				<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1585).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<!-- Move to Shifting Sands -->
+				<MoveTo XYZ="-8.133057,-5.813782,215.7168" distance="1"/>
+				<RunCode name="ShiftingSands3"/>
 			</If>
-			<MoveTo XYZ="-144.4572,-3.646973,134.844" />
-			<RunCode name="ShiftingSands6"/>	
-		</If>			
-		
-		<!-- Clear the chimera 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 0">
-			<Log Message="Clear the chimera 0/1" />
-			<MoveTo XYZ="-179.9052, -0.3846191, -167.4527"/>
-			<MoveTo XYZ="-179.9894, -0.4345978, -165.2071"/>
-			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1590).CurrentHealth == 0"/> <!-- Fight Final Boss -->
-			<If Condition="&openchest; == 1">
-				<LLOpenChest/>
+
+			<!-- Clear the Sunken Antechamber 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0">
+				<Log Message="Clear the Sunken Antechamber 0/1"/>
+				<!-- Move to Shifting Sands -->
+				<MoveTo XYZ="301.8386,-0.7172241,-111.0399" distance="1"/>
+				<RunCode name="ShiftingSands4"/>
+				<!-- Move to Shifting Sands -->
+				<MoveTo XYZ="319.0203,0.2593384,-232.6543" distance="1"/>
+				<RunCode name="ShiftingSands5"/>
+				<MoveTo XYZ="-144.1552, -3.247438, 179.403" usemesh="false"/>
+				<!-- Fight second Boss -->
+				<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1589).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="-144.4572,-3.646973,134.844"/>
+				<RunCode name="ShiftingSands6"/>
 			</If>
-			<While condition="DutyManager.InInstance">	
-				<WaitTimer WaitTime="10" />
-				<LLLeaveDuty/>
-			</While>
-		</If>					
-	</If>
-	
-	
-  </Order>
-  <GrindAreas>
-    <GrindArea name="ClearFirstRoom">
-      <Hotspots>
-        <Hotspot Radius="150" XYZ="261.683, -3.837361, 94.04797"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="1592" Weight="1"/> <!-- Sand Bat -->
-        <TargetMob Id="1591" Weight="1"/> <!-- Myrmidon Sentry -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="ClearSecondRoom">
-      <Hotspots>
-        <Hotspot Radius="150" XYZ="92.0181, -4.899999, 169.9398" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="1591" Weight="1"/> <!-- Myrmidon Sentry -->
-        <TargetMob Id="1593" Weight="1"/> <!-- Quicksand Basilisk -->
-      </TargetMobs>
-    </GrindArea>	
-	<GrindArea name="FirstBoss">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="62.57715,-14.40824,84.36707" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Id="1585" Weight="1"/> <!-- Myrmidon Princess -->
-        </TargetMobs>
-	</GrindArea>
-	<GrindArea name="SecondBoss">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="-144.1552,-3.247438,179.403" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Id="1589" Weight="1" /> <!-- Giant Tunnel Worm -->				
-        </TargetMobs>
-	</GrindArea>
-	<GrindArea name="FinalBoss">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="-180.9132,-4.900002,-210.63613" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Id="1590" Weight="1"/> <!-- Chimera -->			
-        </TargetMobs>
-	</GrindArea>	
-  </GrindAreas>
-  <CodeChunks>
- 	<CodeChunk Name="ShiftingSands1">
-		<![CDATA[
+
+			<!-- Clear the chimera 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0">
+				<Log Message="Clear the chimera 0/1"/>
+				<MoveTo XYZ="-179.9052, -0.3846191, -167.4527"/>
+				<MoveTo XYZ="-179.9894, -0.4345978, -165.2071"/>
+				<!-- Fight Final Boss -->
+				<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1590).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">
+					<WaitTimer WaitTime="10"/>
+					<LLLeaveDuty/>
+				</While>
+			</If>
+		</If>
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="ClearFirstRoom">
+			<Hotspots>
+				<Hotspot Radius="150" XYZ="261.683, -3.837361, 94.04797"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Sand Bat -->
+				<TargetMob Id="1592" Weight="1"/>
+				<!-- Myrmidon Sentry -->
+				<TargetMob Id="1591" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearSecondRoom">
+			<Hotspots>
+				<Hotspot Radius="150" XYZ="92.0181, -4.899999, 169.9398" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Myrmidon Sentry -->
+				<TargetMob Id="1591" Weight="1"/>
+				<!-- Quicksand Basilisk -->
+				<TargetMob Id="1593" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="62.57715,-14.40824,84.36707"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Myrmidon Princess -->
+				<TargetMob Id="1585" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-144.1552,-3.247438,179.403"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Giant Tunnel Worm -->
+				<TargetMob Id="1589" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-180.9132,-4.900002,-210.63613"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Chimera -->
+				<TargetMob Id="1590" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<CodeChunks>
+		<CodeChunk Name="ShiftingSands1">
+			<![CDATA[
 			var npcId = GameObjectManager.GetObjectByNPCId(2000460);
-			
+
 			if (!npcId.IsWithinInteractRange)
-			
-			{	
+
+			{
 				var _target = npcId.Location;
 				Navigator.PlayerMover.MoveTowards(_target);
 				while (_target.Distance2D(Core.Me.Location) >= 4)
@@ -138,29 +154,29 @@
 				Navigator.PlayerMover.MoveStop();
 			}
 
-			npcId.Interact();		
-		
+			npcId.Interact();
+
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 			{
 				Logging.WriteDiagnostic("Selecting Yes.");
-				ff14bot.RemoteWindows.SelectYesno.ClickYes();					
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			}
-			
-			while (!CommonBehaviors.IsLoading) 
-			{ 
-				await Coroutine.Yield(); 
-			}				
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="ShiftingSands2">
-		<![CDATA[
+
+			while (!CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Yield();
+			}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="ShiftingSands2">
+			<![CDATA[
 			var npcId = GameObjectManager.GetObjectByNPCId(2000461);
-			
+
 			if (!npcId.IsWithinInteractRange)
-			
-			{	
+
+			{
 				var _target = npcId.Location;
 				Navigator.PlayerMover.MoveTowards(_target);
 				while (_target.Distance2D(Core.Me.Location) >= 4)
@@ -171,29 +187,29 @@
 				Navigator.PlayerMover.MoveStop();
 			}
 
-			npcId.Interact();		
-		
+			npcId.Interact();
+
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 			{
 				Logging.WriteDiagnostic("Selecting Yes.");
-				ff14bot.RemoteWindows.SelectYesno.ClickYes();					
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			}
-			
-			while (!CommonBehaviors.IsLoading) 
-			{ 
-				await Coroutine.Yield(); 
-			}	
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="ShiftingSands3">
-		<![CDATA[
+
+			while (!CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Yield();
+			}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="ShiftingSands3">
+			<![CDATA[
 			var npcId = GameObjectManager.GetObjectByNPCId(2000464);
-			
+
 			if (!npcId.IsWithinInteractRange)
-			
-			{	
+
+			{
 				var _target = npcId.Location;
 				Navigator.PlayerMover.MoveTowards(_target);
 				while (_target.Distance2D(Core.Me.Location) >= 4)
@@ -204,29 +220,29 @@
 				Navigator.PlayerMover.MoveStop();
 			}
 
-			npcId.Interact();		
-		
+			npcId.Interact();
+
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 			{
 				Logging.WriteDiagnostic("Selecting Yes.");
-				ff14bot.RemoteWindows.SelectYesno.ClickYes();					
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			}
-			
-			while (!CommonBehaviors.IsLoading) 
-			{ 
-				await Coroutine.Yield(); 
-			}				
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="ShiftingSands4">
-		<![CDATA[
+
+			while (!CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Yield();
+			}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="ShiftingSands4">
+			<![CDATA[
 			var npcId = GameObjectManager.GetObjectByNPCId(2000465);
-			
+
 			if (!npcId.IsWithinInteractRange)
-			
-			{	
+
+			{
 				var _target = npcId.Location;
 				Navigator.PlayerMover.MoveTowards(_target);
 				while (_target.Distance2D(Core.Me.Location) >= 4)
@@ -237,29 +253,29 @@
 				Navigator.PlayerMover.MoveStop();
 			}
 
-			npcId.Interact();		
-		
+			npcId.Interact();
+
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 			{
 				Logging.WriteDiagnostic("Selecting Yes.");
-				ff14bot.RemoteWindows.SelectYesno.ClickYes();					
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			}
-			
-			while (!CommonBehaviors.IsLoading) 
-			{ 
-				await Coroutine.Yield(); 
-			}					
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="ShiftingSands5">
-		<![CDATA[
+
+			while (!CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Yield();
+			}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="ShiftingSands5">
+			<![CDATA[
 			var npcId = GameObjectManager.GetObjectByNPCId(2000466);
-			
+
 			if (!npcId.IsWithinInteractRange)
-			
-			{	
+
+			{
 				var _target = npcId.Location;
 				Navigator.PlayerMover.MoveTowards(_target);
 				while (_target.Distance2D(Core.Me.Location) >= 4)
@@ -270,29 +286,29 @@
 				Navigator.PlayerMover.MoveStop();
 			}
 
-			npcId.Interact();		
-		
+			npcId.Interact();
+
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 			{
 				Logging.WriteDiagnostic("Selecting Yes.");
-				ff14bot.RemoteWindows.SelectYesno.ClickYes();					
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			}
-			
-			while (!CommonBehaviors.IsLoading) 
-			{ 
-				await Coroutine.Yield(); 
-			}				
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="ShiftingSands6">
-		<![CDATA[
+
+			while (!CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Yield();
+			}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="ShiftingSands6">
+			<![CDATA[
 			var npcId = GameObjectManager.GetObjectByNPCId(2000469);
-			
+
 			if (!npcId.IsWithinInteractRange)
-			
-			{	
+
+			{
 				var _target = npcId.Location;
 				Navigator.PlayerMover.MoveTowards(_target);
 				while (_target.Distance2D(Core.Me.Location) >= 4)
@@ -303,21 +319,21 @@
 				Navigator.PlayerMover.MoveStop();
 			}
 
-			npcId.Interact();		
-		
+			npcId.Interact();
+
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 			{
 				Logging.WriteDiagnostic("Selecting Yes.");
-				ff14bot.RemoteWindows.SelectYesno.ClickYes();					
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			}
-			
-			while (!CommonBehaviors.IsLoading) 
-			{ 
-				await Coroutine.Yield(); 
-			}				
-      ]]>
-	</CodeChunk>				
-  </CodeChunks>
+
+			while (!CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Yield();
+			}
+			]]>
+		</CodeChunk>
+	</CodeChunks>
 </Profile>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Malikah's Well
-  Authors: DomesticWarlord86
+Profile: Malikah's Well
+Authors: DomesticWarlord86
 	Version: 1.0
-	
-	Zone Id: 836 
+
+	Zone Id: 836
 -->
 
 <!DOCTYPE Profile [
@@ -14,184 +14,184 @@
 ]>
 
 <Profile>
-  <Name>Malikah's Well</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	
-	<If condition="not DutyManager.InInstance">
-		<JoinSupportDuty DutyId="656"/>	<!-- Malikah's Well -->
-	</If>
-	
-	<If condition="DutyManager.InInstance">
-	
-		<EnablePlugin name="Trust"/>
-
-		<!-- Arrive at Terminus: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Arrive at Terminus: 0/1" />
-			<If condition="not IsOnSubMap(3029) and not IsOnSubMap(3033)">
-				<MoveTo XYZ="115.7389, 120.0873, -93.51714" />
-				<LLChangeZone Heading="1.953059" />			
-			</If>
-			<MoveTo XYZ="278.057, 16.99999, 204.6996" InCombat="True"/>
+	<Name>Malikah's Well</Name>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<!-- Malikah's Well -->
+			<JoinSupportDuty DutyId="656"/>
 		</If>
-		
-		<!-- Clear Terminus: 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-			<Log Message="Clear Terminus: 0/1" />
-			<If condition="not IsOnSubMap(3029) and not IsOnSubMap(3033)">
-				<MoveTo XYZ="115.7389, 120.0873, -93.51714" />
-				<LLChangeZone Heading="1.953059" />			
+
+		<If condition="DutyManager.InInstance">
+			<EnablePlugin name="Trust"/>
+
+			<!-- Arrive at Terminus: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at Terminus: 0/1"/>
+				<If condition="not IsOnSubMap(3029) and not IsOnSubMap(3033)">
+					<MoveTo XYZ="115.7389, 120.0873, -93.51714"/>
+					<LLChangeZone Heading="1.953059"/>
+				</If>
 				<MoveTo XYZ="278.057, 16.99999, 204.6996" InCombat="True"/>
-			</If>			
-			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Greater Armadillo -->	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="280.9876, 16.99999, 196.6873" />
-				<LLOpenChest/>
-				<If Condition="&EquipAfterChestOpen; == 1">
-					<AutoInventoryEquip />
-				</If>	
-			</If>			
-		</If>
-		
-		<!-- Arrive at Malikah's Gift: 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-			<Log Message="Arrive at Malikah's Gift: 0/1" />
-			<EnablePlugin Names="SideStep"/>
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>			
-			</If>				
-			<If condition="IsOnSubMap(3029)">
-				<MoveTo XYZ="170.0176, 12.11693, 168.9992" />
-				<MoveTo XYZ="160.4964, -10, 175.9013" usemesh="false" />
 			</If>
-			<If condition="IsOnSubMap(3033)">
-				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="149.4926,-9.781128,230.4265" />
-					<LLOpenChest/>
-					<If Condition="&EquipAfterChestOpen; == 1">
-						<AutoInventoryEquip />
-					</If>	
-				</If>				
-				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="134.1726,-20.03516,295.4299" />
-					<LLOpenChest/>
-					<If Condition="&EquipAfterChestOpen; == 1">
-						<AutoInventoryEquip />
-					</If>	
-				</If>	
-				<MoveTo XYZ="148.3845, -19.93752, 292.3516" />
-				<MoveTo XYZ="159.6344, -80.7, 301.0587" usemesh="false" />
-			</If>	
-			<MoveTo XYZ="207.6673, -86.00002, 277.6306" InCombat="True"/>
-		</If>	
-		
-		<!-- Clear Malikah's Gift: 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-			<Log Message="Clear Malikah's Gift: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>						
-			</If>	
-			<If condition="IsOnSubMap(3029)">
-				<MoveTo XYZ="170.0176, 12.11693, 168.9992" />
-				<MoveTo XYZ="160.4964, -10, 175.9013" usemesh="false" />
-			</If>
-			<If condition="IsOnSubMap(3033)">
-				<MoveTo XYZ="148.3845, -19.93752, 292.3516" />
-				<MoveTo XYZ="159.6344, -80.7, 301.0587" usemesh="false" />
-			</If>				
-			<MoveTo XYZ="207.6673, -86.00002, 277.6306" InCombat="True"/>
-			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Amphibious Talos -->	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="206.5918,-86.0152,260.5172" />
-				<LLOpenChest/>
-				<If Condition="&EquipAfterChestOpen; == 1">
-					<AutoInventoryEquip />
-				</If>	
-			</If>			
-		</If>
-		
-		<!-- Arrive at Unquestioned Acceptance: 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-			<Log Message="Arrive at Unquestioned Acceptance: 0/1 " />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>			
-			</If>				
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="205.5542,-84.00098,123.9795" />
-				<LLOpenChest/>
-				<If Condition="&EquipAfterChestOpen; == 1">
-					<AutoInventoryEquip />
-				</If>	
-			</If>	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="206.4697,-80.00305,35.11096" />
-				<LLOpenChest/>
-				<If Condition="&EquipAfterChestOpen; == 1">
-					<AutoInventoryEquip />
-				</If>	
-			</If>						
-			<MoveTo XYZ="197.2519, -71.50668, -48.95562" />
-			<MoveTo XYZ="195.9788, -93.39989, -89.03552" usemesh="false" InCombat="True"/>
-		</If>		
-		
-		<!-- Defeat Storge: 0/1 -->
-		<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-			<Log Message="Defeat Storge: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>	
-				<MoveTo XYZ="197.2519, -71.50668, -48.95562" />
-				<MoveTo XYZ="195.9788, -93.39989, -89.03552" usemesh="false" InCombat="True"/>		
-			</If>			
-			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Storge -->	
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="193.202, -93.3999, -89.18291" />
-				<LLOpenChest/>
-				<If Condition="&EquipAfterChestOpen; == 1">
-					<AutoInventoryEquip />
-				</If>	
-			</If>			
-		</If>		
-		
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>		
-		
-  </If>
-	
-	
-	<LLoadProfile Path="../../../Start.xml"/>
 
+			<!-- Clear Terminus: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Terminus: 0/1"/>
+				<If condition="not IsOnSubMap(3029) and not IsOnSubMap(3033)">
+					<MoveTo XYZ="115.7389, 120.0873, -93.51714"/>
+					<LLChangeZone Heading="1.953059"/>
+					<MoveTo XYZ="278.057, 16.99999, 204.6996" InCombat="True"/>
+				</If>
+				<!-- Greater Armadillo -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="280.9876, 16.99999, 196.6873"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+			</If>
+
+			<!-- Arrive at Malikah's Gift: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at Malikah's Gift: 0/1"/>
+				<EnablePlugin Names="SideStep"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<If condition="IsOnSubMap(3029)">
+					<MoveTo XYZ="170.0176, 12.11693, 168.9992"/>
+					<MoveTo XYZ="160.4964, -10, 175.9013" usemesh="false"/>
+				</If>
+				<If condition="IsOnSubMap(3033)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="149.4926,-9.781128,230.4265"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="134.1726,-20.03516,295.4299"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="148.3845, -19.93752, 292.3516"/>
+					<MoveTo XYZ="159.6344, -80.7, 301.0587" usemesh="false"/>
+				</If>
+				<MoveTo XYZ="207.6673, -86.00002, 277.6306" InCombat="True"/>
+			</If>
+
+			<!-- Clear Malikah's Gift: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear Malikah's Gift: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<If condition="IsOnSubMap(3029)">
+					<MoveTo XYZ="170.0176, 12.11693, 168.9992"/>
+					<MoveTo XYZ="160.4964, -10, 175.9013" usemesh="false"/>
+				</If>
+				<If condition="IsOnSubMap(3033)">
+					<MoveTo XYZ="148.3845, -19.93752, 292.3516"/>
+					<MoveTo XYZ="159.6344, -80.7, 301.0587" usemesh="false"/>
+				</If>
+				<MoveTo XYZ="207.6673, -86.00002, 277.6306" InCombat="True"/>
+				<!-- Amphibious Talos -->
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="206.5918,-86.0152,260.5172"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+			</If>
+
+			<!-- Arrive at Unquestioned Acceptance: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at Unquestioned Acceptance: 0/1 "/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="205.5542,-84.00098,123.9795"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="206.4697,-80.00305,35.11096"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+				<MoveTo XYZ="197.2519, -71.50668, -48.95562"/>
+				<MoveTo XYZ="195.9788, -93.39989, -89.03552" usemesh="false" InCombat="True"/>
+			</If>
+
+			<!-- Defeat Storge: 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat Storge: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+					<MoveTo XYZ="197.2519, -71.50668, -48.95562"/>
+					<MoveTo XYZ="195.9788, -93.39989, -89.03552" usemesh="false" InCombat="True"/>
+				</If>
+				<!-- Storge -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="193.202, -93.3999, -89.18291"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
+
+		<LLoadProfile Path="../../../Start.xml"/>
 	</Order>
-  <GrindAreas>	
-    <GrindArea name="FirstBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="277.854, 16.99999, 204.0025" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8252" Weight="1"/> <!-- Greater Armadillo -->
-        <TargetMob Id="9040" Weight="2"/> <!-- Pack Armadillo -->				
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="207.8735,-86.00001,265.1255" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8250" Weight="1"/> <!-- Amphibious Talos -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="FinalBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="195.9788, -93.39989, -89.03552" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="8249" Weight="1"/> <!-- Storge -->
-      </TargetMobs>
-    </GrindArea>	
-  </GrindAreas>
-  <CodeChunks> 	
-  </CodeChunks>	
+
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="277.854, 16.99999, 204.0025" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Greater Armadillo -->
+				<TargetMob Id="8252" Weight="1"/>
+				<!-- Pack Armadillo -->
+				<TargetMob Id="9040" Weight="2"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="207.8735,-86.00001,265.1255" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Amphibious Talos -->
+				<TargetMob Id="8250" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="195.9788, -93.39989, -89.03552" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Storge -->
+				<TargetMob Id="8249" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
 </Profile>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Striking Tree (Hard)
-  Authors: Zamphire, Angles24
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: The Striking Tree (Hard)
+Authors: Zamphire, Angles24
+Code Credit: TuckMeIntoBread, Kayla.
 -->
 
 <!DOCTYPE Profile [
@@ -11,34 +11,32 @@
 ]>
 
 <Profile>
-  <Name>The Striking Tree (Hard)</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	<If condition="DutyManager.InInstance">
-		<MoveTo XYZ="4.951025, 75, 3.833662" usemesh="false"/> <!-- Move to center -->
-		<Grind GrindRef="Ramuh" While="not GameObjectManager.GetObjectByNPCId(2832).CurrentHealth == 0"/> <!-- Kill Ramuh -->
-		<If Condition="&openchest; == 1">
-			<LLOpenChest />
+	<Name>The Striking Tree (Hard)</Name>
+	<Order>
+		<If condition="DutyManager.InInstance">
+			<!-- Move to center -->
+			<MoveTo XYZ="4.951025, 75, 3.833662" usemesh="false"/>
+			<!-- Kill Ramuh -->
+			<Grind GrindRef="Ramuh" While="not GameObjectManager.GetObjectByNPCId(2832).CurrentHealth == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<While condition="DutyManager.InInstance">
+				<WaitTimer WaitTime="10"/>
+				<LLLeaveDuty/>
+			</While>
 		</If>
-		<While condition="DutyManager.InInstance">	
-			<WaitTimer WaitTime="10" />
-			<LLLeaveDuty/>
-		</While>
-	</If>
+	</Order>
 
-	
- </Order>
-  <GrindAreas>
-	<GrindArea name="Ramuh">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="4.951025, 75, 3.833662" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Ramuh" Id="2832" Weight="1" />
-			<TargetMob Name="Grey Arbiter" Id="2833" Weight="2" />
-        </TargetMobs>
-	</GrindArea>
-  </GrindAreas>		
-  <CodeChunks>
-  </CodeChunks>  
-</Profile>    
+	<GrindAreas>
+		<GrindArea name="Ramuh">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="4.951025, 75, 3.833662"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Ramuh" Id="2832" Weight="1"/>
+				<TargetMob Name="Grey Arbiter" Id="2833" Weight="2"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

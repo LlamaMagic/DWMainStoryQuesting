@@ -1,196 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE Profile [
-  <!-- Profile Settings -->
-  <!ENTITY openchest "1">
-  <!ENTITY EquipAfterChestOpen "1">
+	<!-- Profile Settings -->
+<!ENTITY openchest "1">
+<!ENTITY EquipAfterChestOpen "1">
 ]>
 
 <Profile>
-  <Name>81 The Tower of Zot</Name>
-  <Order>
+	<Name>81 The Tower of Zot</Name>
+	<Order>
+		<If Condition="not IsOnMap(952)">
+			<JoinSupportDuty DutyId="783"/>
+		</If>
 
+		<If Condition="IsOnMap(952)">
+			<EnablePlugin Names="SideStep,Trust"/>
 
-    <If Condition="not IsOnMap(952)">
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>
+			</If>
 
+			<!-- Arrive at Ingenuity's Ingress 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at Ingenuity's Ingress 0/1"/>
+				<If Condition="IsOnSubMap(3730)">
+					<MoveTo XYZ="67.44556, -442.9678, -107.7545" Distance="0.5"/>
+				</If>
+			</If>
 
-      <JoinSupportDuty DutyId="783" />
+			<!-- Clear Ingenuity's Ingress 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Ingenuity's Ingress 0/1"/>
+				<EnablePlugin Names="SideStep,Trust"/>
+				<Grind GrindRef="Minduruva" PostCombatDelay="2.0" While="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="67.97888,-442.9847,-137.0108"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+			</If>
 
-    </If>
+			<!-- Arrive at Prosperity's Promise 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at Prosperity's Promise 0/1"/>
+				<If Condition="IsOnSubMap(3733)">
+					<MoveTo XYZ="63.24457, -443.4718, -177.2011"/>
+					<LLChangeZone Heading="3.180114"/>
+				</If>
+				<If Condition="IsOnSubMap(3731)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-342.5193,-180.8347,77.31738"/>
+						<LLOpenChest/>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-225.7878,-171.8319,65.56799"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="-257.6166, -169, -8.267162" Distance="0.5"/>
+				</If>
+			</If>
 
-    <If Condition="IsOnMap(952)">
+			<!-- Clear Prosperity's Promise 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear Prosperity's Promise 0/1"/>
+				<If Condition="IsOnSubMap(3733)">
+					<MoveTo XYZ="63.24457, -443.4718, -177.2011"/>
+					<LLChangeZone Heading="3.180114"/>
+				</If>
+				<EnablePlugin Names="SideStep,Trust"/>
+				<Grind GrindRef="Sanduruva" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-258.0148,-169.0242,-40.02448"/>
+					<LLOpenChest/>
+					<If Condition="&EquipAfterChestOpen; == 1">
+						<AutoInventoryEquip/>
+					</If>
+				</If>
+			</If>
 
-      <EnablePlugin Names="SideStep,Trust" />
+			<!-- Arrive at Wisdom's Ward 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at Wisdom's Ward 0/1"/>
+				<If Condition="IsOnSubMap(3734)">
+					<MoveTo XYZ="-262.2831, -167.9562, -86.32867"/>
+					<LLChangeZone Heading="3.358942"/>
+				</If>
+				<If Condition="IsOnSubMap(3732)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="22.62909,535.5764,-38.52911"/>
+						<LLOpenChest/>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="40.08533,539.0859,-100.1145"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+				<MoveTo XYZ="-38.83713, 546.104, -38.20349" Distance="0.5"/>
+			</If>
+		</If>
 
-      <!-- Shortcut available -->
-      <If condition="IsNearShortcut(2000700)">
-        <UseShortcut NpcId="2000700" Distance="20" />
-      </If>
+		<!-- Defeat the Magus Sisters 0/1 -->
+		<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+			<Log Message="Defeat the Magus Sisters 0/1"/>
+			<If Condition="IsOnSubMap(3734)">
+				<MoveTo XYZ="-262.2831, -167.9562, -86.32867"/>
+				<LLChangeZone Heading="3.358942"/>
+			</If>
+			<EnablePlugin Names="SideStep,Trust"/>
+			<Grind GrindRef="Cinduruva" PostCombatDelay="2.0" While="not IsDutyEnded()"/>
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-24.09399,546.0745,-52.93359"/>
+				<LLOpenChest/>
+				<If Condition="&EquipAfterChestOpen; == 1">
+					<AutoInventoryEquip/>
+				</If>
+			</If>
+		</If>
 
-      <!-- Arrive at Ingenuity's Ingress 0/1 -->
-      <If Condition="GetInstanceTodo(0) == 0">
-        <Log Message="Arrive at Ingenuity's Ingress 0/1" />
-        <If Condition="IsOnSubMap(3730)">
-          <MoveTo XYZ="67.44556, -442.9678, -107.7545" Distance="0.5" />
-        </If>
-      </If>
+		<While condition="DutyManager.InInstance and IsDutyEnded()">
+			<WaitTimer WaitTime="5"/>
+			<LLLeaveDuty/>
+		</While>
 
-      <!-- Clear Ingenuity's Ingress 0/1 -->
-      <If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-        <Log Message="Clear Ingenuity's Ingress 0/1" />
-        <EnablePlugin Names="SideStep,Trust" />
-        <Grind GrindRef="Minduruva" PostCombatDelay="2.0" While="GetInstanceTodo(1) == 0" />
-        <If Condition="&openchest; == 1">
-          <MoveTo XYZ="67.97888,-442.9847,-137.0108" />
-          <LLOpenChest />
-          <If Condition="&EquipAfterChestOpen; == 1">
-            <AutoInventoryEquip />
-          </If>	
-        </If>
-      </If>
+		<LLoadProfile Path="../../../Start.xml"/>
+	</Order>
 
-      <!-- Arrive at Prosperity's Promise 0/1 -->
-      <If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-        <Log Message="Arrive at Prosperity's Promise 0/1" />
-        <If Condition="IsOnSubMap(3733)">
-          <MoveTo XYZ="63.24457, -443.4718, -177.2011" />
-          <LLChangeZone Heading="3.180114" />
-        </If>
-        <If Condition="IsOnSubMap(3731)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-342.5193,-180.8347,77.31738" />
-            <LLOpenChest />
-          </If>
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-225.7878,-171.8319,65.56799" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-          <MoveTo XYZ="-257.6166, -169, -8.267162" Distance="0.5" />
-        </If>
-      </If>
+	<GrindAreas>
+		<GrindArea Name="Minduruva">
+			<Hotspots>
+				<Hotspot XYZ="68, -442.9678, -132" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10256"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Sanduruva">
+			<Hotspots>
+				<Hotspot XYZ="-258, -169, -34" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10257"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Cinduruva">
+			<Hotspots>
+				<Hotspot XYZ="-0.01531982, 480, -199.5117" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10259" Weight="999"/>
+				<TargetMob Id="10257" Weight="2"/>
+				<TargetMob Id="10256" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
 
-      <!-- Clear Prosperity's Promise 0/1 -->
-      <If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-        <Log Message="Clear Prosperity's Promise 0/1" />
-        <If Condition="IsOnSubMap(3733)">
-          <MoveTo XYZ="63.24457, -443.4718, -177.2011" />
-          <LLChangeZone Heading="3.180114" />
-        </If>
-        <EnablePlugin Names="SideStep,Trust" />
-        <Grind GrindRef="Sanduruva" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0" />
-        <If Condition="&openchest; == 1">
-          <MoveTo XYZ="-258.0148,-169.0242,-40.02448" />
-          <LLOpenChest />
-          <If Condition="&EquipAfterChestOpen; == 1">
-            <AutoInventoryEquip />
-          </If>	
-        </If>
-      </If>
-
-      <!-- Arrive at Wisdom's Ward 0/1 -->
-      <If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-        <Log Message="Arrive at Wisdom's Ward 0/1" />
-        <If Condition="IsOnSubMap(3734)">
-          <MoveTo XYZ="-262.2831, -167.9562, -86.32867" />
-          <LLChangeZone Heading="3.358942" />
-        </If>
-        <If Condition="IsOnSubMap(3732)">
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="22.62909,535.5764,-38.52911" />
-            <LLOpenChest />
-          </If>
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="40.08533,539.0859,-100.1145" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-        <MoveTo XYZ="-38.83713, 546.104, -38.20349" Distance="0.5" />
-      </If>
-    </If>
-
-    <!-- Defeat the Magus Sisters 0/1 -->
-    <If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-      <Log Message="Defeat the Magus Sisters 0/1" />
-      <If Condition="IsOnSubMap(3734)">
-        <MoveTo XYZ="-262.2831, -167.9562, -86.32867" />
-        <LLChangeZone Heading="3.358942" />
-      </If>
-      <EnablePlugin Names="SideStep,Trust" />
-      <Grind GrindRef="Cinduruva" PostCombatDelay="2.0" While="not IsDutyEnded()" />
-      <If Condition="&openchest; == 1">
-        <MoveTo XYZ="-24.09399,546.0745,-52.93359" />
-        <LLOpenChest />
-        <If Condition="&EquipAfterChestOpen; == 1">
-					<AutoInventoryEquip />
-				</If>	
-      </If>
-    </If>
-
-    <While condition="DutyManager.InInstance and IsDutyEnded()">
-      <WaitTimer WaitTime="5" />
-      <LLLeaveDuty />
-    </While>
-
-    <LLoadProfile Path="../../../Start.xml" />
-
-  </Order>
-  <GrindAreas>
-    <GrindArea Name="Minduruva">
-      <Hotspots>
-        <Hotspot XYZ="68, -442.9678, -132" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10256" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="Sanduruva">
-      <Hotspots>
-        <Hotspot XYZ="-258, -169, -34" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10257" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="Cinduruva">
-      <Hotspots>
-        <Hotspot XYZ="-0.01531982, 480, -199.5117" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10259" Weight="999" />
-        <TargetMob Id="10257" Weight="2" />
-        <TargetMob Id="10256" Weight="1" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-  </GrindAreas>
-  <CodeChunks>
-    <CodeChunk Name="Transition1">
-      <![CDATA[
-            Core.Me.SetFacing(3.296449f);
-            MovementManager.MoveForwardStart();
-            await Coroutine.Sleep(2000);
-            Navigator.PlayerMover.MoveStop();
-            ]]>
-    </CodeChunk>
-    <CodeChunk Name="Transition2">
-      <![CDATA[
-            Core.Me.SetFacing(3.343738f);
-            MovementManager.MoveForwardStart();
-            await Coroutine.Sleep(2000);
-            Navigator.PlayerMover.MoveStop();
-            ]]>
-    </CodeChunk>
-  </CodeChunks>
+	<CodeChunks>
+		<CodeChunk Name="Transition1">
+			<![CDATA[
+				Core.Me.SetFacing(3.296449f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(2000);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Transition2">
+			<![CDATA[
+				Core.Me.SetFacing(3.343738f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(2000);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+	</CodeChunks>
 </Profile>

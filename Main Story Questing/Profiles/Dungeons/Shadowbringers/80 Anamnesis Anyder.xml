@@ -1,154 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Profile [
-  <!-- Profile Settings -->
-  <!ENTITY openchest "1">
+	<!-- Profile Settings -->
+<!ENTITY openchest "1">
 ]>
 <Profile>
-  <Name>[OrderBot][Trust] Anamnesis Anyder</Name>
-  <Author>Sodimm</Author>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
+	<Name>[OrderBot][Trust] Anamnesis Anyder</Name>
+	<Author>Sodimm</Author>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<!-- Anamnesis Anyder-->
+			<JoinSupportDuty DutyId="714"/>
+		</If>
 
+		<If Condition="IsOnMap(898)">
+			<EnablePlugin names="Sidestep,Trust"/>
 
-    <If condition="not DutyManager.InInstance">
-      <JoinSupportDuty DutyId="714" /> <!-- Anamnesis Anyder-->
-    </If>
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="30"/>
+			</If>
 
-    <If Condition="IsOnMap(898)">
-      <EnablePlugin names="Sidestep,Trust" />
+			<!-- Arrive at Katharsis 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at Katharsis 0/1"/>
+				<Grind GrindRef="OnTurtle" While="GetInstanceTodo(0) == 0"/>
+			</If>
 
-      <!-- Shortcut available -->
-      <If condition="IsNearShortcut(2000700)">
-        <UseShortcut NpcId="2000700" Distance="30" />
-      </If>
+			<!-- Clear Katharsis 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Katharsis 0/1"/>
+				<MoveTo Name="Boss Arena 1" XYZ="-39.75961, 95, 305.4623" Distance="1"/>
+				<Grind GrindRef="Unknown" PostCombatDelay="3.0" While="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo Name="Coffer 1" XYZ="-40.02448,94.98743,274.9828"/>
+					<LLOpenChest/>
+				</If>
+			</If>
 
-      <!-- Arrive at Katharsis 0/1 -->
-      <If Condition="GetInstanceTodo(0) == 0">
-        <Log Message="Arrive at Katharsis 0/1" />
-        <Grind GrindRef="OnTurtle" While="GetInstanceTodo(0) == 0" />
-      </If>
+			<!-- Arrive at Doxa 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at Doxa 0/1"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo Name="Coffer 2" XYZ="34.7434, 100, 144.1869"/>
+					<LLOpenChest/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo Name="Coffer 3" XYZ="53.54382,104.9972,16.495"/>
+					<LLOpenChest/>
+				</If>
+				<MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1"/>
+			</If>
 
-      <!-- Clear Katharsis 0/1 -->
-      <If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-        <Log Message="Clear Katharsis 0/1" />
-        <MoveTo Name="Boss Arena 1" XYZ="-39.75961, 95, 305.4623" Distance="1" />
-        <Grind GrindRef="Unknown" PostCombatDelay="3.0" While="GetInstanceTodo(1) == 0" />
-        <If Condition="&openchest; == 1">
-          <MoveTo Name="Coffer 1" XYZ="-40.02448,94.98743,274.9828" />
-          <LLOpenChest />
-        </If>
-      </If>
+			<!-- Clear Doxa 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear Doxa 0/1"/>
+				<MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1"/>
+				<LLToast message="The bot will struggle with this fight but eventually it'll luck through it."/>
+				<Grind GrindRef="Kyklops" PostCombatDelay="3.0" While="GetInstanceTodo(3) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo Name="Coffer 4" XYZ="19.97406,109.9717,-90.013"/>
+					<LLOpenChest/>
+				</If>
+			</If>
 
-      <!-- Arrive at Doxa 0/1 -->
-      <If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-        <Log Message="Arrive at Doxa 0/1" />
-        <If Condition="&openchest; == 1">
-          <MoveTo Name="Coffer 2" XYZ="34.7434, 100, 144.1869" />
-          <LLOpenChest />
-        </If>
-        <If Condition="&openchest; == 1">
-          <MoveTo Name="Coffer 3" XYZ="53.54382,104.9972,16.495" />
-          <LLOpenChest />
-        </If>
-        <MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1" />
-      </If>
+			<!-- Arrive at Noesis 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at Noesis 0/1"/>
+				<If condition="not IsOnSubMap(3465)">
+					<If Condition="&openchest; == 1">
+						<MoveTo Name="Coffer 5" XYZ="70.62136, 92, -237.9265"/>
+						<LLOpenChest/>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo Name="Coffer 6" XYZ="-21.92731,91.99658,-216.6629"/>
+						<LLOpenChest/>
+					</If>
+					<MoveTo Name="Zone Line" XYZ="20.24325, 92.5, -319.0067"/>
+					<LLChangeZone Heading="3.140973"/>
+				</If>
+				<MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1"/>
+			</If>
 
-      <!-- Clear Doxa 0/1 -->
-      <If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-        <Log Message="Clear Doxa 0/1" />
-        <MoveTo Name="Boss Arena 2" XYZ="19.84591, 110, -68.05988" Distance="1" />
-        <LLToast message="The bot will struggle with this fight but eventually it'll luck through it."/>
-        <Grind GrindRef="Kyklops" PostCombatDelay="3.0" While="GetInstanceTodo(3) == 0" />
-        <If Condition="&openchest; == 1">
-          <MoveTo Name="Coffer 4" XYZ="19.97406,109.9717,-90.013" />
-          <LLOpenChest />
-        </If>
-      </If>
+			<!-- Defeat Rukshs Dheem 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat Rukshs Dheem 0/1"/>
+				<If condition="not IsOnSubMap(3465)">
+					<MoveTo Name="Zone Line" XYZ="20.24325, 92.5, -319.0067"/>
+					<LLChangeZone Heading="3.140973"/>
+				</If>
+				<MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1"/>
+				<Grind GrindRef="RukshsDheem" PostCombatDelay="3.0" While="not IsDutyEnded()"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo Name="Coffer 7" XYZ="-0.01531982,-200,-458.0301"/>
+					<LLOpenChest/>
+				</If>
+			</If>
 
-      <!-- Arrive at Noesis 0/1 -->
-      <If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-        <Log Message="Arrive at Noesis 0/1" />
-        <If condition="not IsOnSubMap(3465)">
-          <If Condition="&openchest; == 1">
-            <MoveTo Name="Coffer 5" XYZ="70.62136, 92, -237.9265" />
-            <LLOpenChest />
-          </If>
-          <If Condition="&openchest; == 1">
-            <MoveTo Name="Coffer 6" XYZ="-21.92731,91.99658,-216.6629" />
-            <LLOpenChest />
-          </If>
-          <MoveTo Name="Zone Line" XYZ="20.24325, 92.5, -319.0067" />
-          <LLChangeZone Heading="3.140973" />
-        </If>
-        <MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1" />
-      </If>
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
 
-      <!-- Defeat Rukshs Dheem 0/1 -->
-      <If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-        <Log Message="Defeat Rukshs Dheem 0/1" />
-        <If condition="not IsOnSubMap(3465)">
-          <MoveTo Name="Zone Line" XYZ="20.24325, 92.5, -319.0067" />
-          <LLChangeZone Heading="3.140973" />
-        </If>
-        <MoveTo Name="Boss Arena 3" XYZ="0.06932829, -200, -439.7176" Distance="1" />
-        <Grind GrindRef="RukshsDheem" PostCombatDelay="3.0" While="not IsDutyEnded()" />
-        <If Condition="&openchest; == 1">
-          <MoveTo Name="Coffer 7" XYZ="-0.01531982,-200,-458.0301"  />
-          <LLOpenChest />
-        </If>
-      </If>
+		<LLoadProfile Path="../../../Start.xml"/>
+	</Order>
 
-      <While condition="DutyManager.InInstance and IsDutyEnded()">
-        <WaitTimer WaitTime="5" />
-        <LLLeaveDuty />
-      </While>
-
-    </If>
-
-    <LLoadProfile Path="../../../Start.xml" />
-  </Order>
-  <GrindAreas>
-    <GrindArea name="OnTurtle">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-98.51139, 103.5996, 376.5931" name="OnBismark" />
-        <Hotspot Radius="90" XYZ="-40.25727, 94.99999, 307.3765" name="BossRoom" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="9267" Weight="1" /> <!-- Trench Danbania -->
-        <TargetMob Id="9268" Weight="1" /> <!-- Trench Xzomit -->
-        <TargetMob Id="9269" Weight="1" /> <!-- Trench Phuabo -->
-        <TargetMob Id="9271" Weight="1" /> <!-- Trench Dagonite -->
-        <TargetMob Id="9272" Weight="1" /> <!-- Trench Yovra -->
-        <TargetMob Id="9267" Weight="1" /> <!-- Trench Danbania -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea Name="Unknown">
-      <Hotspots>
-        <Hotspot XYZ="-40.02448, 95, 289.9977" Radius="120" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="9260" Weight="1"/> <!-- Unknown -->
-        <TargetMob Id="9261" Weight="1"/> <!-- Unknown -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea Name="Kyklops">
-      <Hotspots>
-        <Hotspot XYZ="19.97406, 110, -85.00806" Radius="120" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="9263" />
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea Name="RukshsDheem">
-      <Hotspots>
-        <Hotspot XYZ="-0.03659993, -200, -460.0256" Radius="120" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="9264" Weight="1"/> <!-- Rukshs Dheem -->
-        <TargetMob Id="9266" Weight="999" />
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>
-  <CodeChunks>
-  </CodeChunks>
+	<GrindAreas>
+		<GrindArea name="OnTurtle">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-98.51139, 103.5996, 376.5931" name="OnBismark"/>
+				<Hotspot Radius="90" XYZ="-40.25727, 94.99999, 307.3765" name="BossRoom"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Trench Danbania -->
+				<TargetMob Id="9267" Weight="1"/>
+				<!-- Trench Xzomit -->
+				<TargetMob Id="9268" Weight="1"/>
+				<!-- Trench Phuabo -->
+				<TargetMob Id="9269" Weight="1"/>
+				<!-- Trench Dagonite -->
+				<TargetMob Id="9271" Weight="1"/>
+				<!-- Trench Yovra -->
+				<TargetMob Id="9272" Weight="1"/>
+				<!-- Trench Danbania -->
+				<TargetMob Id="9267" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Unknown">
+			<Hotspots>
+				<Hotspot XYZ="-40.02448, 95, 289.9977" Radius="120"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Unknown -->
+				<TargetMob Id="9260" Weight="1"/>
+				<!-- Unknown -->
+				<TargetMob Id="9261" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Kyklops">
+			<Hotspots>
+				<Hotspot XYZ="19.97406, 110, -85.00806" Radius="120"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="9263"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="RukshsDheem">
+			<Hotspots>
+				<Hotspot XYZ="-0.03659993, -200, -460.0256" Radius="120"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Rukshs Dheem -->
+				<TargetMob Id="9264" Weight="1"/>
+				<TargetMob Id="9266" Weight="999"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
 </Profile>

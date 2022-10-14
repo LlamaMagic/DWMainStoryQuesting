@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Porta Decumana
-  Authors: DomesticWarlord86
+Profile: The Porta Decumana
+Authors: DomesticWarlord86
 	Version: 2.0
-	Zone Id: 1048 
-	
-	
-	
+	Zone Id: 1048
+
 [18:58:25.925 V] [SideStep] Geocrush [CastType][Id: 28999][Omen: 27][RawCastType: 2][ObjId: 1073895042]
 		Move to Ally
-[19:03:16.528 V] [SideStep] Vulcan Burst [CastType][Id: 29003][Omen: 141][RawCastType: 2][ObjId: 1073895041]		
+[19:03:16.528 V] [SideStep] Vulcan Burst [CastType][Id: 29003][Omen: 141][RawCastType: 2][ObjId: 1073895041]
 		Move to Ally
 [19:04:03.848 V] [SideStep] Radiant Blaze [CastType][Id: 28991][Omen: 7][RawCastType: 2][ObjId: 1073895054]
 		Turn off Sidestep. Room wide AOE that you can only dodge by DPSing the boss.
@@ -23,45 +21,42 @@
 ]>
 
 <Profile>
-  <Name>The Porta Decumana</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
+	<Name>The Porta Decumana</Name>
+	<Order>
+		<If condition="DutyManager.InInstance">
+			<!-- Kill The Ultima Weapon -->
+			<Grind GrindRef="TheUltimaWeapon" While="not Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
+			<WaitWhile Condition="Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
+			<!-- Kill The Ultima Weapon -->
+			<Grind GrindRef="TheUltimaWeapon2" While="not IsDutyEnded()"/>
 
-
-	<If condition="DutyManager.InInstance">
-	
-		<Grind GrindRef="TheUltimaWeapon" While="not Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/> <!-- Kill The Ultima Weapon -->
-		<WaitWhile Condition="Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
-		<Grind GrindRef="TheUltimaWeapon2" While="not IsDutyEnded()"/> <!-- Kill The Ultima Weapon -->
-		
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>		
-		
-	</If>
-
-	
- </Order>
-  <GrindAreas>
-    <GrindArea name="TheUltimaWeapon">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-758, -400.1316, -600" name="Name"/>
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
+	</Order>
+	<GrindAreas>
+		<GrindArea name="TheUltimaWeapon">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-758, -400.1316, -600" name="Name"/>
 				<Hotspot Radius="90" XYZ="-689.555, -185.7316, 480.347" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2137" Weight="1"/> <!-- The Ultima Weapon -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="TheUltimaWeapon2">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-689.555, -185.7316, 480.347" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2137" Weight="1"/> <!-- The Ultima Weapon -->
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>		
-  <CodeChunks>	
-  </CodeChunks>  
-</Profile>    
+			</Hotspots>
+			<TargetMobs>
+				<!-- The Ultima Weapon -->
+				<TargetMob Id="2137" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="TheUltimaWeapon2">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-689.555, -185.7316, 480.347" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- The Ultima Weapon -->
+				<TargetMob Id="2137" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+	</CodeChunks>
+</Profile>

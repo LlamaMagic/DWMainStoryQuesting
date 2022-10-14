@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Navel
-  Authors: DomesticWarlord86
+Profile: The Navel
+Authors: DomesticWarlord86
 	Version: 2.0
 -->
 
@@ -11,46 +11,47 @@
 ]>
 
 <Profile>
-  <Name>The Navel</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
+	<Name>The Navel</Name>
+	<Order>
 		<If condition="not DutyManager.InInstance">
-			<JoinSupportDuty DutyId="57" Trial="true"/> 
+			<JoinSupportDuty DutyId="57" Trial="true"/>
 		</If>
 
 		<If condition="DutyManager.InInstance">
-			
 			<EnablePlugin name="Trust"/>
 
-			
-			<MoveTo XYZ="-0.1087532, 2.384186E-07, 1.400909" usemesh="false"/> <!-- Move to center -->
-			<Grind GrindRef="Titan" While="not IsDutyEnded()"/> <!-- Kill Titan -->
+			<!-- Move to center -->
+			<MoveTo XYZ="-0.1087532, 2.384186E-07, 1.400909" usemesh="false"/>
+
+			<!-- Kill Titan -->
+			<Grind GrindRef="Titan" While="not IsDutyEnded()"/>
+
 			<If Condition="&openchest; == 1">
-				<LLOpenChest />
+				<LLOpenChest/>
 			</If>
 		</If>
 
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
+		<While condition="DutyManager.InInstance and IsDutyEnded()">
+			<WaitTimer WaitTime="5"/>
 			<LLLeaveDuty/>
 		</While>
-		
-		<LLoadProfile Path="../../Start.xml"/>		
 
- </Order>
-  <GrindAreas>
+		<LLoadProfile Path="../../Start.xml"/>
+	</Order>
+
+	<GrindAreas>
 		<GrindArea name="Titan">
-      <Hotspots>
-				<Hotspot Radius="200" XYZ="-0.1087532, 2.384186E-07, 1.400909" />
-      </Hotspots>
-      <TargetMobs>
-				<TargetMob Id="1801" Weight="1"/> <!-- Titan -->
-        <TargetMob Id="1804" Weight="10"/> <!-- Granite Gaol -->
-        <TargetMob Id="1802" Weight="2"/> <!-- Titan's Heart -->
-      </TargetMobs>
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-0.1087532, 2.384186E-07, 1.400909"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Titan -->
+				<TargetMob Id="1801" Weight="1"/>
+				<!-- Granite Gaol -->
+				<TargetMob Id="1804" Weight="10"/>
+				<!-- Titan's Heart -->
+				<TargetMob Id="1802" Weight="2"/>
+			</TargetMobs>
 		</GrindArea>
-  </GrindAreas>		
-  <CodeChunks>
-  </CodeChunks>  
-</Profile>    
+	</GrindAreas>
+</Profile>

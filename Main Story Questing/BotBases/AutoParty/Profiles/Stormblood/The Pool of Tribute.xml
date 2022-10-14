@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Navel
-  Authors: Zamphire
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: The Pool of Tribute
+Authors: Zamphire
+Code Credit: TuckMeIntoBread, Kayla.
 -->
 
 <!DOCTYPE Profile [
@@ -11,34 +11,33 @@
 ]>
 
 <Profile>
-  <Name>The Navel</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	<If condition="not DutyManager.InInstance">
-		<LLJoinDuty DutyId="243" Undersized="True"/>
-	</If>	
-	
-	<If condition="DutyManager.InInstance">
-		<Grind GrindRef="Susano" While="not IsDutyEnded()"/> <!-- Kill Titan -->
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="10" />
-			<LLLeaveDuty/>
-		</While>
-	</If>
+	<Name>The Pool of Tribute</Name>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="243" Undersized="True"/>
+		</If>
 
-	
- </Order>
-  <GrindAreas>
-    <GrindArea name="Susano">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-0.03009045, -0.1157791, 15.19387" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="6221" Weight="1"/> <!-- Susano -->
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>		
-  <CodeChunks>
-  </CodeChunks>  
-</Profile>    
+		<If condition="DutyManager.InInstance">
+			<!-- Kill Susano -->
+			<Grind GrindRef="Susano" While="not IsDutyEnded()"/>
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="10"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="Susano">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-0.03009045, -0.1157791, 15.19387" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Susano -->
+				<TargetMob Id="6221" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+	</CodeChunks>
+</Profile>

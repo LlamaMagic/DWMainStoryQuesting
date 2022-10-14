@@ -7,26 +7,26 @@ This profile is in early beta. By running this profile,
 you accept that a lot of it may not work properly yet.
 
 Known Issues:
-  A Labyrinthine Descent - Line 224
-    Find a better way to follow Alisaie
-  The Full Report, Warts and All - Line 395
-    For some reason it hangs on the NoCombatMoveTo. Stopping and starting the bot fixes it, not sure why yet
-  The Great Work - Line 659
-    Moving toward and back away, then toward the lantern again is likely to cause issues.
-    Marked as manual for now.
-  Tracks In The Snow
-    Should work, may need to adjust timings a bit.
-    Update: tweaked timer from 38 to 40, make sure your combat routine isnt using some sort of sprint.
-  Strange Bedfellows
-    May get stuck on using item on npc, please report any problems.
-  A Taste of the Moon - Line 1866
-    Stairs here are going to be an issue
-  Warm Hearts, Rekindled Hopes - Line 2500
-    Need to leave the water here
-  Petalouda Hunt - Line 2703
-    Using the item needs some work.
-  Their Greatest Contribution - Line 2888
-    Unable to navigate over the ledge.
+	A Labyrinthine Descent - Line 224
+		Find a better way to follow Alisaie
+	The Full Report, Warts and All - Line 395
+		For some reason it hangs on the NoCombatMoveTo. Stopping and starting the bot fixes it, not sure why yet
+	The Great Work - Line 659
+		Moving toward and back away, then toward the lantern again is likely to cause issues.
+		Marked as manual for now.
+	Tracks In The Snow
+		Should work, may need to adjust timings a bit.
+		Update: tweaked timer from 38 to 40, make sure your combat routine isnt using some sort of sprint.
+	Strange Bedfellows
+		May get stuck on using item on npc, please report any problems.
+	A Taste of the Moon - Line 1866
+		Stairs here are going to be an issue
+	Warm Hearts, Rekindled Hopes - Line 2500
+		Need to leave the water here
+	Petalouda Hunt - Line 2703
+		Using the item needs some work.
+	Their Greatest Contribution - Line 2888
+		Unable to navigate over the ledge.
 -->
 
 <!DOCTYPE Profile [
@@ -40,29 +40,27 @@ Known Issues:
 
 <!-- What's the carry's name? -->
 <!ENTITY CarryName "First Last">
-
 ]>
 
 <Profile>
-  <Name>[OrderBot][MSQ] 6.0 - Endwalker</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-    <!-- Profile starts here -->
-    <If Condition="not IsQuestCompleted(69602)">
-      <Log Message="Must complete Shadowbringers before starting Endwalker. Returning to Start.xml" />
-      <LLoadProfile Path="../Start.xml"/>
-    </If>
+	<Name>[OrderBot][MSQ] 6.0 - Endwalker</Name>
+	<Order>
+		<!-- Profile starts here -->
+		<If Condition="not IsQuestCompleted(69602)">
+			<Log Message="Must complete Shadowbringers before starting Endwalker. Returning to Start.xml"/>
+			<LLoadProfile Path="../Start.xml"/>
+		</If>
 
 		<!-- Buy Eggs -->
 		<If condition="not HasAtLeast(4650,50)">
-			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975" />
+			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975"/>
 			<BuyItem ItemIds="4650" DialogOption="0" ItemCount="99" NpcId="1003253" XYZ="-149.9504,18.2,36.94202"/>
 			<RunCode name="SetFood"/>
 			<EnablePlugin name="Gluttony"/>
 		</If>
 
-    <!-- The Next Ship to Sail -->
-    <If Condition="not IsQuestCompleted(69893)">
+		<!-- The Next Ship to Sail -->
+		<If Condition="not IsQuestCompleted(69893)">
 			<If condition="not HasQuest(69893)">
 				<If condition="not IsOnMap(351)">
 					<GetTo ZoneId="156" XYZ="21.97702, 21.25273, -632.5405"/>
@@ -87,19 +85,19 @@ Known Issues:
 				<GetTo ZoneId="962" XYZ="50.51358, -16.247, 145.8548"/>
 				<LLTurnIn QuestId="69893" NpcId="1038578" XYZ="49.69861, -16.247, 145.2201"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- Old Sharlayan, New to You -->
-    <If Condition="IsQuestCompleted(69893) and not IsQuestCompleted(69894)">
+		<!-- Old Sharlayan, New to You -->
+		<If Condition="IsQuestCompleted(69893) and not IsQuestCompleted(69894)">
 			<If Condition="not HasQuest(69894)">
-      <GetTo ZoneId="962" XYZ="50.51358, -16.247, 145.8548"/>
-      <If Condition="IsQuestAcceptQualified(69894)">
-        <LLPickupQuest QuestId="69894" NpcId="1038578"/>
-        <LLSmallTalk/>
-      </If>
+				<GetTo ZoneId="962" XYZ="50.51358, -16.247, 145.8548"/>
+				<If Condition="IsQuestAcceptQualified(69894)">
+					<LLPickupQuest QuestId="69894" NpcId="1038578"/>
+					<LLSmallTalk/>
+				</If>
 			</If>
 			<If Condition="GetQuestStep(69894) == 1">
 				<GetTo ZoneId="962" XYZ="49.31693, -16.247, 146.6388"/>
@@ -141,15 +139,15 @@ Known Issues:
 				<MoveTo XYZ="-0.02772496, 1.907349E-06, 1.148184"/>
 				<LLTurnIn QuestId="69894" NpcId="1038586" XYZ="-0.01531982, 1.907349E-06, -0.7781982"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- Old Sharlayan Branch -->
-    <!-- Hitting the Books -->
-    <If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69895)">
-      <If condition="not HasQuest(69895)">
+		<!-- Old Sharlayan Branch -->
+		<!-- Hitting the Books -->
+		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69895)">
+			<If condition="not HasQuest(69895)">
 				<If condition="not IsOnMap(987)">
 					<GetTo ZoneId="962" XYZ="-108.0241, 3.898939, 5.788384"/>
 					<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
@@ -192,14 +190,14 @@ Known Issues:
 				<GetTo ZoneId="962" XYZ="-277.0354, 19.00388, 16.30012"/>
 				<LLTurnIn QuestId="69895" NpcId="1038679" XYZ="-275.5932, 19.00388, 13.32104"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- A Seat at the Last Stand -->
-    <If Condition="IsQuestCompleted(69895) and not IsQuestCompleted(69896)">
-      <If Condition="not HasQuest(69896)">
+		<!-- A Seat at the Last Stand -->
+		<If Condition="IsQuestCompleted(69895) and not IsQuestCompleted(69896)">
+			<If Condition="not HasQuest(69896)">
 				<GetTo ZoneId="962" XYZ="-279.338, 19.00388, 17.89649"/>
 				<If Condition="IsQuestAcceptQualified(69896)">
 					<LLPickupQuest QuestId="69896" NpcId="1038681"/>
@@ -245,9 +243,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Labyrinthine Descent -->
-    <If Condition="IsQuestCompleted(69896) and not IsQuestCompleted(69897)">
-      <If Condition="not HasQuest(69897)">
+		<!-- A Labyrinthine Descent -->
+		<If Condition="IsQuestCompleted(69896) and not IsQuestCompleted(69897)">
+			<If Condition="not HasQuest(69897)">
 				<GetTo ZoneId="962" XYZ="27.38341, -14.447, 78.0834"/>
 				<If Condition="IsQuestAcceptQualified(69897)">
 					<LLPickupQuest QuestId="69897" NpcId="1038684"/>
@@ -291,9 +289,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Glorified Ratcatcher -->
-    <If Condition="IsQuestCompleted(69897) and not IsQuestCompleted(69898)">
-      <If Condition="not HasQuest(69898)">
+		<!-- Glorified Ratcatcher -->
+		<If Condition="IsQuestCompleted(69897) and not IsQuestCompleted(69898)">
+			<If Condition="not HasQuest(69898)">
 				<GetTo ZoneId="956" XYZ="-51.22955, 170.403, -736.5743"/>
 				<If Condition="IsQuestAcceptQualified(69898)">
 					<LLPickupQuest QuestId="69898" NpcId="1038695"/>
@@ -335,11 +333,10 @@ Known Issues:
 			</If>
 		</If>
 
-
-    <!-- Deeper into the Maze -->
-    <If Condition="IsQuestCompleted(69898) and not IsQuestCompleted(69899)">
+		<!-- Deeper into the Maze -->
+		<If Condition="IsQuestCompleted(69898) and not IsQuestCompleted(69899)">
 			<If Condition="not HasQuest(69899)">
-			 <GetTo ZoneId="956" XYZ="392.7867, 165.95, -522.4117"/>
+				<GetTo ZoneId="956" XYZ="392.7867, 165.95, -522.4117"/>
 				<If Condition="IsQuestAcceptQualified(69899)">
 					<LLPickupQuest QuestId="69899" NpcId="1038702"/>
 					<LLSmallTalk/>
@@ -367,21 +364,21 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69899) == 5">
 				<GetTo ZoneId="956" XYZ="574.7405, 169.4404, -518.2614"/>
-				<UserDialog QuestId="69899" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Large Green Bird." />
+				<UserDialog QuestId="69899" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Large Green Bird."/>
 			</If>
 			<If Condition="GetQuestStep(69899) == 255">
 				<GetTo ZoneId="956" XYZ="643.4731, 184.8565, -130.9254"/>
 				<LLTurnIn QuestId="69899" NpcId="1038718" XYZ="644.9835, 185.1472, -130.2358"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- The Medial Circuit -->
-    <If Condition="IsQuestCompleted(69899) and not IsQuestCompleted(69900)">
+		<!-- The Medial Circuit -->
+		<If Condition="IsQuestCompleted(69899) and not IsQuestCompleted(69900)">
 			<If Condition="not HasQuest(69900)">
-			 <GetTo ZoneId="956" XYZ="644.1367, 184.894, -131.2241"/>
+				<GetTo ZoneId="956" XYZ="644.1367, 184.894, -131.2241"/>
 				<If Condition="IsQuestAcceptQualified(69900)">
 					<LLPickupQuest QuestId="69900" NpcId="1038719"/>
 					<LLSmallTalk/>
@@ -426,8 +423,8 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- The Full Report, Warts and All -->
-    <If Condition="IsQuestCompleted(69900) and not IsQuestCompleted(69901)">
+		<!-- The Full Report, Warts and All -->
+		<If Condition="IsQuestCompleted(69900) and not IsQuestCompleted(69901)">
 			<If Condition="not HasQuest(69901)">
 				<GetTo ZoneId="956" XYZ="325.0635, 97.37598, -279.9499"/>
 				<If Condition="IsQuestAcceptQualified(69901)">
@@ -456,7 +453,7 @@ Known Issues:
 					<LLTalkTo NpcId="1038736" XYZ="177.264, 56.63088, -411.5511" QuestId="69901" StepId="3"/>
 				</While>
 				<While condition="Core.Player.HasAura(565) and GetQuestStep(69901) == 3">
-					<NoCombatMoveTo XYZ="-163.9276, 80.92038, -533.9874" />
+					<NoCombatMoveTo XYZ="-163.9276, 80.92038, -533.9874"/>
 					<LLSmallTalk/>
 				</While>
 			</While>
@@ -467,8 +464,8 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Guide of Sorts -->
-    <If Condition="IsQuestCompleted(69901) and not IsQuestCompleted(69902)">
+		<!-- A Guide of Sorts -->
+		<If Condition="IsQuestCompleted(69901) and not IsQuestCompleted(69902)">
 			<If Condition="not HasQuest(69902)">
 				<GetTo ZoneId="956" XYZ="-257.0063, 79.71155, -499.8534"/>
 				<If Condition="IsQuestAcceptQualified(69902)">
@@ -491,9 +488,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Estate Visitor -->
-    <If Condition="IsQuestCompleted(69902) and not IsQuestCompleted(69903)">
-      <If Condition="not HasQuest(69903)">
+		<!-- Estate Visitor -->
+		<If Condition="IsQuestCompleted(69902) and not IsQuestCompleted(69903)">
+			<If Condition="not HasQuest(69903)">
 				<GetTo ZoneId="962" XYZ="2.769217, 41.37599, -143.2545"/>
 				<If Condition="IsQuestAcceptQualified(69903)">
 					<LLPickupQuest QuestId="69903" NpcId="1038746"/>
@@ -527,10 +524,10 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Thavnair Branch -->
-    <!-- For Thavnair Bound -->
-    <If Condition="IsQuestCompleted(69903) and not IsQuestCompleted(69904)">
-      <If condition="not HasQuest(69904)">
+		<!-- Thavnair Branch -->
+		<!-- For Thavnair Bound -->
+		<If Condition="IsQuestCompleted(69903) and not IsQuestCompleted(69904)">
+			<If condition="not HasQuest(69904)">
 				<If condition="not IsOnMap(987)">
 					<GetTo ZoneId="962" XYZ="-108.0241, 3.898939, 5.788384"/>
 					<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
@@ -569,13 +566,14 @@ Known Issues:
 				<GetTo ZoneId="957" XYZ="191.2047, 9.974439, 592.1526"/>
 				<LLTurnIn ItemId="2003180" QuestId="69904" NpcId="1038597" XYZ="189.2577, 9.974439, 590.0206"/>
 				<LLSmallTalk/>
-				<LLDiscardItem ItemId="36039"/> <!-- Amra Lassi -->
+				<!-- Amra Lassi -->
+				<LLDiscardItem ItemId="36039"/>
 			</If>
 		</If>
 
-    <!-- On Low Tide -->
-    <If Condition="IsQuestCompleted(69904) and not IsQuestCompleted(69905)">
-      <If Condition="not HasQuest(69905)">
+		<!-- On Low Tide -->
+		<If Condition="IsQuestCompleted(69904) and not IsQuestCompleted(69905)">
+			<If Condition="not HasQuest(69905)">
 				<GetTo ZoneId="957" XYZ="191.2047, 9.974439, 592.1526"/>
 				<If Condition="IsQuestAcceptQualified(69905)">
 					<LLPickupQuest QuestId="69905" NpcId="1038600"/>
@@ -606,14 +604,14 @@ Known Issues:
 				<GetTo ZoneId="957" XYZ="197.9426, 1.769939, 735.2028"/>
 				<LLTurnIn QuestId="69905" NpcId="1038608" XYZ="197.5585, 1.769939, 737.972"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- A Fisherman's Friend -->
-    <If Condition="IsQuestCompleted(69905) and not IsQuestCompleted(69906)">
-      <If Condition="not HasQuest(69906)">
+		<!-- A Fisherman's Friend -->
+		<If Condition="IsQuestCompleted(69905) and not IsQuestCompleted(69906)">
+			<If Condition="not HasQuest(69906)">
 				<GetTo ZoneId="957" XYZ="197.9426, 1.769939, 735.2028"/>
 				<If Condition="IsQuestAcceptQualified(69906)">
 					<LLPickupQuest QuestId="69906" NpcId="1038608"/>
@@ -655,9 +653,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- House of Divinities -->
-    <If Condition="IsQuestCompleted(69906) and not IsQuestCompleted(69907)">
-      <If Condition="not HasQuest(69907)">
+		<!-- House of Divinities -->
+		<If Condition="IsQuestCompleted(69906) and not IsQuestCompleted(69907)">
+			<If Condition="not HasQuest(69907)">
 				<GetTo ZoneId="957" XYZ="200.1345, 5.855808, 614.3943"/>
 				<If Condition="IsQuestAcceptQualified(69907)">
 					<LLPickupQuest QuestId="69907" NpcId="1038611"/>
@@ -699,9 +697,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- The Great Work -->
-    <If Condition="IsQuestCompleted(69907) and not IsQuestCompleted(69908)">
-      <If Condition="not HasQuest(69908)">
+		<!-- The Great Work -->
+		<If Condition="IsQuestCompleted(69907) and not IsQuestCompleted(69908)">
+			<If Condition="not HasQuest(69908)">
 				<GetTo ZoneId="957" XYZ="-277.7863, 2.701978, 534.3023"/>
 				<If Condition="IsQuestAcceptQualified(69908)">
 					<LLPickupQuest QuestId="69908" NpcId="1038616"/>
@@ -723,43 +721,43 @@ Known Issues:
 			<If Condition="GetQuestStep(69908) == 4">
 				<GetTo ZoneId="957" XYZ="-485.5554, 48.78896, 155.5085"/>
 				<LLTalkTo NpcId="1038636" XYZ="-485.71, 49.10382, 152.9106" QuestId="69908" StepId="4"/>
-				<MoveTo XYZ="-425.414,38.41502,160.1206" />
+				<MoveTo XYZ="-425.414,38.41502,160.1206"/>
 				<WaitTimer WaitTime="15"/>
-				<MoveTo XYZ="-438.1987, 38.1377, 173.3383" />
+				<MoveTo XYZ="-438.1987, 38.1377, 173.3383"/>
 				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1041219).IsVisible"/>
-				<MoveTo XYZ="-425.414,38.41502,160.1206" />
+				<MoveTo XYZ="-425.414,38.41502,160.1206"/>
 				<WaitWhile condition="GetQuestStep(69908) == 4"/>
 			</If>
 			<If Condition="GetQuestStep(69908) == 5">
 				<GetTo ZoneId="957" XYZ="-426.5075, 38.39244, 161.343"/>
 				<LLTalkTo NpcId="1041219" XYZ="-425.4368, 38.41315, 160.1129" QuestId="69908" StepId="5"/>
-				<MoveTo XYZ="-419.6078,43.95012,87.3025" />
+				<MoveTo XYZ="-419.6078,43.95012,87.3025"/>
 				<WaitTimer WaitTime="15"/>
-				<MoveTo XYZ="-423.8852, 43.64464, 103.364" />
+				<MoveTo XYZ="-423.8852, 43.64464, 103.364"/>
 				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1041220).IsVisible"/>
-				<MoveTo XYZ="-419.6078,43.95012,87.3025" />
+				<MoveTo XYZ="-419.6078,43.95012,87.3025"/>
 				<WaitWhile condition="GetQuestStep(69908) == 5"/>
 			</If>
 			<If Condition="GetQuestStep(69908) == 6">
 				<GetTo ZoneId="957" XYZ="-420.3188, 44.07317, 89.94058"/>
 				<LLTalkTo NpcId="1041220" XYZ="-419.6078, 43.9499, 87.29688" QuestId="69908" StepId="6"/>
-				<MoveTo XYZ="-452.5342, 58.6748, 70.95951" />
-				<MoveTo XYZ="-444.7032,49.551,97.1969" />
+				<MoveTo XYZ="-452.5342, 58.6748, 70.95951"/>
+				<MoveTo XYZ="-444.7032,49.551,97.1969"/>
 				<WaitTimer WaitTime="15"/>
-				<MoveTo XYZ="-452.5342, 58.6748, 70.95951" />
+				<MoveTo XYZ="-452.5342, 58.6748, 70.95951"/>
 				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1041221).IsVisible"/>
-				<MoveTo XYZ="-444.7032,49.551,97.1969" />
+				<MoveTo XYZ="-444.7032,49.551,97.1969"/>
 				<WaitWhile condition="GetQuestStep(69908) == 6"/>
 			</If>
 			<If Condition="GetQuestStep(69908) == 7">
 				<GetTo ZoneId="957" XYZ="-445.8572, 49.98135, 94.63971"/>
 				<LLTalkTo NpcId="1041221" XYZ="-444.7242, 49.55681, 97.18469" QuestId="69908" StepId="7"/>
-				<MoveTo XYZ="-460.2699, 51.14045, 128.9878" />
-				<MoveTo XYZ="-484.5909,54.18516,128.3601" />
+				<MoveTo XYZ="-460.2699, 51.14045, 128.9878"/>
+				<MoveTo XYZ="-484.5909,54.18516,128.3601"/>
 				<WaitTimer WaitTime="15"/>
-				<MoveTo XYZ="-460.2699, 51.14045, 128.9878" />
+				<MoveTo XYZ="-460.2699, 51.14045, 128.9878"/>
 				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1038637).IsVisible"/>
-				<MoveTo XYZ="-484.5909,54.18516,128.3601" />
+				<MoveTo XYZ="-484.5909,54.18516,128.3601"/>
 				<WaitWhile condition="GetQuestStep(69908) == 7"/>
 			</If>
 			<If Condition="GetQuestStep(69908) == 8">
@@ -773,9 +771,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Shadowed Footsteps -->
-    <If Condition="IsQuestCompleted(69908) and not IsQuestCompleted(69909)">
-      <If Condition="not HasQuest(69909)">
+		<!-- Shadowed Footsteps -->
+		<If Condition="IsQuestCompleted(69908) and not IsQuestCompleted(69909)">
+			<If Condition="not HasQuest(69909)">
 				<GetTo ZoneId="957" XYZ="-484.6452, 48.96137, 153.016"/>
 				<If Condition="IsQuestAcceptQualified(69909)">
 					<LLPickupQuest QuestId="69909" NpcId="1038635"/>
@@ -810,9 +808,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Boy's Errand -->
-    <If Condition="IsQuestCompleted(69909) and not IsQuestCompleted(69910)">
-      <If Condition="not HasQuest(69910)">
+		<!-- A Boy's Errand -->
+		<If Condition="IsQuestCompleted(69909) and not IsQuestCompleted(69910)">
+			<If Condition="not HasQuest(69910)">
 				<GetTo ZoneId="957" XYZ="-510.9986, 11.97528, 114.7178"/>
 				<If Condition="IsQuestAcceptQualified(69910)">
 					<LLPickupQuest QuestId="69910" NpcId="1038631"/>
@@ -850,14 +848,14 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69910) == 6">
 				<!-- Mount 275 = "Hamsa" Dodo Mount -->
-				<RunCode name="69910_DismountIfNot_275" />
+				<RunCode name="69910_DismountIfNot_275"/>
 				<If Condition="not Core.Player.IsMounted">
-					<GetTo ZoneId="957" XYZ="-552.3464, 9.817474, -561.2477" />
-					<LLTalkTo NpcId="1038650" XYZ="-555.8404, 9.714635, -558.2208" QuestId="69910" StepId="6" />
+					<GetTo ZoneId="957" XYZ="-552.3464, 9.817474, -561.2477"/>
+					<LLTalkTo NpcId="1038650" XYZ="-555.8404, 9.714635, -558.2208" QuestId="69910" StepId="6"/>
 				</If>
-				<RunCode name="TurnOffMount" />
-				<NoCombatMoveTo XYZ="-103.3072, 88.84355, -607.3538" />
-				<RunCode name="TurnOnMount" />
+				<RunCode name="TurnOffMount"/>
+				<NoCombatMoveTo XYZ="-103.3072, 88.84355, -607.3538"/>
+				<RunCode name="TurnOnMount"/>
 			</If>
 			<If Condition="GetQuestStep(69910) == 255">
 				<GetTo ZoneId="957" XYZ="-90.77538, 89.43965, -641.8225"/>
@@ -866,9 +864,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Tipping the Scale -->
-    <If Condition="IsQuestCompleted(69910) and not IsQuestCompleted(69911)">
-      <If Condition="not HasQuest(69911)">
+		<!-- Tipping the Scale -->
+		<If Condition="IsQuestCompleted(69910) and not IsQuestCompleted(69911)">
+			<If Condition="not HasQuest(69911)">
 				<GetTo ZoneId="957" XYZ="-90.77538, 89.43965, -641.8225"/>
 				<If Condition="IsQuestAcceptQualified(69911)">
 					<LLPickupQuest QuestId="69911" NpcId="1037649"/>
@@ -894,9 +892,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- The Satrap of Radz-at-Han -->
-    <If Condition="IsQuestCompleted(69911) and not IsQuestCompleted(69912)">
-      <If Condition="not HasQuest(69912)">
+		<!-- The Satrap of Radz-at-Han -->
+		<If Condition="IsQuestCompleted(69911) and not IsQuestCompleted(69912)">
+			<If Condition="not HasQuest(69912)">
 				<GetTo ZoneId="957" XYZ="-489.5791, 4.748685, 17.00305"/>
 				<If Condition="IsQuestAcceptQualified(69912)">
 					<LLPickupQuest QuestId="69912" NpcId="1038653"/>
@@ -922,8 +920,8 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- In the Dark of the Tower -->
-    <If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912) and not IsQuestCompleted(69913)">
+		<!-- In the Dark of the Tower -->
+		<If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912) and not IsQuestCompleted(69913)">
 			<If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912)">
 				<If Condition="not HasQuest(69913)">
 					<If condition="not IsOnMap(987)">
@@ -958,9 +956,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- The Jewel of Thavnair -->
-    <If Condition="IsQuestCompleted(69913) and not IsQuestCompleted(69914)">
-      <If Condition="not HasQuest(69914)">
+		<!-- The Jewel of Thavnair -->
+		<If Condition="IsQuestCompleted(69913) and not IsQuestCompleted(69914)">
+			<If Condition="not HasQuest(69914)">
 				<GetTo ZoneId="957" XYZ="-570.1994, 9.817485, -581.6694"/>
 				<If Condition="IsQuestAcceptQualified(69914)">
 					<LLPickupQuest QuestId="69914" NpcId="1040252"/>
@@ -1020,9 +1018,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- The Color of Joy -->
-    <If Condition="IsQuestCompleted(69914) and not IsQuestCompleted(69915)">
-      <If Condition="not HasQuest(69915)">
+		<!-- The Color of Joy -->
+		<If Condition="IsQuestCompleted(69914) and not IsQuestCompleted(69915)">
+			<If Condition="not HasQuest(69915)">
 				<If condition="not IsOnMap(963)">
 					<GetTo ZoneId="963" XYZ="57.9958, -27.00001, 179.4145"/>
 					<UseTransport NpcId="1040255" XYZ="57.26709, -27.00001, 177.5387"/>
@@ -1073,13 +1071,14 @@ Known Issues:
 				<GetTo ZoneId="962" XYZ="-100.5705, 3.933468, 3.677161"/>
 				<LLTurnIn QuestId="69915" NpcId="1038588" XYZ="-101.7625, 4.357494, 0.7476196"/>
 				<LLSmallTalk/>
-				<LLDiscardItem ItemId="36036"/> <!-- Archon Loaf -->
+				<!-- Archon Loaf -->
+				<LLDiscardItem ItemId="36036"/>
 			</If>
 		</If>
 
-    <!-- Sound the Bell, School's In -->
-    <If Condition="IsQuestCompleted(69915) and not IsQuestCompleted(69916)">
-      <If Condition="not HasQuest(69916)">
+		<!-- Sound the Bell, School's In -->
+		<If Condition="IsQuestCompleted(69915) and not IsQuestCompleted(69916)">
+			<If Condition="not HasQuest(69916)">
 				<GetTo ZoneId="962" XYZ="-91.26221, 3.898939, 1.791651"/>
 				<If Condition="IsQuestAcceptQualified(69916)">
 					<LLPickupQuest QuestId="69916" NpcId="1038769"/>
@@ -1110,14 +1109,14 @@ Known Issues:
 				<GetTo ZoneId="962" XYZ="-393.5089, 20.8, -108.1823"/>
 				<LLTurnIn QuestId="69916" NpcId="1038780" XYZ="-394.9188, 20.8, -107.9271"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- A Capital Idea -->
-    <If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69917)">
-      <If Condition="not HasQuest(69917)">
+		<!-- A Capital Idea -->
+		<If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69917)">
+			<If Condition="not HasQuest(69917)">
 				<GetTo ZoneId="962" XYZ="-393.4187, 20.8, -108.0282"/>
 				<If Condition="IsQuestAcceptQualified(69917)">
 					<LLPickupQuest QuestId="69917" NpcId="1038781"/>
@@ -1141,14 +1140,14 @@ Known Issues:
 				<GetTo ZoneId="621" XYZ="743.8848, 69.99999, 524.1352"/>
 				<LLTurnIn QuestId="69917" NpcId="1038796" XYZ="745.9678, 69.99995, 525.2003"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- A Void at All Costs -->
-    <If Condition="IsQuestCompleted(69917) and not IsQuestCompleted(69918)">
-      <If Condition="not HasQuest(69918)">
+		<!-- A Void at All Costs -->
+		<If Condition="IsQuestCompleted(69917) and not IsQuestCompleted(69918)">
+			<If Condition="not HasQuest(69918)">
 				<GetTo ZoneId="621" XYZ="743.8848, 69.99999, 524.1352"/>
 				<If Condition="IsQuestAcceptQualified(69918)">
 					<LLPickupQuest QuestId="69918" NpcId="1038802"/>
@@ -1194,9 +1193,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Frosty Reception -->
-    <If Condition="IsQuestCompleted(69918) and not IsQuestCompleted(69919)">
-      <If Condition="not HasQuest(69919)">
+		<!-- A Frosty Reception -->
+		<If Condition="IsQuestCompleted(69918) and not IsQuestCompleted(69919)">
+			<If Condition="not HasQuest(69919)">
 				<GetTo ZoneId="621" XYZ="752.713, 69.99992, 536.6354"/>
 				<If Condition="IsQuestAcceptQualified(69919)">
 					<LLPickupQuest QuestId="69919" NpcId="1038824"/>
@@ -1206,7 +1205,7 @@ Known Issues:
 			<If Condition="GetQuestStep(69919) == 1">
 				<While condition="GetQuestStep(69919) == 1 and not IsOnMap(1010) and not Core.Player.HasAura(1534)">
 					<GetTo ZoneId="621" XYZ="744.5336, 70, 539.2463"/>
-					<UserDialog QuestId="69919" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete Thancred's section of the solo duty A Frosty Reception.\n\nThe fight after Thancred's section is automated." />
+					<UserDialog QuestId="69919" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete Thancred's section of the solo duty A Frosty Reception.\n\nThe fight after Thancred's section is automated."/>
 				</While>
 				<WaitWhile condition="Core.Player.HasAura(1534)"/>
 				<While condition="GetQuestStep(69919) == 1 and IsOnMap(1010)">
@@ -1218,18 +1217,30 @@ Known Issues:
 							<Hotspot Radius="90" XYZ="-0.08701375, 0.2, 130.7756" name="Name"/>
 						</HotSpots>
 						<TargetMobs>
-							<TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->
-							<TargetMob Id="10549" Weight="1"/> <!-- Tempered Imperial -->
-							<TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->
-							<TargetMob Id="11212" Weight="1"/> <!-- Tempered Imperial -->
-							<TargetMob Id="10560" Weight="1"/> <!-- Telotek Sky Armor -->
-							<TargetMob Id="10561" Weight="10"/> <!-- Telotek Reaper -->
-							<TargetMob Id="10562" Weight="1"/> <!-- Telotek Predator -->
-							<TargetMob Id="10552" Weight="1"/> <!-- Telocanis -->
-							<TargetMob Id="10572" Weight="1"/> <!-- Vergilia van Corculum -->
-							<TargetMob Id="10550" Weight="1"/> <!-- Tempered Imperial -->
-							<TargetMob Id="10552" Weight="1"/> <!-- Telocanis -->
-							<TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->
+							<!-- Telotek Hexadrone -->
+							<TargetMob Id="10559" Weight="1"/>
+							<!-- Tempered Imperial -->
+							<TargetMob Id="10549" Weight="1"/>
+							<!-- Tempered Imperial -->
+							<TargetMob Id="10551" Weight="1"/>
+							<!-- Tempered Imperial -->
+							<TargetMob Id="11212" Weight="1"/>
+							<!-- Telotek Sky Armor -->
+							<TargetMob Id="10560" Weight="1"/>
+							<!-- Telotek Reaper -->
+							<TargetMob Id="10561" Weight="10"/>
+							<!-- Telotek Predator -->
+							<TargetMob Id="10562" Weight="1"/>
+							<!-- Telocanis -->
+							<TargetMob Id="10552" Weight="1"/>
+							<!-- Vergilia van Corculum -->
+							<TargetMob Id="10572" Weight="1"/>
+							<!-- Tempered Imperial -->
+							<TargetMob Id="10550" Weight="1"/>
+							<!-- Telocanis -->
+							<TargetMob Id="10552" Weight="1"/>
+							<!-- Tempered Imperial -->
+							<TargetMob Id="10551" Weight="1"/>
 						</TargetMobs>
 					</SimpleDuty>
 				</While>
@@ -1261,9 +1272,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Tracks In The Snow -->
-    <If Condition="IsQuestCompleted(69919) and not IsQuestCompleted(69920)">
-      <If Condition="not HasQuest(69920)">
+		<!-- Tracks In The Snow -->
+		<If Condition="IsQuestCompleted(69919) and not IsQuestCompleted(69920)">
+			<If Condition="not HasQuest(69920)">
 				<GetTo ZoneId="958" XYZ="-352.7003, 22.7393, 435.4109"/>
 				<If Condition="IsQuestAcceptQualified(69920)">
 					<LLPickupQuest QuestId="69920" NpcId="1038839"/>
@@ -1293,19 +1304,19 @@ Known Issues:
 			<If Condition="GetQuestStep(69920) == 6">
 				<RunCode name="TurnOffMount"/>
 				<WaitTimer Waittime="5"/>
-				<NoCombatMoveTo XYZ="205.1743, -19.10521, 373.7455" />
+				<NoCombatMoveTo XYZ="205.1743, -19.10521, 373.7455"/>
 				<WaitTimer Waittime="27"/>
-				<NoCombatMoveTo XYZ="273.8142, -13.14002, 317.4648" />
+				<NoCombatMoveTo XYZ="273.8142, -13.14002, 317.4648"/>
 				<WaitTimer Waittime="22"/>
-				<NoCombatMoveTo XYZ="324.1707, -9.298947, 251.0451" />
+				<NoCombatMoveTo XYZ="324.1707, -9.298947, 251.0451"/>
 				<WaitTimer Waittime="17"/>
-				<NoCombatMoveTo XYZ="353.8969, -1.325196, 232.9675" />
+				<NoCombatMoveTo XYZ="353.8969, -1.325196, 232.9675"/>
 				<WaitTimer Waittime="40"/>
 				<!--
-				<MoveTo XYZ="402.4455, 4.064979, 242.5137" />
+				<MoveTo XYZ="402.4455, 4.064979, 242.5137"/>
 				<WaitTimer Waittime="15"/>-->
-				<NoCombatMoveTo XYZ="497.9082, 20.3584, 151.0306" />
-				<GetTo ZoneId="958" XYZ="555.8098,32.30835,159.1057" />
+				<NoCombatMoveTo XYZ="497.9082, 20.3584, 151.0306"/>
+				<GetTo ZoneId="958" XYZ="555.8098,32.30835,159.1057"/>
 				<WaitWhile condition="GetQuestStep(69920) == 6"/>
 				<RunCode name="TurnOnMount"/>
 			</If>
@@ -1316,8 +1327,8 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- How The Mighty Are Fallen -->
-    <If Condition="IsQuestCompleted(69920) and not IsQuestCompleted(69921)">
+		<!-- How The Mighty Are Fallen -->
+		<If Condition="IsQuestCompleted(69920) and not IsQuestCompleted(69921)">
 			<If Condition="not HasQuest(69921)">
 				<GetTo ZoneId="958" XYZ="561.8985, 32.32047, 149.8912"/>
 				<If Condition="IsQuestAcceptQualified(69921)">
@@ -1351,20 +1362,20 @@ Known Issues:
 				<WaitWhile condition="GetQuestStep(69921) == 6"/>
 			</If>
 			<If Condition="GetQuestStep(69921) == 7">
-				<GetTo ZoneId="958" XYZ="146.0767, -13.94504, 635.7167" />
+				<GetTo ZoneId="958" XYZ="146.0767, -13.94504, 635.7167"/>
 			</If>
 			<If Condition="GetQuestStep(69921) == 255">
 				<GetTo ZoneId="958" XYZ="138.6498, -13.26687, 646.652"/>
 				<LLTurnIn QuestId="69921" NpcId="1038856" XYZ="137.6516, -13.27878, 648.249"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- At the End of the Trail -->
-    <If Condition="IsQuestCompleted(69921) and not IsQuestCompleted(69922)">
-      <If Condition="not HasQuest(69922)">
+		<!-- At the End of the Trail -->
+		<If Condition="IsQuestCompleted(69921) and not IsQuestCompleted(69922)">
+			<If Condition="not HasQuest(69922)">
 				<GetTo ZoneId="958" XYZ="136.7837, -13.2621, 647.9834"/>
 				<If Condition="IsQuestAcceptQualified(69922)">
 					<LLPickupQuest QuestId="69922" NpcId="1037712"/>
@@ -1402,9 +1413,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Way Forward -->
-    <If Condition="IsQuestCompleted(69922) and not IsQuestCompleted(69923)">
-      <If Condition="not HasQuest(69923)">
+		<!-- A Way Forward -->
+		<If Condition="IsQuestCompleted(69922) and not IsQuestCompleted(69923)">
+			<If Condition="not HasQuest(69923)">
 				<GetTo ZoneId="958" XYZ="604.8148, 34.7239, 201.3075"/>
 				<If Condition="IsQuestAcceptQualified(69923)">
 					<LLPickupQuest QuestId="69923" NpcId="1038868"/>
@@ -1429,7 +1440,7 @@ Known Issues:
 			</If>
 			<While Condition="GetQuestStep(69923) == 5">
 				<RunCode name="TurnOffMount"/>
-				<NoCombatMoveTo XYZ="-295.3914, 4.537916, 258.5102" />
+				<NoCombatMoveTo XYZ="-295.3914, 4.537916, 258.5102"/>
 				<WaitTimer Waittime="3"/>
 				<NoCombatMoveTo XYZ="65.88302, 0.04138899, 150.071"/>
 				<LLTalkTo NpcId="1039880" XYZ="65.07941, -0.1091221, 152.0953" QuestId="69923" StepId="5"/>
@@ -1439,13 +1450,13 @@ Known Issues:
 				<GetTo ZoneId="958" XYZ="65.88302, 0.04138899, 150.071"/>
 				<LLTurnIn QuestId="69923" NpcId="1039883" XYZ="64.65234, 0.2142759, 147.8446"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- The Last Bsstion -->
-    <If Condition="IsQuestCompleted(69923) and not IsQuestCompleted(69924)">
+		<!-- The Last Bsstion -->
+		<If Condition="IsQuestCompleted(69923) and not IsQuestCompleted(69924)">
 			<If Condition="not HasQuest(69924)">
 				<GetTo ZoneId="958" XYZ="65.88302, 0.04138899, 150.071"/>
 				<If Condition="IsQuestAcceptQualified(69924)">
@@ -1454,7 +1465,7 @@ Known Issues:
 				</If>
 			</If>
 			<If Condition="GetQuestStep(69924) == 1">
-				<GetTo ZoneId="958" XYZ="167.7169, 0.9689628, 103.0773" />
+				<GetTo ZoneId="958" XYZ="167.7169, 0.9689628, 103.0773"/>
 				<WaitWhile condition="GetQuestStep(69924) == 1"/>
 			</If>
 			<If Condition="GetQuestStep(69924) == 2">
@@ -1462,7 +1473,7 @@ Known Issues:
 				<LLTalkTo NpcId="1038761" XYZ="169.2378, 0.9999279, 105.8213" QuestId="69924" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(69924) == 3">
-				<GetTo ZoneId="958" XYZ="301.4198, 5.516328, 78.34881" />
+				<GetTo ZoneId="958" XYZ="301.4198, 5.516328, 78.34881"/>
 				<WaitWhile condition="GetQuestStep(69924) == 3"/>
 			</If>
 			<If Condition="GetQuestStep(69924) == 4">
@@ -1474,7 +1485,7 @@ Known Issues:
 				<LLTalkTo NpcId="1040164" XYZ="387.2892, 3.89357, 71.97681" QuestId="69924" StepId="5"/>
 			</If>
 			<If Condition="GetQuestStep(69924) == 6">
-				<GetTo ZoneId="958" XYZ="528.0471, 14.62334, -165.0412" />
+				<GetTo ZoneId="958" XYZ="528.0471, 14.62334, -165.0412"/>
 				<WaitWhile condition="GetQuestStep(69924) == 6"/>
 			</If>
 			<If Condition="GetQuestStep(69924) == 7">
@@ -1500,9 +1511,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Personae non Gratae -->
-    <If Condition="IsQuestCompleted(69924) and not IsQuestCompleted(69925)">
-      <If Condition="not HasQuest(69925)">
+		<!-- Personae non Gratae -->
+		<If Condition="IsQuestCompleted(69924) and not IsQuestCompleted(69925)">
+			<If Condition="not HasQuest(69925)">
 				<GetTo ZoneId="958" XYZ="531.6425, -36.65, -177.9594"/>
 				<If Condition="IsQuestAcceptQualified(69925)">
 					<LLPickupQuest QuestId="69925" NpcId="1039896"/>
@@ -1548,9 +1559,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- His Park Materials -->
-    <If Condition="IsQuestCompleted(69925) and not IsQuestCompleted(69926)">
-      <If Condition="not HasQuest(69926)">
+		<!-- His Park Materials -->
+		<If Condition="IsQuestCompleted(69925) and not IsQuestCompleted(69926)">
+			<If Condition="not HasQuest(69926)">
 				<GetTo ZoneId="958" XYZ="530.7444, -36.65001, -177.7881"/>
 				<If Condition="IsQuestAcceptQualified(69926)">
 					<LLPickupQuest QuestId="69926" NpcId="1039896"/>
@@ -1584,14 +1595,14 @@ Known Issues:
 				<GetTo ZoneId="958" XYZ="433.7727, 15.55816, -612.1447"/>
 				<LLTurnIn ItemId="2003228" QuestId="69926" NpcId="1039906" XYZ="432.2423, 15.55817, -611.902"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- No Good Deed -->
-    <If Condition="IsQuestCompleted(69926) and not IsQuestCompleted(69927)">
-      <If Condition="not HasQuest(69927)">
+		<!-- No Good Deed -->
+		<If Condition="IsQuestCompleted(69926) and not IsQuestCompleted(69927)">
+			<If Condition="not HasQuest(69927)">
 				<GetTo ZoneId="958" XYZ="412.7953, 16.21181, -575.412"/>
 				<If Condition="IsQuestAcceptQualified(69927)">
 					<LLPickupQuest QuestId="69927" NpcId="1038789"/>
@@ -1621,9 +1632,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Alea Iacta Est -->
-    <If Condition="IsQuestCompleted(69927) and not IsQuestCompleted(69928)">
-      <If Condition="not HasQuest(69928)">
+		<!-- Alea Iacta Est -->
+		<If Condition="IsQuestCompleted(69927) and not IsQuestCompleted(69928)">
+			<If Condition="not HasQuest(69928)">
 				<GetTo ZoneId="958" XYZ="523.7183, -36.65, -236.0452"/>
 				<If Condition="IsQuestAcceptQualified(69928)">
 					<LLPickupQuest QuestId="69928" NpcId="1039913"/>
@@ -1653,9 +1664,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Strange Bedfellows -->
-    <If Condition="IsQuestCompleted(69928) and not IsQuestCompleted(69929)">
-      <If Condition="not HasQuest(69929)">
+		<!-- Strange Bedfellows -->
+		<If Condition="IsQuestCompleted(69928) and not IsQuestCompleted(69929)">
+			<If Condition="not HasQuest(69929)">
 				<GetTo ZoneId="958" XYZ="-399.3843, 22.084, 420.434"/>
 				<If Condition="IsQuestAcceptQualified(69929)">
 					<LLPickupQuest QuestId="69929" NpcId="1039915"/>
@@ -1688,7 +1699,6 @@ Known Issues:
 				<Dismount/>
 				<UseObject NpcId="2012111" XYZ="507.042, 8.865417, 64.68298" QuestId="69929" StepId="6" UseTimes="1"/>
 				<WaitWhile condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 0"/>
-				<!-- <LLUseItem ItemId="2003231" NpcId="2012111" XYZ="507.042, 8.865417, 64.68298" InCombat="True" UseHealthPercent="25" QuestId="69929" StepId="6" UseTimes="1"/>-->
 			</While>
 			<While Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 16">
 				<GetTo ZoneId="958" XYZ="340.4011, 2.151342, 95.16756"/>
@@ -1715,14 +1725,14 @@ Known Issues:
 				<GetTo ZoneId="958" XYZ="-350.4409, 23.58527, 421.5272"/>
 				<LLTurnIn QuestId="69929" NpcId="1039931" XYZ="-351.1559, 23.7426, 418.4176"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- In from the Cold -->
-    <If Condition="IsQuestCompleted(69929) and not IsQuestCompleted(69930)">
-      <If Condition="not HasQuest(69930)">
+		<!-- In from the Cold -->
+		<If Condition="IsQuestCompleted(69929) and not IsQuestCompleted(69930)">
+			<If Condition="not HasQuest(69930)">
 				<GetTo ZoneId="958" XYZ="-350.4409, 23.58527, 421.5272"/>
 				<If Condition="IsQuestAcceptQualified(69930)">
 					<LLPickupQuest QuestId="69930" NpcId="1039931"/>
@@ -1731,7 +1741,7 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69930) == 1">
 				<GetTo ZoneId="958" XYZ="-360.438, 22, 487.1302"/>
-				<UserDialog QuestId="69930" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty In from the Cold.\n\nYes, this is the creepy body-snatcher thing.\n\nThe Magitek Fuel is much closer if you intentionally die and set it to Very Easy." />
+				<UserDialog QuestId="69930" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty In from the Cold.\n\nYes, this is the creepy body-snatcher thing.\n\nThe Magitek Fuel is much closer if you intentionally die and set it to Very Easy."/>
 			</If>
 			<If Condition="GetQuestStep(69930) == 255">
 				<GetTo ZoneId="958" XYZ="-368.5879, 22.22248, 402.2648"/>
@@ -1740,9 +1750,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Gateway of the Gods -->
-    <If Condition="IsQuestCompleted(69930) and not IsQuestCompleted(69931)">
-      <If Condition="not HasQuest(69931)">
+		<!-- Gateway of the Gods -->
+		<If Condition="IsQuestCompleted(69930) and not IsQuestCompleted(69931)">
+			<If Condition="not HasQuest(69931)">
 				<GetTo ZoneId="958" XYZ="-370.1187, 22.24798, 401.1452"/>
 				<If Condition="IsQuestAcceptQualified(69931)">
 					<LLPickupQuest QuestId="69931" NpcId="1039940"/>
@@ -1780,9 +1790,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Trip To The Moon -->
-    <If Condition="IsQuestCompleted(69931) and not IsQuestCompleted(69932)">
-      <If Condition="not HasQuest(69932)">
+		<!-- A Trip To The Moon -->
+		<If Condition="IsQuestCompleted(69931) and not IsQuestCompleted(69932)">
+			<If Condition="not HasQuest(69932)">
 				<If condition="not IsOnMap(1024)">
 					<GetTo ZoneId="958" XYZ="-481.3351, 10.88929, -675.8379"/>
 					<UseTransport DialogOption="0" NpcId="1042017" InteractDistance="3.0" XYZ="-483.299, 10.88929, -677.3938"/>
@@ -1824,9 +1834,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Sea of Sorrow -->
-    <If Condition="IsQuestCompleted(69932) and not IsQuestCompleted(69933)">
-      <If Condition="not HasQuest(69933)">
+		<!-- Sea of Sorrow -->
+		<If Condition="IsQuestCompleted(69932) and not IsQuestCompleted(69933)">
+			<If Condition="not HasQuest(69933)">
 				<GetTo ZoneId="959" XYZ="-386.4352, 169.0039, 549.8253"/>
 				<If Condition="IsQuestAcceptQualified(69933)">
 					<LLPickupQuest QuestId="69933" NpcId="1039978"/>
@@ -1897,9 +1907,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- The Martyr -->
-    <If Condition="IsQuestCompleted(69933) and not IsQuestCompleted(69934)">
-      <If Condition="not HasQuest(69934)">
+		<!-- The Martyr -->
+		<If Condition="IsQuestCompleted(69933) and not IsQuestCompleted(69934)">
+			<If Condition="not HasQuest(69934)">
 				<GetTo ZoneId="959" XYZ="187.7598, 62.78925, 464.0788"/>
 				<If Condition="IsQuestAcceptQualified(69934)">
 					<LLPickupQuest QuestId="69934" NpcId="1039987"/>
@@ -1913,7 +1923,7 @@ Known Issues:
 				<WaitWhile condition="GetQuestStep(69934) == 1"/>
 			</If>
 			<If Condition="GetQuestStep(69934) == 2">
-				<UserDialog QuestId="69934" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Dark Inside." />
+				<UserDialog QuestId="69934" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Dark Inside."/>
 			</If>
 			<If Condition="GetQuestStep(69934) == 3">
 				<WaitWhile condition="GetQuestStep(69934) == 3"/>
@@ -1925,9 +1935,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- In Shadow's Wake -->
-    <If Condition="IsQuestCompleted(69934) and not IsQuestCompleted(69935)">
-      <If Condition="not HasQuest(69935)">
+		<!-- In Shadow's Wake -->
+		<If Condition="IsQuestCompleted(69934) and not IsQuestCompleted(69935)">
+			<If Condition="not HasQuest(69935)">
 				<GetTo ZoneId="959" XYZ="-277.0482, 75.79068, 483.013"/>
 				<If Condition="IsQuestAcceptQualified(69935)">
 					<LLPickupQuest QuestId="69935" NpcId="1039989"/>
@@ -1958,13 +1968,13 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="-442.9266, 136.0188, 551.9854"/>
 				<LLTurnIn QuestId="69935" NpcId="1038876" XYZ="-445.5482, 136.0188, 552.5748"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- Helping Hands -->
-    <If Condition="IsQuestCompleted(69935) and not IsQuestCompleted(69936)">
+		<!-- Helping Hands -->
+		<If Condition="IsQuestCompleted(69935) and not IsQuestCompleted(69936)">
 			<If Condition="not HasQuest(69936)">
 				<GetTo ZoneId="959" XYZ="-386.3096, 169.0039, 547.5393"/>
 				<If Condition="IsQuestAcceptQualified(69936)">
@@ -2000,9 +2010,9 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Harey Situation -->
-    <If Condition="IsQuestCompleted(69936) and not IsQuestCompleted(69937)">
-      <If Condition="not HasQuest(69937)">
+		<!-- A Harey Situation -->
+		<If Condition="IsQuestCompleted(69936) and not IsQuestCompleted(69937)">
+			<If Condition="not HasQuest(69937)">
 				<GetTo ZoneId="959" XYZ="2.327599, -49.89251, -362.2096"/>
 				<If Condition="IsQuestAcceptQualified(69937)">
 					<LLPickupQuest QuestId="69937" NpcId="1038894"/>
@@ -2025,14 +2035,14 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="-17.17241, -47.24769, -492.0392"/>
 				<LLTurnIn QuestId="69937" NpcId="1038903" XYZ="-17.95996, -47.19207, -494.316"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- A Taste of the Moon -->
-    <If Condition="IsQuestCompleted(69937) and not IsQuestCompleted(69938)">
-      <If Condition="not HasQuest(69938)">
+		<!-- A Taste of the Moon -->
+		<If Condition="IsQuestCompleted(69937) and not IsQuestCompleted(69938)">
+			<If Condition="not HasQuest(69938)">
 				<GetTo ZoneId="959" XYZ="-17.17241, -47.24769, -492.0392"/>
 				<If Condition="IsQuestAcceptQualified(69938)">
 					<LLPickupQuest QuestId="69938" NpcId="1039686"/>
@@ -2050,12 +2060,12 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="-451.1168, -168, -622.8315"/>
 				<Dismount/>
 				<WaitTimer Waittime="2"/>
-				<LLClimbHill Start="-451.1168, -168, -622.8315" End="-443.8529, -160.7644, -646.6092" Distance="2.5" SpamJump="true" />
-				<LLClimbHill Start="-443.8529, -160.7644, -646.6092" End="-450.065, -155.3644, -663.3547" Distance="2.5" SpamJump="true" />
-				<LLClimbHill Start="-450.065, -155.3644, -663.3547" End="-460.5311, -155.5657, -661.1524" Distance="2.5" SpamJump="true" />
+				<LLClimbHill Start="-451.1168, -168, -622.8315" End="-443.8529, -160.7644, -646.6092" Distance="2.5" SpamJump="true"/>
+				<LLClimbHill Start="-443.8529, -160.7644, -646.6092" End="-450.065, -155.3644, -663.3547" Distance="2.5" SpamJump="true"/>
+				<LLClimbHill Start="-450.065, -155.3644, -663.3547" End="-460.5311, -155.5657, -661.1524" Distance="2.5" SpamJump="true"/>
 				<LLTalkTo NpcId="2012178" XYZ="-456.1074, -168, -618.7686" QuestId="69938" StepId="4"/>
 				<WaitTimer Waittime="2"/>
-				<LLClimbHill Start="-489.2837, -154.8231, -689.4819" End="-501.3929, -168, -701.2598" Distance="2.5" SpamJump="true" />
+				<LLClimbHill Start="-489.2837, -154.8231, -689.4819" End="-501.3929, -168, -701.2598" Distance="2.5" SpamJump="true"/>
 			</If>
 			<If Condition="GetQuestStep(69938) == 3">
 				<GetTo ZoneId="959" XYZ="-453.1275, -168, -618.8707"/>
@@ -2070,13 +2080,14 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="-453.1275, -168, -618.8707"/>
 				<LLTurnIn QuestId="69938" NpcId="1038912" XYZ="-455.4055, -168, -620.0504"/>
 				<LLSmallTalk/>
-				<LLDiscardItem ItemId="27854"/> <!-- Purple Carrot Juice -->
+				<!-- Purple Carrot Juice -->
+				<LLDiscardItem ItemId="27854"/>
 			</If>
 		</If>
 
-    <!-- Styled a Hero -->
-    <If Condition="IsQuestCompleted(69938) and not IsQuestCompleted(69939)">
-      <If Condition="not HasQuest(69939)">
+		<!-- Styled a Hero -->
+		<If Condition="IsQuestCompleted(69938) and not IsQuestCompleted(69939)">
+			<If Condition="not HasQuest(69939)">
 				<GetTo ZoneId="959" XYZ="-453.1275, -168, -618.8707"/>
 				<If Condition="IsQuestAcceptQualified(69939)">
 					<LLPickupQuest QuestId="69939" NpcId="1038908"/>
@@ -2095,12 +2106,12 @@ Known Issues:
 				<WaitTimer Waittime="2"/>
 				<Dismount/>
 				<WaitTimer Waittime="2"/>
-				<LLClimbHill Start="-356.272, -161.8438, -256.1834" End="-357.9919, -156.3147, -267.7834" SpamJump="true" />
-				<LLClimbHill Start="-357.9919, -156.3147, -267.7834" End="-363.3863, -153.3146, -272.9346" SpamJump="true" />
-				<LLClimbHill Start="-363.3863, -153.3146, -272.9346" End="-375.733, -151.6717, -269.0102" SpamJump="true" />
+				<LLClimbHill Start="-356.272, -161.8438, -256.1834" End="-357.9919, -156.3147, -267.7834" SpamJump="true"/>
+				<LLClimbHill Start="-357.9919, -156.3147, -267.7834" End="-363.3863, -153.3146, -272.9346" SpamJump="true"/>
+				<LLClimbHill Start="-363.3863, -153.3146, -272.9346" End="-375.733, -151.6717, -269.0102" SpamJump="true"/>
 				<LLTalkTo NpcId="1038923" XYZ="-376.2722, -151.6717, -267.9026" QuestId="69939" StepId="2"/>
 				<WaitTimer Waittime="2"/>
-				<LLClimbHill Start="-375.733, -151.6717, -269.0102" End="-383.0093, -161.8438, -281.614" SpamJump="false" />
+				<LLClimbHill Start="-375.733, -151.6717, -269.0102" End="-383.0093, -161.8438, -281.614" SpamJump="false"/>
 			</If>
 			<If Condition="GetQuestStep(69939) == 3">
 				<GetTo ZoneId="959" XYZ="-331.909, -161.8438, -363.095" Distance="0.5"/>
@@ -2108,13 +2119,13 @@ Known Issues:
 				<Dismount/>
 				<WaitTimer Waittime="2"/>
 				<!-- TODO: Replace with ClimbSpiral tag -->
-				<LLClimbHill Start="-331.909, -161.8438, -363.095" End="-333.2318, -160.8146, -360.018" SpamJump="true" />
-				<LLClimbHill Start="-333.2318, -160.8146, -360.018" End="-340.6486, -156.3146, -353.9218" SpamJump="true" />
-				<LLClimbHill Start="-340.6486, -156.3146, -353.9218" End="-341.7104, -153.3146, -348.3445" SpamJump="true" />
-				<LLClimbHill Start="-341.7104, -153.3146, -348.3445" End="-331.8872, -151.6717, -334.9886" SpamJump="true" />
+				<LLClimbHill Start="-331.909, -161.8438, -363.095" End="-333.2318, -160.8146, -360.018" SpamJump="true"/>
+				<LLClimbHill Start="-333.2318, -160.8146, -360.018" End="-340.6486, -156.3146, -353.9218" SpamJump="true"/>
+				<LLClimbHill Start="-340.6486, -156.3146, -353.9218" End="-341.7104, -153.3146, -348.3445" SpamJump="true"/>
+				<LLClimbHill Start="-341.7104, -153.3146, -348.3445" End="-331.8872, -151.6717, -334.9886" SpamJump="true"/>
 				<LLTalkTo NpcId="1038924" XYZ="-329.9763, -151.6717, -333.7606" QuestId="69939" StepId="3"/>
 				<WaitTimer Waittime="2"/>
-				<LLClimbHill Start="-331.8872, -151.6717, -334.9886" End="-347.7405, -161.8438, -330.9621" SpamJump="false" />
+				<LLClimbHill Start="-331.8872, -151.6717, -334.9886" End="-347.7405, -161.8438, -330.9621" SpamJump="false"/>
 			</If>
 			<!-- Guise 2579 -->
 			<If Condition="GetQuestStep(69939) == 4">
@@ -2133,14 +2144,14 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="0.1065401, -49.5896, -697.8881"/>
 				<LLTurnIn QuestId="69939" NpcId="1038927" XYZ="2.090454, -49.5896, -699.733"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
 		</If>
 
-    <!-- All's Vale That Endsvale -->
-    <If Condition="IsQuestCompleted(69939) and not IsQuestCompleted(69940)">
-      <If Condition="not HasQuest(69940)">
+		<!-- All's Vale That Endsvale -->
+		<If Condition="IsQuestCompleted(69939) and not IsQuestCompleted(69940)">
+			<If Condition="not HasQuest(69940)">
 				<GetTo ZoneId="959" XYZ="0.1065401, -49.5896, -697.8881"/>
 				<If Condition="IsQuestAcceptQualified(69940)">
 					<LLPickupQuest QuestId="69940" NpcId="1038927"/>
@@ -2200,15 +2211,15 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- Back to Old Tricks -->
-    <If Condition="IsQuestCompleted(69940) and not IsQuestCompleted(69941)">
-      <If Condition="not HasQuest(69941)">
-        <GetTo ZoneId="959" XYZ="618.2889, -167.8128, -658.7643"/>
-        <If Condition="IsQuestAcceptQualified(69941)">
-          <LLPickupQuest QuestId="69941" NpcId="1038931"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Back to Old Tricks -->
+		<If Condition="IsQuestCompleted(69940) and not IsQuestCompleted(69941)">
+			<If Condition="not HasQuest(69941)">
+				<GetTo ZoneId="959" XYZ="618.2889, -167.8128, -658.7643"/>
+				<If Condition="IsQuestAcceptQualified(69941)">
+					<LLPickupQuest QuestId="69941" NpcId="1038931"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69941) == 1">
 				<GetTo ZoneId="959" XYZ="75.72137, -133.0697, -513.5557"/>
 				<UseObject NpcId="2012184" XYZ="73.83838, -133.074, -512.2606" QuestId="69941" StepId="1"/>
@@ -2224,9 +2235,9 @@ Known Issues:
 				<WaitTimer Waittime="22"/>
 				<GetTo ZoneId="959" XYZ="12.54666, -0.5566646, -153.5729" Distance="1"/>
 				<WaitTimer Waittime="20"/>
-				<GetTo ZoneId="959" XYZ="-22.66134, 26.31021, -110.1812" />
+				<GetTo ZoneId="959" XYZ="-22.66134, 26.31021, -110.1812"/>
 				<WaitTimer Waittime="10"/>
-				<GetTo ZoneId="959" XYZ="40.80077, 73.85315, -33.73375" />
+				<GetTo ZoneId="959" XYZ="40.80077, 73.85315, -33.73375"/>
 				<WaitWhile condition="GetQuestStep(69941) == 3"/>
 				<RunCode name="TurnOnMount"/>
 			</If>
@@ -2234,20 +2245,20 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="65.19228, 76.11685, -25.57205"/>
 				<LLTurnIn QuestId="69941" NpcId="1038935" XYZ="68.5282, 75.72459, -23.51416"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Setting Things Straight -->
-    <If Condition="IsQuestCompleted(69941) and not IsQuestCompleted(69942)">
-      <If Condition="not HasQuest(69942)">
-        <GetTo ZoneId="959" XYZ="65.19228, 76.11685, -25.57205"/>
-        <If Condition="IsQuestAcceptQualified(69942)">
-          <LLPickupQuest QuestId="69942" NpcId="1038935"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Setting Things Straight -->
+		<If Condition="IsQuestCompleted(69941) and not IsQuestCompleted(69942)">
+			<If Condition="not HasQuest(69942)">
+				<GetTo ZoneId="959" XYZ="65.19228, 76.11685, -25.57205"/>
+				<If Condition="IsQuestAcceptQualified(69942)">
+					<LLPickupQuest QuestId="69942" NpcId="1038935"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69942) == 1">
 				<GetTo ZoneId="959" XYZ="189.9339, 93.39877, -52.12896"/>
 				<LLTalkTo NpcId="1038936" XYZ="191.4855, 93.90228, -54.30688" QuestId="69942" StepId="1"/>
@@ -2271,7 +2282,7 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69942) == 6">
 				<GetTo ZoneId="959" XYZ="466.9865, -168, -652.0822"/>
-				<UserDialog QuestId="69942" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Loporrit who RUNS and TALKS." />
+				<UserDialog QuestId="69942" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Loporrit who RUNS and TALKS."/>
 			</If>
 			<If Condition="GetQuestStep(69942) == 7">
 				<WaitWhile condition="GetQuestStep(69942) == 7"/>
@@ -2280,20 +2291,20 @@ Known Issues:
 				<GetTo ZoneId="959" XYZ="360.8968, -168, -630.6654"/>
 				<LLTurnIn QuestId="69942" NpcId="1038944" XYZ="361.6541, -168, -628.1987"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Heart of the Matter -->
-    <If Condition="IsQuestCompleted(69942) and not IsQuestCompleted(69943)">
-      <If Condition="not HasQuest(69943)">
-        <GetTo ZoneId="959" XYZ="360.8968, -168, -630.6654"/>
-        <If Condition="IsQuestAcceptQualified(69943)">
-          <LLPickupQuest QuestId="69943" NpcId="1038946"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Heart of the Matter -->
+		<If Condition="IsQuestCompleted(69942) and not IsQuestCompleted(69943)">
+			<If Condition="not HasQuest(69943)">
+				<GetTo ZoneId="959" XYZ="360.8968, -168, -630.6654"/>
+				<If Condition="IsQuestAcceptQualified(69943)">
+					<LLPickupQuest QuestId="69943" NpcId="1038946"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69943) == 1">
 				<GetTo ZoneId="959" XYZ="181.7672, -49.58961, -626.4871"/>
 				<LLTalkTo NpcId="1038947" XYZ="184.0085, -49.58961, -627.9545" QuestId="69943" StepId="1"/>
@@ -2310,17 +2321,17 @@ Known Issues:
 				<LLTurnIn QuestId="69943" NpcId="1038952" XYZ="-609.1249, 128.6777, 572.0454"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Returning Home -->
-    <If Condition="IsQuestCompleted(69943) and not IsQuestCompleted(69944)">
-      <If Condition="not HasQuest(69944)">
-        <GetTo ZoneId="959" XYZ="-608.925, 128.6777, 567.9008"/>
-        <If Condition="IsQuestAcceptQualified(69944)">
-          <LLPickupQuest QuestId="69944" NpcId="1038953"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Returning Home -->
+		<If Condition="IsQuestCompleted(69943) and not IsQuestCompleted(69944)">
+			<If Condition="not HasQuest(69944)">
+				<GetTo ZoneId="959" XYZ="-608.925, 128.6777, 567.9008"/>
+				<If Condition="IsQuestAcceptQualified(69944)">
+					<LLPickupQuest QuestId="69944" NpcId="1038953"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69944) == 1">
 				<If condition="not IsOnMap(1024)">
 					<GetTo ZoneId="959" XYZ="-662.1081, 131.6316, 725.8741"/>
@@ -2353,31 +2364,32 @@ Known Issues:
 				<GetTo ZoneId="962" XYZ="-100.2083, 3.933468, 3.339709"/>
 				<LLTurnIn QuestId="69944" NpcId="1038588" XYZ="-101.7625, 4.357494, 0.7476196"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
 		<!-- Level to 85 to take the next quest -->
 		<While Condition="Core.Player.ClassLevel &lt; 85">
 			<If condition="not IsOnMap(957)">
-				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
+				<!-- The Great Work -->
+				<TeleportTo AetheryteId="170"/>
 			</If>
-			<Log Message="Starting Thavnair Fates without flight support." />
+			<Log Message="Starting Thavnair Fates without flight support."/>
 			<While condition="IsOnMap(957) and Core.Player.ClassLevel &lt; 85">
 				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" BlacklistIds="1764,1772,1773,1774,1775,1776,1777,1778,1779" while="IsOnMap(957) and Core.Player.ClassLevel &lt; 85"/>
 			</While>
 		</While>
 
-    <!-- Skies Aflame -->
-    <If Condition="IsQuestCompleted(69944) and not IsQuestCompleted(69945)">
-      <If Condition="not HasQuest(69945)">
-        <GetTo ZoneId="962" XYZ="-101.7315, 3.933468, 6.975278"/>
-        <If Condition="IsQuestAcceptQualified(69945)">
-          <LLPickupQuest QuestId="69945" NpcId="1038969"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Skies Aflame -->
+		<If Condition="IsQuestCompleted(69944) and not IsQuestCompleted(69945)">
+			<If Condition="not HasQuest(69945)">
+				<GetTo ZoneId="962" XYZ="-101.7315, 3.933468, 6.975278"/>
+				<If Condition="IsQuestAcceptQualified(69945)">
+					<LLPickupQuest QuestId="69945" NpcId="1038969"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69945) == 1">
 				<GetTo ZoneId="962" XYZ="-107.2086, 3.898939, 5.974595"/>
 				<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
@@ -2406,17 +2418,17 @@ Known Issues:
 				<LLTurnIn QuestId="69945" NpcId="1038992" XYZ="4.653992, -1.999996, 93.49207" RewardSlot="3"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- The Blasphemy Unmasked -->
-    <If Condition="IsQuestCompleted(69945) and not IsQuestCompleted(69946)">
-      <If Condition="not HasQuest(69946)">
-        <GetTo ZoneId="963" XYZ="8.073995, -1.999996, 94.04496"/>
-        <If Condition="IsQuestAcceptQualified(69946)">
-          <LLPickupQuest QuestId="69946" NpcId="1038992"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- The Blasphemy Unmasked -->
+		<If Condition="IsQuestCompleted(69945) and not IsQuestCompleted(69946)">
+			<If Condition="not HasQuest(69946)">
+				<GetTo ZoneId="963" XYZ="8.073995, -1.999996, 94.04496"/>
+				<If Condition="IsQuestAcceptQualified(69946)">
+					<LLPickupQuest QuestId="69946" NpcId="1038992"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69946) == 1">
 				<GetTo ZoneId="963" XYZ="5.72776, -1.999996, 96.31231"/>
 				<LLTalkTo NpcId="1038997" XYZ="2.761841, -1.999996, 97.30664" QuestId="69946" StepId="1"/>
@@ -2454,17 +2466,17 @@ Known Issues:
 				<LLTurnIn QuestId="69946" NpcId="1037318" XYZ="-4.104736, 2.999994, -203.8758"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Amidst the Apocalypse -->
-    <If Condition="IsQuestCompleted(69946) and not IsQuestCompleted(69947)">
-      <If Condition="not HasQuest(69947)">
-        <GetTo ZoneId="963" XYZ="-5.435645, 2.999995, -205.788"/>
-        <If Condition="IsQuestAcceptQualified(69947)">
-          <LLPickupQuest QuestId="69947" NpcId="1037318"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Amidst the Apocalypse -->
+		<If Condition="IsQuestCompleted(69946) and not IsQuestCompleted(69947)">
+			<If Condition="not HasQuest(69947)">
+				<GetTo ZoneId="963" XYZ="-5.435645, 2.999995, -205.788"/>
+				<If Condition="IsQuestAcceptQualified(69947)">
+					<LLPickupQuest QuestId="69947" NpcId="1037318"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69947) == 1">
 				<MoveTo XYZ="57.97276, 26.99999, 46.45942"/>
 				<LLTalkTo NpcId="1039002" XYZ="55.79668, 26.99999, 46.55098" QuestId="69947" StepId="1"/>
@@ -2520,17 +2532,17 @@ Known Issues:
 				<LLTurnIn QuestId="69947" NpcId="1039003" XYZ="-159.3805, 23.99997, 110.6127"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Beyond the Depths of Despair -->
-    <If Condition="IsQuestCompleted(69947) and not IsQuestCompleted(69948)">
-      <If Condition="not HasQuest(69948)">
-        <GetTo ZoneId="963" XYZ="-156.8678, 23.99998, 111.6525"/>
-        <If Condition="IsQuestAcceptQualified(69948)">
-          <LLPickupQuest QuestId="69948" NpcId="1039004"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Beyond the Depths of Despair -->
+		<If Condition="IsQuestCompleted(69947) and not IsQuestCompleted(69948)">
+			<If Condition="not HasQuest(69948)">
+				<GetTo ZoneId="963" XYZ="-156.8678, 23.99998, 111.6525"/>
+				<If Condition="IsQuestAcceptQualified(69948)">
+					<LLPickupQuest QuestId="69948" NpcId="1039004"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69948) == 1">
 				<GetTo ZoneId="963" XYZ="-206.6847, 36, 78.4323"/>
 				<LLTalkTo NpcId="1039005" XYZ="-207.7821, 36, 76.79858" QuestId="69948" StepId="1"/>
@@ -2576,15 +2588,15 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- That We Might Live -->
-    <If Condition="IsQuestCompleted(69948) and not IsQuestCompleted(69949)">
-      <If Condition="not HasQuest(69949)">
-        <GetTo ZoneId="957" XYZ="428.7664, 3.116879, -250.5635"/>
-        <If Condition="IsQuestAcceptQualified(69949)">
-          <LLPickupQuest QuestId="69949" NpcId="1039020"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- That We Might Live -->
+		<If Condition="IsQuestCompleted(69948) and not IsQuestCompleted(69949)">
+			<If Condition="not HasQuest(69949)">
+				<GetTo ZoneId="957" XYZ="428.7664, 3.116879, -250.5635"/>
+				<If Condition="IsQuestAcceptQualified(69949)">
+					<LLPickupQuest QuestId="69949" NpcId="1039020"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69949) == 1">
 				<GetTo ZoneId="957" XYZ="402.0853, 3.11688, -270.4164"/>
 				<LLTalkTo NpcId="1039022" XYZ="399.3744, 3.116879, -272.8466" QuestId="69949" StepId="1"/>
@@ -2619,17 +2631,17 @@ Known Issues:
 				<LLTurnIn QuestId="69949" NpcId="1039027" XYZ="381.3381, 3.116879, -257.0688"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- When All Hope Seems Lost -->
-    <If Condition="IsQuestCompleted(69949) and not IsQuestCompleted(69950)">
-      <If Condition="not HasQuest(69950)">
-        <GetTo ZoneId="957" XYZ="382.4986, 3.116879, -254.9762"/>
-        <If Condition="IsQuestAcceptQualified(69950)">
-          <LLPickupQuest QuestId="69950" NpcId="1039028"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- When All Hope Seems Lost -->
+		<If Condition="IsQuestCompleted(69949) and not IsQuestCompleted(69950)">
+			<If Condition="not HasQuest(69950)">
+				<GetTo ZoneId="957" XYZ="382.4986, 3.116879, -254.9762"/>
+				<If Condition="IsQuestAcceptQualified(69950)">
+					<LLPickupQuest QuestId="69950" NpcId="1039028"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69950) == 1">
 				<GetTo ZoneId="957" XYZ="399.2845, 3.116879, -271.3136"/>
 				<LLTalkTo NpcId="1037630" XYZ="401.8158, 3.116879, -273.7621" QuestId="69950" StepId="1"/>
@@ -2667,17 +2679,17 @@ Known Issues:
 				<LLTurnIn QuestId="69950" NpcId="1039036" XYZ="628.6259, 37.4975, 246.0211"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Warm Hearts, Rekindled Hopes -->
-    <If Condition="IsQuestCompleted(69950) and not IsQuestCompleted(69951)">
-      <If Condition="not HasQuest(69951)">
-        <GetTo ZoneId="957" XYZ="539.7143, 10.26815, 237.579"/>
-        <If Condition="IsQuestAcceptQualified(69951)">
-          <LLPickupQuest QuestId="69951" NpcId="1039047"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Warm Hearts, Rekindled Hopes -->
+		<If Condition="IsQuestCompleted(69950) and not IsQuestCompleted(69951)">
+			<If Condition="not HasQuest(69951)">
+				<GetTo ZoneId="957" XYZ="539.7143, 10.26815, 237.579"/>
+				<If Condition="IsQuestAcceptQualified(69951)">
+					<LLPickupQuest QuestId="69951" NpcId="1039047"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69951) == 1">
 				<GetTo ZoneId="957" XYZ="270.7165, 11.36578, 149.9171"/>
 				<UseObject NpcId="2012207" XYZ="270.0083, 11.55096, 147.6615" QuestId="69951" StepId="1"/>
@@ -2703,17 +2715,17 @@ Known Issues:
 				<LLTurnIn QuestId="69951" NpcId="1039056" XYZ="-36.48438, 25.65825, -319.8749"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Simple Pleasures -->
-    <If Condition="IsQuestCompleted(69951) and not IsQuestCompleted(69952)">
-      <If Condition="not HasQuest(69952)">
-        <GetTo ZoneId="957" XYZ="-39.73577, 26.29391, -319.9641"/>
-        <If Condition="IsQuestAcceptQualified(69952)">
-          <LLPickupQuest QuestId="69952" NpcId="1039058"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Simple Pleasures -->
+		<If Condition="IsQuestCompleted(69951) and not IsQuestCompleted(69952)">
+			<If Condition="not HasQuest(69952)">
+				<GetTo ZoneId="957" XYZ="-39.73577, 26.29391, -319.9641"/>
+				<If Condition="IsQuestAcceptQualified(69952)">
+					<LLPickupQuest QuestId="69952" NpcId="1039058"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69952) == 1">
 				<GetTo ZoneId="957" XYZ="389.6881, 3.116879, -257.565"/>
 				<LLTalkTo NpcId="1039059" XYZ="381.8875, 3.116879, -262.0432" QuestId="69952" StepId="1"/>
@@ -2738,19 +2750,20 @@ Known Issues:
 				<GetTo ZoneId="957" XYZ="428.7699, 3.11688, -258.8733"/>
 				<LLTurnIn QuestId="69952" NpcId="1039064" XYZ="428.8549, 3.116879, -262.623"/>
 				<LLSmallTalk/>
-				<LLDiscardItem ItemId="36060"/> <!-- Tsai tou Vounou -->
+				<!-- Tsai tou Vounou -->
+				<LLDiscardItem ItemId="36060"/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Under His Wing -->
-    <If Condition="IsQuestCompleted(69952) and not IsQuestCompleted(69953)">
-      <If Condition="not HasQuest(69953)">
-        <GetTo ZoneId="957" XYZ="423.7551, 3.116879, -259.4567"/>
-        <If Condition="IsQuestAcceptQualified(69953)">
-          <LLPickupQuest QuestId="69953" NpcId="1039068"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Under His Wing -->
+		<If Condition="IsQuestCompleted(69952) and not IsQuestCompleted(69953)">
+			<If Condition="not HasQuest(69953)">
+				<GetTo ZoneId="957" XYZ="423.7551, 3.116879, -259.4567"/>
+				<If Condition="IsQuestAcceptQualified(69953)">
+					<LLPickupQuest QuestId="69953" NpcId="1039068"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69953) == 1">
 				<GetTo ZoneId="957" XYZ="515.4231, 53.61633, -593.8586"/>
 				<LLTalkTo NpcId="1040351" XYZ="518.2726, 54.34483, -597.8333" QuestId="69953" StepId="1"/>
@@ -2776,17 +2789,17 @@ Known Issues:
 				<LLTurnIn QuestId="69953" NpcId="1040360" XYZ="-207.1718, 36, 71.70203"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- At World's End    -->
-    <If Condition="IsQuestCompleted(69953) and not IsQuestCompleted(69954)">
-      <If Condition="not HasQuest(69954)">
-        <GetTo ZoneId="963" XYZ="-211.7908, 36, 63.86459"/>
-        <If Condition="IsQuestAcceptQualified(69954)">
-          <LLPickupQuest QuestId="69954" NpcId="1040372"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- At World's End		-->
+		<If Condition="IsQuestCompleted(69953) and not IsQuestCompleted(69954)">
+			<If Condition="not HasQuest(69954)">
+				<GetTo ZoneId="963" XYZ="-211.7908, 36, 63.86459"/>
+				<If Condition="IsQuestAcceptQualified(69954)">
+					<LLPickupQuest QuestId="69954" NpcId="1040372"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69954) == 1">
 				<GetTo ZoneId="963" XYZ="-2.169716, -3.576279E-07, -1.552477"/>
 				<LLTalkTo NpcId="1040373" XYZ="-0.3204956, -1.881272E-07, -2.121033" QuestId="69954" StepId="1"/>
@@ -2816,17 +2829,17 @@ Known Issues:
 				<LLTurnIn QuestId="69954" NpcId="1040382" XYZ="2.945007, -1.999996, 87.44946"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Return to the Crystarium -->
-    <If Condition="IsQuestCompleted(69954) and not IsQuestCompleted(69955)">
-      <If Condition="not HasQuest(69955)">
-        <GetTo ZoneId="963" XYZ="3.780335, -1.999996, 84.32434"/>
-        <If Condition="IsQuestAcceptQualified(69955)">
-          <LLPickupQuest QuestId="69955" NpcId="1040386"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Return to the Crystarium -->
+		<If Condition="IsQuestCompleted(69954) and not IsQuestCompleted(69955)">
+			<If Condition="not HasQuest(69955)">
+				<GetTo ZoneId="963" XYZ="3.780335, -1.999996, 84.32434"/>
+				<If Condition="IsQuestAcceptQualified(69955)">
+					<LLPickupQuest QuestId="69955" NpcId="1040386"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69955) == 1">
 				<GetTo ZoneID="813" XYZ="609.9962, 13.12678, 310.7599"/>
 				<LLTalkTo NpcId="1030369" XYZ="614.4961, 13.30975, 305.806" QuestId="69955" StepId="1"/>
@@ -2840,20 +2853,20 @@ Known Issues:
 				<GetTo ZoneId="819" XYZ="-64.52936, -37.7, -212.8049"/>
 				<LLTurnIn QuestId="69955" NpcId="1039992" XYZ="-65.26294, -37.7, -208.8503"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Hope Upon a Flower -->
-    <If Condition="IsQuestCompleted(69955) and not IsQuestCompleted(69956)">
-      <If Condition="not HasQuest(69956)">
-        <GetTo ZoneId="819" XYZ="-64.52936, -37.7, -212.8049"/>
-        <If Condition="IsQuestAcceptQualified(69956)">
-          <LLPickupQuest QuestId="69956" NpcId="1039992"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Hope Upon a Flower -->
+		<If Condition="IsQuestCompleted(69955) and not IsQuestCompleted(69956)">
+			<If Condition="not HasQuest(69956)">
+				<GetTo ZoneId="819" XYZ="-64.52936, -37.7, -212.8049"/>
+				<If Condition="IsQuestAcceptQualified(69956)">
+					<LLPickupQuest QuestId="69956" NpcId="1039992"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69956) == 1">
 				<GetTo ZoneId="819" XYZ="113.6635, 14.64912, 5.516657"/>
 				<UseTransport NpcId="1030533" XYZ="117.9979, 14.64902, 7.156433" QuestId="69956" StepId="1"/>
@@ -2864,7 +2877,7 @@ Known Issues:
 			<If Condition="GetQuestStep(69956) == 3 and GetQuestById(69956).QuestI8A == 0">
 				<MoveTo XYZ="-11.97703, 0.2999942, -14.04821" UseMesh="False"/>
 				<MoveTo XYZ="-8.221073, 2.213198, -8.57076" UseMesh="False"/>
-				<RunCode Name="699561" />
+				<RunCode Name="699561"/>
 				<UseObject NpcId="2012128" XYZ="-0.001528129, 4.931927, 0.01416349" QuestId="69956" StepId="3" Condition="GetQuestById(69956).QuestI8A == 0"/>
 			</If>
 			<If Condition="GetQuestStep(69956) == 3 and GetQuestById(69956).QuestI8A == 16">
@@ -2898,17 +2911,17 @@ Known Issues:
 				<LLTurnIn QuestId="69956" NpcId="1039996" XYZ="262.5314, 44.32154, 771.4198"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Petalouda Hunt -->
-    <If Condition="IsQuestCompleted(69956) and not IsQuestCompleted(69957)">
-      <If Condition="not HasQuest(69957)">
-        <GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>
-        <If Condition="IsQuestAcceptQualified(69957)">
-          <LLPickupQuest QuestId="69957" NpcId="1039996"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Petalouda Hunt -->
+		<If Condition="IsQuestCompleted(69956) and not IsQuestCompleted(69957)">
+			<If Condition="not HasQuest(69957)">
+				<GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>
+				<If Condition="IsQuestAcceptQualified(69957)">
+					<LLPickupQuest QuestId="69957" NpcId="1039996"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69957) == 1">
 				<GetTo ZoneId="961" XYZ="209.3301, 20.55042, 633.7807"/>
 				<LLTalkTo NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447" QuestId="69957" StepId="1"/>
@@ -2926,16 +2939,16 @@ Known Issues:
 				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).GetTodoArgs(0).Item1 == 0">
 					<UseItem ItemId="2003232" NpcIds="10614" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" condition="GetQuestStep(69957) == 2 and GetQuestById(69957).GetTodoArgs(0).Item1 == 0">
 						<HotSpots>
-							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
-							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
+							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487"/>
+							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169"/>
 						</HotSpots>
 					</UseItem>
 				</If>
 				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).GetTodoArgs(0).Item1 == 1">
 					<UseItem ItemId="2003232" NpcIds="10613,10612" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" condition="GetQuestStep(69957) == 2 and GetQuestById(69957).GetTodoArgs(0).Item1 == 1">
 						<HotSpots>
-							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
-							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
+							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487"/>
+							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169"/>
 						</HotSpots>
 					</UseItem>
 				</If>
@@ -2953,25 +2966,25 @@ Known Issues:
 				<LLTurnIn ItemId="2003233" QuestId="69957" NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- In Search of Hermes -->
-    <If Condition="IsQuestCompleted(69957) and not IsQuestCompleted(69958)">
-      <If Condition="not HasQuest(69958)">
-        <If Condition="not IsOnMap(961)">
-          <If Condition="not IsOnMap(844)">
-            <GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
-            <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
-          </If>
-          <GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>
-          <UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>
-        </If>
-        <GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>
-        <If Condition="IsQuestAcceptQualified(69958)">
-          <LLPickupQuest QuestId="69958" NpcId="1039998"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- In Search of Hermes -->
+		<If Condition="IsQuestCompleted(69957) and not IsQuestCompleted(69958)">
+			<If Condition="not HasQuest(69958)">
+				<If Condition="not IsOnMap(961)">
+					<If Condition="not IsOnMap(844)">
+						<GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
+						<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
+					</If>
+					<GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>
+					<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>
+				</If>
+				<GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>
+				<If Condition="IsQuestAcceptQualified(69958)">
+					<LLPickupQuest QuestId="69958" NpcId="1039998"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69958) == 1">
 				<If Condition="not IsOnMap(961)">
 					<If Condition="not IsOnMap(844)">
@@ -3001,17 +3014,17 @@ Known Issues:
 				<LLTurnIn QuestId="69958" NpcId="1040009" XYZ="366.8422, -1.029705, 157.6104"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Ponder, Warrant, Cherish, Welcome -->
-    <If Condition="IsQuestCompleted(69958) and not IsQuestCompleted(69959)">
-      <If Condition="not HasQuest(69959)">
-        <GetTo ZoneId="961" XYZ="365.5532, -0.9669545, 159.1419"/>
-        <If Condition="IsQuestAcceptQualified(69959)">
-          <LLPickupQuest QuestId="69959" NpcId="1040014"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Ponder, Warrant, Cherish, Welcome -->
+		<If Condition="IsQuestCompleted(69958) and not IsQuestCompleted(69959)">
+			<If Condition="not HasQuest(69959)">
+				<GetTo ZoneId="961" XYZ="365.5532, -0.9669545, 159.1419"/>
+				<If Condition="IsQuestAcceptQualified(69959)">
+					<LLPickupQuest QuestId="69959" NpcId="1040014"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69959) == 1">
 				<GetTo ZoneId="961" XYZ="226.8435, 7.385857, 204.3371"/>
 				<LLTalkTo NpcId="1040015" XYZ="225.7877, 7.385857, 201.3733" QuestId="69959" StepId="1"/>
@@ -3052,20 +3065,20 @@ Known Issues:
 				<LLTurnIn QuestId="69959" NpcId="1040027" XYZ="151.7509, 17.33996, 51.255"/>
 				<LLSmallTalk/>
 				<RunCode name="TurnOnMount"/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Lives Apart -->
-    <If Condition="IsQuestCompleted(69959) and not IsQuestCompleted(69960)">
-      <If Condition="not HasQuest(69960)">
-        <GetTo ZoneId="961" XYZ="152.3288, 17.38996, 53.97577" />
-        <If Condition="IsQuestAcceptQualified(69960)">
-          <LLPickupQuest QuestId="69960" NpcId="1040027"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Lives Apart -->
+		<If Condition="IsQuestCompleted(69959) and not IsQuestCompleted(69960)">
+			<If Condition="not HasQuest(69960)">
+				<GetTo ZoneId="961" XYZ="152.3288, 17.38996, 53.97577"/>
+				<If Condition="IsQuestAcceptQualified(69960)">
+					<LLPickupQuest QuestId="69960" NpcId="1040027"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69960) == 1">
 				<GetTo ZoneId="961" XYZ="266.7459, 6.087286, 267.3698"/>
 				<LLTalkTo NpcId="1040031" XYZ="269.4285, 5.868346, 266.3462" QuestId="69960" StepId="1"/>
@@ -3087,17 +3100,17 @@ Known Issues:
 				<LLTurnIn QuestId="69960" NpcId="1040043" XYZ="558.6479, 9.127456, 48.26428"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Their Greatest Contribution -->
-    <If Condition="IsQuestCompleted(69960) and not IsQuestCompleted(69961)">
-      <If Condition="not HasQuest(69961)">
-        <GetTo ZoneId="961" XYZ="561.502, 9.760424, 65.84455"/>
-        <If Condition="IsQuestAcceptQualified(69961)">
-          <LLPickupQuest QuestId="69961" NpcId="1040050"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Their Greatest Contribution -->
+		<If Condition="IsQuestCompleted(69960) and not IsQuestCompleted(69961)">
+			<If Condition="not HasQuest(69961)">
+				<GetTo ZoneId="961" XYZ="561.502, 9.760424, 65.84455"/>
+				<If Condition="IsQuestAcceptQualified(69961)">
+					<LLPickupQuest QuestId="69961" NpcId="1040050"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69961) == 1">
 				<GetTo ZoneId="961" XYZ="558.8412, 9.192426, 51.14029"/>
 				<LLTalkTo NpcId="1040043" XYZ="558.6479, 9.127456, 48.26428" QuestId="69961" StepId="1"/>
@@ -3112,52 +3125,54 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69961) == 4">
 				<GetTo ZoneId="961" XYZ="1.426369, -15.52369, -104.424"/>
-				<LLSendChat Say="I have a favor to ask" NpcId="1040061" XYZ="-2.121033, -15.84744, -104.6312" />
+				<LLSendChat Say="I have a favor to ask" NpcId="1040061" XYZ="-2.121033, -15.84744, -104.6312"/>
 				<WaitWhile condition="GetQuestStep(69961) == 4"/>
 			</If>
 			<If Condition="GetQuestStep(69961) == 5">
 				<GetTo ZoneId="961" XYZ="1.028306, -15.56015, -104.4472"/>
-				<LLSendChat Say="Please, Emet-Selch" NpcId="1040061" XYZ="-2.121033, -15.84744, -104.6312" />
+				<LLSendChat Say="Please, Emet-Selch" NpcId="1040061" XYZ="-2.121033, -15.84744, -104.6312"/>
 				<WaitWhile condition="GetQuestStep(69961) == 5"/>
 			</If>
 			<If Condition="GetQuestStep(69961) == 6">
 				<ClimbHill Start="-37.64533, -11.16602, -70.62399" End="-64.05479, -15.33671, -84.72186"/>
-				<!--<GetTo ZoneId="961" XYZ="-63.71304, -15.33698, -84.45352" />-->
-				<LLSendChat Emote="wave" XYZ="-63.71304, -15.33698, -84.45352" />
+				<!--<GetTo ZoneId="961" XYZ="-63.71304, -15.33698, -84.45352"/>-->
+				<LLSendChat Emote="wave" XYZ="-63.71304, -15.33698, -84.45352"/>
 				<WaitWhile condition="GetQuestStep(69961) == 6"/>
 			</If>
 			<If Condition="GetQuestStep(69961) == 255">
 				<GetTo ZoneId="961" XYZ="134.3271, 10.38586, 91.58142"/>
 				<LLTurnIn QuestId="69961" NpcId="1040069" XYZ="134.905, 10.38586, 88.91431"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Aether to Aether -->
-    <If Condition="IsQuestCompleted(69961) and not IsQuestCompleted(69962)">
-      <If Condition="not HasQuest(69962)">
-        <If condition="not IsOnMap(961)">
-          <TeleportTo AetheryteId="177"/>
-          <!-- The Twelve Wonders -->
-        </If>
-        <MoveTo ZoneId="961" XYZ="134.3271, 10.38586, 91.58142"/>
-        <If Condition="IsQuestAcceptQualified(69962)">
-          <LLPickupQuest QuestId="69962" NpcId="1040071"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Aether to Aether -->
+		<If Condition="IsQuestCompleted(69961) and not IsQuestCompleted(69962)">
+			<If Condition="not HasQuest(69962)">
+				<If condition="not IsOnMap(961)">
+					<TeleportTo AetheryteId="177"/>
+					<!-- The Twelve Wonders -->
+				</If>
+				<MoveTo ZoneId="961" XYZ="134.3271, 10.38586, 91.58142"/>
+				<If Condition="IsQuestAcceptQualified(69962)">
+					<LLPickupQuest QuestId="69962" NpcId="1040071"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69962) == 1">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-162.289, -40.20119, 374.1307"/>
 				<LLTalkTo NpcId="1040073" XYZ="-164.1108, -41.02881, 377.3707" QuestId="69962" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69962) == 2">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-530.166, -26.19235, 488.9732"/>
 				<LLTalkTo NpcId="1040080" XYZ="-530.2358, -26.21444, 490.6233" QuestId="69962" StepId="2"/>
@@ -3170,31 +3185,34 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69962) == 255">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>
 				<LLTurnIn QuestId="69962" NpcId="1040084" XYZ="-661.1277, -22.39482, 527.8857"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- A Sentimental Gift -->
-    <If Condition="IsQuestCompleted(69962) and not IsQuestCompleted(69963)">
-      <If Condition="not HasQuest(69963)">
-        <If condition="not IsOnMap(961)">
-          <TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
-        </If>
-        <MoveTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>
-        <If Condition="IsQuestAcceptQualified(69963)">
-          <LLPickupQuest QuestId="69963" NpcId="1040083"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- A Sentimental Gift -->
+		<If Condition="IsQuestCompleted(69962) and not IsQuestCompleted(69963)">
+			<If Condition="not HasQuest(69963)">
+				<If condition="not IsOnMap(961)">
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
+				</If>
+				<MoveTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>
+				<If Condition="IsQuestAcceptQualified(69963)">
+					<LLPickupQuest QuestId="69963" NpcId="1040083"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69963) == 1">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-657.9775, -22.39482, 526.3884"/>
 				<LLTalkTo NpcId="1040084" XYZ="-661.1277, -22.39482, 527.8857" QuestId="69963" StepId="1"/>
@@ -3243,73 +3261,81 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69963) == 255">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-661.332, -22.39482, 535.1597"/>
 				<LLTurnIn QuestId="69963" NpcId="1040087" XYZ="-664.1489, -22.39482, 533.8368"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Verdict and Execution -->
-    <If Condition="IsQuestCompleted(69963) and not IsQuestCompleted(69964)">
-      <If Condition="not HasQuest(69964)">
-        <If condition="not IsOnMap(961)">
-          <TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
-        </If>
-        <MoveTo ZoneId="961" XYZ="-654.5966, -22.39482, 525.8521"/>
-        <If Condition="IsQuestAcceptQualified(69964)">
-          <LLPickupQuest QuestId="69964" NpcId="1040088"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Verdict and Execution -->
+		<If Condition="IsQuestCompleted(69963) and not IsQuestCompleted(69964)">
+			<If Condition="not HasQuest(69964)">
+				<If condition="not IsOnMap(961)">
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
+				</If>
+				<MoveTo ZoneId="961" XYZ="-654.5966, -22.39482, 525.8521"/>
+				<If Condition="IsQuestAcceptQualified(69964)">
+					<LLPickupQuest QuestId="69964" NpcId="1040088"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69964) == 1">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-342.2115, -40.0354, 370.6165"/>
 				<LLTalkTo NpcId="1040092" XYZ="-340.9629, -39.97391, 368.0627" QuestId="69964" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69964) == 2">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-217.9019, -33.97935, 241.6793"/>
 				<LLTalkTo NpcId="1040097" XYZ="-213.7941, -33.40141, 242.359" QuestId="69964" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(69964) == 3">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-208.6841, -31.30587, 232.8105"/>
 				<WaitWhile condition="GetQuestStep(69964) == 3"/>
 			</If>
 			<If Condition="GetQuestStep(69964) == 4">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-210.3848, -31.55387, 232.7455"/>
 				<UseObject NpcId="2012145" XYZ="-212.2377, -31.8761, 233.6614" QuestId="69964" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(69964) == 255">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<GetTo ZoneId="961" XYZ="-636.6211, -22.39482, 507.8998"/>
 				<LLTurnIn QuestId="69964" NpcId="1040100" XYZ="-638.1476, -22.39482, 504.9058"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
 		<While condition="IsQuestCompleted(69964) and Core.Player.ClassLevel &lt; 87">
 			<If condition="not IsOnMap(961)">
-				<TeleportTo AetheryteId="176"/> <!-- The Twelve Wonders -->
+				<!-- The Twelve Wonders -->
+				<TeleportTo AetheryteId="176"/>
 			</If>
 			<!-- Buy Greens -->
 			<If condition="not HasAtLeast(4868,50)">
-      <GetTo ZoneId="961" XYZ="140.683, 10.461, 163.2933"/>
+				<GetTo ZoneId="961" XYZ="140.683, 10.461, 163.2933"/>
 				<BuyItem ItemIds="4868" DialogOption="6" ItemCount="99" NpcId="1037907" XYZ="140.683, 10.461, 163.2933"/>
 			</If>
 			<While condition="IsOnMap(961) and Core.Player.ClassLevel &lt; 87">
@@ -3317,28 +3343,31 @@ Known Issues:
 			</While>
 		</While>
 
-    <!-- Travelers at the Crossroads -->
-    <If Condition="IsQuestCompleted(69964) and not IsQuestCompleted(69965)">
-      <If Condition="not HasQuest(69965)">
-        <If condition="not IsOnMap(961)">
-          <TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
-        </If>
-        <GetTo ZoneId="961" XYZ="-636.6211, -22.39482, 507.8998"/>
-        <If Condition="IsQuestAcceptQualified(69965)">
-          <LLPickupQuest QuestId="69965" NpcId="1040101"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Travelers at the Crossroads -->
+		<If Condition="IsQuestCompleted(69964) and not IsQuestCompleted(69965)">
+			<If Condition="not HasQuest(69965)">
+				<If condition="not IsOnMap(961)">
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
+				</If>
+				<GetTo ZoneId="961" XYZ="-636.6211, -22.39482, 507.8998"/>
+				<If Condition="IsQuestAcceptQualified(69965)">
+					<LLPickupQuest QuestId="69965" NpcId="1040101"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69965) == 1">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-102.9485, -10.11684, 234.4682"/>
 				<LLTalkTo NpcId="1040102" XYZ="-106.6149, -10.28143, 236.0723" QuestId="69965" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69965) == 2">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-178.9711, 12.38059, -9.697802"/>
 				<LLTalkTo NpcId="1040104" XYZ="-182.1775, 12.50002, -10.97125" QuestId="69965" StepId="2"/>
@@ -3346,21 +3375,24 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69965) == 3">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-347.7851, 161.7871, 27.53702"/>
 				<LLTalkTo NpcId="1040106" XYZ="-350.2098, 161.7871, 26.10815" QuestId="69965" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69965) == 4">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<MoveTo ZoneId="961" XYZ="-553.6187, 147.4066, 96.71661"/>
 				<UseObject NpcId="2012146" XYZ="-554.345, 147.4479, 98.25281" QuestId="69965" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(69965) == 255">
 				<If condition="not IsOnMap(961)">
-					<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+					<!-- The Twelve Wonders -->
+					<TeleportTo AetheryteId="177"/>
 				</If>
 				<If condition="not IsOnSubMap(3934)">
 					<MoveTo ZoneId="961" XYZ="-186.326, 13.04376, -11.35803"/>
@@ -3372,15 +3404,15 @@ Known Issues:
 			</If>
 		</If>
 
-    <!-- A Past, Not Yet Come to Pass -->
-    <If Condition="IsQuestCompleted(69965) and not IsQuestCompleted(69966)">
-      <If Condition="not HasQuest(69966)">
-        <GetTo ZoneId="961" XYZ="-489.6435, 140.4051, -112.7845"/>
-        <If Condition="IsQuestAcceptQualified(69966)">
-          <LLPickupQuest QuestId="69966" NpcId="1040109"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- A Past, Not Yet Come to Pass -->
+		<If Condition="IsQuestCompleted(69965) and not IsQuestCompleted(69966)">
+			<If Condition="not HasQuest(69966)">
+				<GetTo ZoneId="961" XYZ="-489.6435, 140.4051, -112.7845"/>
+				<If Condition="IsQuestAcceptQualified(69966)">
+					<LLPickupQuest QuestId="69966" NpcId="1040109"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69966) == 1">
 				<GetTo ZoneId="961" XYZ="-584.0568, 167.9957, -264.6983"/>
 				<LLTalkTo NpcId="1040112" XYZ="-586.5721, 167.9957, -265.4918" QuestId="69966" StepId="1"/>
@@ -3411,17 +3443,17 @@ Known Issues:
 				<LLTurnIn QuestId="69966" NpcId="1040115" XYZ="-595.0561, 159.7036, -175.2499"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Witness to the Spectacle -->
-    <If Condition="IsQuestCompleted(69966) and not IsQuestCompleted(69967)">
-      <If Condition="not HasQuest(69967)">
-        <GetTo ZoneId="961" XYZ="-594.0099, 159.5134, -174.5038"/>
-        <If Condition="IsQuestAcceptQualified(69967)">
-          <LLPickupQuest QuestId="69967" NpcId="1040115"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Witness to the Spectacle -->
+		<If Condition="IsQuestCompleted(69966) and not IsQuestCompleted(69967)">
+			<If Condition="not HasQuest(69967)">
+				<GetTo ZoneId="961" XYZ="-594.0099, 159.5134, -174.5038"/>
+				<If Condition="IsQuestAcceptQualified(69967)">
+					<LLPickupQuest QuestId="69967" NpcId="1040115"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69967) == 1">
 				<GetTo ZoneId="961" XYZ="-812.1571, 169.5298, -195.3699"/>
 				<LLTalkTo NpcId="1040118" XYZ="-814.5114, 169.5298, -194.3542" QuestId="69967" StepId="1"/>
@@ -3447,20 +3479,20 @@ Known Issues:
 				<GetTo ZoneId="961" XYZ="-666.6382, 178.0787, -336.7835"/>
 				<LLTurnIn QuestId="69967" NpcId="1040128" XYZ="-664.4236, 178.0787, -334.5846"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Worthy of His Back -->
-    <If Condition="IsQuestCompleted(69967) and not IsQuestCompleted(69968)">
-      <If Condition="not HasQuest(69968)">
-        <GetTo ZoneId="961" XYZ="-666.6382, 178.0787, -336.7835"/>
-        <If Condition="IsQuestAcceptQualified(69968)">
-          <LLPickupQuest QuestId="69968" NpcId="1040128"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Worthy of His Back -->
+		<If Condition="IsQuestCompleted(69967) and not IsQuestCompleted(69968)">
+			<If Condition="not HasQuest(69968)">
+				<GetTo ZoneId="961" XYZ="-666.6382, 178.0787, -336.7835"/>
+				<If Condition="IsQuestAcceptQualified(69968)">
+					<LLPickupQuest QuestId="69968" NpcId="1040128"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69968) == 1">
 				<GetTo ZoneId="961" XYZ="-354.3624, 146.9392, 142.1011"/>
 				<UseObject NpcId="2012149" XYZ="-353.1396, 146.9291, 143.5721" QuestId="69968" StepId="1"/>
@@ -3468,12 +3500,15 @@ Known Issues:
 			<If Condition="GetQuestStep(69968) == 2">
 				<SimpleDuty InteractNpcId="1040129" XYZ="-629.0532,138.676,62.30261" QuestId="69968" StepId="2">
 					<HotSpots>
-						<HotSpot XYZ="-629.0532,138.676,62.30261"  Radius="60"/>
+						<HotSpot XYZ="-629.0532,138.676,62.30261" Radius="60"/>
 					</HotSpots>
 					<TargetMobs>
-						<TargetMob Id="10586" Weight="1"/> <!-- Venat -->
-						<TargetMob Id="10499" Weight="5000"/> <!-- Thelema Agape -->
-						<TargetMob Id="10589" Weight="5000"/> <!-- Thelema -->
+						<!-- Venat -->
+						<TargetMob Id="10586" Weight="1"/>
+						<!-- Thelema Agape -->
+						<TargetMob Id="10499" Weight="5000"/>
+						<!-- Thelema -->
+						<TargetMob Id="10589" Weight="5000"/>
 					</TargetMobs>
 				</SimpleDuty>
 			</If>
@@ -3485,17 +3520,17 @@ Known Issues:
 				<LLTurnIn QuestId="69968" NpcId="1040129" XYZ="-629.0532, 138.676, 62.30261"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- A Flower upon Your Return -->
-    <If Condition="IsQuestCompleted(69968) and not IsQuestCompleted(69969)">
-      <If Condition="not HasQuest(69969)">
-        <GetTo ZoneId="961" XYZ="-628.6425, 138.676, 64.27361"/>
-        <If Condition="IsQuestAcceptQualified(69969)">
-          <LLPickupQuest QuestId="69969" NpcId="1040129"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- A Flower upon Your Return -->
+		<If Condition="IsQuestCompleted(69968) and not IsQuestCompleted(69969)">
+			<If Condition="not HasQuest(69969)">
+				<GetTo ZoneId="961" XYZ="-628.6425, 138.676, 64.27361"/>
+				<If Condition="IsQuestAcceptQualified(69969)">
+					<LLPickupQuest QuestId="69969" NpcId="1040129"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69969) == 1">
 				<GetTo ZoneId="961" XYZ="-513.9293, 156.7359, 197.2129"/>
 				<UseTransport NpcId="1040132" XYZ="-513.6339, 156.7207, 198.6876" QuestId="69969" StepId="1"/>
@@ -3518,17 +3553,17 @@ Known Issues:
 				<LLTurnIn QuestId="69969" NpcId="1040135" XYZ="-407.4617, 329.8903, -759.2432"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Hunger in the Garden -->
-    <If Condition="IsQuestCompleted(69969) and not IsQuestCompleted(69970)">
-      <If Condition="not HasQuest(69970)">
-        <GetTo ZoneId="961" XYZ="-403.2849, 329.8913, -757.1917"/>
-        <If Condition="IsQuestAcceptQualified(69970)">
-          <LLPickupQuest QuestId="69970" NpcId="1040136"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Hunger in the Garden -->
+		<If Condition="IsQuestCompleted(69969) and not IsQuestCompleted(69970)">
+			<If Condition="not HasQuest(69970)">
+				<GetTo ZoneId="961" XYZ="-403.2849, 329.8913, -757.1917"/>
+				<If Condition="IsQuestAcceptQualified(69970)">
+					<LLPickupQuest QuestId="69970" NpcId="1040136"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69970) == 1">
 				<GetTo ZoneId="961" XYZ="-210.8936, 307.1234, -653.7499"/>
 				<UseTransport NpcId="2012153" XYZ="-207.7821, 306.63, -653.132" QuestId="69970" StepId="1"/>
@@ -3546,17 +3581,17 @@ Known Issues:
 				<LLTurnIn QuestId="69970" NpcId="1040138" XYZ="-47.19617, 151.9429, -624.7196"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Words without Sound -->
-    <If Condition="IsQuestCompleted(69970) and not IsQuestCompleted(69971)">
-      <If Condition="not HasQuest(69971)">
-        <GetTo ZoneId="961" XYZ="-48.18994, 152.0676, -626.1199"/>
-        <If Condition="IsQuestAcceptQualified(69971)">
-          <LLPickupQuest QuestId="69971" NpcId="1040140"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Words without Sound -->
+		<If Condition="IsQuestCompleted(69970) and not IsQuestCompleted(69971)">
+			<If Condition="not HasQuest(69971)">
+				<GetTo ZoneId="961" XYZ="-48.18994, 152.0676, -626.1199"/>
+				<If Condition="IsQuestAcceptQualified(69971)">
+					<LLPickupQuest QuestId="69971" NpcId="1040140"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69971) == 1">
 				<GetTo ZoneId="961" XYZ="13.118, 128.7936, -550.4741"/>
 				<UseObject NpcId="2012155" XYZ="16.52545, 128.4352, -549.8894" QuestId="69971" StepId="1"/>
@@ -3578,39 +3613,39 @@ Known Issues:
 				<LLTurnIn QuestId="69971" NpcId="1040147" XYZ="412.2834, 148.7695, -417.3495"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Follow, Wander, Stumble, Listen -->
-    <If Condition="IsQuestCompleted(69971) and not IsQuestCompleted(69972)">
-      <If Condition="not HasQuest(69972)">
-        <GetTo ZoneId="961" XYZ="411.2883, 148.3925, -419.9044"/>
-        <If Condition="IsQuestAcceptQualified(69972)">
-          <LLPickupQuest QuestId="69972" NpcId="1040148"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Follow, Wander, Stumble, Listen -->
+		<If Condition="IsQuestCompleted(69971) and not IsQuestCompleted(69972)">
+			<If Condition="not HasQuest(69972)">
+				<GetTo ZoneId="961" XYZ="411.2883, 148.3925, -419.9044"/>
+				<If Condition="IsQuestAcceptQualified(69972)">
+					<LLPickupQuest QuestId="69972" NpcId="1040148"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69972) == 1">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="436.1958, 149.1965, -362.5172"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<UseObject NpcId="2012167" XYZ="436.057, 149.1263, -360.2503" QuestId="69972" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69972) == 2">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="525.7611, 138.5854, -188.439"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="2012169" XYZ="523.7352, 139.2996, -186.9383" QuestId="69972" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(69972) == 3">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="803.407, 153.4156, -212.1224"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<UseObject NpcId="2012170" XYZ="805.0812, 153.521, -210.5593" QuestId="69972" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69972) == 4">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="744.7173, 148.537, -356.7769"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<UseObject NpcId="2012171" XYZ="741.39, 148.0582, -356.5576" QuestId="69972" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(69972) == 255">
@@ -3618,17 +3653,17 @@ Known Issues:
 				<LLTurnIn QuestId="69972" NpcId="1040151" XYZ="504.3563, 151.5689, -303.8834"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Caging the Messenger -->
-    <If Condition="IsQuestCompleted(69972) and not IsQuestCompleted(69973)">
-      <If Condition="not HasQuest(69973)">
-        <GetTo ZoneId="961" XYZ="506.5868, 151.481, -306.5848"/>
-        <If Condition="IsQuestAcceptQualified(69973)">
-          <LLPickupQuest QuestId="69973" NpcId="1040152"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Caging the Messenger -->
+		<If Condition="IsQuestCompleted(69972) and not IsQuestCompleted(69973)">
+			<If Condition="not HasQuest(69973)">
+				<GetTo ZoneId="961" XYZ="506.5868, 151.481, -306.5848"/>
+				<If Condition="IsQuestAcceptQualified(69973)">
+					<LLPickupQuest QuestId="69973" NpcId="1040152"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69973) == 1">
 				<GetTo ZoneId="961" XYZ="-398.6021, 329.7876, -759.5569"/>
 				<LLTalkTo NpcId="1040154" XYZ="-401.236, 329.783, -760.3418" QuestId="69973" StepId="1"/>
@@ -3644,17 +3679,17 @@ Known Issues:
 				<LLTurnIn QuestId="69973" NpcId="1040159" XYZ="473.1975, -17.13116, 49.66809"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Thou Must Live, Die, and Know -->
-    <If Condition="IsQuestCompleted(69973) and not IsQuestCompleted(69974)">
-      <If Condition="not HasQuest(69974)">
-        <GetTo ZoneId="961" XYZ="475.585, -17.55379, 52.03789"/>
-        <If Condition="IsQuestAcceptQualified(69974)">
-          <LLPickupQuest QuestId="69974" NpcId="1040159"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Thou Must Live, Die, and Know -->
+		<If Condition="IsQuestCompleted(69973) and not IsQuestCompleted(69974)">
+			<If Condition="not HasQuest(69974)">
+				<GetTo ZoneId="961" XYZ="475.585, -17.55379, 52.03789"/>
+				<If Condition="IsQuestAcceptQualified(69974)">
+					<LLPickupQuest QuestId="69974" NpcId="1040159"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69974) == 1">
 				<GetTo ZoneId="961" XYZ="266.759, 46.93713, 788.5872"/>
 				<UseTransport NpcId="1040160" XYZ="265.156, 46.93714, 790.7072" QuestId="69974" StepId="1"/>
@@ -3675,24 +3710,24 @@ Known Issues:
 				<LLTurnIn QuestId="69974" NpcId="1040161" XYZ="-0.3510132, 1.907349E-06, -3.341736"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- As the Heavens Burn -->
-    <If Condition="IsQuestCompleted(69974) and not IsQuestCompleted(69975)">
-      <If Condition="not HasQuest(69975)">
-        <If condition="not IsOnMap(987)">
-          <GetTo ZoneId="962" XYZ="-106.7046, 3.898939, 7.143666"/>
-          <UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
-        </If>
-        <MoveTo XYZ="-0.8134933, 1.907581E-06, -1.804314"/>
-        <If Condition="IsQuestAcceptQualified(69975)">
-          <LLPickupQuest QuestId="69975" NpcId="1040161"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- As the Heavens Burn -->
+		<If Condition="IsQuestCompleted(69974) and not IsQuestCompleted(69975)">
+			<If Condition="not HasQuest(69975)">
+				<If condition="not IsOnMap(987)">
+					<GetTo ZoneId="962" XYZ="-106.7046, 3.898939, 7.143666"/>
+					<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
+				</If>
+				<MoveTo XYZ="-0.8134933, 1.907581E-06, -1.804314"/>
+				<If Condition="IsQuestAcceptQualified(69975)">
+					<LLPickupQuest QuestId="69975" NpcId="1040161"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69975) == 1">
 				<GetTo ZoneId="958" XYZ="-393.0665, 22, 500.7714"/>
-				<UserDialog QuestId="69975" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty As the Heavens Burn.\n\nRoleplay as Alphinaud, Alisaie, then self vs. Blasphemy monsters." />
+				<UserDialog QuestId="69975" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty As the Heavens Burn.\n\nRoleplay as Alphinaud, Alisaie, then self vs. Blasphemy monsters."/>
 			</If>
 			<If Condition="GetQuestStep(69975) == 2">
 				<WaitWhile condition="GetQuestStep(69975) == 2"/>
@@ -3701,20 +3736,20 @@ Known Issues:
 				<GetTo ZoneId="958" XYZ="-404.5712, 22.04371, 421.3388"/>
 				<LLTurnIn QuestId="69975" NpcId="1039675" XYZ="-404.8982, 22, 416.3423"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Outside Help -->
-    <If Condition="IsQuestCompleted(69975) and not IsQuestCompleted(69976)">
-      <If Condition="not HasQuest(69976)">
-        <GetTo ZoneId="958" XYZ="-404.5712, 22.04371, 421.3388"/>
-        <If Condition="IsQuestAcceptQualified(69976)">
-          <LLPickupQuest QuestId="69976" NpcId="1039681"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Outside Help -->
+		<If Condition="IsQuestCompleted(69975) and not IsQuestCompleted(69976)">
+			<If Condition="not HasQuest(69976)">
+				<GetTo ZoneId="958" XYZ="-404.5712, 22.04371, 421.3388"/>
+				<If Condition="IsQuestAcceptQualified(69976)">
+					<LLPickupQuest QuestId="69976" NpcId="1039681"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69976) == 1">
 				<GetTo ZoneId="962" XYZ="110.9204, -10.58743, 269.888"/>
 				<LLTalkTo NpcId="1039685" XYZ="108.0186, -10.58743, 269.4895" QuestId="69976" StepId="1"/>
@@ -3737,17 +3772,17 @@ Known Issues:
 				<LLTurnIn QuestId="69976" NpcId="1039693" XYZ="2.5177, 40.2, -235.6757"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Going Underground -->
-    <If Condition="IsQuestCompleted(69976) and not IsQuestCompleted(69977)">
-      <If Condition="not HasQuest(69977)">
-        <GetTo ZoneId="962" XYZ="0.01107839, 40.2, -234.4883"/>
-        <If Condition="IsQuestAcceptQualified(69977)">
-          <LLPickupQuest QuestId="69977" NpcId="1039701"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Going Underground -->
+		<If Condition="IsQuestCompleted(69976) and not IsQuestCompleted(69977)">
+			<If Condition="not HasQuest(69977)">
+				<GetTo ZoneId="962" XYZ="0.01107839, 40.2, -234.4883"/>
+				<If Condition="IsQuestAcceptQualified(69977)">
+					<LLPickupQuest QuestId="69977" NpcId="1039701"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69977) == 1">
 				<GetTo ZoneId="956" XYZ="424.4416, 166.4117, -455.9684"/>
 				<LLTalkTo NpcId="1039702" XYZ="422.0492, 166.4117, -453.4219" QuestId="69977" StepId="1"/>
@@ -3780,20 +3815,20 @@ Known Issues:
 				<GetTo ZoneId="956" XYZ="-16.64002, -30.15554, 636.4351"/>
 				<LLTurnIn QuestId="69977" NpcId="1039740" XYZ="-19.05853, -30.15554, 637.0793"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- No Job Too Small -->
-    <If Condition="IsQuestCompleted(69977) and not IsQuestCompleted(69978)">
-      <If Condition="not HasQuest(69978)">
-        <GetTo ZoneId="956" XYZ="-18.55354, -30.15554, 637.1966"/>
-        <If Condition="IsQuestAcceptQualified(69978)">
-          <LLPickupQuest QuestId="69978" NpcId="1039733"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- No Job Too Small -->
+		<If Condition="IsQuestCompleted(69977) and not IsQuestCompleted(69978)">
+			<If Condition="not HasQuest(69978)">
+				<GetTo ZoneId="956" XYZ="-18.55354, -30.15554, 637.1966"/>
+				<If Condition="IsQuestAcceptQualified(69978)">
+					<LLPickupQuest QuestId="69978" NpcId="1039733"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69978) == 1">
 				<GetTo ZoneId="956" XYZ="32.84927, -31.4461, 94.26898"/>
 				<LLTalkTo NpcId="1039750" XYZ="28.0918, -31.53042, 90.19604" QuestId="69978" StepId="1"/>
@@ -3815,24 +3850,24 @@ Known Issues:
 				<LLTurnIn QuestId="69978" NpcId="1039761" XYZ="-17.68524, -31.53043, -76.79871"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Wise Guides -->
-    <If Condition="IsQuestCompleted(69978) and not IsQuestCompleted(69979)">
-      <If Condition="not HasQuest(69979)">
-        <GetTo ZoneId="956" XYZ="-15.72644, -31.53043, -75.23586"/>
-        <If Condition="IsQuestAcceptQualified(69979)">
-          <LLPickupQuest QuestId="69979" NpcId="1039762"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Wise Guides -->
+		<If Condition="IsQuestCompleted(69978) and not IsQuestCompleted(69979)">
+			<If Condition="not HasQuest(69979)">
+				<GetTo ZoneId="956" XYZ="-15.72644, -31.53043, -75.23586"/>
+				<If Condition="IsQuestAcceptQualified(69979)">
+					<LLPickupQuest QuestId="69979" NpcId="1039762"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69979) == 1">
 				<GetTo ZoneId="956" XYZ="124.1743, -17.53038, -74.18906"/>
 				<LLTalkTo NpcId="1039766" XYZ="127.4586, -17.53038, -73.50275" QuestId="69979" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69979) == 2">
 				<GetTo ZoneId="956" XYZ="124.1743, -17.53038, -74.18906"/>
-				<UserDialog QuestId="69979" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the blue Tanks, brass Metallic Tube, and brass Mushroom-like Thing." />
+				<UserDialog QuestId="69979" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the blue Tanks, brass Metallic Tube, and brass Mushroom-like Thing."/>
 			</If>
 			<If Condition="GetQuestStep(69979) == 3">
 				<GetTo ZoneId="956" XYZ="217.4243, -25.87816, 103.0777"/>
@@ -3853,58 +3888,58 @@ Known Issues:
 				<GetTo ZoneId="956" XYZ="369.7417, 79.69138, 302.2793"/>
 				<LLTurnIn QuestId="69979" NpcId="1040397" XYZ="372.3964, 79.69138, 299.1836"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Agriculture Shoc -->
-    <If Condition="IsQuestCompleted(69979) and not IsQuestCompleted(69980)">
-      <If Condition="not HasQuest(69980)">
-        <GetTo ZoneId="956" XYZ="369.7417, 79.69138, 302.2793"/>
-        <If Condition="IsQuestAcceptQualified(69980)">
-          <LLPickupQuest QuestId="69980" NpcId="1040400"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Agriculture Shoc -->
+		<If Condition="IsQuestCompleted(69979) and not IsQuestCompleted(69980)">
+			<If Condition="not HasQuest(69980)">
+				<GetTo ZoneId="956" XYZ="369.7417, 79.69138, 302.2793"/>
+				<If Condition="IsQuestAcceptQualified(69980)">
+					<LLPickupQuest QuestId="69980" NpcId="1040400"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69980) == 1">
 				<GetTo ZoneId="956" XYZ="493.8202, 65.12206, -34.95202"/>
 				<LLTalkTo NpcId="1040402" XYZ="494.8042, 65.06, -37.70508" QuestId="69980" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 2">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="478.8029, 66.16193, -109.5982"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="1037985" XYZ="481.8036, 66.16195, -108.5374" QuestId="69980" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 3">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="420.2737, 65.26338, -122.5118"/>
-				<RunCode Name="TurnOnMount" />
-				<LLTalkTo NpcId="1040402" XYZ="422.2901, 65.29993, -122.3987" QuestId="69980" StepId="3" />
+				<RunCode Name="TurnOnMount"/>
+				<LLTalkTo NpcId="1040402" XYZ="422.2901, 65.29993, -122.3987" QuestId="69980" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 4">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="406.9573, 65.16199, -120.4245" Distance="1"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="1040402" XYZ="409.8069, 65.16199, -119.4314" QuestId="69980" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 5">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="464.2007, 65.16199, -64.937"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="1040402" XYZ="464.4508, 65.19597, -66.94105" QuestId="69980" StepId="5"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 6">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="485.4192, 65.16199, -97.2141" Distance="1"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="1040402" XYZ="483.5618, 65.16199, -96.42091" QuestId="69980" StepId="6"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 7">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="479.4911, 66.16194, -108.912"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="1037985" XYZ="481.8036, 66.16195, -108.5374" QuestId="69980" StepId="7"/>
 			</If>
 			<If Condition="GetQuestStep(69980) == 255">
@@ -3912,17 +3947,17 @@ Known Issues:
 				<LLTurnIn QuestId="69980" NpcId="1040400" XYZ="373.6781, 79.69138, 299.8855"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Sage Council -->
-    <If Condition="IsQuestCompleted(69980) and not IsQuestCompleted(69981)">
-      <If Condition="not HasQuest(69981)">
-        <GetTo ZoneId="956" XYZ="375.6802, 79.69138, 300.6742"/>
-        <If Condition="IsQuestAcceptQualified(69981)">
-          <LLPickupQuest QuestId="69981" NpcId="1040401"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Sage Council -->
+		<If Condition="IsQuestCompleted(69980) and not IsQuestCompleted(69981)">
+			<If Condition="not HasQuest(69981)">
+				<GetTo ZoneId="956" XYZ="375.6802, 79.69138, 300.6742"/>
+				<If Condition="IsQuestAcceptQualified(69981)">
+					<LLPickupQuest QuestId="69981" NpcId="1040401"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69981) == 1">
 				<GetTo ZoneId="956" XYZ="-17.58549, -31.53043, -74.41212"/>
 				<LLTalkTo NpcId="1039687" XYZ="-18.87549, -31.53043, -76.98181" QuestId="69981" StepId="1"/>
@@ -3975,20 +4010,20 @@ Known Issues:
 				<GetTo ZoneId="956" XYZ="-77.84781, -29.53, -55.88767"/>
 				<LLTurnIn QuestId="69981" NpcId="1040436" XYZ="-78.26355, -29.53, -58.85406"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Hither and Yarns -->
-    <If Condition="IsQuestCompleted(69981) and not IsQuestCompleted(69982)">
-      <If Condition="not HasQuest(69982)">
-        <GetTo ZoneId="956" XYZ="-77.84781, -29.53, -55.88767"/>
-        <If Condition="IsQuestAcceptQualified(69982)">
-          <LLPickupQuest QuestId="69982" NpcId="1040436"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Hither and Yarns -->
+		<If Condition="IsQuestCompleted(69981) and not IsQuestCompleted(69982)">
+			<If Condition="not HasQuest(69982)">
+				<GetTo ZoneId="956" XYZ="-77.84781, -29.53, -55.88767"/>
+				<If Condition="IsQuestAcceptQualified(69982)">
+					<LLPickupQuest QuestId="69982" NpcId="1040436"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69982) == 1">
 				<GetTo ZoneId="956" XYZ="-421.8085, -31.44611, -41.59581"/>
 				<LLTalkTo NpcId="1040444" XYZ="-424.2466, -31.83125, -38.89526" QuestId="69982" StepId="1"/>
@@ -4013,20 +4048,20 @@ Known Issues:
 				<GetTo ZoneId="956" XYZ="-711.2054, -31.53043, 321.0383"/>
 				<LLTurnIn QuestId="69982" NpcId="1040447" XYZ="-710.0176, -31.53043, 322.5909"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Once Forged -->
-    <If Condition="IsQuestCompleted(69982) and not IsQuestCompleted(69983)">
-      <If Condition="not HasQuest(69983)">
-        <GetTo ZoneId="956" XYZ="-711.2054, -31.53043, 321.0383"/>
-        <If Condition="IsQuestAcceptQualified(69983)">
-          <LLPickupQuest QuestId="69983" NpcId="1040451"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Once Forged -->
+		<If Condition="IsQuestCompleted(69982) and not IsQuestCompleted(69983)">
+			<If Condition="not HasQuest(69983)">
+				<GetTo ZoneId="956" XYZ="-711.2054, -31.53043, 321.0383"/>
+				<If Condition="IsQuestAcceptQualified(69983)">
+					<LLPickupQuest QuestId="69983" NpcId="1040451"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69983) == 1">
 				<GetTo ZoneId="956" XYZ="-611.1778, -19.83825, 624.8924"/>
 				<LLTalkTo NpcId="1040454" XYZ="-613.1838, -19.78655, 626.8557" QuestId="69983" StepId="1"/>
@@ -4045,17 +4080,17 @@ Known Issues:
 				<LLTurnIn QuestId="69983" NpcId="1040455" XYZ="10.14716, -30.15555, 619.623"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Bonds of Adamant(ite)-->
-    <If Condition="IsQuestCompleted(69983) and not IsQuestCompleted(69984)">
-      <If Condition="not HasQuest(69984)">
-        <GetTo ZoneId="956" XYZ="7.012468, -30.15555, 620.1511"/>
-        <If Condition="IsQuestAcceptQualified(69984)">
-          <LLPickupQuest QuestId="69984" NpcId="1040455"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Bonds of Adamant(ite)-->
+		<If Condition="IsQuestCompleted(69983) and not IsQuestCompleted(69984)">
+			<If Condition="not HasQuest(69984)">
+				<GetTo ZoneId="956" XYZ="7.012468, -30.15555, 620.1511"/>
+				<If Condition="IsQuestAcceptQualified(69984)">
+					<LLPickupQuest QuestId="69984" NpcId="1040455"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69984) == 1">
 				<GetTo ZoneId="956" XYZ="-12.32176, -31.53043, -77.60172"/>
 				<UseTransport NpcId="2012226" XYZ="-11.6427, -31.54041, -81.28485" QuestId="69984" StepId="1"/>
@@ -4078,17 +4113,17 @@ Known Issues:
 				<LLTalkTo NpcId="1040468" XYZ="-598.3215, -191.1191, 301.7166" QuestId="69984" StepId="5"/>
 			</If>
 			<If Condition="GetQuestStep(69984) == 6">
-				<GetTo ZoneId="956" XYZ="-408.6238, -220.1825, 302.1053" />
+				<GetTo ZoneId="956" XYZ="-408.6238, -220.1825, 302.1053"/>
 				<WaitWhile condition="GetQuestStep(69984) == 6"/>
 			</If>
 			<If Condition="GetQuestStep(69984) == 255">
 				<GetTo ZoneId="956" XYZ="-408.6238, -220.1825, 302.1053"/>
 				<LLTurnIn QuestId="69984" NpcId="1040478" XYZ="-406.9734, -220.1835, 304.1886"/>
 				<LLSmallTalk/>
-				<RunCode Name="Coffer" />
+				<RunCode Name="Coffer"/>
 				<AutoInventoryEquip/>
 			</If>
-    </If>
+		</If>
 
 		<!-- Thavnair Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(957)">
@@ -4114,37 +4149,38 @@ Known Issues:
 		<!-- Hit 89 to accept next quest -->
 		<While condition="IsQuestCompleted(69984) and Core.Player.ClassLevel &lt; 89">
 			<If condition="not IsOnMap(956)">
-				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
+				<!-- The Archeion -->
+				<TeleportTo AetheryteId="166"/>
 			</If>
-			<Log Message="Starting Labyrinthos Fates to hit 89." />
+			<Log Message="Starting Labyrinthos Fates to hit 89."/>
 			<While condition="IsOnMap(956) and Core.Player.ClassLevel &lt; 89">
 				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1754" while="IsOnMap(956) and Core.Player.ClassLevel &lt; 89"/>
 			</While>
 		</While>
 
-    <!-- Her Children, One and All -->
-    <If Condition="IsQuestCompleted(69984) and not IsQuestCompleted(69985) and Core.Player.ClassLevel &gt; 88">
-      <If Condition="not HasQuest(69985)">
-        <GetTo ZoneId="956" XYZ="-408.6238, -220.1825, 302.1053"/>
-        <If Condition="IsQuestAcceptQualified(69985)">
-          <LLPickupQuest QuestId="69985" NpcId="1040478"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Her Children, One and All -->
+		<If Condition="IsQuestCompleted(69984) and not IsQuestCompleted(69985) and Core.Player.ClassLevel &gt; 88">
+			<If Condition="not HasQuest(69985)">
+				<GetTo ZoneId="956" XYZ="-408.6238, -220.1825, 302.1053"/>
+				<If Condition="IsQuestAcceptQualified(69985)">
+					<LLPickupQuest QuestId="69985" NpcId="1040478"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69985) == 1">
 				<GetTo ZoneId="956" XYZ="-231.6633, -224.3827, 352.3181"/>
 				<LLTalkTo NpcId="1040487" XYZ="-234.6991, -224.3827, 349.0195" QuestId="69985" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69985) == 2">
-				<UserDialog QuestId="69985" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Aitiascope." />
+				<UserDialog QuestId="69985" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Aitiascope."/>
 			</If>
 			<If Condition="GetQuestStep(69985) == 3">
 				<WaitWhile condition="GetQuestStep(69985) == 3"/>
 			</If>
 			<If Condition="GetQuestStep(69985) == 4">
-				<WaitTimer waitTime="1" />
+				<WaitTimer waitTime="1"/>
 				<AutoInventoryEquip/>
-				<UserDialog QuestId="69985" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Mothercrystal." />
+				<UserDialog QuestId="69985" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Mothercrystal."/>
 			</If>
 			<If Condition="GetQuestStep(69985) == 5">
 				<WaitWhile condition="GetQuestStep(69985) == 5"/>
@@ -4158,17 +4194,17 @@ Known Issues:
 				<LLTurnIn QuestId="69985" NpcId="1038588" XYZ="-101.7625, 4.357494, 0.7476196"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- A Bold Decision -->
-    <If Condition="IsQuestCompleted(69985) and not IsQuestCompleted(69986)">
-      <If Condition="not HasQuest(69986)">
-        <GetTo ZoneId="962" XYZ="-100.4715, 3.933468, 2.983998"/>
-        <If Condition="IsQuestAcceptQualified(69986)">
-          <LLPickupQuest QuestId="69986" NpcId="1040276"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- A Bold Decision -->
+		<If Condition="IsQuestCompleted(69985) and not IsQuestCompleted(69986)">
+			<If Condition="not HasQuest(69986)">
+				<GetTo ZoneId="962" XYZ="-100.4715, 3.933468, 2.983998"/>
+				<If Condition="IsQuestAcceptQualified(69986)">
+					<LLPickupQuest QuestId="69986" NpcId="1040276"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69986) == 1">
 				<GetTo ZoneId="962" XYZ="2.795119, 40.2, -229.2215"/>
 				<LLTalkTo NpcId="1039793" XYZ="3.311157, 40.2, -231.6473" QuestId="69986" StepId="1"/>
@@ -4191,17 +4227,17 @@ Known Issues:
 				<LLTurnIn QuestId="69986" NpcId="1037047" XYZ="26.71851, 5.15, -65.87323"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Friends Gathered -->
-    <If Condition="IsQuestCompleted(69986) and not IsQuestCompleted(69987)">
-      <If Condition="not HasQuest(69987)">
-        <GetTo ZoneId="962" XYZ="29.41278, 5.15, -61.94045"/>
-        <If Condition="IsQuestAcceptQualified(69987)">
-          <LLPickupQuest QuestId="69987" NpcId="1039818"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Friends Gathered -->
+		<If Condition="IsQuestCompleted(69986) and not IsQuestCompleted(69987)">
+			<If Condition="not HasQuest(69987)">
+				<GetTo ZoneId="962" XYZ="29.41278, 5.15, -61.94045"/>
+				<If Condition="IsQuestAcceptQualified(69987)">
+					<LLPickupQuest QuestId="69987" NpcId="1039818"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69987) == 1">
 				<GetTo ZoneId="962" XYZ="-98.76859, 3.933468, 3.622327"/>
 				<LLTalkTo NpcId="1040276" XYZ="-99.0769, 3.933468, 1.388489" QuestId="69987" StepId="1"/>
@@ -4227,17 +4263,17 @@ Known Issues:
 				<LLTurnIn QuestId="69987" NpcId="1038588" XYZ="-101.7625, 4.357494, 0.7476196"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Unt the Heavens -->
-    <If Condition="IsQuestCompleted(69987) and not IsQuestCompleted(69988)">
-      <If Condition="not HasQuest(69988)">
-        <GetTo ZoneId="962" XYZ="-101.238, 3.933468, 3.184379"/>
-        <If Condition="IsQuestAcceptQualified(69988)">
-          <LLPickupQuest QuestId="69988" NpcId="1038588"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Unt the Heavens -->
+		<If Condition="IsQuestCompleted(69987) and not IsQuestCompleted(69988)">
+			<If Condition="not HasQuest(69988)">
+				<GetTo ZoneId="962" XYZ="-101.238, 3.933468, 3.184379"/>
+				<If Condition="IsQuestAcceptQualified(69988)">
+					<LLPickupQuest QuestId="69988" NpcId="1038588"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69988) == 1">
 				<If condition="not IsOnSubMap(3855)">
 					<GetTo ZoneId="956" XYZ="-623.2049, -27.6706, 302.0189"/>
@@ -4259,17 +4295,17 @@ Known Issues:
 				<LLTurnIn QuestId="69988" NpcId="1039852" XYZ="-376.1197, 80.7959, 607.6904"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- A Strange New World -->
-    <If Condition="IsQuestCompleted(69988) and not IsQuestCompleted(69989)">
-      <If Condition="not HasQuest(69989)">
-        <GetTo ZoneId="960" XYZ="-376.0737, 80.67331, 612.6678"/>
-        <If Condition="IsQuestAcceptQualified(69989)">
-          <LLPickupQuest QuestId="69989" NpcId="1039853"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- A Strange New World -->
+		<If Condition="IsQuestCompleted(69988) and not IsQuestCompleted(69989)">
+			<If Condition="not HasQuest(69989)">
+				<GetTo ZoneId="960" XYZ="-376.0737, 80.67331, 612.6678"/>
+				<If Condition="IsQuestAcceptQualified(69989)">
+					<LLPickupQuest QuestId="69989" NpcId="1039853"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69989) == 1">
 				<GetTo ZoneId="960" XYZ="-33.92537, 60.55308, 550.566"/>
 				<LLTalkTo NpcId="1039860" XYZ="-31.11322, 60.569, 551.0491" QuestId="69989" StepId="1"/>
@@ -4299,17 +4335,17 @@ Known Issues:
 				<LLTurnIn QuestId="69989" NpcId="1039769" XYZ="-482.9328, 73.09421, 310.9331" RewardSlot="3"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- On Burdened Wings -->
-    <If Condition="IsQuestCompleted(69989) and not IsQuestCompleted(69990)">
-      <If Condition="not HasQuest(69990)">
-        <GetTo ZoneId="960" XYZ="-481.5078, 73.11249, 313.4696"/>
-        <If Condition="IsQuestAcceptQualified(69990)">
-          <LLPickupQuest QuestId="69990" NpcId="1039772"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- On Burdened Wings -->
+		<If Condition="IsQuestCompleted(69989) and not IsQuestCompleted(69990)">
+			<If Condition="not HasQuest(69990)">
+				<GetTo ZoneId="960" XYZ="-481.5078, 73.11249, 313.4696"/>
+				<If Condition="IsQuestAcceptQualified(69990)">
+					<LLPickupQuest QuestId="69990" NpcId="1039772"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69990) == 1 and GetQuestById(69990).QuestI8A == 0">
 				<GetTo ZoneId="960" XYZ="-512.8416, 72.42366, 328.2727"/>
 				<LLTalkTo NpcId="1038010" XYZ="-517.9065, 72.52988, 332.2346" QuestId="69990" StepId="1"/>
@@ -4335,7 +4371,7 @@ Known Issues:
 				<UseObject NpcId="2012284" XYZ="-474.3267, 56.19897, -41.03156" QuestId="69990" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(69990) == 5">
-				<GetTo ZoneId="960" XYZ="-576.2001, 64.91466, -195.6136" />
+				<GetTo ZoneId="960" XYZ="-576.2001, 64.91466, -195.6136"/>
 				<WaitWhile condition="GetQuestStep(69990) == 5"/>
 			</If>
 			<If Condition="GetQuestStep(69990) == 255">
@@ -4343,17 +4379,17 @@ Known Issues:
 				<LLTurnIn QuestId="69990" NpcId="1039776" XYZ="-572.2896, 64.78333, -200.3357"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- A Test of Will -->
-    <If Condition="IsQuestCompleted(69990) and not IsQuestCompleted(69991)">
-      <If Condition="not HasQuest(69991)">
-        <GetTo ZoneId="960" XYZ="-575.3669, 64.75703, -196.6198"/>
-        <If Condition="IsQuestAcceptQualified(69991)">
-          <LLPickupQuest QuestId="69991" NpcId="1041214"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- A Test of Will -->
+		<If Condition="IsQuestCompleted(69990) and not IsQuestCompleted(69991)">
+			<If Condition="not HasQuest(69991)">
+				<GetTo ZoneId="960" XYZ="-575.3669, 64.75703, -196.6198"/>
+				<If Condition="IsQuestAcceptQualified(69991)">
+					<LLPickupQuest QuestId="69991" NpcId="1041214"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69991) == 1">
 				<GetTo ZoneId="960" XYZ="-506.814, 73.23357, 274.2193"/>
 				<LLTalkTo NpcId="1040295" XYZ="-504.0513, 73.32457, 273.9757" QuestId="69991" StepId="1"/>
@@ -4376,17 +4412,17 @@ Known Issues:
 				<LLTurnIn QuestId="69991" NpcId="2012429" XYZ="-471.275, 232.1964, -253.1014"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Roads Paved In Sacrifice -->
-    <If Condition="IsQuestCompleted(69991) and not IsQuestCompleted(69992)">
-      <If Condition="not HasQuest(69992)">
-        <GetTo ZoneId="960" XYZ="-470.2373, 232.1049, -255.6039"/>
-        <If Condition="IsQuestAcceptQualified(69992)">
-          <LLPickupQuest QuestId="69992" NpcId="1040307"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Roads Paved In Sacrifice -->
+		<If Condition="IsQuestCompleted(69991) and not IsQuestCompleted(69992)">
+			<If Condition="not HasQuest(69992)">
+				<GetTo ZoneId="960" XYZ="-470.2373, 232.1049, -255.6039"/>
+				<If Condition="IsQuestAcceptQualified(69992)">
+					<LLPickupQuest QuestId="69992" NpcId="1040307"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69992) == 1">
 				<GetTo ZoneId="960" XYZ="-347.2661, 254.303, -274.1892"/>
 				<LLTalkTo NpcId="1040315" XYZ="-345.8763, 254.6697, -277.2717" QuestId="69992" StepId="1"/>
@@ -4407,7 +4443,7 @@ Known Issues:
 				<GetTo ZoneId="960" XYZ="42.29538, 269.2855, -591.7688"/>
 				<UseObject NpcIds="2012354,2012355,2012356,2012357" QuestId="69992" StepId="5">
 					<HotSpots>
-						<HotSpot Radius="90" XYZ="42.29538, 269.2855, -591.7688" />
+						<HotSpot Radius="90" XYZ="42.29538, 269.2855, -591.7688"/>
 						<HotSpot Radius="90" XYZ="126.6519, 269.3031, -593.4112"/>
 					</HotSpots>
 				</UseObject>
@@ -4417,17 +4453,17 @@ Known Issues:
 				<LLTurnIn QuestId="69992" NpcId="1040318" XYZ="29.98401, 270.4583, -535.0271"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- F//εsh AbanΔon┨Δ -->
-    <If Condition="IsQuestCompleted(69992) and not IsQuestCompleted(69993)">
-      <If Condition="not HasQuest(69993)">
-        <GetTo ZoneId="960" XYZ="30.44102, 270.7149, -539.9945"/>
-        <If Condition="IsQuestAcceptQualified(69993)">
-          <LLPickupQuest QuestId="69993" NpcId="1040318"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- F//εsh AbanΔon┨Δ -->
+		<If Condition="IsQuestCompleted(69992) and not IsQuestCompleted(69993)">
+			<If Condition="not HasQuest(69993)">
+				<GetTo ZoneId="960" XYZ="30.44102, 270.7149, -539.9945"/>
+				<If Condition="IsQuestAcceptQualified(69993)">
+					<LLPickupQuest QuestId="69993" NpcId="1040318"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69993) == 1">
 				<GetTo ZoneId="960" XYZ="73.37447, 269.2747, -531.8013"/>
 				<LLTalkTo NpcId="1040329" XYZ="75.69995, 269, -528.3436" QuestId="69993" StepId="1"/>
@@ -4445,17 +4481,17 @@ Known Issues:
 				<LLTurnIn QuestId="69993" NpcId="1039759" XYZ="86.77808, 269.0949, -491.661"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Where Kn∞wledge Leads -->
-    <If Condition="IsQuestCompleted(69993) and not IsQuestCompleted(69994)">
-      <If Condition="not HasQuest(69994)">
-        <GetTo ZoneId="960" XYZ="85.50768, 269.0908, -495.6566"/>
-        <If Condition="IsQuestAcceptQualified(69994)">
-          <LLPickupQuest QuestId="69994" NpcId="1039760"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Where Kn∞wledge Leads -->
+		<If Condition="IsQuestCompleted(69993) and not IsQuestCompleted(69994)">
+			<If Condition="not HasQuest(69994)">
+				<GetTo ZoneId="960" XYZ="85.50768, 269.0908, -495.6566"/>
+				<If Condition="IsQuestAcceptQualified(69994)">
+					<LLPickupQuest QuestId="69994" NpcId="1039760"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69994) == 1">
 				<GetTo ZoneId="960" XYZ="-339.1906, 263.7068, -463.39"/>
 				<LLTalkTo NpcId="1040338" XYZ="-344.442, 263.1308, -463.7065" QuestId="69994" StepId="1"/>
@@ -4469,17 +4505,17 @@ Known Issues:
 				<LLTurnIn QuestId="69994" NpcId="1039778" XYZ="184.0391, 269.0392, -637.6288"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Vic┨οry  ̈ ̈ ̈╳, │̆││ε Lost -->
-    <If Condition="IsQuestCompleted(69994) and not IsQuestCompleted(69995)">
-      <If Condition="not HasQuest(69995)">
-        <GetTo ZoneId="960" XYZ="182.7154, 269.031, -637.4534"/>
-        <If Condition="IsQuestAcceptQualified(69995)">
-          <LLPickupQuest QuestId="69995" NpcId="1039782"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Vic┨οry	̈ ̈ ̈╳, │̆││ε Lost -->
+		<If Condition="IsQuestCompleted(69994) and not IsQuestCompleted(69995)">
+			<If Condition="not HasQuest(69995)">
+				<GetTo ZoneId="960" XYZ="182.7154, 269.031, -637.4534"/>
+				<If Condition="IsQuestAcceptQualified(69995)">
+					<LLPickupQuest QuestId="69995" NpcId="1039782"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69995) == 1">
 				<GetTo ZoneId="960" XYZ="432.3731, 284.0251, -331.2065"/>
 				<LLTalkTo NpcId="1039787" XYZ="434.3785, 284.0258, -328.5115" QuestId="69995" StepId="1"/>
@@ -4532,17 +4568,17 @@ Known Issues:
 				<LLTurnIn QuestId="69995" NpcId="1039791" XYZ="502.983, 436.9997, 308.9799"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- ┣┨̈//̈ No┨ΦounΔ••• -->
-    <If Condition="IsQuestCompleted(69995) and not IsQuestCompleted(69996)">
-      <If Condition="not HasQuest(69996)">
-        <GetTo ZoneId="960" XYZ="541.2903, 437.9998, 303.5461"/>
-        <If Condition="IsQuestAcceptQualified(69996)">
-          <LLPickupQuest QuestId="69996" NpcId="1040340"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- ┣┨̈//̈ No┨ΦounΔ••• -->
+		<If Condition="IsQuestCompleted(69995) and not IsQuestCompleted(69996)">
+			<If Condition="not HasQuest(69996)">
+				<GetTo ZoneId="960" XYZ="541.2903, 437.9998, 303.5461"/>
+				<If Condition="IsQuestAcceptQualified(69996)">
+					<LLPickupQuest QuestId="69996" NpcId="1040340"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69996) == 1">
 				<GetTo ZoneId="960" XYZ="626.8718, 441.9763, 435.4722"/>
 				<LLTalkTo NpcId="1040343" XYZ="624.3839, 441.9763, 437.3387" QuestId="69996" StepId="1"/>
@@ -4557,7 +4593,7 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69996) == 4">
 				<GetTo ZoneId="960" XYZ="527.8383, 441.0412, 376.7456"/>
-				<UserDialog QuestId="69996" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the super fast-moving Omicron robot." />
+				<UserDialog QuestId="69996" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the super fast-moving Omicron robot."/>
 			</If>
 			<If Condition="GetQuestStep(69996) == 5">
 				<GetTo ZoneId="960" XYZ="633.9286, 438.6276, 249.8538"/>
@@ -4572,24 +4608,24 @@ Known Issues:
 				<LLTurnIn QuestId="69996" NpcId="1041157" XYZ="801.6326, 478.9742, 196.7955"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Hello, World -->
-    <If Condition="IsQuestCompleted(69996) and not IsQuestCompleted(69997)">
-      <If Condition="not HasQuest(69997)">
-        <GetTo ZoneId="960" XYZ="798.9055, 478.7742, 197.7913"/>
-        <If Condition="IsQuestAcceptQualified(69997)">
-          <LLPickupQuest QuestId="69997" NpcId="1041158"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Hello, World -->
+		<If Condition="IsQuestCompleted(69996) and not IsQuestCompleted(69997)">
+			<If Condition="not HasQuest(69997)">
+				<GetTo ZoneId="960" XYZ="798.9055, 478.7742, 197.7913"/>
+				<If Condition="IsQuestAcceptQualified(69997)">
+					<LLPickupQuest QuestId="69997" NpcId="1041158"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69997) == 1">
 				<GetTo ZoneId="960" XYZ="542.494, 437.9998, 304.6247"/>
 				<LLTalkTo NpcId="1040342" XYZ="546.0745, 437.9998, 303.8529" QuestId="69997" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(69997) == 2">
 				<GetTo ZoneId="960" XYZ="606.0432, 440.5609, 396.3582"/>
-				<UserDialog QuestId="69997" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Omicron robot's sparking body part." />
+				<UserDialog QuestId="69997" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the zoomie-zoom.\n\nAim for the Omicron robot's sparking body part."/>
 			</If>
 			<If Condition="GetQuestStep(69997) == 3">
 				<GetTo ZoneId="960" XYZ="624.3486, 441.9763, 437.4992"/>
@@ -4600,17 +4636,17 @@ Known Issues:
 				<LLTurnIn QuestId="69997" NpcId="1041162" XYZ="623.5598, 441.9763, 436.7896"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Forge Ahead -->
-    <If Condition="IsQuestCompleted(69997) and not IsQuestCompleted(69998)">
-      <If Condition="not HasQuest(69998)">
-        <GetTo ZoneId="960" XYZ="624.3486, 441.9763, 437.4992"/>
-        <If Condition="IsQuestAcceptQualified(69998)">
-          <LLPickupQuest QuestId="69998" NpcId="1041161"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Forge Ahead -->
+		<If Condition="IsQuestCompleted(69997) and not IsQuestCompleted(69998)">
+			<If Condition="not HasQuest(69998)">
+				<GetTo ZoneId="960" XYZ="624.3486, 441.9763, 437.4992"/>
+				<If Condition="IsQuestAcceptQualified(69998)">
+					<LLPickupQuest QuestId="69998" NpcId="1041161"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69998) == 1">
 				<GetTo ZoneId="960" XYZ="493.8191, 436.9978, 355.9272"/>
 				<LLTalkTo NpcId="1041163" XYZ="493.1563, 436.8645, 360.4639" QuestId="69998" StepId="1"/>
@@ -4628,44 +4664,44 @@ Known Issues:
 				<LLTalkTo NpcId="1041166" XYZ="459.2507, 417.0675, 414.6638" QuestId="69998" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69998) == 4">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="227.4101, 566, 316.6551"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTalkTo NpcId="1041165" XYZ="228.7923, 566, 318.3383" QuestId="69998" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(69998) == 255">
-				<RunCode Name="TurnOffMount" />
+				<RunCode Name="TurnOffMount"/>
 				<MoveTo XYZ="224.6618, 566, 315.9011"/>
-				<RunCode Name="TurnOnMount" />
+				<RunCode Name="TurnOnMount"/>
 				<LLTurnIn QuestId="69998" NpcId="1041167" XYZ="221.21, 565.9999, 314.4121"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- You're Not Alone -->
-    <If Condition="IsQuestCompleted(69998) and not IsQuestCompleted(69999)">
-      <If Condition="not HasQuest(69999)">
-        <GetTo ZoneId="960" XYZ="223.6546, 566, 315.251"/>
-        <If Condition="IsQuestAcceptQualified(69999)">
-          <LLPickupQuest QuestId="69999" NpcId="1041168"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- You're Not Alone -->
+		<If Condition="IsQuestCompleted(69998) and not IsQuestCompleted(69999)">
+			<If Condition="not HasQuest(69999)">
+				<GetTo ZoneId="960" XYZ="223.6546, 566, 315.251"/>
+				<If Condition="IsQuestAcceptQualified(69999)">
+					<LLPickupQuest QuestId="69999" NpcId="1041168"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 0">
 				<GetTo ZoneId="960" XYZ="198.7116, 566, 298.0895"/>
 				<LLTalkTo NpcId="2012364" XYZ="203.9978, 565.9723, 296.9863" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 0"/>
 			</If>
 			<If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 16">
 				<GetTo ZoneId="960" XYZ="165.176, 565.8563, 283.1898"/>
-				<LLTalkTo NpcId="2012368" XYZ="163.1647, 567.132, 280.9338" QuestId="69999" StepId="1"  Condition="GetQuestById(69999).QuestI8A == 16"/>
+				<LLTalkTo NpcId="2012368" XYZ="163.1647, 567.132, 280.9338" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 16"/>
 			</If>
 			<If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 32">
 				<GetTo ZoneId="960" XYZ="159.5447, 564.9565, 292.8408"/>
-				<LLTalkTo NpcId="2012366" XYZ="157.2441, 566.0334, 295.9792" QuestId="69999" StepId="1"  Condition="GetQuestById(69999).QuestI8A == 32"/>
+				<LLTalkTo NpcId="2012366" XYZ="157.2441, 566.0334, 295.9792" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 32"/>
 			</If>
 			<If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 49">
 				<GetTo ZoneId="960" XYZ="183.9781, 567.5001, 243.304"/>
-				<LLTalkTo NpcId="2012367" XYZ="185.748, 568.902, 240.0396" QuestId="69999" StepId="1"  Condition="GetQuestById(69999).QuestI8A == 49"/>
+				<LLTalkTo NpcId="2012367" XYZ="185.748, 568.902, 240.0396" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 49"/>
 			</If>
 			<If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 65">
 				<GetTo ZoneId="960" XYZ="81.55273, 566.2979, 242.3754"/>
@@ -4684,9 +4720,9 @@ Known Issues:
 				<LLTalkTo NpcId="1041170" XYZ="145.2811, 566, 390.7987" QuestId="69999" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(69999) == 4">
-				<MoveTo XYZ="38.71193, 567.5, 192.2423" />
-				<MoveTo XYZ="39.23185, 616.8119, 82.53423" usemesh="false" />
-				<MoveTo XYZ="1.86478, 637.1029, 4.291153" />
+				<MoveTo XYZ="38.71193, 567.5, 192.2423"/>
+				<MoveTo XYZ="39.23185, 616.8119, 82.53423" usemesh="false"/>
+				<MoveTo XYZ="1.86478, 637.1029, 4.291153"/>
 				<WaitWhile condition="GetQuestStep(69999) == 4"/>
 			</If>
 			<If Condition="GetQuestStep(69999) == 255">
@@ -4694,38 +4730,37 @@ Known Issues:
 				<LLTurnIn QuestId="69999" NpcId="1041173" XYZ="1.663208, 637.103, 5.233826"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
-    <!-- Endwalker -->
-    <If Condition="IsQuestCompleted(69999) and not IsQuestCompleted(70000)">
-      <If Condition="not HasQuest(70000)">
-        <GetTo ZoneId="960" XYZ="1.86478, 637.1029, 4.291153"/>
-        <If Condition="IsQuestAcceptQualified(70000)">
-          <LLPickupQuest QuestId="70000" NpcId="1042216"/>
-          <LLSmallTalk/>
-        </If>
-      </If>
+		<!-- Endwalker -->
+		<If Condition="IsQuestCompleted(69999) and not IsQuestCompleted(70000)">
+			<If Condition="not HasQuest(70000)">
+				<GetTo ZoneId="960" XYZ="1.86478, 637.1029, 4.291153"/>
+				<If Condition="IsQuestAcceptQualified(70000)">
+					<LLPickupQuest QuestId="70000" NpcId="1042216"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
 
 			<!-- Ultima Thule Flying -->
 			<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(960)">
 				<LLoadProfile Path="Endwalker Aether Currents.xml"/>
 			</If>
 
-
 			<If Condition="GetQuestStep(70000) == 1">
-				<UserDialog QuestId="70000" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Dead Ends." />
+				<UserDialog QuestId="70000" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Dead Ends."/>
 			</If>
 			<If Condition="GetQuestStep(70000) == 2">
 				<WaitWhile condition="GetQuestStep(70000) == 2"/>
 			</If>
 			<If Condition="GetQuestStep(70000) == 3">
-				<UserDialog QuestId="70000" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Final Day." />
+				<UserDialog QuestId="70000" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Final Day."/>
 			</If>
 			<If Condition="GetQuestStep(70000) == 4">
 				<WaitWhile condition="GetQuestStep(70000) == 4"/>
 			</If>
 			<If Condition="GetQuestStep(70000) == 5">
-				<UserDialog QuestId="70000" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the solo duty.\n\nPlayer vs. Zenos punch-out." />
+				<UserDialog QuestId="70000" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the solo duty.\n\nPlayer vs. Zenos punch-out."/>
 			</If>
 			<If Condition="GetQuestStep(70000) == 6">
 				<WaitWhile condition="GetQuestStep(70000) == 6"/>
@@ -4767,359 +4802,367 @@ Known Issues:
 				<LLTurnIn QuestId="70000" NpcId="1041189" XYZ="-0.01531982, 0, -7.187073"/>
 				<LLSmallTalk/>
 			</If>
-    </If>
+		</If>
 
 		<LLoadProfile Path="../Start.xml"/>
+	</Order>
 
-  </Order>
-  <GrindAreas>
-    <GrindArea name="A_Frosty_Reception1">
-      <Hotspots>
-        <Hotspot Radius="200" XYZ="6.655249, 0.3000002, 172.4042" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="A_Frosty_Reception2">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-0.07499886, 0.3000001, -66" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10559" Weight="1"/> <!-- Telotek Hexadrone -->
-        <TargetMob Id="10549" Weight="1"/> <!-- Tempered Imperial -->
-        <TargetMob Id="10551" Weight="1"/> <!-- Tempered Imperial -->
-        <TargetMob Id="11212" Weight="1"/> <!-- Tempered Imperial -->
-        <TargetMob Id="10560" Weight="1"/> <!-- Telotek Sky Armor -->
-        <TargetMob Id="10562" Weight="1"/> <!-- Telotek Predator -->
-        <TargetMob Id="10552" Weight="1"/> <!-- Telocanis -->
+	<GrindAreas>
+		<GrindArea name="A_Frosty_Reception1">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="6.655249, 0.3000002, 172.4042" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Telotek Hexadrone -->
+				<TargetMob Id="10559" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="A_Frosty_Reception2">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-0.07499886, 0.3000001, -66" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Telotek Hexadrone -->
+				<TargetMob Id="10559" Weight="1"/>
+				<!-- Tempered Imperial -->
+				<TargetMob Id="10549" Weight="1"/>
+				<!-- Tempered Imperial -->
+				<TargetMob Id="10551" Weight="1"/>
+				<!-- Tempered Imperial -->
+				<TargetMob Id="11212" Weight="1"/>
+				<!-- Telotek Sky Armor -->
+				<TargetMob Id="10560" Weight="1"/>
+				<!-- Telotek Predator -->
+				<TargetMob Id="10562" Weight="1"/>
+				<!-- Telocanis -->
+				<TargetMob Id="10552" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
 
-      </TargetMobs>
-    </GrindArea>
+	</GrindAreas>
 
-  </GrindAreas>
-  <CodeChunks>
-    <CodeChunk Name="TurnOffMount">
-      <![CDATA[
-        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="TurnOnMount">
-      <![CDATA[
-        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="69910_DismountIfNot_275">
-      <![CDATA[
-        if(Core.Player.IsMounted && Core.Memory.Read<uint>(Core.Player.Pointer + 0xC38) != 275)
-        {
-          while(Core.Player.IsMounted)
-          {
-            await CommonTasks.StopAndDismount();
-            await Buddy.Coroutines.Coroutine.Wait(3000, () => !Core.Player.IsMounted);
-          }
-        }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="Strange_Bedfellows">
-      <![CDATA[
-          uint[] questNpcIds = { 2012109,2012110 };
-          var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+	<CodeChunks>
+		<CodeChunk Name="TurnOffMount">
+			<![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="TurnOnMount">
+			<![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="69910_DismountIfNot_275">
+			<![CDATA[
+				if(Core.Player.IsMounted && Core.Memory.Read<uint>(Core.Player.Pointer + 0xC38) != 275)
+				{
+					while(Core.Player.IsMounted)
+					{
+						await CommonTasks.StopAndDismount();
+						await Buddy.Coroutines.Coroutine.Wait(3000, () => !Core.Player.IsMounted);
+					}
+				}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Strange_Bedfellows">
+			<![CDATA[
+					uint[] questNpcIds = { 2012109,2012110 };
+					var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
 
-        if (!npcId.IsWithinInteractRange)
-        {
-          var _target = npcId.Location;
-          Navigator.PlayerMover.MoveTowards(_target);
+				if (!npcId.IsWithinInteractRange)
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
 
-          while (_target.Distance2D(Core.Me.Location) >= 4)
-          {
-            Navigator.PlayerMover.MoveTowards(_target);
-            await Coroutine.Sleep(100);
-          }
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
 
-          Navigator.PlayerMover.MoveStop();
-        }
+					Navigator.PlayerMover.MoveStop();
+				}
 
-        npcId.Interact();
-        await Coroutine.Sleep(7000);
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="A_Taste_of_the_Moon_Eat_Carrot">
-      <![CDATA[
-        foreach(BagSlot slot in InventoryManager.FilledSlots)
-        {
-          if(slot.RawItemId == 2003236)
-          {
-            slot.UseItem();
-          }
-        }
-        ]]>
-    </CodeChunk>
-    <CodeChunk Name="699381">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				npcId.Interact();
+				await Coroutine.Sleep(7000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="A_Taste_of_the_Moon_Eat_Carrot">
+			<![CDATA[
+				foreach(BagSlot slot in InventoryManager.FilledSlots)
+				{
+					if(slot.RawItemId == 2003236)
+					{
+						slot.UseItem();
+					}
+				}
+				]]>
+		</CodeChunk>
+		<CodeChunk Name="699381">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc1 = new Vector3(-448.2134f, -166.1644f, -628.1774f);
-        var loc2 = new Vector3(-446.6012f, -164.3644f, -633.9731f);
-        var loc3 = new Vector3(-445.4521f, -162.5644f, -640.0465f);
-        var loc4 = new Vector3(-444.7438f, -160.7644f, -646.4323f);
-        var loc5 = new Vector3(-445.0179f, -158.9644f, -652.4417f);
-        var loc6 = new Vector3(-446.6976f, -157.1644f, -658.9893f);
-        var loc7 = new Vector3(-449.9744f, -155.3644f, -663.8145f);
-        var loc8 = new Vector3(-459.2833f, -155.5661f, -659.4713f);
+				var loc1 = new Vector3(-448.2134f, -166.1644f, -628.1774f);
+				var loc2 = new Vector3(-446.6012f, -164.3644f, -633.9731f);
+				var loc3 = new Vector3(-445.4521f, -162.5644f, -640.0465f);
+				var loc4 = new Vector3(-444.7438f, -160.7644f, -646.4323f);
+				var loc5 = new Vector3(-445.0179f, -158.9644f, -652.4417f);
+				var loc6 = new Vector3(-446.6976f, -157.1644f, -658.9893f);
+				var loc7 = new Vector3(-449.9744f, -155.3644f, -663.8145f);
+				var loc8 = new Vector3(-459.2833f, -155.5661f, -659.4713f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc1);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc2);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc2);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc2) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc3);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc3);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc3) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc4);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc4);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc4) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc5);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc5);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc5) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc6);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc6);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc6) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc7);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc7);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc7) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc8);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699382">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				Navigator.PlayerMover.MoveTowards(loc8);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc8) > 1) {	await Coroutine.Yield();	}
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699382">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc1 = new Vector3(-498.3254f, -168f, -700.853f);
+				var loc1 = new Vector3(-498.3254f, -168f, -700.853f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699391">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				Navigator.PlayerMover.MoveTowards(loc1);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699391">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc1 = new Vector3(-357.4635f, -160.8146f, -258.96534f);
-        var loc2 = new Vector3(-357.067f, -159.3146f, -262.4281f);
-        var loc3 = new Vector3(-357.7219f, -157.8146f, -265.2889f);
-        var loc4 = new Vector3(-358.944f, -156.3146f, -268.2762f);
-        var loc5 = new Vector3(-360.8378f, -154.8146f, -270.2435f);
-        var loc6 = new Vector3(-363.5175f, -153.3146f, -272.8293f);
-        var loc7 = new Vector3(-367.9785f, -152.9691f, -269.4294f);
-        var loc8 = new Vector3(-373.885f, -151.6717f, -268.4223f);
+				var loc1 = new Vector3(-357.4635f, -160.8146f, -258.96534f);
+				var loc2 = new Vector3(-357.067f, -159.3146f, -262.4281f);
+				var loc3 = new Vector3(-357.7219f, -157.8146f, -265.2889f);
+				var loc4 = new Vector3(-358.944f, -156.3146f, -268.2762f);
+				var loc5 = new Vector3(-360.8378f, -154.8146f, -270.2435f);
+				var loc6 = new Vector3(-363.5175f, -153.3146f, -272.8293f);
+				var loc7 = new Vector3(-367.9785f, -152.9691f, -269.4294f);
+				var loc8 = new Vector3(-373.885f, -151.6717f, -268.4223f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc1);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc2);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc2);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc2) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc3);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc3);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc3) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc4);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc4);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc4) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc5);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc5);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc5) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc6);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc6);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc6) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc7);
-        await Coroutine.Sleep(500);
-        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc7);
+				await Coroutine.Sleep(500);
+				while (Core.Me.Location.Distance2D(loc7) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc8);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699392">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				Navigator.PlayerMover.MoveTowards(loc8);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc8) > 1) {	await Coroutine.Yield();	}
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699392">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc1 = new Vector3(-384.2141f, -161.8438f, -283.1291f);
+				var loc1 = new Vector3(-384.2141f, -161.8438f, -283.1291f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        await Coroutine.Sleep(1000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699393">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				Navigator.PlayerMover.MoveTowards(loc1);
+				await Coroutine.Sleep(1000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699393">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc1 = new Vector3(-333.8608f, -160.8146f, -359.6165f);
-        var loc2 = new Vector3(-336.442f, -159.3146f, -358.0278f);
-        var loc3 = new Vector3(-338.5784f, -157.8146f, -355.8105f);
-        var loc4 = new Vector3(-340.4261f, -156.3146f, -353.4054f);
-        var loc5 = new Vector3(-341.0055f, -154.8146f, -350.5086f);
-        var loc6 = new Vector3(-341.6295f, -153.3146f, -347.2227f);
-        var loc7 = new Vector3(-336.4114f, -153.1465f, -344.5868f);
-        var loc8 = new Vector3(-332.3878f, -151.4837f, -333.126f);
+				var loc1 = new Vector3(-333.8608f, -160.8146f, -359.6165f);
+				var loc2 = new Vector3(-336.442f, -159.3146f, -358.0278f);
+				var loc3 = new Vector3(-338.5784f, -157.8146f, -355.8105f);
+				var loc4 = new Vector3(-340.4261f, -156.3146f, -353.4054f);
+				var loc5 = new Vector3(-341.0055f, -154.8146f, -350.5086f);
+				var loc6 = new Vector3(-341.6295f, -153.3146f, -347.2227f);
+				var loc7 = new Vector3(-336.4114f, -153.1465f, -344.5868f);
+				var loc8 = new Vector3(-332.3878f, -151.4837f, -333.126f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc1);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc2);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc2);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc2) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc3);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc3);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc3) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc4);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc4);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc4) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc5);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc5);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc5) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc6);
-        await Coroutine.Sleep(500);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc6);
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc6) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc7);
-        await Coroutine.Sleep(500);
-        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+				Navigator.PlayerMover.MoveTowards(loc7);
+				await Coroutine.Sleep(500);
+				while (Core.Me.Location.Distance2D(loc7) > 1) {	await Coroutine.Yield();	}
 
-        Navigator.PlayerMover.MoveTowards(loc8);
-        await Coroutine.Sleep(500);
-        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699394">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				Navigator.PlayerMover.MoveTowards(loc8);
+				await Coroutine.Sleep(500);
+				while (Core.Me.Location.Distance2D(loc8) > 1) {	await Coroutine.Yield();	}
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699394">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc1 = new Vector3(-341.6084f, -161.8438f, -324.1553f);
+				var loc1 = new Vector3(-341.6084f, -161.8438f, -324.1553f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        await Coroutine.Sleep(1000);
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699511">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(5000);
+				Navigator.PlayerMover.MoveTowards(loc1);
+				await Coroutine.Sleep(1000);
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699511">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(5000);
 
-        var loc1 = new Vector3(153.3379f, -35.62988f, 141.2527f);
+				var loc1 = new Vector3(153.3379f, -35.62988f, 141.2527f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699512">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(5000);
+				Navigator.PlayerMover.MoveTowards(loc1);
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699512">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(5000);
 
-        var loc1 = new Vector3(163.8055f, -60.47156f, 133.257f);
+				var loc1 = new Vector3(163.8055f, -60.47156f, 133.257f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
-        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699561">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(1000);
+				Navigator.PlayerMover.MoveTowards(loc1);
+				while (Core.Me.Location.Distance2D(loc1) > 1) {	await Coroutine.Yield();	}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699561">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(1000);
 
-        var loc2 = new Vector3(-2.302519f, 3.61646f, -2.535419f);
+				var loc2 = new Vector3(-2.302519f, 3.61646f, -2.535419f);
 
-        Navigator.PlayerMover.MoveTowards(loc2);
-        await Coroutine.Sleep(2000);
-        MovementManager.Jump();
-        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
-    <CodeChunk Name="699562">
-      <![CDATA[
-        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
-        await Coroutine.Sleep(2000);
+				Navigator.PlayerMover.MoveTowards(loc2);
+				await Coroutine.Sleep(2000);
+				MovementManager.Jump();
+				while (Core.Me.Location.Distance2D(loc2) > 1) {	await Coroutine.Yield();	}
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="699562">
+			<![CDATA[
+				if (Core.Me.IsMounted)	{	ActionManager.Dismount();	}
+				await Coroutine.Sleep(2000);
 
-        var loc8 = new Vector3(-333.8608f, -160.8146f, -359.6165f);
+				var loc8 = new Vector3(-333.8608f, -160.8146f, -359.6165f);
 
-        Navigator.PlayerMover.MoveTowards(loc8);
-        await Coroutine.Sleep(2000);
-        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
-        Navigator.PlayerMover.MoveStop();
-      ]]>
-    </CodeChunk>
-	<CodeChunk Name="Coffer">
-	  <![CDATA[
-		foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
-        {
-        bagslot.UseItem();
-        await Coroutine.Sleep(5000);
-        }
-	  ]]>
-	</CodeChunk>
-    <CodeChunk Name="SetFood">
+				Navigator.PlayerMover.MoveTowards(loc8);
+				await Coroutine.Sleep(2000);
+				while (Core.Me.Location.Distance2D(loc8) > 1) {	await Coroutine.Yield();	}
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Coffer">
+			<![CDATA[
+				foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
+				{
+					bagslot.UseItem();
+					await Coroutine.Sleep(5000);
+				}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="SetFood">
 			<![CDATA[
 				Gluttony.Settings.Instance.Id = 4650;
 			]]>
 		</CodeChunk>
-  </CodeChunks>
+	</CodeChunks>
 </Profile>

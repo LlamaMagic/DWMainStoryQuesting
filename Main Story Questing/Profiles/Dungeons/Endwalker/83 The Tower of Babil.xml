@@ -1,256 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE Profile [
-  <!-- Profile Settings -->
-  <!ENTITY openchest "1">
-  <!ENTITY EquipAfterChestOpen "1">
+	<!-- Profile Settings -->
+<!ENTITY openchest "1">
+<!ENTITY EquipAfterChestOpen "1">
 ]>
 
 <Profile>
-  <Name>[O][RBTrust] 83 The Tower of Babil by y2krazy</Name>
-  <Order>
+	<Name>[O][RBTrust] 83 The Tower of Babil by y2krazy</Name>
+	<Order>
+		<If Condition="not IsOnMap(969)">
+			<JoinSupportDuty DutyId="785"/>
+		</If>
 
-    <If Condition="not IsOnMap(969)">
-      <JoinSupportDuty DutyId="785" />
-    </If>
+		<If Condition="IsOnMap(969)">
+			<EnablePlugin Names="SideStep,Trust"/>
 
-    <If Condition="IsOnMap(969)">
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(2000700)">
+				<UseShortcut NpcId="2000700" Distance="20"/>
+			</If>
 
-      <EnablePlugin Names="SideStep,Trust" />
+			<!-- Arrive at Magitek Servicing 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at Magitek Servicing 0/1"/>
+				<If Condition="IsOnSubMap(4127)">
+					<MoveTo XYZ="-300.0438, -175, 89.84753" Distance="0.5"/>
+				</If>
+			</If>
 
-      <!-- Shortcut available -->
-      <If condition="IsNearShortcut(2000700)">
-        <UseShortcut NpcId="2000700" Distance="20" />
-      </If>
+			<!-- Clear Magitek Servicing 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Magitek Servicing 0/1"/>
+				<If Condition="IsOnSubMap(4127)">
+					<MoveTo XYZ="-300.0438, -175, 89.84753" Distance="0.5"/>
+				</If>
+				<If Condition="IsOnSubMap(4124)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<Grind GrindRef="Barnabas" PostCombatDelay="2.0" While="GetInstanceTodo(1) == 0"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-300.0077,-175.0058,56.68726"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+			</If>
 
-      <!-- Arrive at Magitek Servicing 0/1 -->
-      <If Condition="GetInstanceTodo(0) == 0">
-        <Log Message="Arrive at Magitek Servicing 0/1" />
-        <If Condition="IsOnSubMap(4127)">
-          <MoveTo XYZ="-300.0438, -175, 89.84753" Distance="0.5" />
-        </If>
-      </If>
+			<!-- Arrive at Martial Conditioning 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at Martial Conditioning 0/1"/>
+				<If Condition="IsOnSubMap(4124)">
+					<MoveTo XYZ="-299.8641, -174.98, 25.57108"/>
+					<LLChangeZone Heading="3.16893"/>
+				</If>
+				<If Condition="IsOnSubMap(4129)">
+					<If Condition="GameObjectManager.GetObjectByNPCId(2011745).IsVisible">
+						<UseObject NpcId="2011745" XYZ="400, 0.1000001, -177.5" Radius="10" UseTimes="1"/>
+						<!--Control Terminal-->
+					</If>
+					<MoveTo XYZ="399.9814, 0.001791358, -177.6551"/>
+					<WaitTimer WaitTime="12"/>
+					<Grind GrindRef="ElevatorWave1" PostCombatDelay="12.0" While="ObjectExistsWithId(10878) or ObjectExistsWithId(10879)"/>
+					<Grind GrindRef="ElevatorWave2" PostCombatDelay="12.0" While="ObjectExistsWithId(10881) or ObjectExistsWithId(10880)"/>
+					<Grind GrindRef="ElevatorWave3" PostCombatDelay="12.0" While="ObjectExistsWithId(10882) or ObjectExistsWithId(10883)"/>
 
-      <!-- Clear Magitek Servicing 0/1 -->
-      <If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-        <Log Message="Clear Magitek Servicing 0/1" />
-        <If Condition="IsOnSubMap(4127)">
-          <MoveTo XYZ="-300.0438, -175, 89.84753" Distance="0.5" />
-        </If>
-        <If Condition="IsOnSubMap(4124)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <Grind GrindRef="Barnabas" PostCombatDelay="2.0" While="GetInstanceTodo(1) == 0" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-300.0077,-175.0058,56.68726" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-      </If>
+					<!-- Post Object Movement to Next Area -->
+					<MoveTo XYZ="400.1074, 0, -155.7414"/>
+					<LLChangeZone Heading="6.264952"/>
+				</If>
+				<If Condition="IsOnSubMap(4130)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="342.3667,-0.01531982,378.1643"/>
+						<LLOpenChest/>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="210.4371,-0.01531982,372.9762"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="220.7229, 0.9999998, 322.8848" Distance="0.5"/>
+				</If>
+			</If>
 
-      <!-- Arrive at Martial Conditioning 0/1 -->
-      <If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-        <Log Message="Arrive at Martial Conditioning 0/1" />
-        <If Condition="IsOnSubMap(4124)">
-          <MoveTo XYZ="-299.8641, -174.98, 25.57108" />
-          <LLChangeZone Heading="3.16893" />
-        </If>
-        <If Condition="IsOnSubMap(4129)">
-          <If Condition="GameObjectManager.GetObjectByNPCId(2011745).IsVisible">
-            <UseObject NpcId="2011745" XYZ="400, 0.1000001, -177.5" Radius="10" UseTimes="1" />
-            <!--Control Terminal-->
-          </If>
-          <MoveTo XYZ="399.9814, 0.001791358, -177.6551" />
-          <WaitTimer WaitTime="12" />
-          <Grind GrindRef="ElevatorWave1" PostCombatDelay="12.0" While="ObjectExistsWithId(10878) or ObjectExistsWithId(10879)" />
-          <Grind GrindRef="ElevatorWave2" PostCombatDelay="12.0" While="ObjectExistsWithId(10881) or ObjectExistsWithId(10880)" />
-          <Grind GrindRef="ElevatorWave3" PostCombatDelay="12.0" While="ObjectExistsWithId(10882) or ObjectExistsWithId(10883)" />
+			<!--Clear Martial Conditioning 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear Martial Conditioning 0/1"/>
+				<If Condition="IsOnSubMap(4124)">
+					<MoveTo XYZ="-299.8641, -174.98, 25.57108"/>
+					<LLChangeZone Heading="3.16893"/>
+				</If>
+				<If Condition="IsOnSubMap(4129)">
+					<MoveTo XYZ="400.1074, 0, -155.7414"/>
+					<LLChangeZone Heading="6.264952"/>
+				</If>
+				<If Condition="IsOnSubMap(4130)">
+					<MoveTo XYZ="220.7229, 0.9999998, 322.8848" Distance="0.5"/>
+				</If>
+				<If Condition="IsOnSubMap(4125)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<Grind GrindRef="Lugae" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="220.9963,0.9613037,289.9977"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+			</If>
 
-          <!-- Post Object Movement to Next Area -->
-          <MoveTo XYZ="400.1074, 0, -155.7414" />
-          <LLChangeZone Heading="6.264952" />
-        </If>
-        <If Condition="IsOnSubMap(4130)">
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="342.3667,-0.01531982,378.1643" />
-            <LLOpenChest />
-          </If>
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="210.4371,-0.01531982,372.9762" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-          <MoveTo XYZ="220.7229, 0.9999998, 322.8848" Distance="0.5" />
-        </If>
-      </If>
+			<!-- Arrive at the Iron Womb 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at the Iron Womb 0/1"/>
+				<If Condition="IsOnSubMap(4125)">
+					<MoveTo XYZ="149.9771, 1.597404E-05, 201.5869"/>
+					<LLChangeZone Heading="3.139995"/>
+				</If>
+				<While Condition="IsOnSubMap(4132)">
+					<If Condition="GameObjectManager.GetObjectByNPCId(2011746).IsVisible">
+						<!-- Control Terminal-->
+						<UseObject NpcId="2011746" XYZ="0, 499.9999, 1.192093E-07" Radius="10" UseTimes="1"/>
+						<WaitTimer WaitTime="15"/>
+					</If>
+					<MoveTo XYZ="-0.0843915, 493.1287, -46.40387" usemesh="false"/>
+				</While>
+				<If Condition="IsOnSubMap(4133)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-0.01531982,492.9731,-62.11957"/>
+						<LLOpenChest/>
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-43.01526,483.9703,-118.2117"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+					<MoveTo XYZ="-0.08154679, 480, -184.8952" Distance="0.5"/>
+				</If>
+			</If>
 
-      <!--Clear Martial Conditioning 0/1 -->
-      <If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-        <Log Message="Clear Martial Conditioning 0/1" />
-        <If Condition="IsOnSubMap(4124)">
-          <MoveTo XYZ="-299.8641, -174.98, 25.57108" />
-          <LLChangeZone Heading="3.16893" />
-        </If>
-        <If Condition="IsOnSubMap(4129)">
-          <MoveTo XYZ="400.1074, 0, -155.7414" />
-          <LLChangeZone Heading="6.264952" />
-        </If>
-        <If Condition="IsOnSubMap(4130)">
-          <MoveTo XYZ="220.7229, 0.9999998, 322.8848" Distance="0.5" />
-        </If>
-        <If Condition="IsOnSubMap(4125)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <Grind GrindRef="Lugae" PostCombatDelay="2.0" While="GetInstanceTodo(3) == 0" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="220.9963,0.9613037,289.9977" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-      </If>
+			<!-- Clear the Iron Womb 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Clear the Iron Womb 0/1"/>
+				<If Condition="IsOnSubMap(4125)">
+					<MoveTo XYZ="149.9771, 1.597404E-05, 201.5869"/>
+					<LLChangeZone Heading="3.139995"/>
+				</If>
+				<If Condition="IsOnSubMap(4132)">
+					<MoveTo XYZ="-0.0843915, 493.1287, -46.40387" usemesh="false"/>
+				</If>
+				<If Condition="IsOnSubMap(4133)">
+					<MoveTo XYZ="-0.08154679, 480, -184.8952" Distance="0.5"/>
+				</If>
+				<If Condition="IsOnSubMap(4126)">
+					<EnablePlugin Names="SideStep,Trust"/>
+					<Grind GrindRef="Anima" PostCombatDelay="2.0" While="not IsDutyEnded()"/>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-0.01531982,479.9724,-188.0064"/>
+						<LLOpenChest/>
+						<If Condition="&EquipAfterChestOpen; == 1">
+							<AutoInventoryEquip/>
+						</If>
+					</If>
+				</If>
+			</If>
 
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
 
-      <!-- Arrive at the Iron Womb 0/1 -->
-      <If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-        <Log Message="Arrive at the Iron Womb 0/1" />
-        <If Condition="IsOnSubMap(4125)">
-          <MoveTo XYZ="149.9771, 1.597404E-05, 201.5869" />
-          <LLChangeZone Heading="3.139995" />
-        </If>
-        <While Condition="IsOnSubMap(4132)">
-          <If Condition="GameObjectManager.GetObjectByNPCId(2011746).IsVisible">
-            <UseObject NpcId="2011746" XYZ="0, 499.9999, 1.192093E-07" Radius="10" UseTimes="1" />
-            <WaitTimer WaitTime="15" />
-            <!--Control Terminal-->
-          </If>
-          <MoveTo XYZ="-0.0843915, 493.1287, -46.40387" usemesh="false" />
-        </While>
-        <If Condition="IsOnSubMap(4133)">
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-0.01531982,492.9731,-62.11957" />
-            <LLOpenChest />
-          </If>
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-43.01526,483.9703,-118.2117" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-          <MoveTo XYZ="-0.08154679, 480, -184.8952" Distance="0.5" />
-        </If>
-      </If>
+		<LLoadProfile Path="../../../Start.xml"/>
+	</Order>
 
-
-      <!-- Clear the Iron Womb 0/1 -->
-      <If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-        <Log Message="Clear the Iron Womb 0/1" />
-        <If Condition="IsOnSubMap(4125)">
-          <MoveTo XYZ="149.9771, 1.597404E-05, 201.5869" />
-          <LLChangeZone Heading="3.139995" />
-        </If>
-        <If Condition="IsOnSubMap(4132)">
-          <MoveTo XYZ="-0.0843915, 493.1287, -46.40387" usemesh="false" />
-        </If>
-        <If Condition="IsOnSubMap(4133)">
-          <MoveTo XYZ="-0.08154679, 480, -184.8952" Distance="0.5" />
-        </If>
-        <If Condition="IsOnSubMap(4126)">
-          <EnablePlugin Names="SideStep,Trust" />
-          <Grind GrindRef="Anima" PostCombatDelay="2.0" While="not IsDutyEnded()" />
-          <If Condition="&openchest; == 1">
-            <MoveTo XYZ="-0.01531982,479.9724,-188.0064" />
-            <LLOpenChest />
-            <If Condition="&EquipAfterChestOpen; == 1">
-              <AutoInventoryEquip />
-            </If>	
-          </If>
-        </If>
-      </If>
-
-      <While condition="DutyManager.InInstance and IsDutyEnded()">
-        <WaitTimer WaitTime="5" />
-        <LLLeaveDuty />
-      </While>
-    </If>
-
-    <LLoadProfile Path="../../../Start.xml" />
-
-
-  </Order>
-  <GrindAreas>
-    <GrindArea Name="Barnabas">
-      <Hotspots>
-        <Hotspot XYZ="-300, -175, 71" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10279" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="Lugae">
-      <Hotspots>
-        <Hotspot XYZ="221, 1, 295" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10282" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="Anima">
-      <Hotspots>
-        <Hotspot XYZ="-0.01531982, 480, -199.5117" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10288" />
-        <!--Anima (Phase 1)-->
-        <TargetMob Id="10285" />
-        <!--Anima (Phase 2)-->
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="ElevatorWave1">
-      <Hotspots>
-        <Hotspot XYZ="399.9814, 0.001791358, -177.6551" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10878" Weight="2" />
-        <TargetMob Id="10879" Weight="1" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="ElevatorWave2">
-      <Hotspots>
-        <Hotspot XYZ="399.9814, 0.001791358, -177.6551" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10880" Weight="2" />
-        <TargetMob Id="10881" Weight="1" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-    <GrindArea Name="ElevatorWave3">
-      <Hotspots>
-        <Hotspot XYZ="399.9814, 0.001791358, -177.6551" Radius="250" />
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="10882" Weight="2" />
-        <TargetMob Id="10883" Weight="1" />
-      </TargetMobs>
-      <MinLevel />
-      <MaxLevel />
-    </GrindArea>
-  </GrindAreas>
-  <CodeChunks></CodeChunks>
+	<GrindAreas>
+		<GrindArea Name="Barnabas">
+			<Hotspots>
+				<Hotspot XYZ="-300, -175, 71" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10279"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Lugae">
+			<Hotspots>
+				<Hotspot XYZ="221, 1, 295" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10282"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Anima">
+			<Hotspots>
+				<Hotspot XYZ="-0.01531982, 480, -199.5117" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<!--Anima (Phase 1)-->
+				<TargetMob Id="10288"/>
+				<!--Anima (Phase 2)-->
+				<TargetMob Id="10285"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="ElevatorWave1">
+			<Hotspots>
+				<Hotspot XYZ="399.9814, 0.001791358, -177.6551" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10878" Weight="2"/>
+				<TargetMob Id="10879" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="ElevatorWave2">
+			<Hotspots>
+				<Hotspot XYZ="399.9814, 0.001791358, -177.6551" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10880" Weight="2"/>
+				<TargetMob Id="10881" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="ElevatorWave3">
+			<Hotspots>
+				<Hotspot XYZ="399.9814, 0.001791358, -177.6551" Radius="250"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10882" Weight="2"/>
+				<TargetMob Id="10883" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
 </Profile>

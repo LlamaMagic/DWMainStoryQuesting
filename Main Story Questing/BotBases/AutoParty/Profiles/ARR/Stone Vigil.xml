@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Stone Vigil
-  Authors: Zamphire
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: The Stone Vigil
+Authors: Zamphire
+Code Credit: TuckMeIntoBread, Kayla.
 -->
 
 <!DOCTYPE Profile [
@@ -10,81 +10,87 @@
 <!ENTITY openchest "0">
 ]>
 <Profile>
-  <Name>The Stone Vigil</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-
-	<If condition="DutyManager.InInstance">
-		<!-- Secure the barbican 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Secure the barbican 0/1" />
-			<MoveTo XYZ="-0.3656647, 4.000783, 140.366"/> <!-- Move to first boss room -->				
-			<MoveTo XYZ="0.1582589, 0.1118119, 126.7698" usemesh="false"/> <!-- Move to first boss room -->		
-			<Grind GrindRef="Chudo" While="GameObjectManager.GetObjectByNPCId(1677)"/> <!-- Fight Chudo-Yudo -->
-			<If Condition="&openchest; == 1">
-				<LLOpenChest />
-			</If>			
+	<Name>The Stone Vigil</Name>
+	<Order>
+		<If condition="DutyManager.InInstance">
+			<!-- Secure the barbican 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Secure the barbican 0/1"/>
+				<!-- Move to first boss room -->
+				<MoveTo XYZ="-0.3656647, 4.000783, 140.366"/>
+				<!-- Move to first boss room -->
+				<MoveTo XYZ="0.1582589, 0.1118119, 126.7698" usemesh="false"/>
+				<!-- Fight Chudo-Yudo -->
+				<Grind GrindRef="Chudo" While="GameObjectManager.GetObjectByNPCId(1677)"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+			</If>
+			<!-- Retake the right brattice 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0">
+				<Log Message="Retake the right brattice 0/1"/>
+				<!-- Move to second boss room -->
+				<MoveTo XYZ="25.42299, 3.954224, -79.95275"/>
+				<!-- Fight Koshchei -->
+				<Grind GrindRef="Koshchei" While="GameObjectManager.GetObjectByNPCId(1678)"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+			</If>
+			<!-- Defeat Isgebind 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0">
+				<Log Message="Defeat Isgebind 0/1"/>
+				<!-- Move to Strongroom Gate -->
+				<MoveTo XYZ="-0.2418478, 4, -217.653"/>
+				<RunCode name="StrongroomGate"/>
+				<!-- Move into final boss room -->
+				<MoveTo XYZ="-0.0006421171, 0.04041038, -241.1199" usemesh="false"/>
+				<!-- Fight Isgebind -->
+				<Grind GrindRef="Isgebind" While="not GameObjectManager.GetObjectByNPCId(1680).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">
+					<WaitTimer WaitTime="10"/>
+					<LLLeaveDuty/>
+				</While>
+			</If>
 		</If>
-		<!-- Retake the right brattice 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 0">
-			<Log Message="Retake the right brattice 0/1" />
-			<MoveTo XYZ="25.42299, 3.954224, -79.95275"/> <!-- Move to second boss room -->					
-			<Grind GrindRef="Koshchei" While="GameObjectManager.GetObjectByNPCId(1678)"/> <!-- Fight Koshchei -->
-			<If Condition="&openchest; == 1">
-				<LLOpenChest />
-			</If>			
-		</If>
-		<!-- Defeat Isgebind 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 0">
-			<Log Message="Defeat Isgebind 0/1" />
-			<MoveTo XYZ="-0.2418478, 4, -217.653"/> <!-- Move to Strongroom Gate -->
-			<RunCode name="StrongroomGate"/>
-			<MoveTo XYZ="-0.0006421171, 0.04041038, -241.1199" usemesh="false"/> <!-- Move into final boss room -->
-			<Grind GrindRef="Isgebind" While="not GameObjectManager.GetObjectByNPCId(1680).CurrentHealth == 0"/> <!-- Fight Isgebind -->
-			<If Condition="&openchest; == 1">
-				<LLOpenChest />
-			</If>		
-			<While condition="DutyManager.InInstance">	
-				<WaitTimer WaitTime="10" />
-				<LLLeaveDuty/>
-			</While>
-		</If>		
-	</If>
+	</Order>
 
-	
-  </Order>
-  <GrindAreas>
-	<GrindArea name="Chudo">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="0,0.01273669,107.1766" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Chudo-Yudo" Id="1677" Weight="1" />	
-        </TargetMobs>
-	</GrindArea>
-	<GrindArea name="Koshchei">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="54.67297,5.022033,-79.94208" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Koshchei" Id="1678" Weight="1" />	
-        </TargetMobs>
-	</GrindArea>
-	<GrindArea name="Isgebind">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="-0.01531982,0.05585395,-262.7756" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Isgebind" Id="1680" Weight="1" />	
-        </TargetMobs>
-	</GrindArea>	
-  </GrindAreas>		
-  <CodeChunks>
-  	<CodeChunk Name="StrongroomGate">
-		  <![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001880).Interact();
-			await Coroutine.Sleep(3000);
-		  ]]>	 	  
-	</CodeChunk>
-  </CodeChunks>  
-</Profile>  
+	<GrindAreas>
+		<GrindArea name="Chudo">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="0,0.01273669,107.1766"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Chudo-Yudo" Id="1677" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Koshchei">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="54.67297,5.022033,-79.94208"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Koshchei" Id="1678" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Isgebind">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-0.01531982,0.05585395,-262.7756"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Isgebind" Id="1680" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<CodeChunks>
+		<CodeChunk Name="StrongroomGate">
+			<![CDATA[
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001880).Interact();
+				await Coroutine.Sleep(3000);
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+</Profile>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Great Gubal Library
-  Authors: Zamphire
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: The Great Gubal Library
+Authors: Zamphire
+Code Credit: TuckMeIntoBread, Kayla.
 -->
 
 <!DOCTYPE Profile [
@@ -10,80 +10,82 @@
 <!ENTITY openchest "0">
 ]>
 <Profile>
-  <Name>The Great Gubal Library</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-		
+	<Name>The Great Gubal Library</Name>
+	<Order>
 		<If condition="not DutyManager.InInstance">
 			<LLJoinDuty DutyId="31"/>
 		</If>
-		
+
 		<If condition="DutyManager.InInstance">
 			<!-- Defeat the demon tome: 0/1 -->
 			<If Condition="GetInstanceTodo(0) == 0">
-				<Log Message="Defeat the demon tome: 0/1" />		
-				<MoveTo XYZ="-17.95066, 0, 0.00487784" />
-				<Grind grindRef="Firstboss" While="not GameObjectManager.GetObjectByNPCId(3923).CurrentHealth == 0"/> <!-- Fight Demon Tome -->
+				<Log Message="Defeat the demon tome: 0/1"/>
+				<MoveTo XYZ="-17.95066, 0, 0.00487784"/>
+				<!-- Fight Demon Tome -->
+				<Grind grindRef="Firstboss" While="not GameObjectManager.GetObjectByNPCId(3923).CurrentHealth == 0"/>
 				<If Condition="&openchest; == 1">
-					<LLOpenChest />
-				</If>						
-			</If>
-			
-			<!-- Defeat Byblos: 0/1 -->	
-			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-				<Log Message="Defeat Byblos: 0/1" />
-				<MoveTo XYZ="57.604, -9, 72.45679" />
-				<MoveTo XYZ="177.4971, -8, 50.52936" />
-				<Grind grindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(3925).CurrentHealth == 0"/> <!-- Fight Byblos -->
-				<If Condition="&openchest; == 1">
-					<LLOpenChest />
-				</If>					
-			</If>
-			
-			<!-- Defeat the Everliving Bibliotaph: 0/1 -->	
-			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-				<Log Message="Defeat the Everliving Bibliotaph: 0/1" />
-				<MoveTo XYZ="356.933, -39, -59.91407" />
-				<Grind grindRef="ThirdBoss" While="not GameObjectManager.GetObjectByNPCId(3930).CurrentHealth == 0"/> <!-- Fight the Everliving Bibliotaph -->
-				<If Condition="&openchest; == 1">
-					<LLOpenChest />
+					<LLOpenChest/>
 				</If>
-				<While condition="DutyManager.InInstance">	
-					<WaitTimer WaitTime="5" />
+			</If>
+
+			<!-- Defeat Byblos: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat Byblos: 0/1"/>
+				<MoveTo XYZ="57.604, -9, 72.45679"/>
+				<MoveTo XYZ="177.4971, -8, 50.52936"/>
+				<!-- Fight Byblos -->
+				<Grind grindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(3925).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+			</If>
+
+			<!-- Defeat the Everliving Bibliotaph: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat the Everliving Bibliotaph: 0/1"/>
+				<MoveTo XYZ="356.933, -39, -59.91407"/>
+				<!-- Fight the Everliving Bibliotaph -->
+				<Grind grindRef="ThirdBoss" While="not GameObjectManager.GetObjectByNPCId(3930).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">
+					<WaitTimer WaitTime="5"/>
 					<LLLeaveDuty/>
-				</While>				
+				</While>
 			</If>
 		</If>
+	</Order>
 
-	
-  </Order>
-  <GrindAreas>
-    <GrindArea name="Firstboss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-17.95066, 0, 0.00487784" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="3923" Weight="1"/> <!-- Demon Tome -->
-      </TargetMobs>
-    </GrindArea>
+	<GrindAreas>
+		<GrindArea name="Firstboss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-17.95066, 0, 0.00487784" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Demon Tome -->
+				<TargetMob Id="3923" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
 		<GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="177.8666, -8, 50.0713" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="3915" Weight="100"/> <!-- Page 64 -->			
-        <TargetMob Id="3925" Weight="1"/> <!-- Byblos -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="ThirdBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="356.933, -39, -59.91407" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="3930" Weight="1"/> <!-- The Everliving Bibliotaph -->
-      </TargetMobs>
-    </GrindArea>		
-  </GrindAreas>		
-  <CodeChunks>
-  </CodeChunks>  
-</Profile>  
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="177.8666, -8, 50.0713" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Page 64 -->
+				<TargetMob Id="3915" Weight="100"/>
+				<!-- Byblos -->
+				<TargetMob Id="3925" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ThirdBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="356.933, -39, -59.91407" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- The Everliving Bibliotaph -->
+				<TargetMob Id="3930" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

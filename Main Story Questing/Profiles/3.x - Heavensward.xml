@@ -4,27 +4,31 @@ Profile: [OrderBot][MSQ] 3.x - Heavensward
 Authors: Sodimm, y2krazy, kagamihiiragi17
 Version: 1.3.5
 Known Issues:
-  - GetTo sometimes doesn't get into range of an Aetheryte.
+	- GetTo sometimes doesn't get into range of an Aetheryte.
 -->
+
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-	<!-- Should we auto invite a carry to do dungeons? -->
-	<!ENTITY UseCarry "0">
-	<!-- What's the carry's name? -->
-	<!ENTITY CarryName "First Last">
+
+<!-- Should we auto invite a carry to do dungeons? -->
+<!ENTITY UseCarry "0">
+
+<!-- What's the carry's name? -->
+<!ENTITY CarryName "First Last">
 ]>
+
 <Profile>
 	<Name>[OrderBot][MSQ] 3.x - Heavensward</Name>
 	<Order>
 		<!-- Profile starts here -->
 		<If Condition="not IsQuestCompleted(65964)">
-			<Log Message="Must complete A Realm Reborn before starting Heavensward. Returning to Start.xml" />
+			<Log Message="Must complete A Realm Reborn before starting Heavensward. Returning to Start.xml"/>
 			<LLoadProfile Path="../Start.xml"/>
 		</If>
 
 		<!-- Buy Eggs -->
 		<If condition="not HasAtLeast(4650,50)">
-			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975" />
+			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975"/>
 			<BuyItem ItemIds="4650" DialogOption="0" ItemCount="99" NpcId="1003253" XYZ="-149.9504,18.2,36.94202"/>
 		</If>
 
@@ -460,11 +464,11 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 1">
 				<GetTo ZoneId="401" XYZ="-122.7894, -166.0029, 646.5095"/>
-				<UseObject NpcId="2005411" XYZ="-122.7894, -166.0029, 646.5095" Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 1" />
+				<UseObject NpcId="2005411" XYZ="-122.7894, -166.0029, 646.5095" Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 1"/>
 			</If>
 			<If Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 2">
 				<GetTo ZoneId="401" XYZ="-81.16278, -136.9802, 468.5282"/>
-				<UseObject NpcId="2005410" XYZ="-81.16278, -136.9802, 468.5282" Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 2" />
+				<UseObject NpcId="2005410" XYZ="-81.16278, -136.9802, 468.5282" Condition="GetQuestById(67128).GetTodoArgs(2, 0).Item1 == 2"/>
 			</If>
 		</If>
 		<If Condition="HasQuest(67128) and not IsQuestCompleted(67128) and GetQuestStep(67128) == 255">
@@ -1297,11 +1301,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67152) and GetQuestStep(67152) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67152" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Thok ast Thok (Hard)." />
+				<UserDialog QuestId="67152" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Thok ast Thok (Hard)."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -1312,7 +1317,7 @@ Known Issues:
 					<If condition="IsOnMap(432)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -1352,18 +1357,19 @@ Known Issues:
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(441)">
-						<LLJoinDuty DutyId="37" />
+						<LLJoinDuty DutyId="37"/>
 					</If>
 					<If condition="IsOnMap(441)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -1950,18 +1956,19 @@ Known Issues:
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(435)">
-						<LLJoinDuty DutyId="39" />
+						<LLJoinDuty DutyId="39"/>
 					</If>
 					<If condition="IsOnMap(435)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -2249,18 +2256,19 @@ Known Issues:
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(421)">
-						<LLJoinDuty DutyId="34" />
+						<LLJoinDuty DutyId="34"/>
 					</If>
 					<If condition="IsOnMap(421)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -2492,11 +2500,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67183" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Limitless Blue (Hard)." />
+				<UserDialog QuestId="67183" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Limitless Blue (Hard)."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -2507,7 +2516,7 @@ Known Issues:
 					<If condition="IsOnMap(421)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -2915,22 +2924,23 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67196) and not IsQuestCompleted(67196) and GetQuestStep(67196) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67196" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Great Gubal Library." />
+				<UserDialog QuestId="67196" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Great Gubal Library."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(416)">
-						<LLJoinDuty DutyId="31" />
+						<LLJoinDuty DutyId="31"/>
 					</If>
 					<If condition="IsOnMap(416)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -3530,22 +3540,23 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67205" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Aetherochemical Research Facility." />
+				<UserDialog QuestId="67205" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Aetherochemical Research Facility."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(438)">
-						<LLJoinDuty DutyId="38" />
+						<LLJoinDuty DutyId="38"/>
 					</If>
 					<If condition="IsOnMap(438)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -3557,11 +3568,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67205) and not IsQuestCompleted(67205) and GetQuestStep(67205) == 5">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67205" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Singularity Reactor." />
+				<UserDialog QuestId="67205" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Singularity Reactor."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -3572,7 +3584,7 @@ Known Issues:
 					<If condition="IsOnMap(437)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -3812,9 +3824,9 @@ Known Issues:
 			<TalkTo NpcId="1012405" XYZ="587.7927, -50.62399, 70.72546" QuestId="67695" StepId="2"/>
 		</If>
 		<If Condition="HasQuest(67695) and not IsQuestCompleted(67695) and GetQuestStep(67695) == 3 and not IsTodoChecked(67695, 3, 0)">
-			<LisbethTravel ZoneId="398" XYZ="477.9986, -51.1414, 37.47143" />
+			<LisbethTravel ZoneId="398" XYZ="477.9986, -51.1414, 37.47143"/>
 			<HandOver ItemId="2001899" QuestId="67695" StepId="3" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079"/>
-			<GetTo ZoneId="398" XYZ="477.9986, -51.1414, 37.47143" />
+			<GetTo ZoneId="398" XYZ="477.9986, -51.1414, 37.47143"/>
 		</If>
 		<If Condition="HasQuest(67695) and not IsQuestCompleted(67695) and GetQuestStep(67695) == 3 and not IsTodoChecked(67695, 3, 1)">
 			<LisbethTravel ZoneId="398" XYZ="535.3016, -51.34064, 65.29333"/>
@@ -3915,16 +3927,16 @@ Known Issues:
 			<LisbethTravel ZoneId="418" XYZ="125.9326, 24.45884, -5.539063"/>
 			<If Condition="IsFendingClass()">
 				<TurnIn QuestId="67698" NpcId="1016008" XYZ="125.9326, 24.45884, -5.539063" RewardSlot="0"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
-				<WaitTimer WaitTime="2" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
+				<WaitTimer WaitTime="2"/>
 				<AutoInventoryEquip/>
 			</If>
 			<If Condition="IsSlayingClass()">
 				<TurnIn QuestId="67698" NpcId="1016008" XYZ="125.9326, 24.45884, -5.539063" RewardSlot="1"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
-				<WaitTimer WaitTime="2" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
+				<WaitTimer WaitTime="2"/>
 				<AutoInventoryEquip/>
 			</If>
 			<If Condition="HasQuest(67698) and GetQuestStep(67698) == 255">
@@ -3982,23 +3994,23 @@ Known Issues:
 			</If>
 			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="0"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
-				<WaitTimer WaitTime="2" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
+				<WaitTimer WaitTime="2"/>
 				<AutoInventoryEquip/>
 			</If>
 			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="1"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
-				<WaitTimer WaitTime="2" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
+				<WaitTimer WaitTime="2"/>
 				<AutoInventoryEquip/>
 			</If>
 			<If Condition="IsCastingClass()">
 				<TurnIn QuestId="67699" NpcId="1016050" XYZ="0.7476196, 0.02225424, 4.623413" RewardSlot="2"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
-				<WaitTimer WaitTime="2" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
+				<WaitTimer WaitTime="2"/>
 				<AutoInventoryEquip/>
 			</If>
 			<If Condition="HasQuest(67699) and GetQuestStep(67699) == 255">
@@ -4089,11 +4101,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67768) and not IsQuestCompleted(67768) and GetQuestStep(67768) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67768" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Antitower." />
+				<UserDialog QuestId="67768" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Antitower."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -4104,7 +4117,7 @@ Known Issues:
 					<If condition="IsOnMap(516)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -4444,8 +4457,8 @@ Known Issues:
 			<If Condition="HasQuest(67777) and GetQuestStep(67777) == 255">
 				<TurnIn QuestId="67777" NpcId="1013227" XYZ="14.8775, 16.00967, -4.196289" RewardSlot="4"/>
 			</If>
-			<WaitTimer WaitTime="2" />
-			<RunCode Name="Coffer" />
+			<WaitTimer WaitTime="2"/>
+			<RunCode Name="Coffer"/>
 			<WaitTimer WaitTime="2"/>
 			<AutoInventoryEquip/>
 		</If>
@@ -4472,18 +4485,18 @@ Known Issues:
 			<LisbethTravel ZoneId="418" XYZ="109.7275, 24.38438, -4.715088"/>
 			<If Condition="IsAimingClass()">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="0"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
 			</If>
 			<If Condition="IsHealingClass()">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="1"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
 			</If>
 			<If Condition="IsCastingClass">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="2"/>
-				<WaitTimer WaitTime="2" />
-				<RunCode Name="Coffer" />
+				<WaitTimer WaitTime="2"/>
+				<RunCode Name="Coffer"/>
 			</If>
 			<If Condition="HasQuest(67778) and GetQuestStep(67778) == 255">
 				<TurnIn QuestId="67778" NpcId="1016818" XYZ="109.7275, 24.38438, -4.715088" RewardSlot="3"/>
@@ -4533,11 +4546,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67780) and not IsQuestCompleted(67780) and GetQuestStep(67780) == 5">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67780" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Sohr Khai." />
+				<UserDialog QuestId="67780" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Sohr Khai."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -4548,7 +4562,7 @@ Known Issues:
 					<If condition="IsOnMap(555)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -4574,11 +4588,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67781) and not IsQuestCompleted(67781) and GetQuestStep(67781) == 2">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67781" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Final Steps of Faith." />
+				<UserDialog QuestId="67781" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Final Steps of Faith."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -4589,7 +4604,7 @@ Known Issues:
 					<If condition="IsOnMap(559)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -4701,11 +4716,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67878) and not IsQuestCompleted(67878) and GetQuestStep(67878) == 3">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67878" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Xelphatol." />
+				<UserDialog QuestId="67878" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Xelphatol."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -4716,7 +4732,7 @@ Known Issues:
 					<If condition="IsOnMap(572)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -4754,7 +4770,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67879) and not IsQuestCompleted(67879) and GetQuestStep(67879) == 3">
 			<If Condition="not IsOnMap(212)">
-				<LisbethTravel ZoneId="140" XYZ="-490.9163, 19.05129, -370.1565" />
+				<LisbethTravel ZoneId="140" XYZ="-490.9163, 19.05129, -370.1565"/>
 				<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
 			</If>
 			<WaitWhile Condition="HasQuest(67879) and not IsQuestCompleted(67879) and not GetQuestStep(67879) == 255"/>
@@ -4836,11 +4852,12 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67881) and not IsQuestCompleted(67881) and GetQuestStep(67881) == 8">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67881" StepId="8" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Navel (Hard)." />
+				<UserDialog QuestId="67881" StepId="8" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial The Navel (Hard)."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
@@ -4851,7 +4868,7 @@ Known Issues:
 					<If condition="IsOnMap(293)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -4887,14 +4904,14 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67882) and not IsQuestCompleted(67882) and GetQuestStep(67882) == 4">
 			<If Condition="not IsOnMap(212)">
-				<LisbethTravel ZoneId="140" XYZ="-490.9163, 19.05129, -370.1565" />
+				<LisbethTravel ZoneId="140" XYZ="-490.9163, 19.05129, -370.1565"/>
 				<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
 			</If>
 			<WaitWhile Condition="HasQuest(67882) and not IsQuestCompleted(67882) and GetQuestStep(67882) == 4"/>
 		</If>
 		<If Condition="HasQuest(67882) and not IsQuestCompleted(67882) and GetQuestStep(67882) == 5">
 			<If Condition="not IsOnMap(212)">
-				<LisbethTravel ZoneId="140" XYZ="-490.9163, 19.05129, -370.1565" />
+				<LisbethTravel ZoneId="140" XYZ="-490.9163, 19.05129, -370.1565"/>
 				<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
 			</If>
 			<TalkTo NpcId="1018368" XYZ="-8.46875, -7.450581E-09, -3.250244" QuestId="67882" StepId="5"/>
@@ -5131,22 +5148,23 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67890) and not IsQuestCompleted(67890) and GetQuestStep(67890) == 6">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="67890" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Baelsar's Wall." />
+				<UserDialog QuestId="67890" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Baelsar's Wall."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<TeleportTo AetheryteId="14"/> <!-- Aleport -->
+					<!-- Aleport -->
+					<TeleportTo AetheryteId="14"/>
 					<InviteToParty Name="&CarryName;"/>
 					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
 				</If>
 				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 					<If condition="not IsOnMap(615)">
-						<LLJoinDuty DutyId="219" />
+						<LLJoinDuty DutyId="219"/>
 					</If>
 					<If condition="IsOnMap(615)">
 						<WaitWhile condition="not IsDutyEnded()"/>
 						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5" />
+							<WaitTimer WaitTime="5"/>
 							<LLLeaveDuty/>
 						</If>
 					</If>
@@ -5242,7 +5260,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67894) and not IsQuestCompleted(67894) and GetQuestStep(67894) == 1">
 			<GetTo ZoneId="156" XYZ="127.7333, -15.35372, -421.1338"/>
-			<UserDialog QuestId="67894" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty." />
+			<UserDialog QuestId="67894" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty."/>
 			<!--
 				<SimpleDuty InteractNpcId="1018044" XYZ="127.7333, -15.35372, -421.1338" QuestId="67894" StepId="1">
 				<HotSpots>
@@ -5311,11 +5329,14 @@ Known Issues:
 				<UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
 			</If>
 			<LLTurnIn QuestId="67895" NpcId="1018331" XYZ="-2.639893, 7.450581E-09, -7.400635"/>
-			<LLSellItem ItemIDs="5824,5825,5826"/> <!-- Sell Allagen peices that we collected -->
+
+			<!-- Sell Allagan pieces that we collected -->
+			<LLSellItem ItemIDs="5824,5825,5826"/>
 		</If>
 
 		<LLoadProfile Path="../Start.xml"/>
 	</Order>
+
 	<CodeChunks>
 		<CodeChunk Name="Move_Forward">
 			<![CDATA[
@@ -5342,27 +5363,6 @@ Known Issues:
 					{
 						slot.Move(Legs);
 						await Coroutine.Sleep(1000);
-					}
-				}
-			]]>
-		</CodeChunk>
-		<CodeChunk Name="No_ExBuddy">
-			<![CDATA[
-				foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight"))
-				{
-					try
-					{
-						if (!plugin.Enabled)
-						{
-							break;
-						}
-						else
-						{
-							plugin.Enabled = false;
-						}
-					}
-					catch (Exception ex)
-					{
 					}
 				}
 			]]>
@@ -5447,6 +5447,7 @@ Known Issues:
 			]]>
 		</CodeChunk>
 	</CodeChunks>
+
 	<GrindAreas>
 		<GrindArea Name="Deepeye">
 			<Hotspots>

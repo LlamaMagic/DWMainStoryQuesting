@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Bowl of Embers
-  Authors: Zamphire
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: The Bowl of Embers
+Authors: Zamphire
+Code Credit: TuckMeIntoBread, Kayla.
 -->
 
 <!DOCTYPE Profile [
@@ -11,30 +11,27 @@
 ]>
 
 <Profile>
-  <Name>The Bowl of Embers</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
+	<Name>The Bowl of Embers</Name>
+	<Order>
 		<If condition="DutyManager.InInstance">
-			<MoveTo XYZ="-13.12728, 0, -8.592924" usemesh="false" />
-			<Grind GrindRef="Ifrit" While="not GameObjectManager.GetObjectByNPCId(1185).CurrentHealth == 0"/> <!-- Kill Ifrit -->	
-			<While condition="DutyManager.InInstance">	
-				<WaitTimer WaitTime="5" />
+			<MoveTo XYZ="-13.12728, 0, -8.592924" usemesh="false"/>
+			<!-- Kill Ifrit -->
+			<Grind GrindRef="Ifrit" While="not GameObjectManager.GetObjectByNPCId(1185).CurrentHealth == 0"/>
+			<While condition="DutyManager.InInstance">
+				<WaitTimer WaitTime="5"/>
 				<LLLeaveDuty/>
-			</While>							
-		</If> 
-		
- </Order>
-  <GrindAreas>
-	<GrindArea name="Ifrit">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="15,0,0" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Ifrit" Id="1185" Weight="1" />		
-        </TargetMobs>
-	</GrindArea>
-  </GrindAreas>		
-  <CodeChunks>	
-  </CodeChunks>  
-</Profile>    
+			</While>
+		</If>
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="Ifrit">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="15,0,0"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Ifrit" Id="1185" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

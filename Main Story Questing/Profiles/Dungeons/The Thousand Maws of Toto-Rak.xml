@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Thousand Maws of Toto-Rak
-  Authors: DomesticWarlord86
+Profile: The Thousand Maws of Toto-Rak
+Authors: DomesticWarlord86
 	Version: 2.0
 -->
 
@@ -11,170 +11,191 @@
 ]>
 
 <Profile>
-  <Name>The Thousand Maws of Toto-Rak</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	<If condition="not DutyManager.InInstance">
-		<JoinSupportDuty DutyId="1"/>
-	</If>
-	
-	<If condition="DutyManager.InInstance">
-
-		<EnablePlugin name="Trust"/>
-
-
-		<!-- Arrive at the confession chamber: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Arrive at the confession chamber: 0/1" />
-			<Grind GrindRef="ClearToFirstBoss" While="DistanceSqrTo('-122.3474,-4.17979,111.4125') &gt; 5"/> <!-- Clear to first boss -->
-			<MoveTo XYZ="-120.324, -4.171214, 110.6194" InCombat="True"/>
-			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Kill Coeurl O' Nine Tails -->
+	<Name>The Thousand Maws of Toto-Rak</Name>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<JoinSupportDuty DutyId="1"/>
 		</If>
-		
-		<!-- Clear the confession chamber: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
-			<Log Message="Clear the confession chamber: 0/1" />
-			<If condition="not IsOnSubMap(523)">
-				<MoveTo XYZ="-122.3474, -4.17979, 111.4125" Distance="1"/>
-			</If>	
-			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Kill Coeurl O' Nine Tails -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-103.8682,-4.196289,111.9553" />
-				<LLOpenChest />
+
+		<If condition="DutyManager.InInstance">
+			<EnablePlugin name="Trust"/>
+
+			<!-- Arrive at the confession chamber: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the confession chamber: 0/1"/>
+				<!-- Clear to first boss -->
+				<Grind GrindRef="ClearToFirstBoss" While="DistanceSqrTo('-122.3474,-4.17979,111.4125') &gt; 5"/>
+				<MoveTo XYZ="-120.324, -4.171214, 110.6194" InCombat="True"/>
+				<!-- Kill Coeurl O' Nine Tails -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
 			</If>
-		</If>		
 
-		<!-- Arrive at the Fool's Rest: 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
-			<Log Message="Arrive at the Fool's Rest: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>	
-			</If>				
-			<Grind GrindRef="ClearToSecondBoss" While="DistanceSqrTo('-72.03654, -8.171215, -48.15715') &gt; 5"/> <!-- Clear to second boss -->
-			<MoveTo XYZ="-72.03654, -8.171215, -48.15715" />
-			<MoveTo XYZ="-81.42348, -8.132326, -47.66862" InCombat="True"/>
-		</If>
-		
-		<!-- Clear the Fool's Rest: 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
-			<Log Message="Clear the Fool's Rest: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>	
-			</If>				
-			<If condition="not IsOnSubMap(522)">
-				<MoveTo XYZ="-72.03654, -8.171215, -48.15715" />
-			</If>	
-			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Kill Coeurl O' Nine Tails -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-90.19611,-8.194153,-47.83704" />
-				<LLOpenChest />
+			<!-- Clear the confession chamber: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+				<Log Message="Clear the confession chamber: 0/1"/>
+				<If condition="not IsOnSubMap(523)">
+					<MoveTo XYZ="-122.3474, -4.17979, 111.4125" Distance="1"/>
+				</If>
+				<!-- Kill Coeurl O' Nine Tails -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-103.8682,-4.196289,111.9553"/>
+					<LLOpenChest/>
+				</If>
 			</If>
-		</If>	
-		
-		<!-- Arrive at the abacination chamber: 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
-			<Log Message="Arrive at the abacination chamber: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>	
-			</If>				
-			<Grind GrindRef="ClearToThirdBoss" While="DistanceSqrTo('197.1862, -39.70903, -144.1211') &gt; 5"/> <!-- Clear to second boss -->
-			<MoveTo XYZ="199.6044, -39.61385, -143.5771" />
-			<MoveTo XYZ="214.6681, -39.29175, -144.018" InCombat="True"/>
-		</If>
-		
-		<!-- Clear the abacination chamber: 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
-			<Log Message="Clear the abacination chamber: 0/1" />
-			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="20"/>	
-			</If>				
-			<If condition="not IsOnSubMap(612)">
-				<MoveTo XYZ="197.1862, -39.70903, -144.1211" />
+
+			<!-- Arrive at the Fool's Rest: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
+				<Log Message="Arrive at the Fool's Rest: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<!-- Clear to second boss -->
+				<Grind GrindRef="ClearToSecondBoss" While="DistanceSqrTo('-72.03654, -8.171215, -48.15715') &gt; 5"/>
+				<MoveTo XYZ="-72.03654, -8.171215, -48.15715"/>
+				<MoveTo XYZ="-81.42348, -8.132326, -47.66862" InCombat="True"/>
+			</If>
+
+			<!-- Clear the Fool's Rest: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
+				<Log Message="Clear the Fool's Rest: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<If condition="not IsOnSubMap(522)">
+					<MoveTo XYZ="-72.03654, -8.171215, -48.15715"/>
+				</If>
+				<!-- Kill Coeurl O' Nine Tails -->
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-90.19611,-8.194153,-47.83704"/>
+					<LLOpenChest/>
+				</If>
+			</If>
+
+			<!-- Arrive at the abacination chamber: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
+				<Log Message="Arrive at the abacination chamber: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<!-- Clear to second boss -->
+				<Grind GrindRef="ClearToThirdBoss" While="DistanceSqrTo('197.1862, -39.70903, -144.1211') &gt; 5"/>
+				<MoveTo XYZ="199.6044, -39.61385, -143.5771"/>
 				<MoveTo XYZ="214.6681, -39.29175, -144.018" InCombat="True"/>
 			</If>
-			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Kill Graffias -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="234.2107,-39.29205,-144.3046" />
-				<LLOpenChest />
+
+			<!-- Clear the abacination chamber: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
+				<Log Message="Clear the abacination chamber: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>
+				<If condition="not IsOnSubMap(612)">
+					<MoveTo XYZ="197.1862, -39.70903, -144.1211"/>
+					<MoveTo XYZ="214.6681, -39.29175, -144.018" InCombat="True"/>
+				</If>
+				<!-- Kill Graffias -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="234.2107,-39.29205,-144.3046"/>
+					<LLOpenChest/>
+				</If>
 			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
 		</If>
-		
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>				
-	</If>
 
-<LLoadProfile Path="../../Start.xml"/>	
+		<LLoadProfile Path="../../Start.xml"/>
+	</Order>
 
-	
-  </Order>
-  <GrindAreas>
-    <GrindArea name="ClearToFirstBoss">
-      <Hotspots>
-        <Hotspot Radius="500" XYZ="-122.3474, -4.17979, 111.4125"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="157" Weight="1"/> <!-- Cell Mite -->
-        <TargetMob Id="154" Weight="1"/> <!-- Mun-Tuy Sapling -->
-        <TargetMob Id="153" Weight="1"/> <!-- Prison Pteroc -->
-        <TargetMob Id="151" Weight="1"/> <!-- Tainted Louse -->
-      </TargetMobs>
-    </GrindArea>	
-    <GrindArea name="FirstBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-104.6604,-4.162874,111.8944"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="442" Weight="1"/> <!-- Coeurl O' Nine Tails -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="ClearToSecondBoss">
-      <Hotspots>
-        <Hotspot Radius="500" XYZ="-72.03654, -8.171215, -48.15715" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="441" Weight="1"/> <!-- Warden's Whip -->
-        <TargetMob Id="154" Weight="1"/> <!-- Mun-Tuy Sapling -->
-        <TargetMob Id="158" Weight="1"/> <!-- Prison Pudding -->
-        <TargetMob Id="438" Weight="1"/> <!-- Prisoner's Delight -->
-        <TargetMob Id="155" Weight="1"/> <!-- Mitetrap -->
-        <TargetMob Id="157" Weight="1"/> <!-- Cell Mite -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-89.95053,-8.171629,-49.84272"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="442" Weight="1"/> <!-- Coeurl O' Nine Tails -->
-        <TargetMob Id="441" Weight="2"/> <!-- Warden's Whip -->				
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="ClearToThirdBoss">
-      <Hotspots>
-        <Hotspot Radius="500" XYZ="197.1862, -39.70903, -144.1211" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="155" Weight="1"/> <!-- Mitetrap -->
-        <TargetMob Id="151" Weight="1"/> <!-- Tainted Louse -->
-        <TargetMob Id="157" Weight="1"/> <!-- Cell Mite -->
-        <TargetMob Id="158" Weight="1"/> <!-- Prison Pudding -->
-        <TargetMob Id="117" Weight="1"/> <!-- Lightning Sprite -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="FinalBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="231.9938,-39.29176,-144.2978" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="444" Weight="1"/> <!-- Graffias -->
-        <TargetMob Id="443" Weight="2"/> <!-- Comesmite -->		
-        <TargetMob Id="440" Weight="10"/> <!-- Graffias's Tail -->
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>
-  <CodeChunks>
-  </CodeChunks>
+	<GrindAreas>
+		<GrindArea name="ClearToFirstBoss">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-122.3474, -4.17979, 111.4125" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Cell Mite -->
+				<TargetMob Id="157" Weight="1"/>
+				<!-- Mun-Tuy Sapling -->
+				<TargetMob Id="154" Weight="1"/>
+				<!-- Prison Pteroc -->
+				<TargetMob Id="153" Weight="1"/>
+				<!-- Tainted Louse -->
+				<TargetMob Id="151" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-104.6604,-4.162874,111.8944" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Coeurl O' Nine Tails -->
+				<TargetMob Id="442" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearToSecondBoss">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-72.03654, -8.171215, -48.15715" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Warden's Whip -->
+				<TargetMob Id="441" Weight="1"/>
+				<!-- Mun-Tuy Sapling -->
+				<TargetMob Id="154" Weight="1"/>
+				<!-- Prison Pudding -->
+				<TargetMob Id="158" Weight="1"/>
+				<!-- Prisoner's Delight -->
+				<TargetMob Id="438" Weight="1"/>
+				<!-- Mitetrap -->
+				<TargetMob Id="155" Weight="1"/>
+				<!-- Cell Mite -->
+				<TargetMob Id="157" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-89.95053,-8.171629,-49.84272" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Coeurl O' Nine Tails -->
+				<TargetMob Id="442" Weight="1"/>
+				<!-- Warden's Whip -->
+				<TargetMob Id="441" Weight="2"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearToThirdBoss">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="197.1862, -39.70903, -144.1211" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Mitetrap -->
+				<TargetMob Id="155" Weight="1"/>
+				<!-- Tainted Louse -->
+				<TargetMob Id="151" Weight="1"/>
+				<!-- Cell Mite -->
+				<TargetMob Id="157" Weight="1"/>
+				<!-- Prison Pudding -->
+				<TargetMob Id="158" Weight="1"/>
+				<!-- Lightning Sprite -->
+				<TargetMob Id="117" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="231.9938,-39.29176,-144.2978" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Graffias -->
+				<TargetMob Id="444" Weight="1"/>
+				<!-- Comesmite -->
+				<TargetMob Id="443" Weight="2"/>
+				<!-- Graffias's Tail -->
+				<TargetMob Id="440" Weight="10"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
 </Profile>

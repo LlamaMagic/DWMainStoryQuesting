@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Limsa 1-15
-  Authors: DomesticWarlord86
+Profile: Limsa Lominsa 1-15
+Authors: DomesticWarlord86
 -->
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
 <!ENTITY Plugins "SeleCR,Custom Game Titlebar,SideStep,Osiris">
-
 
 <!-- Select Controller or Keyboard? -->
 <!ENTITY SelectController "0">
@@ -15,12 +14,8 @@
 ]>
 
 <Profile>
-  <Name>Limsa 1-15</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-		
-		<!-- Profile start here -->	
-		
+	<Name>Limsa Lominsa 1-15</Name>
+	<Order>
 		<!-- Coming to Limsa Lominsa (Level 1) -->
 		<If Condition="not IsQuestCompleted(66130) and not IsQuestCompleted(65575) and not HasQuest(65643) and not IsQuestCompleted(65643)">
 			<EnablePlugin Names="&Plugins;"/>
@@ -33,9 +28,9 @@
 			</If>
 			<If condition="&SelectController; == 1">
 				<RunCode name="SelectController"/>
-			</If>			
+			</If>
 			<WaitTimer WaitTime="1"/>
-			<CloseHowTos/>			
+			<CloseHowTos/>
 			<GetTo ZoneId="128" XYZ="-39.84137, 20, -4.959229"/>
 			<If Condition="IsQuestAcceptQualified(65643)">
 				<PickupQuest NpcId="1001028" QuestId="65643" XYZ="-39.84137, 20, -4.959229"/>
@@ -49,7 +44,7 @@
 			<GetTo ZoneId="128" XYZ="18.00043, 40.21601, -5.336614"/>
 			<TurnIn QuestId="65643" NpcId="1002697" XYZ="18.00043, 40.21601, -5.336614"/>
 		</If>
-		
+
 		<!-- Arcanist -->
 		<If Condition="ClassName == ClassJobType.Arcanist">
 			<!-- Close to Home (Level 1) -->
@@ -60,7 +55,7 @@
 				</If>
 				<CloseHowTos/>
 			</If>
-			
+
 			<!-- Making a Name (Level 1) -->
 			<If Condition="IsQuestCompleted(65643) and not HasQuest(65647) and not IsQuestCompleted(65647)">
 				<GetTo ZoneId="128" XYZ="8.499207, 39.50549, 3.555298"/>
@@ -93,7 +88,7 @@
 				<AutoInventoryEquip/>
 				<CloseHowTos/>
 			</If>
-			
+
 			<!-- Close to Home (Level 1) -->
 			<If Condition="HasQuest(65645) and not IsQuestCompleted(65645) and GetQuestStep(65645) == 1 and not IsTodoChecked(65645, 1, 1)">
 				<GetTo ZoneId="129" XYZ="-140.856, 18.2, 17.01373"/>
@@ -103,19 +98,19 @@
 				<GetTo ZoneId="129" XYZ="-336.1474, 12.89977, 3.46305"/>
 				<TalkTo NpcId="1000895" XYZ="-335.7443, 12.89977, 1.388489" QuestId="65645"/>
 			</If>
-			
+
 			<!-- Way of the Arcanist (Level 1) -->
 			<If Condition="not HasQuest(65989) and not IsQuestCompleted(65989)">
 				<GetTo ZoneId="129" XYZ="-336.1474, 12.89977, 3.46305"/>
 				<If Condition="IsQuestAcceptQualified(65989)">
 					<PickupQuest NpcId="1000895" QuestId="65989" XYZ="-335.7443, 12.89977, 1.388489"/>
 				</If>
-			</If>	
+			</If>
 			<If Condition="HasQuest(65989) and not IsQuestCompleted(65989) and GetQuestStep(65989) == 1">
 				<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
 				<TalkTo NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" QuestId="65989" StepId="1"/>
-			</If>			
-			
+			</If>
+
 			<If Condition="HasQuest(65645) and not IsQuestCompleted(65645) and GetQuestStep(65645) == 255">
 				<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
 				<TurnIn QuestId="65645" NpcId="1000972" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -123,7 +118,7 @@
 				<AutoInventoryEquip/>
 				<CloseHowTos/>
 			</If>
-			
+
 			<If Condition="HasQuest(65989) and not IsQuestCompleted(65989) and GetQuestStep(65989) == 2 and not IsTodoChecked(65989, 2, 0)">
 				<GetTo ZoneId="134" XYZ="-10.1936, 44.80988, 99.69167"/>
 				<Grind GrindRef="Wharf_Rat" PostCombatDelay="3.0" While="not IsTodoChecked(65989, 2, 0)"/>
@@ -146,8 +141,8 @@
 				<AutoInventoryEquip/>
 				<CloseHowTos/>
 			</If>
-		</If>				
-		
+		</If>
+
 		<!-- Marauder -->
 		<If Condition="ClassName == ClassJobType.Marauder">
 			<!-- Close to Home (Level 1) -->
@@ -158,7 +153,7 @@
 				</If>
 				<CloseHowTos/>
 			</If>
-			
+
 			<!-- Making a Name (Level 1) -->
 			<If Condition="IsQuestCompleted(65643) and not HasQuest(65647) and not IsQuestCompleted(65647)">
 				<GetTo ZoneId="128" XYZ="8.499207, 39.50549, 3.555298"/>
@@ -190,8 +185,7 @@
 				<AutoInventoryEquip/>
 				<CloseHowTos/>
 			</If>
-			
-			
+
 			<!-- Close to Home (Level 1) -->
 			<If Condition="HasQuest(65644) and not IsQuestCompleted(65644) and GetQuestStep(65644) == 1 and not IsTodoChecked(65644, 1, 1)">
 				<GetTo ZoneId="129" XYZ="-140.856, 18.2, 17.01373"/>
@@ -201,7 +195,7 @@
 				<GetTo ZoneId="128" XYZ="-8.362936, 44.9998, -246.9229"/>
 				<TalkTo NpcId="1000926" XYZ="-8.362936, 44.9998, -246.9229" QuestId="65644" StepId="1"/>
 			</If>
-			
+
 			<!-- Way of the Marauder (Level 1) -->
 			<If Condition="IsQuestCompleted(65644) and not HasQuest(65847) and not IsQuestCompleted(65847)">
 				<GetTo ZoneId="128" XYZ="-8.362936, 44.9998, -246.9229"/>
@@ -212,8 +206,8 @@
 			<If Condition="HasQuest(65847) and not IsQuestCompleted(65847) and GetQuestStep(65847) == 1">
 				<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
 				<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65847" StepId="1"/>
-			</If>		
-			
+			</If>
+
 			<If Condition="HasQuest(65644) and not IsQuestCompleted(65644) and GetQuestStep(65644) == 255">
 				<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
 				<TurnIn QuestId="65644" NpcId="1000972" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -221,7 +215,7 @@
 				<AutoInventoryEquip/>
 				<CloseHowTos/>
 			</If>
-			
+
 			<If Condition="HasQuest(65847) and not IsQuestCompleted(65847) and GetQuestStep(65847) == 2 and not IsTodoChecked(65847, 2, 0)">
 				<GetTo ZoneId="134" XYZ="-10.1936, 44.80988, 99.69167"/>
 				<Grind GrindRef="Wharf_Rat" PostCombatDelay="3.0" While="HasQuest(65847) and not IsQuestCompleted(65847) and GetQuestStep(65847) == 2 and not IsTodoChecked(65847, 2, 0)"/>
@@ -243,18 +237,18 @@
 				<LLSmallTalk/>
 				<AutoInventoryEquip/>
 				<CloseHowTos/>
-			</If>		
-		</If>	
-		
+			</If>
+		</If>
+
 		<!-- Buy Eggs -->
 		<If condition="not HasAtLeast(4650,1)">
-			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975" />
+			<GetTo ZoneId="129" XYZ="-151.112, 18.2, 33.41975"/>
 			<BuyItem ItemIds="4650" DialogOption="0" ItemCount="10" NpcId="1003253" XYZ="-149.9504,18.2,36.94202"/>
 			<RunCode name="SetFood"/>
 			<EnablePlugin name="Gluttony"/>
 			<CloseHowTos/>
-		</If>		
-		
+		</If>
+
 		<!-- On to Summerford (Level 4) -->
 		<If Condition="IsQuestCompleted(65643) and not HasQuest(65998) and not IsQuestCompleted(65998)">
 			<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -269,7 +263,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Dressed to Call (Level 5) -->
 		<If Condition="IsQuestCompleted(65998) and not HasQuest(65999) and not IsQuestCompleted(65999)">
 			<GetTo ZoneId="134" XYZ="205.052, 112.6122, -222.6982"/>
@@ -280,35 +274,35 @@
 		<If Condition="HasQuest(65999) and not IsQuestCompleted(65999) and GetQuestStep(65999) == 255">
 			<If Condition="ClassName == ClassJobType.Arcanist">
 				<If Condition="not HasItem(2655)">
-					<GetTo ZoneId="134" XYZ="198.8593, 98.45152, -204.0076" />
+					<GetTo ZoneId="134" XYZ="198.8593, 98.45152, -204.0076"/>
 					<BuyItem ItemIds="2655" DialogOption="2" ItemCount="1" NpcId="1003257" XYZ="201.709,98.42287,-206.1036"/>
 				</If>
 				<If Condition="HasItem(2655)">
 					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head].RawItemId != 2655">
-						<RunCode Name="CasterLevel5" />
+						<RunCode Name="CasterLevel5"/>
 						<WaitTimer WaitTime="2"/>
 					</While>
 				</If>
 			</If>
 			<If Condition="ClassName == ClassJobType.Marauder">
 				<If Condition="not HasItem(2653)">
-					<GetTo ZoneId="134" XYZ="198.8593, 98.45152, -204.0076" />
+					<GetTo ZoneId="134" XYZ="198.8593, 98.45152, -204.0076"/>
 					<BuyItem ItemIds="2653" DialogOption="2" ItemCount="1" NpcId="1003257" XYZ="201.709,98.42287,-206.1036"/>
 				</If>
 				<If Condition="HasItem(2653)">
 					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head].RawItemId != 2653">
-						<RunCode Name="WarLevel5" />
+						<RunCode Name="WarLevel5"/>
 						<WaitTimer WaitTime="2"/>
 					</While>
 				</If>
-			</If>	
+			</If>
 			<GetTo ZoneId="134" XYZ="205.052, 112.6122, -222.6982"/>
 			<TurnIn QuestId="65999" NpcId="1002626" XYZ="205.052, 112.6122, -222.6982"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Lurkers in the Grotto (Level 5) -->
 		<If Condition="IsQuestCompleted(65999) and not HasQuest(66079) and not IsQuestCompleted(66079)">
 			<GetTo ZoneId="134" XYZ="205.052, 112.6122, -222.6982"/>
@@ -337,7 +331,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Further Afield (Level 6) -->
 		<If Condition="IsQuestCompleted(66079) and not HasQuest(66000) and not IsQuestCompleted(66000)">
 			<GetTo ZoneId="134" XYZ="203.3827, 111.9367, -215.7475"/>
@@ -356,7 +350,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Washed Up (Level 7) -->
 		<If Condition="IsQuestCompleted(66000) and not HasQuest(66001) and not IsQuestCompleted(66001)">
 			<GetTo ZoneId="134" XYZ="205.052, 112.6122, -222.6982"/>
@@ -392,7 +386,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Double Dealing (Level 8)-->
 		<If Condition="IsQuestCompleted(66001) and not HasQuest(66002) and not IsQuestCompleted(66002)">
 			<GetTo ZoneId="134" XYZ="205.052, 112.6122, -222.6982"/>
@@ -436,7 +430,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Loam Maintenance (Level 9) -->
 		<If Condition="IsQuestCompleted(66002) and not HasQuest(66003) and not IsQuestCompleted(66003)">
 			<GetTo ZoneId="134" XYZ="203.3264, 111.7238, -213.9163"/>
@@ -466,7 +460,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Plowshares to Swords (Level 9) -->
 		<If Condition="IsQuestCompleted(66003) and not HasQuest(66004) and not IsQuestCompleted(66004)">
 			<GetTo ZoneId="134" XYZ="0.04577637, 57.85028, -308.7664"/>
@@ -490,7 +484,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Just Deserts (Level 9) -->
 		<If Condition="IsQuestCompleted(66004) and not HasQuest(66005) and not IsQuestCompleted(66005)">
 			<GetTo ZoneId="134" XYZ="207.2633, 112.8604, -222.4308"/>
@@ -538,7 +532,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Sky-high (Level 10) -->
 		<If Condition="IsQuestCompleted(66005) and not HasQuest(65933) and not IsQuestCompleted(65933)">
 			<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -547,190 +541,214 @@
 				<PickupQuest NpcId="1000972" QuestId="65933" XYZ="17.79586, 40.21601, -5.386823"/>
 			</If>
 		</If>
-		
+
 		<!-- Class quest time -->
 		<If Condition="ClassName == ClassJobType.Marauder">
-			
+
 			<!-- Axe in the Stone -->
 			<If Condition="IsQuestCompleted(66005) and not IsQuestCompleted(65849)">
 				<If Condition="Core.Player.ClassLevel &gt; 4">
 					<If Condition="not HasQuest(65849)">
-						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
+						<!-- Wyrnzoen -->
+						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
 						<If Condition="IsQuestAcceptQualified(65849)">
-							<PickupQuest NpcId="1000927" QuestId="65849" XYZ="-1.205505, 44.99989, -255.8786" />
+							<PickupQuest NpcId="1000927" QuestId="65849" XYZ="-1.205505, 44.99989, -255.8786"/>
 						</If>
 					</If>
 					<If Condition="HasQuest(65849)">
 						<If Condition="GetQuestStep(65849) == 1">
-							<GetTo ZoneId="128" XYZ="1.480042, 30.47563, -242.2065" /> <!-- Broenbhar -->
-							<TalkTo NpcId="1002680" XYZ="1.480042, 30.47563, -242.2065" QuestId="65849" StepId="1" />
+							<!-- Broenbhar -->
+							<GetTo ZoneId="128" XYZ="1.480042, 30.47563, -242.2065"/>
+							<TalkTo NpcId="1002680" XYZ="1.480042, 30.47563, -242.2065" QuestId="65849" StepId="1"/>
 						</If>
 						<If Condition="GetQuestStep(65849) == 2">
-							<GetTo ZoneId="134" XYZ="-57.23663, 43.82968, 45.33447" /> <!-- Rhotgeim -->
-							<TalkTo NpcId="1002108" XYZ="-57.23663, 43.82968, 45.33447" QuestId="65849" StepId="2" />
+							<!-- Rhotgeim -->
+							<GetTo ZoneId="134" XYZ="-57.23663, 43.82968, 45.33447"/>
+							<TalkTo NpcId="1002108" XYZ="-57.23663, 43.82968, 45.33447" QuestId="65849" StepId="2"/>
 						</If>
 						<While Condition="GetQuestStep(65849) == 3">
-							<GetTo ZoneId="134" XYZ="-68.46729, 43.50342, 20.24866" /> <!-- Solid Rock -->
+							<!-- Solid Rock -->
+							<GetTo ZoneId="134" XYZ="-68.46729, 43.50342, 20.24866"/>
 							<If condition="GetQuestStep(65849) == 3 and GetQuestById(65849).GetTodoArgs(3, 0).Item1 == 0">
-								<LLUseSpell SpellId="31" NpcId="2001480" XYZ="-68.46729, 43.50342, 20.24866" condition="GameObjectManager.GetObjectByNPCId(2001480).IsVisible" />
+								<LLUseSpell SpellId="31" NpcId="2001480" XYZ="-68.46729, 43.50342, 20.24866" condition="GameObjectManager.GetObjectByNPCId(2001480).IsVisible"/>
 							</If>
 							<If condition="GetQuestStep(65849) == 3 and GetQuestById(65849).GetTodoArgs(3, 0).Item1 == 1">
-								<LLUseSpell SpellId="31" NpcId="2001481" XYZ="-52.14008, 46.15845, 15.82355" condition="GameObjectManager.GetObjectByNPCId(2001481).IsVisible" />
+								<LLUseSpell SpellId="31" NpcId="2001481" XYZ="-52.14008, 46.15845, 15.82355" condition="GameObjectManager.GetObjectByNPCId(2001481).IsVisible"/>
 							</If>
 							<If condition="GetQuestStep(65849) == 3 and GetQuestById(65849).GetTodoArgs(3, 0).Item1 == 2">
-								<LLUseSpell SpellId="31" NpcId="2001482" XYZ="-73.80792, 43.25928, 4.623413" condition="GameObjectManager.GetObjectByNPCId(2001482).IsVisible" />
-							</If>	
+								<LLUseSpell SpellId="31" NpcId="2001482" XYZ="-73.80792, 43.25928, 4.623413" condition="GameObjectManager.GetObjectByNPCId(2001482).IsVisible"/>
+							</If>
 						</While>
 						<If Condition="GetQuestStep(65849) == 4">
-							<GetTo ZoneId="134" XYZ="-57.23663, 43.82968, 45.33447" /> <!-- Rhotgeim -->
-							<TalkTo NpcId="1002108" XYZ="-57.23663, 43.82968, 45.33447" QuestId="65849" StepId="4" />
+							<!-- Rhotgeim -->
+							<GetTo ZoneId="134" XYZ="-57.23663, 43.82968, 45.33447"/>
+							<TalkTo NpcId="1002108" XYZ="-57.23663, 43.82968, 45.33447" QuestId="65849" StepId="4"/>
 						</If>
 						<While Condition="GetQuestStep(65849) == 5">
-							<GetTo ZoneId="134" XYZ="-12.31409, 46.40259, 31.47937" /> <!-- Solid Rock -->
+							<!-- Solid Rock -->
+							<GetTo ZoneId="134" XYZ="-12.31409, 46.40259, 31.47937"/>
 							<If condition="GetQuestStep(65849) == 5 and GetQuestById(65849).GetTodoArgs(5, 0).Item1 == 0">
-								<LLUseSpell SpellId="31" NpcId="2001483" XYZ="-12.31409, 46.40259, 31.47937" condition="GameObjectManager.GetObjectByNPCId(2001483).IsVisible" />
+								<LLUseSpell SpellId="31" NpcId="2001483" XYZ="-12.31409, 46.40259, 31.47937" condition="GameObjectManager.GetObjectByNPCId(2001483).IsVisible"/>
 							</If>
 							<If condition="GetQuestStep(65849) == 5 and GetQuestById(65849).GetTodoArgs(5, 0).Item1 == 1">
-								<LLUseSpell SpellId="31" NpcId="2001484" XYZ="-14.57245, 47.40979, 12.34448" condition="GameObjectManager.GetObjectByNPCId(2001484).IsVisible" />
+								<LLUseSpell SpellId="31" NpcId="2001484" XYZ="-14.57245, 47.40979, 12.34448" condition="GameObjectManager.GetObjectByNPCId(2001484).IsVisible"/>
 							</If>
 							<If condition="GetQuestStep(65849) == 5 and GetQuestById(65849).GetTodoArgs(5, 0).Item1 == 2">
-								<LLUseSpell SpellId="31" NpcId="2001485" XYZ="1.663208, 48.2948, 9.597839" condition="GameObjectManager.GetObjectByNPCId(2001485).IsVisible" />
+								<LLUseSpell SpellId="31" NpcId="2001485" XYZ="1.663208, 48.2948, 9.597839" condition="GameObjectManager.GetObjectByNPCId(2001485).IsVisible"/>
 							</If>
 						</While>
 						<If Condition="GetQuestStep(65849) == 6">
-							<GetTo ZoneId="134" XYZ="-57.23663, 43.82968, 45.33447" /> <!-- Rhotgeim -->
-							<TalkTo NpcId="1002108" XYZ="-57.23663, 43.82968, 45.33447" QuestId="65849" StepId="6" />
+							<!-- Rhotgeim -->
+							<GetTo ZoneId="134" XYZ="-57.23663, 43.82968, 45.33447"/>
+							<TalkTo NpcId="1002108" XYZ="-57.23663, 43.82968, 45.33447" QuestId="65849" StepId="6"/>
 						</If>
 						<If Condition="GetQuestStep(65849) == 7">
-							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
-							<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65849" StepId="7" />
+							<!-- Wyrnzoen -->
+							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
+							<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65849" StepId="7"/>
 						</If>
 						<If Condition="GetQuestStep(65849) == 8">
-							<GetTo ZoneId="128" XYZ="-5.233948, 31.4756, -256.9772" /> <!-- Solkwyb -->
-							<TalkTo NpcId="1002679" XYZ="-5.233948, 31.4756, -256.9772" QuestId="65849" StepId="8" />
+							<!-- Solkwyb -->
+							<GetTo ZoneId="128" XYZ="-5.233948, 31.4756, -256.9772"/>
+							<TalkTo NpcId="1002679" XYZ="-5.233948, 31.4756, -256.9772" QuestId="65849" StepId="8"/>
 						</If>
 						<If Condition="GetQuestStep(65849) == 9">
-							<GetTo ZoneId="135" XYZ="130.8461, 35.99597, 28.51904" /> <!-- Megalocrab Nest -->
-							<UseObject NpcId="2000284" XYZ="130.8461, 35.99597, 28.51904" Radius="10" QuestId="65849" StepId="9" />
+							<!-- Megalocrab Nest -->
+							<GetTo ZoneId="135" XYZ="130.8461, 35.99597, 28.51904"/>
+							<UseObject NpcId="2000284" XYZ="130.8461, 35.99597, 28.51904" Radius="10" QuestId="65849" StepId="9"/>
 						</If>
 						<While Condition="GetQuestStep(65849) == 10">
-							<GetTo ZoneId="135" XYZ="161.9971, 33.54348, 76.79063" /> <!-- Sighard -->
+							<!-- Sighard -->
+							<GetTo ZoneId="135" XYZ="161.9971, 33.54348, 76.79063"/>
 							<RunCode name="EnterAxeintheStone"/>
 							<SimpleDuty XYZ="158.1554, 33.74164, 87.90929" QuestId="65849" StepId="10">
 								<HotSpots>
-									<HotSpot XYZ="155.6387, 34.26702, 95.90092" Radius="90" />
+									<HotSpot XYZ="155.6387, 34.26702, 95.90092" Radius="90"/>
 								</HotSpots>
 								<TargetMobs>
-									<TargetMob Id="825" Weight="2000" /> <!-- Molting Megalocrab -->
-									<TargetMob Id="827" Weight="1000" /> <!-- Island Megalocrab -->
+									<!-- Molting Megalocrab -->
+									<TargetMob Id="825" Weight="2000"/>
+									<!-- Island Megalocrab -->
+									<TargetMob Id="827" Weight="1000"/>
 								</TargetMobs>
 							</SimpleDuty>
 						</While>
 						<If Condition="GetQuestStep(65849) == 255">
-							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
-							<TurnIn QuestId="65849" NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" />
+							<!-- Wyrnzoen -->
+							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
+							<TurnIn QuestId="65849" NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
-							<CloseHowTos/>	
+							<CloseHowTos/>
 						</If>
 					</If>
 				</If>
 			</If>
-			
+
 			<!-- Wake of Destruction -->
-			
+
 			<If Condition="not IsQuestCompleted(65850) and IsQuestCompleted(65849)">
 				<If Condition="Core.Player.ClassLevel &gt; 9">
 					<If Condition="not HasQuest(65850)">
-						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
+						<!-- Wyrnzoen -->
+						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
 						<If Condition="IsQuestAcceptQualified(65850)">
-							<PickupQuest NpcId="1000927" QuestId="65850" XYZ="-1.205505, 44.99989, -255.8786" />
+							<PickupQuest NpcId="1000927" QuestId="65850" XYZ="-1.205505, 44.99989, -255.8786"/>
 						</If>
 					</If>
 					<If Condition="HasQuest(65850)">
 						<If Condition="GetQuestStep(65850) == 1">
-							<GetTo ZoneId="135" XYZ="410.5915, 75.36475, -329.3518" /> <!-- Grinding Area -->
-							<Grind grindRef="Wake_of_Destruction" while="HasQuest(65850) and GetQuestStep(65850) == 1" />
+							<GetTo ZoneId="135" XYZ="410.5915, 75.36475, -329.3518"/>
+							<Grind grindRef="Wake_of_Destruction" while="HasQuest(65850) and GetQuestStep(65850) == 1"/>
 						</If>
 						<If Condition="GetQuestStep(65850) == 2">
-							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
-							<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65850" StepId="2" />
+							<!-- Wyrnzoen -->
+							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
+							<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65850" StepId="2"/>
 						</If>
 						<If Condition="GetQuestStep(65850) == 3">
-							<GetTo ZoneId="134" XYZ="-88.60913, 43.56445, -303.0594" /> <!-- Overturned Wain -->
-							<UseObject NpcId="2000286" XYZ="-88.60913, 43.56445, -303.0594" Radius="10" QuestId="65850" StepId="3" />
+							<!-- Overturned Wain -->
+							<GetTo ZoneId="134" XYZ="-88.60913, 43.56445, -303.0594"/>
+							<UseObject NpcId="2000286" XYZ="-88.60913, 43.56445, -303.0594" Radius="10" QuestId="65850" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(65850) == 255">
-							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
-							<TurnIn QuestId="65850" NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" />
+							<!-- Wyrnzoen -->
+							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
+							<TurnIn QuestId="65850" NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
-							<CloseHowTos/>	
+							<CloseHowTos/>
 						</If>
 					</If>
 				</If>
-			</If>	
+			</If>
 		</If>
-		
+
 		<If Condition="ClassName == ClassJobType.Arcanist">
 			<!-- What's in the Box -->
-			
+
 			<If Condition="not IsQuestCompleted(65991)">
 				<If Condition="Core.Player.ClassLevel &gt; 4">
 					<If Condition="not HasQuest(65991)">
-						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
+						<!-- Thubyrgeim -->
+						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
 						<If Condition="IsQuestAcceptQualified(65991)">
-							<PickupQuest NpcId="1000909" QuestId="65991" XYZ="-326.3752, 12.89966, 9.994568" />
+							<PickupQuest NpcId="1000909" QuestId="65991" XYZ="-326.3752, 12.89966, 9.994568"/>
 						</If>
 					</If>
 					<If Condition="HasQuest(65991)">
 						<If Condition="GetQuestStep(65991) == 1">
 							<If Condition="not IsTodoChecked(65991, 1, 0)">
-								<GetTo ZoneId="135" XYZ="387.0847, 65.40367, -99.18919" /> <!-- Grinding Area -->
-								<Grind grindRef="Whats_in_the_Box" while="not IsTodoChecked(65991, 1, 0)" />
+								<GetTo ZoneId="135" XYZ="387.0847, 65.40367, -99.18919"/>
+								<Grind grindRef="Whats_in_the_Box" while="not IsTodoChecked(65991, 1, 0)"/>
 							</If>
 							<If Condition="not IsTodoChecked(65991, 1, 1)">
-								<GetTo ZoneId="135" XYZ="387.0847, 65.40367, -99.18919" /> <!-- Grinding Area -->
-								<Grind grindRef="Whats_in_the_Box2" while="not IsTodoChecked(65991, 1, 1)" />
+								<GetTo ZoneId="135" XYZ="387.0847, 65.40367, -99.18919"/>
+								<Grind grindRef="Whats_in_the_Box2" while="not IsTodoChecked(65991, 1, 1)"/>
 							</If>
 						</If>
 						<If Condition="GetQuestStep(65991) == 2">
-							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
-							<TalkTo NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" QuestId="65991" StepId="2" />
+							<!-- Thubyrgeim -->
+							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+							<TalkTo NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" QuestId="65991" StepId="2"/>
 						</If>
 						<If Condition="GetQuestStep(65991) == 3">
-							<GetTo ZoneId="134" XYZ="-0.1373901, 26.07764, 196.5209" /> <!-- Practice Crates -->
-							<UseObject NpcId="2002266" XYZ="-0.1373901, 26.07764, 196.5209" Radius="10" QuestId="65991" StepId="3" />
+							<!-- Practice Crates -->
+							<GetTo ZoneId="134" XYZ="-0.1373901, 26.07764, 196.5209"/>
+							<UseObject NpcId="2002266" XYZ="-0.1373901, 26.07764, 196.5209" Radius="10" QuestId="65991" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(65991) == 4">
-							<GetTo ZoneId="134" XYZ="-0.1373901, 26.07764, 196.5209" /> <!-- Practice Crate -->
-							<UseObject NpcId="2002476" XYZ="-0.1373901, 26.07764, 196.5209" Radius="10" QuestId="65991" StepId="4" />
+							<!-- Practice Crate -->
+							<GetTo ZoneId="134" XYZ="-0.1373901, 26.07764, 196.5209"/>
+							<UseObject NpcId="2002476" XYZ="-0.1373901, 26.07764, 196.5209" Radius="10" QuestId="65991" StepId="4"/>
 						</If>
 						<If Condition="GetQuestStep(65991) == 255">
-							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim-->
-							<TurnIn QuestId="65991" NpcId="1000909" ItemId="2000796" XYZ="-326.3752, 12.89966, 9.994568" />
+							<!-- Thubyrgeim-->
+							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+							<TurnIn QuestId="65991" NpcId="1000909" ItemId="2000796" XYZ="-326.3752, 12.89966, 9.994568"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
-							<CloseHowTos/>							
+							<CloseHowTos/>
 						</If>
 					</If>
 				</If>
 			</If>
-			
+
 			<!-- Tactical Planning -->
-			
+
 			<If Condition="not IsQuestCompleted(65992) and not IsQuestCompleted(65990)">
 				<If Condition="Core.Player.ClassLevel &gt; 9">
 					<If Condition="not HasQuest(65992)">
-						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
+						<!-- Thubyrgeim -->
+						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
 						<If Condition="IsQuestAcceptQualified(65992)">
-							<PickupQuest NpcId="1000909" QuestId="65992" XYZ="-326.3752, 12.89966, 9.994568" />
+							<PickupQuest NpcId="1000909" QuestId="65992" XYZ="-326.3752, 12.89966, 9.994568"/>
 						</If>
 					</If>
 				</If>
 			</If>
 		</If>
-		
+
 		<!-- Sky-high -->
 		<If Condition="HasQuest(65933) and not IsQuestCompleted(65933) and GetQuestStep(65933) == 255">
 			<GetTo ZoneId="134" XYZ="-283.6805, 10.59338, -249.3478"/>
@@ -739,7 +757,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Thanks a Million (Level 11) -->
 		<If Condition="IsQuestCompleted(65934) and not HasQuest(65938) and not IsQuestCompleted(65938)">
 			<GetTo ZoneId="134" XYZ="-283.6805, 10.59338, -249.3478"/>
@@ -752,52 +770,59 @@
 			<GetTo ZoneId="134" XYZ="-320.5768, 25.8335, -527.5502"/>
 			<UseObject NpcId="2001255" XYZ="-320.5768, 25.8335, -527.5502" QuestId="65938" StepId="1"/>
 		</If>
-		
+
 		<!-- Tactical Planning -->
 		<If Condition="HasQuest(65992)">
 			<If Condition="GetQuestStep(65992) == 1">
 				<If Condition="not IsTodoChecked(65992, 1, 0)">
-					<GetTo ZoneId="138" XYZ="724.6773, 24.88592, 434.6457" /> <!-- Grinding Area -->
-					<Grind grindRef="Tactical_Planning" while="not IsTodoChecked(65992, 1, 0)" />
+					<GetTo ZoneId="138" XYZ="724.6773, 24.88592, 434.6457"/>
+					<Grind grindRef="Tactical_Planning" while="not IsTodoChecked(65992, 1, 0)"/>
 				</If>
 				<If Condition="not IsTodoChecked(65992, 1, 1)">
-					<GetTo ZoneId="138" XYZ="679.9136, 35.84999, 381.1215" /> <!-- Grinding Area -->
-					<Grind grindRef="Tactical_Planning2" while="not IsTodoChecked(65992, 1, 1)" />
+					<GetTo ZoneId="138" XYZ="679.9136, 35.84999, 381.1215"/>
+					<Grind grindRef="Tactical_Planning2" while="not IsTodoChecked(65992, 1, 1)"/>
 				</If>
 			</If>
 			<If Condition="GetQuestStep(65992) == 2">
-				<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
-				<TalkTo NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" QuestId="65992" StepId="2" />
+				<!-- Thubyrgeim -->
+				<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+				<TalkTo NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" QuestId="65992" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(65992) == 3">
-				<GetTo ZoneId="129" XYZ="-348.3177, -2.37447, 11.91724" /> <!-- K'lyhia -->
-				<TalkTo NpcId="1005199" XYZ="-348.3177, -2.37447, 11.91724" QuestId="65992" StepId="3" />
+				<!-- K'lyhia -->
+				<GetTo ZoneId="129" XYZ="-348.3177, -2.37447, 11.91724"/>
+				<TalkTo NpcId="1005199" XYZ="-348.3177, -2.37447, 11.91724" QuestId="65992" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(65992) == 4">
-				<GetTo ZoneId="134" XYZ="-106.7979, 45.6884, -252.3384" /> <!-- K'lyhia -->
+				<!-- K'lyhia -->
+				<GetTo ZoneId="134" XYZ="-106.7979, 45.6884, -252.3384"/>
 				<SimpleDuty InteractNpcId="1005200" XYZ="-106.7979, 45.6884, -252.3384" QuestId="65992" StepId="4">
 					<HotSpots>
-						<HotSpot XYZ="-110.3807, 45.38188, -245.4525" Radius="90" />
+						<HotSpot XYZ="-110.3807, 45.38188, -245.4525" Radius="90"/>
 					</HotSpots>
 					<TargetMobs>
-						<TargetMob Id="1950" Weight="2000" /> <!-- Goblin Picaroon -->
-						<TargetMob Id="1949" Weight="1000" /> <!-- Goblin Trader -->
+						<!-- Goblin Picaroon -->
+						<TargetMob Id="1950" Weight="2000"/>
+						<!-- Goblin Trader -->
+						<TargetMob Id="1949" Weight="1000"/>
 					</TargetMobs>
 				</SimpleDuty>
 			</If>
 			<If Condition="GetQuestStep(65992) == 5">
-				<GetTo ZoneId="134" XYZ="-98.49707, 47.27536, -262.3179" /> <!-- K'lyhia -->
-				<TalkTo NpcId="1005201" XYZ="-98.49707, 47.27536, -262.3179" QuestId="65992" StepId="5" />
+				<!-- K'lyhia -->
+				<GetTo ZoneId="134" XYZ="-98.49707, 47.27536, -262.3179"/>
+				<TalkTo NpcId="1005201" XYZ="-98.49707, 47.27536, -262.3179" QuestId="65992" StepId="5"/>
 			</If>
 			<If Condition="GetQuestStep(65992) == 255">
-				<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
-				<TurnIn QuestId="65992" NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" />
+				<!-- Thubyrgeim -->
+				<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+				<TurnIn QuestId="65992" NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568"/>
 				<LLSmallTalk/>
 				<AutoInventoryEquip/>
-				<CloseHowTos/>							
+				<CloseHowTos/>
 			</If>
-		</If>		
-		
+		</If>
+
 		<!-- Thanks a Million (Level 11) -->
 		<If Condition="HasQuest(65938) and not IsQuestCompleted(65938) and GetQuestStep(65938) == 255">
 			<GetTo ZoneId="138" XYZ="650.7209, 7.856782, 527.2144"/>
@@ -806,7 +831,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Farmer of Fortune (Level 11) -->
 		<If Condition="IsQuestCompleted(65938) and not HasQuest(65940) and not IsQuestCompleted(65940)">
 			<GetTo ZoneId="138" XYZ="650.7209, 7.856782, 527.2144"/>
@@ -826,7 +851,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Relighting the Torch (Level 11) -->
 		<If Condition="IsQuestCompleted(65940) and not HasQuest(65939) and not IsQuestCompleted(65939)">
 			<GetTo ZoneId="138" XYZ="655.7563, 8.316302, 521.1719"/>
@@ -840,7 +865,7 @@
 			<TalkTo NpcId="1003246" XYZ="443.2288, 14.6451, 452.842" QuestId="65939" StepId="1"/>
 			<MoveTo UseMesh="False" XYZ="450.5302, 11.80701, 446.7951"/>
 		</If>
-		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 2">	
+		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 2">
 			<GetTo ZoneId="138" XYZ="602.5024, 28.94629, 361.0131"/>
 			<UseItem NpcId="2001260" XYZ="602.5024, 28.94629, 361.0131" ItemId="2000343" QuestId="65939" StepId="2"/>
 		</If>
@@ -848,7 +873,7 @@
 			<GetTo ZoneId="138" XYZ="602.5024, 28.94629, 361.0131"/>
 			<UseObject NpcId="2001261" XYZ="602.5024, 28.94629, 361.0131" QuestId="65939" StepId="3"/>
 		</If>
-		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 4">		
+		<If Condition="HasQuest(65939) and not IsQuestCompleted(65939) and GetQuestStep(65939) == 4">
 			<GetTo ZoneId="138" XYZ="443.2288, 14.6451, 452.842"/>
 			<HandOver ItemId="2000344" NpcId="1003246" XYZ="443.2288, 14.6451, 452.842" QuestId="65939" StepId="4"/>
 			<MoveTo UseMesh="False" XYZ="450.5302, 11.80701, 446.7951"/>
@@ -864,7 +889,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- On to the Drydocks (Level 11) -->
 		<If Condition="IsQuestCompleted(65939) and not HasQuest(65942) and not IsQuestCompleted(65942)">
 			<GetTo ZoneId="128" XYZ="-32.02869, 41.49999, 208.3923"/>
@@ -880,7 +905,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Without a Doubt (Level 12) -->
 		<If Condition="IsQuestCompleted(65942) and not HasQuest(65948) and not IsQuestCompleted(65948)">
 			<GetTo ZoneId="135" XYZ="245.1428, 14.16243, 612.1202"/>
@@ -897,7 +922,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Righting the Shipwright (Level 12) -->
 		<If Condition="IsQuestCompleted(65948) and not HasQuest(65951) and not IsQuestCompleted(65951)">
 			<GetTo ZoneId="135" XYZ="-34.65332, 8.921356, 861.4479"/>
@@ -931,9 +956,9 @@
 			<TurnIn QuestId="65951" NpcId="1002238" XYZ="247.364, 14.02301, 611.9325"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
-			<CloseHowTos/>			
+			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Do Angry Pirates Dream (Level 13) -->
 		<If Condition="IsQuestCompleted(65951) and not HasQuest(65949) and not IsQuestCompleted(65949)">
 			<GetTo ZoneId="135" XYZ="247.364, 14.02301, 611.9325"/>
@@ -959,9 +984,9 @@
 			<TurnIn QuestId="65949" NpcId="1002237" XYZ="167.5593, 14.09592, 683.9244"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
-			<CloseHowTos/>			
+			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Victory in Peril (Level 14) -->
 		<If Condition="IsQuestCompleted(65949) and not HasQuest(65950) and not IsQuestCompleted(65950)">
 			<GetTo ZoneId="135" XYZ="167.5593, 14.09592, 683.9244"/>
@@ -1000,9 +1025,9 @@
 			<TurnIn QuestId="65950" NpcId="1002237" XYZ="167.5593, 14.09592, 683.9244"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
-			<CloseHowTos/>			
+			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Men of the Blue Tattoos (Level 14) -->
 		<If Condition="IsQuestCompleted(65950) and not HasQuest(66225) and not IsQuestCompleted(66225)">
 			<GetTo ZoneId="135" XYZ="167.5593, 14.09592, 683.9244"/>
@@ -1018,7 +1043,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- Feint and Strike (Level 14) -->
 		<If Condition="IsQuestCompleted(66225) and not HasQuest(66080) and not IsQuestCompleted(66080)">
 			<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -1031,162 +1056,183 @@
 			<GetTo ZoneId="128" XYZ="-3.03656, 48.168, -261.7075"/>
 			<HandOver ItemId="2000519" QuestId="66080" StepId="1" NpcId="1003282" XYZ="-3.03656, 48.168, -261.7075"/>
 		</If>
-		
-		
+
 		<!-- Class Quest Time -->
-		
-		<If Condition="ClassName == ClassJobType.Marauder">	
+
+		<If Condition="ClassName == ClassJobType.Marauder">
 			<!-- Brutal Strength -->
 			<If Condition="not IsQuestCompleted(65852)">
 				<If Condition="Core.Player.ClassLevel &gt; 14">
 					<If Condition="not HasQuest(65852)">
-						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
+						<!-- Wyrnzoen -->
+						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
 						<If Condition="IsQuestAcceptQualified(65852)">
-							<PickupQuest NpcId="1000927" QuestId="65852" XYZ="-1.205505, 44.99989, -255.8786" />
+							<PickupQuest NpcId="1000927" QuestId="65852" XYZ="-1.205505, 44.99989, -255.8786"/>
 						</If>
 					</If>
 					<If Condition="HasQuest(65852)">
 						<If Condition="GetQuestStep(65852) == 1">
-							<GetTo ZoneId="138" XYZ="319.8444, -31.89865, 273.5179" /> <!-- Reynfred -->
-							<TalkTo NpcId="1002110" XYZ="319.8444, -31.89865, 273.5179" QuestId="65852" StepId="1" />
+							<!-- Reynfred -->
+							<GetTo ZoneId="138" XYZ="319.8444, -31.89865, 273.5179"/>
+							<TalkTo NpcId="1002110" XYZ="319.8444, -31.89865, 273.5179" QuestId="65852" StepId="1"/>
 						</If>
 						<If Condition="GetQuestStep(65852) == 2">
-							<GetTo ZoneId="138" XYZ="99.22937, -14.29773, 141.8632" /> <!-- Destination -->
-							<UseObject NpcId="2000288" XYZ="99.22937, -14.29773, 141.8632" Radius="10" QuestId="65852" StepId="2" />
+							<GetTo ZoneId="138" XYZ="99.22937, -14.29773, 141.8632"/>
+							<UseObject NpcId="2000288" XYZ="99.22937, -14.29773, 141.8632" Radius="10" QuestId="65852" StepId="2"/>
 						</If>
 						<If Condition="GetQuestStep(65852) == 3">
-							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
-							<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65852" StepId="3" />
+							<!-- Wyrnzoen -->
+							<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
+							<TalkTo NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" QuestId="65852" StepId="3"/>
 						</If>
 						<If Condition="GetQuestStep(65852) == 4">
 							<If Condition="not IsOnMap(134)">
-								<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972" /> <!-- Jump Spot -->
+								<!-- Jump Spot -->
+								<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972"/>
 							</If>
 							<If Condition="IsOnMap(134) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-206.8055, 41.75788, -39.62775)) &gt; 19">
-								<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972" />
-								<RunCode Name="Agelyss_River_Jump" />
+								<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972"/>
+								<RunCode Name="Agelyss_River_Jump"/>
 							</If>
-							<MoveTo ZoneId="134" XYZ="-206.8055, 41.75788, -39.62775" /> <!-- Skapfghim -->
-							<TalkTo NpcId="1002111" XYZ="-206.8055, 41.75788, -39.62775" QuestId="65852" StepId="4" />
+							<!-- Skapfghim -->
+							<MoveTo ZoneId="134" XYZ="-206.8055, 41.75788, -39.62775"/>
+							<TalkTo NpcId="1002111" XYZ="-206.8055, 41.75788, -39.62775" QuestId="65852" StepId="4"/>
 						</If>
 						<If Condition="GetQuestStep(65852) == 5">
 							<If Condition="not IsOnMap(134)">
-								<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972" /> <!-- Jump Spot -->
+								<!-- Jump Spot -->
+								<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972"/>
 							</If>
 							<If Condition="IsOnMap(134) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-206.8055, 41.75788, -39.62775)) &gt; 19">
-								<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972" />
-								<RunCode Name="Agelyss_River_Jump" />
+								<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972"/>
+								<RunCode Name="Agelyss_River_Jump"/>
 							</If>
-							<MoveTo ZoneId="134" XYZ="-225.33, 42.19116, -35.20258" /> <!-- Unmovable Boulder -->
-							<LLUseSpell SpellId="31" NpcId="2001486" XYZ="-225.33, 42.19116, -35.20258" QuestId="65852" StepId="5" />
+							<!-- Unmovable Boulder -->
+							<MoveTo ZoneId="134" XYZ="-225.33, 42.19116, -35.20258"/>
+							<LLUseSpell SpellId="31" NpcId="2001486" XYZ="-225.33, 42.19116, -35.20258" QuestId="65852" StepId="5"/>
 						</If>
 						<If Condition="GetQuestStep(65852) == 6">
 							<If Condition="not IsOnMap(134)">
-								<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972" /> <!-- Jump Spot -->
+								<!-- Jump Spot -->
+								<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972"/>
 							</If>
 							<If Condition="IsOnMap(134) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-206.8055, 41.75788, -39.62775)) &gt; 19">
-								<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972" />
-								<RunCode Name="Agelyss_River_Jump" />
+								<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972"/>
+								<RunCode Name="Agelyss_River_Jump"/>
 							</If>
-							<MoveTo ZoneId="134" XYZ="-206.8055, 41.75788, -39.62775" /> <!-- Skapfghim -->
-							<TalkTo NpcId="1002111" XYZ="-206.8055, 41.75788, -39.62775" QuestId="65852" StepId="6" />
+							<!-- Skapfghim -->
+							<MoveTo ZoneId="134" XYZ="-206.8055, 41.75788, -39.62775"/>
+							<TalkTo NpcId="1002111" XYZ="-206.8055, 41.75788, -39.62775" QuestId="65852" StepId="6"/>
 						</If>
 						<If Condition="GetQuestStep(65852) == 255">
 							<If Condition="IsOnMap(134) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-206.8055, 41.75788, -39.62775)) &lt; 19">
-								<MoveTo Name="Jump Spot" XYZ="-192.1875, 42.70414, -53.16139" />
-								<MoveTo Name="Jump" UseMesh="False" XYZ="-178.5399, 40.00801, -47.81815" />
+								<MoveTo Name="Jump Spot" XYZ="-192.1875, 42.70414, -53.16139"/>
+								<MoveTo Name="Jump" UseMesh="False" XYZ="-178.5399, 40.00801, -47.81815"/>
 							</If>
 							<If Condition="not IsOnMap(128)">
-								<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" />
+								<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786"/>
 							</If>
-							<MoveTo XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
-							<TurnIn QuestId="65852" NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786" />
+							<!-- Wyrnzoen -->
+							<MoveTo XYZ="-1.205505, 44.99989, -255.8786"/>
+							<TurnIn QuestId="65852" NpcId="1000927" XYZ="-1.205505, 44.99989, -255.8786"/>
 							<LLSmallTalk/>
 							<AutoInventoryEquip/>
-							<CloseHowTos/>								
+							<CloseHowTos/>
 						</If>
 					</If>
 				</If>
 			</If>
 		</If>
-		
-		
+
 		<!-- Topaz Teachings -->
 		<If Condition="ClassName == ClassJobType.Arcanist">
 			<If Condition="not IsQuestCompleted(66639)">
 				<If Condition="Core.Player.ClassLevel &gt; 14">
 					<If Condition="not HasQuest(66639)">
 						<If Condition="not IsOnMap(129)">
-							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" />
+							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
 						</If>
-						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
+						<!-- Thubyrgeim -->
+						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
 						<If Condition="IsQuestAcceptQualified(66639)">
-							<PickupQuest NpcId="1000909" QuestId="66639" XYZ="-326.3752, 12.89966, 9.994568" />
+							<PickupQuest NpcId="1000909" QuestId="66639" XYZ="-326.3752, 12.89966, 9.994568"/>
 						</If>
 					</If>
 					<If Condition="HasQuest(66639)">
 						<If Condition="GetQuestStep(66639) == 1">
-							<GetTo ZoneId="129" XYZ="-348.3177, -2.37447, 11.91724" /> <!-- K'lyhia -->
-							<TalkTo NpcId="1005199" XYZ="-348.3177, -2.37447, 11.91724" QuestId="66639" StepId="1" />
+							<!-- K'lyhia -->
+							<GetTo ZoneId="129" XYZ="-348.3177, -2.37447, 11.91724"/>
+							<TalkTo NpcId="1005199" XYZ="-348.3177, -2.37447, 11.91724" QuestId="66639" StepId="1"/>
 						</If>
 						<If Condition="GetQuestStep(66639) == 255">
-							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
-							<TurnIn QuestId="66639" NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" />
+							<!-- Thubyrgeim -->
+							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+							<TurnIn QuestId="66639" NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568"/>
 						</If>
 					</If>
 				</If>
 			</If>
-			
-				<!-- Over the Rails -->
 
-				<If Condition="not IsQuestCompleted(65994)">
-					<If Condition="Core.Player.ClassLevel &gt; 14">
-						<If Condition="not HasQuest(65994)">
-							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
-							<If Condition="IsQuestAcceptQualified(65994)">
-								<PickupQuest NpcId="1000909" QuestId="65994" XYZ="-326.3752, 12.89966, 9.994568" />
-							</If>
-						</If>
-						<If Condition="HasQuest(65994)">
-							<If Condition="GetQuestStep(65994) == 1">
-								<GetTo ZoneId="138" XYZ="316.0295, -24.13677, 211.2001" /> <!-- K'lyhia -->
-								<TalkTo NpcId="1005208" XYZ="316.0295, -24.13677, 211.2001" QuestId="65994" StepId="1" />
-							</If>
-							<If Condition="GetQuestStep(65994) == 2">
-								<GetTo ZoneId="138" XYZ="204.2725, -36.40237, 306.1722" /> <!-- Steersman -->
-								<TalkTo NpcId="1005211" XYZ="204.2725, -36.40237, 306.1722" QuestId="65994" StepId="2" />
-								<Grind grindRef="Over_the_Rails" while="HasQuest(65994) and GetQuestStep(65994) == 2" />
-							</If>
-							<If Condition="GetQuestStep(65994) == 3">
-								<GetTo ZoneId="138" XYZ="204.2725, -36.40237, 306.1722" /> <!-- Steersman -->
-								<TalkTo NpcId="1005211" XYZ="204.2725, -36.40237, 306.1722" QuestId="65994" StepId="3" />
-							</If>
-							<If Condition="GetQuestStep(65994) == 4">
-								<GetTo ZoneId="138" XYZ="173.8154, -41.36731, 280.7201" /> <!-- Destination -->
-								<SimpleDuty InteractNpcId="2002009" XYZ="173.8154, -41.36731, 280.7201" QuestId="65994" StepId="4">
-									<HotSpots>
-										<HotSpot XYZ="6.783015, 16.34722, 0.906988" Radius="90" />
-									</HotSpots>
-									<TargetMobs>
-										<TargetMob Id="1954" Weight="5000" /> <!-- Morningstar Gunner -->
-										<TargetMob Id="1951" Weight="4000" /> <!-- Morningstar Boatswain -->
-										<TargetMob Id="1955" Weight="3000" /> <!-- Morningstar Gromet -->
-										<TargetMob Id="1952" Weight="2000" /> <!-- Morningstar Falmadair -->
-										<TargetMob Id="1953" Weight="1000" /> <!-- Morningstar Navigator -->
-									</TargetMobs>
-								</SimpleDuty>
-								<WaitWhile Condition="IsOnMap(286)" />
-							</If>
-							<If Condition="GetQuestStep(65994) == 255">
-								<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568" /> <!-- Thubyrgeim -->
-								<TurnIn QuestId="65994" NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568" />
-							</If>
+			<!-- Over the Rails -->
+
+			<If Condition="not IsQuestCompleted(65994)">
+				<If Condition="Core.Player.ClassLevel &gt; 14">
+					<If Condition="not HasQuest(65994)">
+						<!-- Thubyrgeim -->
+						<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+						<If Condition="IsQuestAcceptQualified(65994)">
+							<PickupQuest NpcId="1000909" QuestId="65994" XYZ="-326.3752, 12.89966, 9.994568"/>
 						</If>
 					</If>
-				</If>			
-			
-		</If>		
-		
+					<If Condition="HasQuest(65994)">
+						<If Condition="GetQuestStep(65994) == 1">
+							<!-- K'lyhia -->
+							<GetTo ZoneId="138" XYZ="316.0295, -24.13677, 211.2001"/>
+							<TalkTo NpcId="1005208" XYZ="316.0295, -24.13677, 211.2001" QuestId="65994" StepId="1"/>
+						</If>
+						<If Condition="GetQuestStep(65994) == 2">
+							<!-- Steersman -->
+							<GetTo ZoneId="138" XYZ="204.2725, -36.40237, 306.1722"/>
+							<TalkTo NpcId="1005211" XYZ="204.2725, -36.40237, 306.1722" QuestId="65994" StepId="2"/>
+							<Grind grindRef="Over_the_Rails" while="HasQuest(65994) and GetQuestStep(65994) == 2"/>
+						</If>
+						<If Condition="GetQuestStep(65994) == 3">
+							<!-- Steersman -->
+							<GetTo ZoneId="138" XYZ="204.2725, -36.40237, 306.1722"/>
+							<TalkTo NpcId="1005211" XYZ="204.2725, -36.40237, 306.1722" QuestId="65994" StepId="3"/>
+						</If>
+						<If Condition="GetQuestStep(65994) == 4">
+							<GetTo ZoneId="138" XYZ="173.8154, -41.36731, 280.7201"/>
+							<SimpleDuty InteractNpcId="2002009" XYZ="173.8154, -41.36731, 280.7201" QuestId="65994" StepId="4">
+								<HotSpots>
+									<HotSpot XYZ="6.783015, 16.34722, 0.906988" Radius="90"/>
+								</HotSpots>
+								<TargetMobs>
+									<!-- Morningstar Gunner -->
+									<TargetMob Id="1954" Weight="5000"/>
+									<!-- Morningstar Boatswain -->
+									<TargetMob Id="1951" Weight="4000"/>
+									<!-- Morningstar Gromet -->
+									<TargetMob Id="1955" Weight="3000"/>
+									<!-- Morningstar Falmadair -->
+									<TargetMob Id="1952" Weight="2000"/>
+									<!-- Morningstar Navigator -->
+									<TargetMob Id="1953" Weight="1000"/>
+								</TargetMobs>
+							</SimpleDuty>
+							<WaitWhile Condition="IsOnMap(286)"/>
+						</If>
+						<If Condition="GetQuestStep(65994) == 255">
+							<!-- Thubyrgeim -->
+							<GetTo ZoneId="129" XYZ="-326.3752, 12.89966, 9.994568"/>
+							<TurnIn QuestId="65994" NpcId="1000909" XYZ="-326.3752, 12.89966, 9.994568"/>
+						</If>
+					</If>
+				</If>
+			</If>
+
+		</If>
+
 		<!-- Feint and Strike -->
 		<If Condition="HasQuest(66080) and not IsQuestCompleted(66080) and GetQuestStep(66080) == 2">
 			<GetTo ZoneId="138" XYZ="668.0552, 7.297715, 533.1654"/>
@@ -1214,7 +1260,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- High Society (Level 14) -->
 		<If Condition="IsQuestCompleted(66080) and not HasQuest(66226) and not IsQuestCompleted(66226)">
 			<GetTo ZoneId="128" XYZ="-3.03656, 48.168, -261.7075"/>
@@ -1238,7 +1284,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- A Mizzenmast Repast (Level 14) -->
 		<If Condition="IsQuestCompleted(66226) and not HasQuest(66081) and not IsQuestCompleted(66081)">
 			<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
@@ -1251,10 +1297,10 @@
 			<GetTo ZoneId="129" XYZ="9.170593, 20.9994, -15.21332"/>
 			<BotSettings AutoEquip="0"/>
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet].RawItemId != 3760">
-				<Log Message="Equipping Dress Shoes" />
+				<Log Message="Equipping Dress Shoes"/>
 				<RunCode Name="Dress_Shoes"/>
-				<WaitTimer WaitTime="3" />
-			</While>				
+				<WaitTimer WaitTime="3"/>
+			</While>
 			<LLTalkTo NpcId="1001029" XYZ="9.170593, 20.9994, -15.21332" QuestId="66081" StepId="1"/>
 			<BotSettings AutoEquip="1"/>
 			<WaitWhile Condition="not IsOnMap(177)"/>
@@ -1277,7 +1323,7 @@
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<!-- The Lominsan Envoy (Level 15) -->
 		<If Condition="IsQuestCompleted(66081) and not HasQuest(66082) and not IsQuestCompleted(66082)">
 			<If Condition="not IsOnMap(129) and not IsOnMap(198)">
@@ -1317,7 +1363,7 @@
 			<WaitWhile Condition="HasQuest(66082) and not IsQuestCompleted(66082) and GetQuestStep(66082) == 2"/>
 			<WaitTimer WaitTime="5"/>
 		</If>
-		<If Condition="HasQuest(66082) and not IsQuestCompleted(66082) and GetQuestStep(66082) == 3"> 
+		<If Condition="HasQuest(66082) and not IsQuestCompleted(66082) and GetQuestStep(66082) == 3">
 			<UseTransport NpcId="2001668" InteractDistance="3.0" XYZ="-11.10527, 92.04318, 17.18466" QuestId="66082"/>
 			<WaitWhile condition="not IsOnMap(132)"/>
 		</If>
@@ -1354,7 +1400,7 @@
 			<CloseHowTos/>
 			<UseInventoryItem ItemId="6213"/>
 		</If>
-		
+
 		<!-- Call of the Sea (Limsa Lominsa) (Level 15) -->
 		<If Condition="IsQuestCompleted(66082) and not HasQuest(66210) and not IsQuestCompleted(66210)">
 			<GetTo ZoneId="131" XYZ="-24.12457, 38, 85.31323"/>
@@ -1363,67 +1409,59 @@
 				<CloseHowTos/>
 			</If>
 		</If>
-		<If Condition="HasQuest(66210) and not IsQuestCompleted(66210) and GetQuestStep(66210) == 255">		
+		<If Condition="HasQuest(66210) and not IsQuestCompleted(66210) and GetQuestStep(66210) == 255">
 			<GetTo ZoneId="128" XYZ="17.79586, 40.21601, -5.386823"/>
 			<TurnIn QuestId="66210" NpcId="1000972" XYZ="17.79586, 40.21601, -5.386823"/>
 			<LLSmallTalk/>
 			<AutoInventoryEquip/>
 			<CloseHowTos/>
 		</If>
-		
+
 		<LLoadProfile Path="../../Start.xml"/>
-		
 	</Order>
+
 	<GrindAreas>
-    <GrindArea Name="Wharf_Rat">
-      <Hotspots>
-        <Hotspot XYZ="-10.1936, 44.80988, 99.69167" Radius="100"/>
+		<GrindArea Name="Wharf_Rat">
+			<Hotspots>
+				<Hotspot XYZ="-10.1936, 44.80988, 99.69167" Radius="100"/>
 			</Hotspots>
-      <TargetMobs>
-        <TargetMob Id="417"/>
-			</TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-		</GrindArea>
-    <GrindArea Name="Lost_Lamb">
-      <Hotspots>
-        <Hotspot XYZ="89.14595, 46.44084, 159.3749" Radius="100"/>
-			</Hotspots>
-      <TargetMobs>
-        <TargetMob Id="392"/>
-			</TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-		</GrindArea>
-    <GrindArea Name="Lominsan_Little_Ladybug">
-      <Hotspots>
-        <Hotspot XYZ="89.14595, 46.44084, 159.3749" Radius="100"/>
-			</Hotspots>
-      <TargetMobs>
-        <TargetMob Id="49"/>
-			</TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-		</GrindArea>
-    <GrindArea Name="Aurelia">
-      <Hotspots>
-        <Hotspot XYZ="235.8685, 44.6366, 45.72026" Radius="100"/>
-			</Hotspots>
-      <TargetMobs>
-        <TargetMob Id="563"/>
+			<TargetMobs>
+				<TargetMob Id="417"/>
 			</TargetMobs>
 		</GrindArea>
-    <GrindArea Name="Tiny_Mandragora">
-      <Hotspots>
-        <Hotspot XYZ="127.6382, 77.92426, -180.4489" Radius="90"/>
+		<GrindArea Name="Lost_Lamb">
+			<Hotspots>
+				<Hotspot XYZ="89.14595, 46.44084, 159.3749" Radius="100"/>
 			</Hotspots>
-      <TargetMobs>
-        <TargetMob Id="405"/>
+			<TargetMobs>
+				<TargetMob Id="392"/>
 			</TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-		</GrindArea>		
-		
+		</GrindArea>
+		<GrindArea Name="Lominsan_Little_Ladybug">
+			<Hotspots>
+				<Hotspot XYZ="89.14595, 46.44084, 159.3749" Radius="100"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="49"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Aurelia">
+			<Hotspots>
+				<Hotspot XYZ="235.8685, 44.6366, 45.72026" Radius="100"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="563"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Tiny_Mandragora">
+			<Hotspots>
+				<Hotspot XYZ="127.6382, 77.92426, -180.4489" Radius="90"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="405"/>
+			</TargetMobs>
+		</GrindArea>
+
 		<!-- Marauder -->
 		<GrindArea name="Marauder_1_0">
 			<minLevel>1</minLevel>
@@ -1512,9 +1550,12 @@
 				<Hotspot radius="200" xyz="-76.04529, 48.70982, -211.6434" name="Marauder_1_8"/>
 			</Hotspots>
 			<TargetMobs>
-        <TargetMob Id="421" Weight="1"/> <!-- Grounded Pirate -->
-        <TargetMob Id="418" Weight="1"/> <!-- Grounded Raider -->
-        <TargetMob Id="419" Weight="1"/> <!-- Captain Petyr Pigeontoe -->
+				<!-- Grounded Pirate -->
+				<TargetMob Id="421" Weight="1"/>
+				<!-- Grounded Raider -->
+				<TargetMob Id="418" Weight="1"/>
+				<!-- Captain Petyr Pigeontoe -->
+				<TargetMob Id="419" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Marauder_1_9">
@@ -1651,52 +1692,57 @@
 		</GrindArea>
 		<GrindArea name="Wake_of_Destruction">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="410.5915, 75.36475, -329.3518" name="Galagos" />
+				<Hotspot Radius="90" XYZ="410.5915, 75.36475, -329.3518" name="Galagos"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="408" /> <!-- Galago -->
+				<!-- Galago -->
+				<TargetMob Id="408"/>
 			</TargetMobs>
 			<MinLevel>10</MinLevel>
 			<MaxLevel>61</MaxLevel>
-		</GrindArea>				
-		
+		</GrindArea>
+
 		<!-- Arcanist -->
 		<GrindArea name="Whats_in_the_Box">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="387.0847, 65.40367, -99.18919" name="Wild Dodos" />
+				<Hotspot Radius="90" XYZ="387.0847, 65.40367, -99.18919" name="Wild Dodos"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="393" /> <!-- Wild Dodo -->
+				<!-- Wild Dodo -->
+				<TargetMob Id="393"/>
 			</TargetMobs>
 			<MinLevel>5</MinLevel>
 			<MaxLevel>61</MaxLevel>
 		</GrindArea>
 		<GrindArea name="Whats_in_the_Box2">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="387.0847, 65.40367, -99.18919" name="Tiny Mandragoras" />
+				<Hotspot Radius="90" XYZ="387.0847, 65.40367, -99.18919" name="Tiny Mandragoras"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="405" /> <!-- Tiny Mandragora -->
+				<!-- Tiny Mandragora -->
+				<TargetMob Id="405"/>
 			</TargetMobs>
 			<MinLevel>5</MinLevel>
 			<MaxLevel>61</MaxLevel>
 		</GrindArea>
 		<GrindArea name="Tactical_Planning">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="724.6773, 24.88592, 434.6457" name="Roselings" />
+				<Hotspot Radius="90" XYZ="724.6773, 24.88592, 434.6457" name="Roselings"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="400" /> <!-- Roseling -->
+				<!-- Roseling -->
+				<TargetMob Id="400"/>
 			</TargetMobs>
 			<MinLevel>10</MinLevel>
 			<MaxLevel>61</MaxLevel>
 		</GrindArea>
 		<GrindArea name="Tactical_Planning2">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="679.9136, 35.84999, 381.1215" name="Wild Jackals" />
+				<Hotspot Radius="90" XYZ="679.9136, 35.84999, 381.1215" name="Wild Jackals"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="399" /> <!-- Wild Jackal -->
+				<!-- Wild Jackal -->
+				<TargetMob Id="399"/>
 			</TargetMobs>
 			<MinLevel>10</MinLevel>
 			<MaxLevel>61</MaxLevel>
@@ -1927,34 +1973,32 @@
 		</GrindArea>
 		<GrindArea name="Over_the_Rails">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="204.2725, -36.40237, 306.1722" name="Shifty-eyed Vagrants" />
+				<Hotspot Radius="90" XYZ="204.2725, -36.40237, 306.1722" name="Shifty-eyed Vagrants"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="1107" /> <!-- Shifty-eyed Vagrant -->
+				<!-- Shifty-eyed Vagrant -->
+				<TargetMob Id="1107"/>
 			</TargetMobs>
 			<MinLevel>15</MinLevel>
 			<MaxLevel>61</MaxLevel>
-		</GrindArea> 		
-		
-		
-		
-    <GrindArea Name="Grounded_Pirate">
-      <Hotspots>
-        <Hotspot XYZ="-64.79494, 54.49197, -253.2742" Radius="90"/>
+		</GrindArea>
+
+		<GrindArea Name="Grounded_Pirate">
+			<Hotspots>
+				<Hotspot XYZ="-64.79494, 54.49197, -253.2742" Radius="90"/>
 			</Hotspots>
-      <TargetMobs>
-        <TargetMob Id="421"/>
+			<TargetMobs>
+				<TargetMob Id="421"/>
 			</TargetMobs>
-      <MinLevel/>
-      <MaxLevel/>
-		</GrindArea>		
+		</GrindArea>
 	</GrindAreas>
+
 	<CodeChunks>
-    <CodeChunk Name="SetFood">
+		<CodeChunk Name="SetFood">
 			<![CDATA[
 				Gluttony.Settings.Instance.Id = 4650;
 			]]>
-		</CodeChunk>	
+		</CodeChunk>
 		<CodeChunk Name="SetCR">
 			<![CDATA[
 				CarbuncleTech.Plugins.SeleCR.Settings.Instance.Pve.WarriorRoutine = "Magitek";
@@ -1962,115 +2006,118 @@
 				CarbuncleTech.Plugins.SeleCR.Settings.Instance.Pve.SummonerRoutine = "Kupo";
 				CarbuncleTech.Plugins.SeleCR.Settings.Instance.Pve.ScholarRoutine = "Kupo";
 			]]>
-		</CodeChunk>	
+		</CodeChunk>
 		<CodeChunk Name="SkipCutscenes">
 			<![CDATA[
 				ff14bot.BotBases.OrderBotSettings.Instance.SkipCutScenes = true;
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="SelectKeyboard">
-			<![CDATA[		
+			<![CDATA[
 				while (!SelectString.IsOpen)
 				{
-				Talk.Next();
-				await Buddy.Coroutines.Coroutine.Sleep(500);
+					Talk.Next();
+					await Buddy.Coroutines.Coroutine.Sleep(500);
 				}
 				if (SelectString.IsOpen)
 				{
-				SelectString.ClickSlot(0);
+					SelectString.ClickSlot(0);
 				}
-			]]> 
+			]]>
 		</CodeChunk>
 		<CodeChunk Name="SelectController">
-			<![CDATA[		
+			<![CDATA[
 				while (!SelectString.IsOpen)
 				{
-				Talk.Next();
-				await Buddy.Coroutines.Coroutine.Sleep(500);
+					Talk.Next();
+					await Buddy.Coroutines.Coroutine.Sleep(500);
 				}
 				if (SelectString.IsOpen)
 				{
-				SelectString.ClickSlot(1);
+					SelectString.ClickSlot(1);
 				}
-			]]> 
+			]]>
 		</CodeChunk>
 		<CodeChunk Name="Dress_Shoes">
-			<![CDATA[ 
+			<![CDATA[
 				await Coroutine.Sleep(2000);
 				foreach (BagSlot slot in InventoryManager.FilledInventoryAndArmory)
 				{
-				BagSlot Feet = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet];
-				if (slot.RawItemId == 3760)
-				{
-				slot.Move(Feet);
-				}
+					BagSlot Feet = InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet];
+					if (slot.RawItemId == 3760)
+					{
+						slot.Move(Feet);
+					}
 				}
 				await Coroutine.Sleep(2000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="CasterLevel5">
-			<![CDATA[ 
+			<![CDATA[
 				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
 				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
 				{
-				if(slot.RawItemId == 2655)
-				{
-				slot.Move(EquipSlot);
-				}
-				}
-			]]>
-		</CodeChunk>	
-		<CodeChunk Name="WarLevel5">
-			<![CDATA[ 
-				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
-				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
-				{
-				if(slot.RawItemId == 2653)
-				{
-				slot.Move(EquipSlot);
-				}
+					if(slot.RawItemId == 2655)
+					{
+						slot.Move(EquipSlot);
+					}
 				}
 			]]>
 		</CodeChunk>
-    <CodeChunk Name="EnterAxeintheStone">
+		<CodeChunk Name="WarLevel5">
 			<![CDATA[
-				
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 2653)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="EnterAxeintheStone">
+			<![CDATA[
+
 				ff14bot.Managers.MovementManager.SetFacing(6.218512f);
 				while (!SelectYesno.IsOpen)
 				{
-				Logging.WriteDiagnostic("Moving forward.");
-				ff14bot.Managers.MovementManager.MoveForwardStart();
-				await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
+					Logging.WriteDiagnostic("Moving forward.");
+					ff14bot.Managers.MovementManager.MoveForwardStart();
+					await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
 				}
-				
+
 				if (SelectYesno.IsOpen)
 				{
-				MovementManager.MoveStop();
-				Logging.WriteDiagnostic("Selecting Yes.");
-				SelectYesno.Yes();
+					MovementManager.MoveStop();
+					Logging.WriteDiagnostic("Selecting Yes.");
+					SelectYesno.Yes();
 				}
+
 				Logging.WriteDiagnostic("Waiting for load.");
 				await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+
 				while (CommonBehaviors.IsLoading)
 				{
-				await Coroutine.Yield();
+					await Coroutine.Yield();
 				}
 			]]>
 		</CodeChunk>
-    <CodeChunk Name="Agelyss_River_Jump">
-		<![CDATA[ 
-			if(Core.Player.IsMounted)
-			{
-			ActionManager.Dismount();
-			await Coroutine.Sleep(3000);
-			}
-			MovementManager.SetFacing(4.213969f);
-			MovementManager.MoveForwardStart();
-			await Coroutine.Sleep(500);
-			MovementManager.Jump();
-			await Coroutine.Sleep(1500);
-			MovementManager.MoveStop();
-		]]>
-		</CodeChunk>		
+		<CodeChunk Name="Agelyss_River_Jump">
+			<![CDATA[
+				if(Core.Player.IsMounted)
+				{
+					ActionManager.Dismount();
+					await Coroutine.Sleep(3000);
+				}
+
+				MovementManager.SetFacing(4.213969f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(500);
+				MovementManager.Jump();
+				await Coroutine.Sleep(1500);
+				MovementManager.MoveStop();
+			]]>
+		</CodeChunk>
 	</CodeChunks>
-</Profile>  				
+</Profile>

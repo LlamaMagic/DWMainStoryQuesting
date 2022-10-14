@@ -1,137 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Stone Vigil
-  Authors: DomesticWarlord86
+Profile: The Stone Vigil
+Authors: DomesticWarlord86
 	Version: 2.0
-	
-	<TargetMob Name="Isgebind" Id="1680" Weight="1" />
+
+	<TargetMob Name="Isgebind" Id="1680" Weight="1"/>
 	[21:06:36.856 V] [SideStep] Cauterize [CastType][Id: 1026][Omen: 24][RawCastType: 4][ObjId: 1073918385]
 		Get near Ally
 -->
 
 <!DOCTYPE Profile [
 	<!-- Profile Settings -->
-	<!ENTITY openchest "1">
+<!ENTITY openchest "1">
 ]>
+
 <Profile>
 	<Name>The Stone Vigil</Name>
-	<BehaviorDirectory></BehaviorDirectory>
 	<Order>
-
 		<If condition="not DutyManager.InInstance">
-			<JoinSupportDuty DutyId="11" />
+			<JoinSupportDuty DutyId="11"/>
 		</If>
 
-
 		<If condition="DutyManager.InInstance">
-
-			<EnablePlugin name="Trust" />
+			<EnablePlugin name="Trust"/>
 
 			<!-- Shortcut available -->
 			<If condition="IsNearShortcut(2000700)">
-				<UseShortcut NpcId="2000700" Distance="30" />
+				<UseShortcut NpcId="2000700" Distance="30"/>
 			</If>
-
 
 			<!-- Secure the barbican: 0/1 -->
 			<If Condition="GetInstanceTodo(0) == 0">
-				<Log Message="Secure the barbican: 0/1" />
-				<MoveTo XYZ="-0.3656647, 4.000783, 140.366" /> <!-- Move to first boss room -->
-				<MoveTo XYZ="0.1582589, 0.1118119, 126.7698" usemesh="false" /> <!-- Move to first boss room -->
-				<Grind GrindRef="Chudo" While="GetInstanceTodo(0) == 0" /> <!-- Fight Chudo-Yudo -->
+				<Log Message="Secure the barbican: 0/1"/>
+				<!-- Move to first boss room -->
+				<MoveTo XYZ="-0.3656647, 4.000783, 140.366"/>
+				<!-- Move to first boss room -->
+				<MoveTo XYZ="0.1582589, 0.1118119, 126.7698" usemesh="false"/>
+				<!-- Fight Chudo-Yudo -->
+				<Grind GrindRef="Chudo" While="GetInstanceTodo(0) == 0"/>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="-0.07635498,-0.01531982,105.0887" />
-					<LLOpenChest />
+					<MoveTo XYZ="-0.07635498,-0.01531982,105.0887"/>
+					<LLOpenChest/>
 				</If>
 			</If>
 
 			<!-- Retake the right brattice: 0/1 -->
 			<If Condition="GetInstanceTodo(1) == 0">
-				<Log Message="Retake the right brattice: 0/1" />
-				<MoveTo XYZ="25.42299, 3.954224, -79.95275" /> <!-- Move to second boss room -->
-				<RunCode name="AddMealstromAvoids" />
-				<MoveTo XYZ="45.39376, 4.000031, -79.82553" InCombat="True" />
-				<Grind GrindRef="Koshchei" While="GetInstanceTodo(1) == 0" /> <!-- Fight Koshchei -->
-				<RunCode name="RemoveAvoids" />
+				<Log Message="Retake the right brattice: 0/1"/>
+				<!-- Move to second boss room -->
+				<MoveTo XYZ="25.42299, 3.954224, -79.95275"/>
+				<RunCode name="AddMealstromAvoids"/>
+				<MoveTo XYZ="45.39376, 4.000031, -79.82553" InCombat="True"/>
+				<!-- Fight Koshchei -->
+				<Grind GrindRef="Koshchei" While="GetInstanceTodo(1) == 0"/>
+				<RunCode name="RemoveAvoids"/>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="47.5929,3.982544,-81.10175" />
-					<LLOpenChest />
+					<MoveTo XYZ="47.5929,3.982544,-81.10175"/>
+					<LLOpenChest/>
 				</If>
 			</If>
 
 			<!-- Defeat Isgebind: 0/1 -->
 			<If Condition="GetInstanceTodo(2) == 0">
-				<Log Message="Defeat Isgebind: 0/1" />
+				<Log Message="Defeat Isgebind: 0/1"/>
 				<If condition="not IsOnSubMap(879)">
-					<MoveTo XYZ="-0.2418478, 4, -217.653" />
+					<MoveTo XYZ="-0.2418478, 4, -217.653"/>
 					<If condition="GameObjectManager.GetObjectByNPCId(2001880).IsTargetable">
-						<UseObject NpcId="2001880" XYZ="-0.2418478, 4, -217.653" condition="GameObjectManager.GetObjectByNPCId(2001880).IsTargetable" /> <!-- Strongroom Gate -->
+						<!-- Strongroom Gate -->
+						<UseObject NpcId="2001880" XYZ="-0.2418478, 4, -217.653" condition="GameObjectManager.GetObjectByNPCId(2001880).IsTargetable"/>
 					</If>
 				</If>
-				<MoveTo XYZ="-0.0006421171, 0.04041038, -241.1199" usemesh="false" /> <!-- Move into final boss room -->
-				<Grind GrindRef="Isgebind" While="not IsDutyEnded()" /> <!-- Fight Isgebind -->
+				<!-- Move into final boss room -->
+				<MoveTo XYZ="-0.0006421171, 0.04041038, -241.1199" usemesh="false"/>
+				<!-- Fight Isgebind -->
+				<Grind GrindRef="Isgebind" While="not IsDutyEnded()"/>
 				<If Condition="&openchest; == 1">
-					<MoveTo XYZ="-0.01531982,0.07623291,-264.2711" />
-					<LLOpenChest />
+					<MoveTo XYZ="-0.01531982,0.07623291,-264.2711"/>
+					<LLOpenChest/>
 				</If>
 			</If>
 
 			<While condition="DutyManager.InInstance and IsDutyEnded()">
-				<WaitTimer WaitTime="5" />
-				<LLLeaveDuty />
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
 			</While>
-
-
 		</If>
 
-		<LLoadProfile Path="../../Start.xml" />
-
+		<LLoadProfile Path="../../Start.xml"/>
 	</Order>
+
 	<GrindAreas>
 		<GrindArea name="Chudo">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="0,0.01273669,107.1766" />
+				<Hotspot Radius="200" XYZ="0,0.01273669,107.1766"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Name="Chudo-Yudo" Id="1677" Weight="1" />
+				<TargetMob Name="Chudo-Yudo" Id="1677" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Koshchei">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="54.67297,5.022033,-79.94208" />
+				<Hotspot Radius="200" XYZ="54.67297,5.022033,-79.94208"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Name="Koshchei" Id="1678" Weight="1" />
+				<TargetMob Name="Koshchei" Id="1678" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Isgebind">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="-0.01531982,0.05585395,-262.7756" />
+				<Hotspot Radius="200" XYZ="-0.01531982,0.05585395,-262.7756"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Name="Isgebind" Id="1680" Weight="1" />
+				<TargetMob Name="Isgebind" Id="1680" Weight="1"/>
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
+
 	<CodeChunks>
 		<CodeChunk Name="StrongroomGate">
 			<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001880).Interact();
-			await Coroutine.Sleep(3000);
-		  ]]>
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001880).Interact();
+				await Coroutine.Sleep(3000);
+			]]>
 		</CodeChunk>
 		<CodeChunk Name="AddMealstromAvoids">
-			<![CDATA[ 
-        AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
-        var ids = GameObjectManager.GetObjectsByNPCId(9910).Select(i => i.ObjectId).ToArray();
-        AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 6f, ids);
-    ]]>
+			<![CDATA[
+				AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+				var ids = GameObjectManager.GetObjectsByNPCId(9910).Select(i => i.ObjectId).ToArray();
+				AvoidanceManager.AddAvoidObject<GameObject>(()=> true, 6f, ids);
+			]]>
 		</CodeChunk>
 
 		<CodeChunk Name="RemoveAvoids">
-			<![CDATA[ 
-            AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
-        ]]>
+			<![CDATA[
+				AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+			]]>
 		</CodeChunk>
 	</CodeChunks>
-</Profile>  
+</Profile>

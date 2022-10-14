@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Doma Castle
-  Authors: DomesticWarlord86
-  Code Credit: TuckMeIntoBread, Kayla.
+Profile: Doma Castle
+Authors: DomesticWarlord86
+Code Credit: TuckMeIntoBread, Kayla.
 
 -->
 
@@ -12,132 +12,134 @@
 ]>
 
 <Profile>
-  <Name>Doma Castle</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-  
+	<Name>Doma Castle</Name>
+	<Order>
 		<If condition="not DutyManager.InInstance">
-			<WaitTimer WaitTime="5" />
-			<LLJoinDuty DutyId="241" Undersized="True"/> <!-- Doma Castle -->
+			<WaitTimer WaitTime="5"/>
+			<!-- Doma Castle -->
+			<LLJoinDuty DutyId="241" Undersized="True"/>
 		</If>
-			
-			<While condition="DutyManager.InInstance and not IsDutyEnded()">
-		
-				<!-- Arrive at the Third Armoroy: 0/1 -->
-				<If Condition="not GetInstanceTodo(0) == 1">
-					<Log Message="Arrive at the Third Armoroy: 0/1" />
-					<MoveTo XYZ="140.2309, 40.575, 21.18309" />
-				</If>
-				
-				<!-- Defeat the magitek rearguard: 0/1 -->
-				<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
-					<Log Message="Defeat the magitek rearguard: 0/1" />
-					<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- magitek rearguard -->	
-					<If Condition="&openchest; == 1">
-						<NoCombatMoveTo XYZ="111.7112,40.57373,13.99249" />
-						<LLOpenChest/>
-					</If>				
-				</If>
 
-				<!-- Arrive at the Training Grounds: 0/1 -->
-				<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-					<Log Message="Arrive at the Training Grounds: 0/1" />
-					<If condition="IsNearShortcut(2000700)">
-						<UseShortcut NpcId="2000700"/>
-					</If>						
-					<If Condition="&openchest; == 1">
-						<MoveTo XYZ="12.80225,39.9939,133.4706" />
-						<LLOpenChest/>
-					</If>	
-					<If Condition="&openchest; == 1">
-						<MoveTo XYZ="-103.3494,41.97754,146.8375" />
-						<LLOpenChest/>
-					</If>	
-					<MoveTo XYZ="-223.4447, 45.49994, 130.5915" />
-				</If>
-				
-				<!-- Defeat the magitek Hexadrone: 0/1 -->
-				<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
-					<Log Message="Defeat the magitek Hexadrone: 0/1" />
-					<If condition="IsNearShortcut(2000700)">
-						<UseShortcut NpcId="2000700"/>
-						<MoveTo XYZ="-223.4447, 45.49994, 130.5915" />
-					</If>						
-					<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Magitek Hexadrone -->	
-					<If Condition="&openchest; == 1">
-						<MoveTo XYZ="-240.0703,45.48706,115.5565" />
-						<LLOpenChest/>
-					</If>				
-				</If>
-				
-				<!-- Arrive at the Hall of the Scarlet Swallow: 0/1 -->
-				<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
-					<Log Message="Arrive at the Hall of the Scarlet Swallow: 0/1" />
-					<If condition="IsNearShortcut(2000700)">
-						<UseShortcut NpcId="2000700"/>
-					</If>						
-					<If Condition="&openchest; == 1">
-						<MoveTo XYZ="-202.8382,55.98523,-43.68665" />
-						<LLOpenChest/>
-					</If>	
-					<If Condition="&openchest; == 1">
-						<MoveTo XYZ="-246.9063,65.99524,-124.1322" />
-						<LLOpenChest/>
-					</If>					
-					<MoveTo XYZ="-239.4049, 66.99999, -182.3978" />
-				</If>	
-				
-				<!-- Defeat the magitek Hexadrone: 0/1 -->
-				<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
-					<Log Message="Defeat the magitek Hexadrone: 0/1" />
-					<If condition="IsNearShortcut(2000700)">
-						<UseShortcut NpcId="2000700"/>
-						<MoveTo XYZ="-239.4049, 66.99999, -182.3978" />
-					</If>						
-					<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Hypertuned Grynewaht -->	
-					<If Condition="&openchest; == 1">
-						<MoveTo XYZ="-239.9481,66.9718,-205.1882" />
-						<LLOpenChest/>
-					</If>				
-				</If>				
+		<While condition="DutyManager.InInstance and not IsDutyEnded()">
 
-				<!-- Duty Has Ended, leaving -->
-				<While condition="IsDutyEnded() and DutyManager.InInstance">
-					<Log Message="Duty has ended, leaving..." />
-					<WaitTimer WaitTime="5" />
-					<LLLeaveDuty/>
-				</While>
-				
-			</While>	
-	
-	
-  </Order>
-  <GrindAreas>
-    <GrindArea name="FirstBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="122.0569,40.575,16.70856" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="6200" Weight="1"/> <!-- Magitek Rearguard -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-240.0092,45.5,130.4799" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="6203" Weight="1"/> <!-- Magitek Hexadrone -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="FinalBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-239.9638,67,-199.4532"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="6205" Weight="1"/> <!-- Hypertuned Grynewaht -->
-      </TargetMobs>
-    </GrindArea>		
-  </GrindAreas>
-  <CodeChunks>
-  </CodeChunks>
-</Profile>	
+			<!-- Arrive at the Third Armoroy: 0/1 -->
+			<If Condition="not GetInstanceTodo(0) == 1">
+				<Log Message="Arrive at the Third Armoroy: 0/1"/>
+				<MoveTo XYZ="140.2309, 40.575, 21.18309"/>
+			</If>
+
+			<!-- Defeat the magitek rearguard: 0/1 -->
+			<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat the magitek rearguard: 0/1"/>
+				<!-- magitek rearguard -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<NoCombatMoveTo XYZ="111.7112,40.57373,13.99249"/>
+					<LLOpenChest/>
+				</If>
+			</If>
+
+			<!-- Arrive at the Training Grounds: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at the Training Grounds: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700"/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="12.80225,39.9939,133.4706"/>
+					<LLOpenChest/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-103.3494,41.97754,146.8375"/>
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="-223.4447, 45.49994, 130.5915"/>
+			</If>
+
+			<!-- Defeat the magitek Hexadrone: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Defeat the magitek Hexadrone: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700"/>
+					<MoveTo XYZ="-223.4447, 45.49994, 130.5915"/>
+				</If>
+				<!-- Magitek Hexadrone -->
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-240.0703,45.48706,115.5565"/>
+					<LLOpenChest/>
+				</If>
+			</If>
+
+			<!-- Arrive at the Hall of the Scarlet Swallow: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at the Hall of the Scarlet Swallow: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700"/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-202.8382,55.98523,-43.68665"/>
+					<LLOpenChest/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-246.9063,65.99524,-124.1322"/>
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="-239.4049, 66.99999, -182.3978"/>
+			</If>
+
+			<!-- Defeat the magitek Hexadrone: 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat the magitek Hexadrone: 0/1"/>
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700"/>
+					<MoveTo XYZ="-239.4049, 66.99999, -182.3978"/>
+				</If>
+				<!-- Hypertuned Grynewaht -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-239.9481,66.9718,-205.1882"/>
+					<LLOpenChest/>
+				</If>
+			</If>
+
+			<!-- Duty Has Ended, leaving -->
+			<While condition="IsDutyEnded() and DutyManager.InInstance">
+				<Log Message="Duty has ended, leaving..."/>
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+
+		</While>
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="122.0569,40.575,16.70856" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Magitek Rearguard -->
+				<TargetMob Id="6200" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-240.0092,45.5,130.4799" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Magitek Hexadrone -->
+				<TargetMob Id="6203" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-239.9638,67,-199.4532" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Hypertuned Grynewaht -->
+				<TargetMob Id="6205" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

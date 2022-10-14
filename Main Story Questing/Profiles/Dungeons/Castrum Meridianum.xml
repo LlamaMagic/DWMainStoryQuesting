@@ -1,130 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Castrum Meridianum
-  Authors: DomesticWarlord86
+Profile: Castrum Meridianum
+Authors: DomesticWarlord86
 	Version: 2.0
 -->
 
 <Profile>
-  <Name>Castrum Meridianum</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	<If condition="not DutyManager.InInstance">
-		<JoinSupportDuty DutyId="15"/>
-	</If>
-		
-
-	<If condition="DutyManager.InInstance">
-		
-		<EnablePlugin name="Trust"/>
-		
-		<!-- Arrive at the central crossing: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Arrive at the central crossing: 0/1" />
-			<MoveTo XYZ="29.62904, 70.81001, -44.78226" />	
+	<Name>Castrum Meridianum</Name>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<JoinSupportDuty DutyId="15"/>
 		</If>
-		
-		<!-- Clear the central crossing: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
-			<Log Message="Clear the central crossing: 0/1" />
-			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight The Black Eft -->		
-		</If>		
-		
-		<!-- Arrive at Area V: 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
-			<Log Message="Arrive at Area V: 0/1" />
-			<If condition="IsNearShortcut(2000603)">
-				<UseShortcut NpcId="2000603"/>
-				<UseObject InteractDistance="3.0" NpcId="2000597" XYZ="42.0775,71.28909,-11.28025" condition="IsOnSubMap(434)" UseTimes="1"/>
-			</If>				
-			<If condition="IsOnSubMap(434)">
-				<UseObject InteractDistance="3.0" NpcId="2000597" XYZ="42.0775,71.28909,-11.28025" condition="IsOnSubMap(434)" UseTimes="1"/>
-			</If>	
-			<MoveTo XYZ="-9.375293, 70.1, 47.69047" />
-		</If>
-		
-		<!-- Clear Area V: 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
-			<Log Message="Clear Area V: 0/1" />
-			<If condition="IsNearShortcut(2000603)">
-				<UseShortcut NpcId="2000603"/>
-				<UseObject InteractDistance="3.0" NpcId="2000597" XYZ="42.0775,71.28909,-11.28025" condition="IsOnSubMap(434)" UseTimes="1"/>
-			</If>				
-			<If condition="not IsOnSubMap(433)">
-				<MoveTo XYZ="-9.375293, 70.1, 47.69047" />
-			</If>			
-			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Magitek Vanguard F-1 -->		
-		</If>	
-		
-		<!-- Arrive at the parade ground: 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
-			<Log Message="Arrive at the parade ground 0/1" />
-			<If condition="IsNearShortcut(2000603)">
-				<UseShortcut NpcId="2000603"/>
-			</If>					
-			<MoveTo XYZ="-86.05364, 71.99999, -35.91703" />
-			<WaitWhile condition="GetInstanceTodo(4) == 0"/>
-		</If>	
-		
-		<!-- Defeat Livia sas Junius: 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
-			<Log Message="Defeat Livia sas Junius: 0/1" />
-			<If condition="IsNearShortcut(2000603)">
-				<UseShortcut NpcId="2000603"/>
-			</If>				
-			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Livia sas Junius -->		
-		</If>			
-		
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>		
-		
-	</If>
 
-	<LLoadProfile Path="../../Start.xml"/>
-	
-  </Order>
-  <GrindAreas>
-    <GrindArea name="FirstBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="11.76465,70.17245,-38.65112" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2106" Weight="3"/> <!-- 8th Cohort Laquearius -->
-        <TargetMob Id="2109" Weight="10"/> <!-- 8th Cohort Signifer -->
-        <TargetMob Id="557" Weight="1"/> <!-- The Black Eft -->
-        <TargetMob Id="297" Weight="2"/> <!-- Magitek Colossus -->				
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-14.14485,70.1,25.11024"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2116" Weight="1"/> <!-- Magitek Vanguard F-1 -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="ClearParadGround">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-66.36151,69.24593,-39.62775" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2106" Weight="2"/> <!-- 8th Cohort Laquearius -->
-        <TargetMob Id="2109" Weight="10"/> <!-- 8th Cohort Signifer -->
-        <TargetMob Id="557" Weight="1"/> <!-- The Black Eft -->
-      </TargetMobs>
-    </GrindArea>		
-    <GrindArea name="FinalBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-83.88338, 72, -35.2333" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2118" Weight="1"/> <!-- Livia sas Junius -->
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>		
-  <CodeChunks>
-  </CodeChunks>  
-</Profile>  
+		<If condition="DutyManager.InInstance">
+
+			<EnablePlugin name="Trust"/>
+
+			<!-- Arrive at the central crossing: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the central crossing: 0/1"/>
+				<MoveTo XYZ="29.62904, 70.81001, -44.78226"/>
+			</If>
+
+			<!-- Clear the central crossing: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+				<Log Message="Clear the central crossing: 0/1"/>
+				<!-- Fight The Black Eft -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
+			</If>
+
+			<!-- Arrive at Area V: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
+				<Log Message="Arrive at Area V: 0/1"/>
+				<If condition="IsNearShortcut(2000603)">
+					<UseShortcut NpcId="2000603"/>
+					<UseObject InteractDistance="3.0" NpcId="2000597" XYZ="42.0775,71.28909,-11.28025" condition="IsOnSubMap(434)" UseTimes="1"/>
+				</If>
+				<If condition="IsOnSubMap(434)">
+					<UseObject InteractDistance="3.0" NpcId="2000597" XYZ="42.0775,71.28909,-11.28025" condition="IsOnSubMap(434)" UseTimes="1"/>
+				</If>
+				<MoveTo XYZ="-9.375293, 70.1, 47.69047"/>
+			</If>
+
+			<!-- Clear Area V: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
+				<Log Message="Clear Area V: 0/1"/>
+				<If condition="IsNearShortcut(2000603)">
+					<UseShortcut NpcId="2000603"/>
+					<UseObject InteractDistance="3.0" NpcId="2000597" XYZ="42.0775,71.28909,-11.28025" condition="IsOnSubMap(434)" UseTimes="1"/>
+				</If>
+				<If condition="not IsOnSubMap(433)">
+					<MoveTo XYZ="-9.375293, 70.1, 47.69047"/>
+				</If>
+				<!-- Magitek Vanguard F-1 -->
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/>
+			</If>
+
+			<!-- Arrive at the parade ground: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
+				<Log Message="Arrive at the parade ground 0/1"/>
+				<If condition="IsNearShortcut(2000603)">
+					<UseShortcut NpcId="2000603"/>
+				</If>
+				<MoveTo XYZ="-86.05364, 71.99999, -35.91703"/>
+				<WaitWhile condition="GetInstanceTodo(4) == 0"/>
+			</If>
+
+			<!-- Defeat Livia sas Junius: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
+				<Log Message="Defeat Livia sas Junius: 0/1"/>
+				<If condition="IsNearShortcut(2000603)">
+					<UseShortcut NpcId="2000603"/>
+				</If>
+				<!-- Livia sas Junius -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="11.76465,70.17245,-38.65112" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- 8th Cohort Laquearius -->
+				<TargetMob Id="2106" Weight="3"/>
+				<!-- 8th Cohort Signifer -->
+				<TargetMob Id="2109" Weight="10"/>
+				<!-- The Black Eft -->
+				<TargetMob Id="557" Weight="1"/>
+				<!-- Magitek Colossus -->
+				<TargetMob Id="297" Weight="2"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-14.14485,70.1,25.11024" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Magitek Vanguard F-1 -->
+				<TargetMob Id="2116" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearParadGround">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-66.36151,69.24593,-39.62775" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- 8th Cohort Laquearius -->
+				<TargetMob Id="2106" Weight="2"/>
+				<!-- 8th Cohort Signifer -->
+				<TargetMob Id="2109" Weight="10"/>
+				<!-- The Black Eft -->
+				<TargetMob Id="557" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-83.88338, 72, -35.2333" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Livia sas Junius -->
+				<TargetMob Id="2118" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

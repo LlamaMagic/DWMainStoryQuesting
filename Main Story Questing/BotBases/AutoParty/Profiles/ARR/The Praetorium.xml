@@ -1,154 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Praetorium
-  Authors: DomesticWarlord86
+Profile: The Praetorium
+Authors: DomesticWarlord86
 	Version: 2.0
 -->
 
 <Profile>
-  <Name>The Praetorium</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
-	<If condition="DutyManager.InInstance">
-		
-		<!-- Arrive at the command chamber: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Arrive at the command chamber: 0/1" />
-			<If condition="not IsOnSubMap(448)">
-				<MoveTo XYZ="196.597, 185.9994, -6.486791"/> 
-				<UseShortcut NpcId="2012811"/>
-			</If>
-			<If condition="IsOnSubMap(448)">
-				<MoveTo XYZ="222.7194, 156, 3.491335" />
-				<MoveTo XYZ="224.301, 156, -3.46806" usemesh="false" />
-				<MoveTo XYZ="172.6426, 156, -26.78648"/>
-				<UseShortcut NpcId="2012813"/>
-			</If>	
-			<MoveTo XYZ="208.194, 76, -0.002082722" />
-			<MoveTo XYZ="203.6622, 76, -0.07334683" usemesh="false" Distance="1"/>
-			<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
-		</If>
-		
-		<!-- Clear the command chamber: 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
-			<Log Message="Clear the command chamber: 0/1" />
-			<If condition="not IsOnSubMap(448)">
-				<MoveTo XYZ="196.597, 185.9994, -6.486791"/> 
-				<UseShortcut NpcId="2012811"/>
-			</If>
-			<If condition="IsOnSubMap(448)">
-				<MoveTo XYZ="222.7194, 156, 3.491335" />
-				<MoveTo XYZ="224.301, 156, -3.46806" usemesh="false" />
-				<MoveTo XYZ="172.6426, 156, -26.78648"/>
-				<UseShortcut NpcId="2012813"/>
-			</If>	
-			<MoveTo XYZ="208.194, 76, -0.002082722" />
-			<MoveTo XYZ="203.6622, 76, -0.07334683" usemesh="false" Distance="1"/>			
-			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight Mark II Magitek Colossus -->		
-		</If>		
-		
-		<!-- Arrive at the Laboratorium Primum: 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
-			<Log Message="Arrive at the Laboratorium Primum: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
-			</If>	
-			<If condition="IsOnSubMap(451)">
-				<MoveTo XYZ="175.0171, 76, 3.027801"/> 
-				<UseShortcut NpcId="2012815"/>
-			</If>	
-			<If condition="IsOnSubMap(449)">
-				<MoveTo XYZ="232.154, 66.66344, 69.35457" />
-				<LLChangeZone Heading="3.691925"/>
-			</If>
-			<Grind GrindRef="ClearCermetBlastDoor" While="DistanceSqrTo('-66.64082,-103.8117,-0.008813663') &gt; 3"/> <!-- Clear to the Cermet Blast Door -->		
-			<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
-			<MoveTo XYZ="-138.597, -104.0126, 0.03212219" UseMesh="False"/>
-			<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
-		</If>
-		
-		<!-- Clear the Laboratorium Primum: 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
-			<Log Message="Clear the Laboratorium Primum: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
-			</If>						
-			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight Nero tol Scaeva -->		
-		</If>	
-		
-		<!-- Arrive on the Echelon: 0/1 -->
-		<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
-			<Log Message="Arrive on the Echelon: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
-			</If>	
-			<If condition="IsOnSubMap(454) or IsOnSubMap(453)">
-				<MoveTo XYZ="-238.8421, -103.9974, -19.57658"/> 
-				<UseShortcut NpcId="2012817"/>
-			</If>	
-		</If>	
-		
-		<!-- Defeat Gaius van Baelsar: 0/1 -->
-		<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
-			<Log Message="Defeat Gaius van Baelsar: 0/1" />
-			<If condition="IsNearShortcut(2000789, 19)">
-				<UseShortcut NpcId="2000789"/>
-				<If condition="IsOnSubMap(454) or IsOnSubMap(453)">
-					<MoveTo XYZ="-237.9685, -103.9974, -18.89413"/> 
-					<UseShortcut NpcId="2012817"/>
-				</If>				
-			</If>	
-			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight Gaius van Baelsar -->		
-		</If>			
-		
-		<While condition="DutyManager.InInstance and IsDutyEnded()">	
-			<WaitTimer WaitTime="5" />
-			<LLLeaveDuty/>
-		</While>		
-	
-	</If>
+	<Name>The Praetorium</Name>
+	<Order>
+		<If condition="DutyManager.InInstance">
 
-	
-  </Order>
-  <GrindAreas>
-    <GrindArea name="FirstBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="184.0348,76,-0.07916208"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2134" Weight="1"/> <!-- Mark II Magitek Colossus -->
-      </TargetMobs>
-    </GrindArea>
-    <GrindArea name="ClearCermetBlastDoor">
-      <Hotspots>
-        <Hotspot Radius="500" XYZ="-68.156, -103.8117, 0.03329362"   name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2132" Weight="1"/> <!-- Cermet Blast Door -->
-        <TargetMob Id="2089" Weight="1"/> <!-- Magitek Vanguard H-1 -->
-        <TargetMob Id="297" Weight="1"/> <!-- Magitek Colossus -->
-        <TargetMob Id="2133" Weight="1"/> <!-- Proto Ultima Arm Unit -->				
-      </TargetMobs>
-    </GrindArea>		
-    <GrindArea name="SecondBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-168.6275,-104.3997,-0.1984"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2135" Weight="1"/> <!-- Nero tol Scaeva -->
-        <TargetMob Id="2121" Weight="2"/> <!-- Magitek Death Claw -->				
-      </TargetMobs>
-    </GrindArea>	
-    <GrindArea name="FinalBoss">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="-566.1866,-268,219.9699" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="2136" Weight="1"/> <!-- Gaius van Baelsar -->
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>		
-  <CodeChunks>	
-  </CodeChunks>  
-</Profile>  
+			<!-- Arrive at the command chamber: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the command chamber: 0/1"/>
+				<If condition="not IsOnSubMap(448)">
+					<MoveTo XYZ="196.597, 185.9994, -6.486791"/>
+					<UseShortcut NpcId="2012811"/>
+				</If>
+				<If condition="IsOnSubMap(448)">
+					<MoveTo XYZ="222.7194, 156, 3.491335"/>
+					<MoveTo XYZ="224.301, 156, -3.46806" usemesh="false"/>
+					<MoveTo XYZ="172.6426, 156, -26.78648"/>
+					<UseShortcut NpcId="2012813"/>
+				</If>
+				<MoveTo XYZ="208.194, 76, -0.002082722"/>
+				<MoveTo XYZ="203.6622, 76, -0.07334683" usemesh="false" Distance="1"/>
+				<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+			</If>
+
+			<!-- Clear the command chamber: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+				<Log Message="Clear the command chamber: 0/1"/>
+				<If condition="not IsOnSubMap(448)">
+					<MoveTo XYZ="196.597, 185.9994, -6.486791"/>
+					<UseShortcut NpcId="2012811"/>
+				</If>
+				<If condition="IsOnSubMap(448)">
+					<MoveTo XYZ="222.7194, 156, 3.491335"/>
+					<MoveTo XYZ="224.301, 156, -3.46806" usemesh="false"/>
+					<MoveTo XYZ="172.6426, 156, -26.78648"/>
+					<UseShortcut NpcId="2012813"/>
+				</If>
+				<MoveTo XYZ="208.194, 76, -0.002082722"/>
+				<MoveTo XYZ="203.6622, 76, -0.07334683" usemesh="false" Distance="1"/>
+				<!-- Fight Mark II Magitek Colossus -->
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/>
+			</If>
+
+			<!-- Arrive at the Laboratorium Primum: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(2) == 0">
+				<Log Message="Arrive at the Laboratorium Primum: 0/1"/>
+				<If condition="IsNearShortcut(2000789, 19)">
+					<UseShortcut NpcId="2000789"/>
+				</If>
+				<If condition="IsOnSubMap(451)">
+					<MoveTo XYZ="175.0171, 76, 3.027801"/>
+					<UseShortcut NpcId="2012815"/>
+				</If>
+				<If condition="IsOnSubMap(449)">
+					<MoveTo XYZ="232.154, 66.66344, 69.35457"/>
+					<LLChangeZone Heading="3.691925"/>
+				</If>
+				<!-- Clear to the Cermet Blast Door -->
+				<Grind GrindRef="ClearCermetBlastDoor" While="DistanceSqrTo('-66.64082,-103.8117,-0.008813663') &gt; 3"/>
+				<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+				<MoveTo XYZ="-138.597, -104.0126, 0.03212219" UseMesh="False"/>
+				<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+			</If>
+
+			<!-- Clear the Laboratorium Primum: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
+				<Log Message="Clear the Laboratorium Primum: 0/1"/>
+				<If condition="IsNearShortcut(2000789, 19)">
+					<UseShortcut NpcId="2000789"/>
+				</If>
+				<!-- Fight Nero tol Scaeva -->
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/>
+			</If>
+
+			<!-- Arrive on the Echelon: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
+				<Log Message="Arrive on the Echelon: 0/1"/>
+				<If condition="IsNearShortcut(2000789, 19)">
+					<UseShortcut NpcId="2000789"/>
+				</If>
+				<If condition="IsOnSubMap(454) or IsOnSubMap(453)">
+					<MoveTo XYZ="-238.8421, -103.9974, -19.57658"/>
+					<UseShortcut NpcId="2012817"/>
+				</If>
+			</If>
+
+			<!-- Defeat Gaius van Baelsar: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
+				<Log Message="Defeat Gaius van Baelsar: 0/1"/>
+				<If condition="IsNearShortcut(2000789, 19)">
+					<UseShortcut NpcId="2000789"/>
+					<If condition="IsOnSubMap(454) or IsOnSubMap(453)">
+						<MoveTo XYZ="-237.9685, -103.9974, -18.89413"/>
+						<UseShortcut NpcId="2012817"/>
+					</If>
+				</If>
+				<!-- Fight Gaius van Baelsar -->
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+
+		</If>
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="184.0348,76,-0.07916208" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Mark II Magitek Colossus -->
+				<TargetMob Id="2134" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearCermetBlastDoor">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-68.156, -103.8117, 0.03329362" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Cermet Blast Door -->
+				<TargetMob Id="2132" Weight="1"/>
+				<!-- Magitek Vanguard H-1 -->
+				<TargetMob Id="2089" Weight="1"/>
+				<!-- Magitek Colossus -->
+				<TargetMob Id="297" Weight="1"/>
+				<!-- Proto Ultima Arm Unit -->
+				<TargetMob Id="2133" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-168.6275,-104.3997,-0.1984" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Nero tol Scaeva -->
+				<TargetMob Id="2135" Weight="1"/>
+				<!-- Magitek Death Claw -->
+				<TargetMob Id="2121" Weight="2"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-566.1866,-268,219.9699" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Gaius van Baelsar -->
+				<TargetMob Id="2136" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>

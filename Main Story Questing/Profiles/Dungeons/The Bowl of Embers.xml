@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Bowl of Embers
-  Authors: DomesticWarlord86
+Profile: The Bowl of Embers
+Authors: DomesticWarlord86
 	Version: 2.0
 -->
 
@@ -11,38 +11,36 @@
 ]>
 
 <Profile>
-  <Name>The Bowl of Embers</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-	
+	<Name>The Bowl of Embers</Name>
+	<Order>
 		<If condition="not DutyManager.InInstance">
-			<JoinSupportDuty DutyId="56" Trial="true"/> 
+			<JoinSupportDuty DutyId="56" Trial="true"/>
 		</If>
-			
-		<If condition="DutyManager.InInstance and not IsDutyEnded()">
-			<MoveTo XYZ="-13.12728, 0, -8.592924" usemesh="false" />
-			<Grind GrindRef="Ifrit" While="not IsDutyEnded()"/> <!-- Kill Ifrit -->	
-			<While condition="DutyManager.InInstance and IsDutyEnded()">	
-				<WaitTimer WaitTime="5" />
-				<LLLeaveDuty/>
-			</While>							
-		</If> 
-		
-		<LLoadProfile Path="../../Start.xml"/>
-		
 
- </Order>
-  <GrindAreas>
-    <GrindArea name="Ifrit">
-      <Hotspots>
-        <Hotspot Radius="90" XYZ="15,7.105427E-15,0"  name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="1185" Weight="1"/> <!-- Ifrit -->
-        <TargetMob Id="1186" Weight="100"/> <!-- Infernal Nail -->				
-      </TargetMobs>
-    </GrindArea>
-  </GrindAreas>		
-  <CodeChunks>	
-  </CodeChunks>  
-</Profile>    
+		<If condition="DutyManager.InInstance and not IsDutyEnded()">
+			<MoveTo XYZ="-13.12728, 0, -8.592924" usemesh="false"/>
+			<!-- Kill Ifrit -->
+			<Grind GrindRef="Ifrit" While="not IsDutyEnded()"/>
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5"/>
+				<LLLeaveDuty/>
+			</While>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="Ifrit">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="15,7.105427E-15,0" name="Name"/>
+			</Hotspots>
+			<TargetMobs>
+				<!-- Ifrit -->
+				<TargetMob Id="1185" Weight="1"/>
+				<!-- Infernal Nail -->
+				<TargetMob Id="1186" Weight="100"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>
