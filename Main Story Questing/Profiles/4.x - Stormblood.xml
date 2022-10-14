@@ -4366,7 +4366,15 @@ Known Issues:
 				<MoveTo XYZ="328.5023, 21.67948, -552.327"/>
 			</If>
 			<FlyTo XYZ="-348.9281, 1.230035, -344.1367" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-			<UserDialog QuestId="68563" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty His Forgotten Home.\n\nBeat up turtles scammed by Asahi."/>
+			<SimpleDuty InteractNpcId="1024986" XYZ="-348.9281, 1.230035, -344.1367" QuestId="68563" StepId="3">
+				<HotSpots>
+					<HotSpot XYZ="468.9326, 17.90384, 301.3331" Radius="90"/>
+				</HotSpots>
+				<TargetMobs>
+					<TargetMob Name="Softshell of the Red" Id="5834" Weight="5000"/>
+					<TargetMob Name="Slickshell Captain" Id="6891" Weight="1"/>
+				</TargetMobs>
+			</SimpleDuty>
 		</If>
 		<If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 255">
 			<If Condition="not IsOnMap(614)">
