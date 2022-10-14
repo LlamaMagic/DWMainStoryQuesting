@@ -20,8 +20,8 @@ Code Credit: TuckMeIntoBread, Kayla.
 				<LLLeaveDuty/>
 			</While>
 		</While>
-
 	</Order>
+
 	<GrindAreas>
 		<GrindArea name="Bismarck">
 			<Hotspots>
@@ -56,6 +56,7 @@ Code Credit: TuckMeIntoBread, Kayla.
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
+
 	<CodeChunks>
 		<CodeChunk Name="UseCannons">
 			<![CDATA[

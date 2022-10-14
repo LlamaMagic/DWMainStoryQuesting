@@ -8364,7 +8364,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(65955) and not IsQuestCompleted(65955) and GetQuestStep(65955) == 1">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="65955" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith."/>
+				<UserDialog QuestId="65955" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith.\n\nFight Vishap on the bridge."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">

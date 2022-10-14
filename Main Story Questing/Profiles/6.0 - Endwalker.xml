@@ -1205,7 +1205,7 @@ Known Issues:
 			<If Condition="GetQuestStep(69919) == 1">
 				<While condition="GetQuestStep(69919) == 1 and not IsOnMap(1010) and not Core.Player.HasAura(1534)">
 					<GetTo ZoneId="621" XYZ="744.5336, 70, 539.2463"/>
-					<UserDialog QuestId="69919" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete Thancred's section of the solo duty A Frosty Reception.\n\nThe fight after Thancred's section is automated."/>
+					<UserDialog QuestId="69919" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete Thancred's stealth section of the solo duty A Frosty Reception.\n\nThe fight after Thancred's stealth section is automated."/>
 				</While>
 				<WaitWhile condition="Core.Player.HasAura(1534)"/>
 				<While condition="GetQuestStep(69919) == 1 and IsOnMap(1010)">
@@ -3727,7 +3727,7 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69975) == 1">
 				<GetTo ZoneId="958" XYZ="-393.0665, 22, 500.7714"/>
-				<UserDialog QuestId="69975" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty As the Heavens Burn.\n\nRoleplay as Alphinaud, Alisaie, then self vs. Blasphemy monsters."/>
+				<UserDialog QuestId="69975" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty As the Heavens Burn.\n\nRoleplay as Alphinaud, Alisaie, then Player vs. Blasphemy monsters."/>
 			</If>
 			<If Condition="GetQuestStep(69975) == 2">
 				<WaitWhile condition="GetQuestStep(69975) == 2"/>

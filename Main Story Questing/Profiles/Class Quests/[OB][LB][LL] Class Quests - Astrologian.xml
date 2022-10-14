@@ -370,7 +370,7 @@
 							<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 								<RunCode name="LeaveParty"/>
 							</If>
-							<UserDialog DialogText="Please complete the 'Spearheading Initiatives' solo duty manually!\n\nFollow behind the group NPC closely without aggro, kill the ones that leave the group!"/>
+							<UserDialog DialogText="Please complete the solo duty Spearheading Initiatives.\n\nFollow the NPC group without aggroing and kill those that break away solo."/>
 						</If>
 						<If Condition="GetQuestStep(67555) == 3">
 							<LisbethTravel ZoneId="155" XYZ="262.8367, 359.1351, -688.3192"/>
@@ -929,7 +929,7 @@
 						</If>
 						<If Condition="GetQuestStep(67949) == 3">
 							<GetTo ZoneId="628" XYZ="128.13, 24.979, -0.2289429"/>
-							<UserDialog DialogText="Please complete the 'Foxfire' solo duty manually.\n\nHeal the friendly NPCs, mainly Kyokuho of Wind and Water.\n\nNeed to heal Wraths, Anguishes and Unrest when they spawn.\n\nUnrest needs Aspected Benefic cast on it to complete the Duty."/>
+							<UserDialog DialogText="Please complete the solo duty Foxfire.\n\nHeal the friendly NPCs, mainly Kyokuho of Wind and Water.\n\nMust heal Wraths, Anguishes, and Unrest when they spawn.\n\nCast Aspected Benefic on Unrest to complete the duty."/>
 						</If>
 						<If Condition="GetQuestStep(67949) == 255">
 							<!-- Kyokuho -->

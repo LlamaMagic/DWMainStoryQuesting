@@ -829,7 +829,7 @@
 						<If Condition="GetQuestStep(68453) == 5">
 							<!-- Rielle -->
 							<LisbethTravel ZoneId="400" XYZ="-166.2471, -22.88001, 289.3873"/>
-							<UserDialog DialogText="Please manually complete the Solo Duty.\n\nNeed to stack on Sidurgu the Obsidian Heart to share the damage taken.\n\n Switch to a Combat Assist Botbase so you can switch to the adds."/>
+							<UserDialog DialogText="Please complete the solo duty The Orphans and the Broken Blade.\n\nStack with Sidurgu to split the AOE damage.\n\nUse a Combat Assist Botbase that allows switching target to adds."/>
 						</If>
 						<If Condition="GetQuestStep(68453) == 6">
 							<WaitWhile Condition="GetQuestStep(68453) == 6"/>

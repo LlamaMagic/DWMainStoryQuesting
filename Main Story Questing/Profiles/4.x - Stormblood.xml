@@ -857,7 +857,7 @@ Known Issues:
 				<UseTransport InteractDistance="3.0" NpcId="2008134" XYZ="-0.01531982, 1.144348, 13.50421"/>
 			</If>
 			<GetTo ZoneId="628" XYZ="-50.65513, 16.76604, -6.563137"/>
-			<UserDialog QuestId="68010" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty It's Probably a Trap hit continue."/>
+			<UserDialog QuestId="68010" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty It's Probably a Trap.\n\nSneak to eastern Kugane (12, 11)."/>
 		</If>
 		<If Condition="HasQuest(68010) and not IsQuestCompleted(68010) and GetQuestStep(68010) == 255">
 			<GetTo ZoneId="628" XYZ="147.6232, 14.77572, 92.13142"/>
@@ -2318,7 +2318,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 3">
 			<GetTo ZoneId="622" XYZ="498.3189, 40.8361, -508.2768"/>
-			<UserDialog QuestId="68051" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Naadam."/>
+			<UserDialog QuestId="68051" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Naadam.\n\nTouch the dirt, win the thing."/>
 		</If>
 		<If Condition="HasQuest(68051) and not IsQuestCompleted(68051) and GetQuestStep(68051) == 255">
 			<GetTo ZoneId="622" XYZ="486.7548, 40.07708, -465.6007"/>
@@ -3345,7 +3345,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 1">
 			<GetTo ZoneId="621" XYZ="-651.2444, 50.00002, -1.255357"/>
-			<UserDialog QuestId="68085" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Key to Victory."/>
+			<UserDialog QuestId="68085" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Key to Victory.\n\nAt the Saltery, use the Queer Device (15.6, 25.9)."/>
 		</If>
 		<If Condition="HasQuest(68085) and not IsQuestCompleted(68085) and GetQuestStep(68085) == 255">
 			<GetTo ZoneId="621" XYZ="65.57979, 45.41022, 764.3596"/>
@@ -3381,7 +3381,7 @@ Known Issues:
 				<RunCode Name="68086a"/>
 				<RunCode Name="68086b"/>
 			</If>
-			<UserDialog QuestId="68086" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Resonant."/>
+			<UserDialog QuestId="68086" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Resonant.\n\nSneak to Fordola and bap her with the magic newspaper."/>
 		</If>
 		<If Condition="HasQuest(68086) and not IsQuestCompleted(68086) and GetQuestStep(68086) == 5">
 			<WaitWhile condition="GetQuestStep(68086) == 5"/>
@@ -4106,7 +4106,7 @@ Known Issues:
 				<UseTransport InteractDistance="3.0" NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809"/>
 			</If>
 			<MoveTo XYZ="245.0751, 122, -349.0807" Distance="1"/>
-			<UserDialog QuestId="68508" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Return of the Bull."/>
+			<UserDialog QuestId="68508" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Return of the Bull.\n\nLakshmi rematch with aethersphere + Duty Action spam."/>
 		</If>
 		<If Condition="HasQuest(68508) and not IsQuestCompleted(68508) and GetQuestStep(68508) == 4">
 			<WaitWhile condition="GetQuestStep(68508) == 4"/>
@@ -4194,7 +4194,7 @@ Known Issues:
 				<TeleportTo Name="Onokoro" AetheryteId="106"/>
 				<FlyTo XYZ="885.0995, 1.179207, 861.387" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
 			</If>
-			<UserDialog QuestId="68560" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Hope on the Waves."/>
+			<UserDialog QuestId="68560" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Hope on the Waves.\n\nIsland battle for Gosetsu and Tsuyu."/>
 		</If>
 		<If Condition="HasQuest(68560) and not IsQuestCompleted(68560) and GetQuestStep(68560) == 4">
 			<If Condition="not IsOnMap(613)">
@@ -4366,7 +4366,7 @@ Known Issues:
 				<MoveTo XYZ="328.5023, 21.67948, -552.327"/>
 			</If>
 			<FlyTo XYZ="-348.9281, 1.230035, -344.1367" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-			<UserDialog QuestId="68563" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty His Forgotten Home."/>
+			<UserDialog QuestId="68563" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the solo duty His Forgotten Home.\n\nBeat up turtles scammed by Asahi."/>
 		</If>
 		<If Condition="HasQuest(68563) and not IsQuestCompleted(68563) and GetQuestStep(68563) == 255">
 			<If Condition="not IsOnMap(614)">
@@ -4765,7 +4765,7 @@ Known Issues:
 				<UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
 			</If>
 			<LisbethTravel ZoneId="351" XYZ="-4.066441, 0.009977883, -2.351795"/>
-			<UserDialog QuestId="68612" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Emissary of the Dawn."/>
+			<UserDialog QuestId="68612" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Emissary of the Dawn.\n\nRoleplay as Alphinaud after an airship crash."/>
 		</If>
 		<If Condition="HasQuest(68612) and not IsQuestCompleted(68612) and GetQuestStep(68612) == 2">
 			<WaitWhile condition="GetQuestStep(68612) == 2"/>
@@ -4984,7 +4984,7 @@ Known Issues:
 			<LoadDungeonAssist/>
 			<Grind GrindRef="WilloftheMoon" PostCombatDelay="3.0" While="not Core.Player.HasAura(1534)"/>
 			<WaitWhile condition="GetQuestStep(68683) == 4 and DutyManager.InInstance"/> -->
-			<UserDialog QuestId="68683" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Will of the Moon."/>
+			<UserDialog QuestId="68683" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Will of the Moon.\n\n- Player vs. Sadu\n- Y'shtola vs. Magnai\n- Magnai vs. Self-Esteem"/>
 		</While>
 		<If Condition="HasQuest(68683) and not IsQuestCompleted(68683) and GetQuestStep(68683) == 5">
 			<WaitWhile condition="GetQuestStep(68683) == 5"/>
@@ -5313,7 +5313,7 @@ Known Issues:
 				<UseTransport InteractDistance="3.0" NpcId="1026804" XYZ="-524.5594, 8.698304, -15.48798"/>
 			</If>
 			<MoveTo XYZ="-476.6766,107.63,103.7461"/>
-			<UserDialog QuestId="68721" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty A Requiem for Heroes."/>
+			<UserDialog QuestId="68721" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty A Requiem for Heroes.\n\n- Hien vs. Zeno-lidibus\n- Player vs. Zeno-lidibus"/>
 		</If>
 		<If Condition="HasQuest(68721) and not IsQuestCompleted(68721) and GetQuestStep(68721) == 2">
 			<WaitWhile condition="GetQuestStep(68721) == 2"/>

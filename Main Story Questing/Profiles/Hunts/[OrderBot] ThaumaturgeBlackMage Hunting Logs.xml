@@ -8,8 +8,7 @@ Authors: DomesticWarlord86
 	<Order>
 		<!-- Lisbeth check -->
 		<If condition="not LisbethPresent">
-			<LLToast message="This profile requires the BotBase Lisbeth to run."/>
-			<LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+			<UserDialog DialogText="Please install and configure Lisbeth to continue.\n\nMake sure you set and verify the product key -- it's a per-character setting!"/>
 			<StopBot/>
 		</If>
 		<If condition="LisbethPresent">

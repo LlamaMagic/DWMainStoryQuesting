@@ -1296,7 +1296,7 @@
 								<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 									<RunCode name="LeaveParty"/>
 								</If>
-								<UserDialog DialogText="Please complete the 'What She Always Wanted' solo duty manually, remember to heal the npc!"/>
+								<UserDialog DialogText="Please complete the solo duty What She Always Wanted.\n\nRemember to heal Gatty and use Benediction on Sylphie after she gets raised."/>
 							</If>
 							<If Condition="GetQuestStep(67954) == 255">
 								<!-- Gatty -->

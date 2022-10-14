@@ -6829,7 +6829,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 		<If Condition="GetQuestStep(69602) == 2">
 			<LisbethTravel Zone="132" Subzone="549" Position="33.15565, -19, 102.0125"/>
 			<While condition="GetQuestStep(69602) == 2">
-				<UserDialog QuestId="69602" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete solo duty Death Unto Dawn."/>
+				<UserDialog QuestId="69602" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Death Unto Dawn.\n\n- Player vs. Trash Mobs\n- Alisaie vs. Telotek Gamma\n- Urianger vs. Lunar Odin\n- G'raha vs. Lunar Ravana\n- Player vs. Lunar Ifrit"/>
 			</While>
 		</If>
 		<If Condition="GetQuestStep(69602) == 255">

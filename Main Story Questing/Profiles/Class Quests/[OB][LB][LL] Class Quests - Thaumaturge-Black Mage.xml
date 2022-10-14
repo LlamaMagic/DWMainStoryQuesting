@@ -1406,17 +1406,6 @@
 				await Coroutine.Sleep(1000);
 			]]>
 		</CodeChunk>
-		<CodeChunk Name="Facing_Your_Demons">
-			<![CDATA[
-				while (ConditionParser.GetQuestStep(65889) == 5)
-				{
-					System.Windows.Media.Color textColor = System.Windows.Media.Color.FromRgb(29,213,226);
-					System.Windows.Media.Color shadowColor = System.Windows.Media.Color.FromRgb(13,106,175);
-					Core.OverlayManager.AddToast(() => "[Class and Job Quests]\nPlease manually complete the Facing Your Demons duty!", TimeSpan.FromMilliseconds(25000), textColor, shadowColor, new System.Windows.Media.FontFamily("Gautami"));
-					await Coroutine.Sleep(26000);
-				}
-			]]>
-		</CodeChunk>
 		<CodeChunk Name="LeaveParty">
 			<![CDATA[
 				ChatManager.SendChat("/pcmd leave");

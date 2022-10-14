@@ -1083,18 +1083,6 @@ Profile and fixes by Angles
 				Navigator.PlayerMover.MoveStop();
 			]]>
 		</CodeChunk>
-		<CodeChunk Name="Announce_Manual_Completion">
-			<![CDATA[
-				Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-				await Coroutine.Sleep(26000);
-			]]>
-		</CodeChunk>
-		<CodeChunk Name="Announce_Manual_Completion2">
-			<![CDATA[
-				Core.OverlayManager.AddToast(() => "Please complete Sheep Snatcher & The Palace of Lost Souls Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-				await Coroutine.Sleep(26000);
-			]]>
-		</CodeChunk>
 		<CodeChunk Name="2008005">
 			<![CDATA[
 				MovementManager.SetFacing(5.88f);
@@ -1143,12 +1131,6 @@ Profile and fixes by Angles
 
 				MovementManager.StopAscending();
 				await Coroutine.Sleep(2000);
-			]]>
-		</CodeChunk>
-		<CodeChunk Name="ManualCompletion">
-			<![CDATA[
-				Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-				await Coroutine.Sleep(26000);
 			]]>
 		</CodeChunk>
 		<CodeChunk Name="68229a">
