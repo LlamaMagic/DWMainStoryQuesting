@@ -3746,7 +3746,7 @@ Known Issues:
 		<If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 4">
 			<UserDialog QuestId="68500" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Drowned City of Skalla."/>
 		</If>
-		<If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) &ge; 5">
+		<If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) &gt;= 5">
 			<!-- Quest Step => 5 during cutscene, possibly 6 for a moment before hitting 255 -->
 			<WaitWhile condition="GetQuestStep(68500) != 255"/>
 		</If>
