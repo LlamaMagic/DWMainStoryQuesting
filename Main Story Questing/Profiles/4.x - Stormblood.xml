@@ -4772,7 +4772,7 @@ Known Issues:
 				<LisbethTravel ZoneId="156" XYZ="22.35259, 21.25273, -634.3907"/>
 				<UseTransport InteractDistance="3.0" NpcId="2002881" XYZ="21.13373, 22.32391, -631.281"/>
 			</If>
-			<LisbethTravel ZoneId="351" XYZ="-4.066441, 0.009977883, -2.351795"/>
+			<MoveTo ZoneId="351" XYZ="-5.189492, 0.4746897, 0.3689831"/>
 			<UserDialog QuestId="68612" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty Emissary of the Dawn.\n\nRoleplay as Alphinaud after an airship crash."/>
 		</If>
 		<If Condition="HasQuest(68612) and not IsQuestCompleted(68612) and GetQuestStep(68612) == 2">
