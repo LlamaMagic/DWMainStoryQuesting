@@ -8720,6 +8720,7 @@ Known Issues:
 			<GetTo ZoneId="147" XYZ="232.1783, 25, 75.20327"/>
 		</If>
 		<If Condition="GetQuestStep(66736) == 5">
+			<LisbethTravel ZoneId="147" XYZ="259.3881, 24.979, 44.1748"/>
 			<UseObject NpcId="2002892" XYZ="259.3881, 24.979, 44.1748" QuestId="66736" StepId="5" BlacklistAfter="true" Condition="GetQuestStep(66736) == 5"/>
 			<WaitWhile Condition="GetQuestStep(66736) == 5"/>
 		</If>
