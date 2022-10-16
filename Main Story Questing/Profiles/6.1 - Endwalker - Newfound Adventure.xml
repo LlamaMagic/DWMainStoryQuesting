@@ -26,7 +26,7 @@ Authors: DomesticWarlord86
 			</If>
 			<If Condition="GetQuestStep(70062) == 255">
 				<GetTo ZoneId="156" XYZ="35.96967, 29, -797.709"/>
-				<TurnIn QuestId="70062" NpcId="1039570" XYZ="36.45374, 29, -799.7101"/>
+				<LLTurnIn QuestId="70062" NpcId="1039570" XYZ="36.45374, 29, -799.7101"/>
 			</If>
 		</If>
 
