@@ -8356,15 +8356,15 @@ Known Issues:
 		</If>
 
 		<!-- The Steps of Faith (Level 50) -->
-		<If Condition="IsQuestCompleted(65954) and not HasQuest(65955) and not IsQuestCompleted(65955)">
+		<If Condition="IsQuestCompleted(65954) and not HasQuest(70127) and not IsQuestCompleted(70127)">
 			<LisbethTravel ZoneId="155" XYZ="-168.8411, 304.1538, -328.6641"/>
-			<If Condition="IsQuestAcceptQualified(65955)">
-				<PickUpQuest NpcId="1006454" QuestId="65955" XYZ="-168.8411, 304.1538, -328.6641"/>
+			<If Condition="IsQuestAcceptQualified(70127)">
+				<PickUpQuest NpcId="1006454" QuestId="70127" XYZ="-168.8411, 304.1538, -328.6641"/>
 			</If>
 		</If>
-		<If Condition="HasQuest(65955) and not IsQuestCompleted(65955) and GetQuestStep(65955) == 1">
+		<If Condition="HasQuest(70127) and not IsQuestCompleted(70127) and GetQuestStep(70127) == 1">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="65955" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith.\n\nFight Vishap on the bridge."/>
+				<UserDialog QuestId="70127" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith.\n\nFight Vishap on the bridge."/>
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -8387,14 +8387,14 @@ Known Issues:
 				</If>
 			</If>
 		</If>
-		<If Condition="HasQuest(65955) and not IsQuestCompleted(65955) and GetQuestStep(65955) == 2">
-			<WaitWhile condition="GetQuestStep(65955) == 2"/>
+		<If Condition="HasQuest(70127) and not IsQuestCompleted(70127) and GetQuestStep(70127) == 2">
+			<WaitWhile condition="GetQuestStep(70127) == 2"/>
 		</If>
-		<If Condition="HasQuest(65955) and not IsQuestCompleted(65955) and GetQuestStep(65955) == 3">
+		<If Condition="HasQuest(70127) and not IsQuestCompleted(70127) and GetQuestStep(70127) == 3">
 			<LisbethTravel ZoneId="155" XYZ="-157.8241, 304.1538, -313.8323"/>
-			<TalkTo NpcId="1010978" XYZ="-157.8241, 304.1538, -313.8323" QuestId="65955" StepId="3"/>
+			<TalkTo NpcId="1010978" XYZ="-157.8241, 304.1538, -313.8323" QuestId="70127" StepId="3"/>
 		</If>
-		<If Condition="HasQuest(65955) and not IsQuestCompleted(65955) and GetQuestStep(65955) == 255">
+		<If Condition="HasQuest(70127) and not IsQuestCompleted(70127) and GetQuestStep(70127) == 255">
 			<If Condition="not IsOnMap(156) and not IsOnMap(351)">
 				<LisbethTravel ZoneId="156" XYZ="21.13373, 22.32391, -631.281"/>
 			</If>
@@ -8404,12 +8404,12 @@ Known Issues:
 			<If Condition="IsOnMap(351) and not IsOnSubMap(1350)">
 				<UseTransport InteractDistance="3.0" NpcId="2002878" XYZ="-0.01531982, -1.022339, -26.7796"/>
 			</If>
-			<TurnIn QuestId="65955" NpcId="1010897" XYZ="0.9613037, -1.995725, -45.60925"/>
+			<TurnIn QuestId="70127" NpcId="1010897" XYZ="0.9613037, -1.995725, -45.60925"/>
 			<AutoInventoryEquip/>
 		</If>
 
 		<!-- Administrative Decision (Level 50) -->
-		<If Condition="IsQuestCompleted(65955) and not HasQuest(65956) and not IsQuestCompleted(65956)">
+		<If Condition="IsQuestCompleted(70127) and not HasQuest(65956) and not IsQuestCompleted(65956)">
 			<If Condition="not IsOnMap(156) and not IsOnMap(351)">
 				<LisbethTravel ZoneId="156" XYZ="21.13373, 22.32391, -631.281"/>
 			</If>
