@@ -48,10 +48,10 @@ Authors: DomesticWarlord86
 			</If>
 			<If Condition="GetQuestStep(70063) == 3">
 				<GetTo ZoneId="963" XYZ="-14.63001, 1.51, -180.5404"/>
-				<If Condition="GameObjectManager.GetObjectByNPCId(1039574)">
+				<If Condition="IsTargetableNPC(1039574)">
 					<TalkTo NpcId="1039574" XYZ="-13.87048, 1.51, -178.1491" QuestId="70063" StepId="3"/>
 				</If>
-				<If Condition="not GameObjectManager.GetObjectByNPCId(1039574) and GetQuestStep(70063) == 3">
+				<If Condition="not IsTargetableNPC(1039574) and GetQuestStep(70063) == 3">
 					<GetTo ZoneId="963" XYZ="-194.5996, 36, 132.489"/>
 					<LLTalkTo NpcId="1039573" XYZ="-194.6288, 36, 137.2854" QuestId="70063" StepId="3"/>
 				</If>
