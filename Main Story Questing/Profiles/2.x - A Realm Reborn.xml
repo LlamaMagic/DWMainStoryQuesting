@@ -4990,17 +4990,13 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(66057) and not IsQuestCompleted(66057) and GetQuestStep(66057) == 1">
-			<If Condition="not IsOnSubMap(421)">
-				<GetTo ZoneId="156" XYZ="21.92719, 20.74698, -682.063"/>
-				<UseTransport Name="Slafborn" NpcId="1006530" InteractDistance="3.0" XYZ="21.92719, 20.74698, -682.063"/>
-			</If>
+			<GetTo ZoneId="156" XYZ="-358.2361, -16.24856, -481.1323"/>
 			<BotSettings AutoEquip="0"/>
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body].RawItemId != 6224">
 				<Log Message="Equipping Imperial Garb"/>
 				<RunCode Name="Imperial_Garb"/>
 				<WaitTimer WaitTime="3"/>
 			</While>
-			<GetTo ZoneId="156" XYZ="-358.2361, -16.24856, -481.1323"/>
 			<TalkTo NpcId="1007537" XYZ="-358.2361, -16.24856, -481.1323" QuestId="66057" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(66057) and not IsQuestCompleted(66057) and GetQuestStep(66057) == 2">
@@ -5022,6 +5018,7 @@ Known Issues:
 			<HandOver ItemId="2000773" QuestId="66057" StepId="4" NpcId="1006562" XYZ="-495.964, -3.767937, -288.1667"/>
 		</If>
 		<If Condition="HasQuest(66057) and not IsQuestCompleted(66057) and GetQuestStep(66057) == 5">
+			<BotSettings AutoEquip="1"/>
 			<GetTo ZoneId="156" XYZ="-427.7562, -0.7781982, -273.8232"/>
 			<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
 				<RunCode name="LeaveParty"/>
@@ -5052,7 +5049,6 @@ Known Issues:
 			<WaitWhile Condition="HasQuest(66057) and not IsQuestCompleted(66057) and not GetQuestStep(66057) == 255"/>
 		</If>
 		<If Condition="HasQuest(66057) and not IsQuestCompleted(66057) and GetQuestStep(66057) == 255">
-			<BotSettings AutoEquip="1"/>
 			<If Condition="not IsOnSubMap(654)">
 				<GetTo ZoneId="130" XYZ="-21.86343, 83.19998, -5.525223"/>
 				<UseTransport NpcId="1004433" InteractDistance="3.0" XYZ="-23.60571, 83.19999, -2.304138"/>
