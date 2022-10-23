@@ -3605,8 +3605,8 @@ Known Issues:
 		</If>
 
 		<!-- Coerthas Western Highlands, Dravanian Forelands, Dravanian Hinterlands, The Churning Mists, The Sea of Clouds -->
-		<If condition="not AetherCurrentManager.IsZoneComplete(397) and not AetherCurrentManager.IsZoneComplete(398) and not AetherCurrentManager.IsZoneComplete(400) and not AetherCurrentManager.IsZoneComplete(401) and not AetherCurrentManager.IsZoneComplete(399)">
-			<LLoadProfile Path="Heavensward Aether Currents.xml"/>
+		<If condition="not AetherCurrentManager.IsZoneComplete(397) or not AetherCurrentManager.IsZoneComplete(398) or not AetherCurrentManager.IsZoneComplete(400) or not AetherCurrentManager.IsZoneComplete(401) or not AetherCurrentManager.IsZoneComplete(399)">
+			<LLoadProfile Path="Aether Currents\3.0 - Heavensward - Aether Currents.xml"/>
 		</If>
 
 		<!-- Do level 60 class quests -->

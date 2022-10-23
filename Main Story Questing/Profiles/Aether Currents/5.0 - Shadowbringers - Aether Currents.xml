@@ -1122,7 +1122,7 @@ Authors:	Sodimm
 			</If>
 		</If>
 
-		<ALoadProfile Path="../Start.xml"/>
+		<ALoadProfile Path="../../Start.xml"/>
 	</Order>
 
 	<CodeChunks>

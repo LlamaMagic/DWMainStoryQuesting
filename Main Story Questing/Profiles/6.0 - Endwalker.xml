@@ -4124,23 +4124,23 @@ Known Issues:
 
 		<!-- Thavnair Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(957)">
-			<LLoadProfile Path="Endwalker Aether Currents.xml" />
+			<LLoadProfile Path="Aether Currents\6.0 - Endwalker - Aether Currents.xml" />
 		</If>
 		<!-- Garlemald Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(958)">
-			<LLoadProfile Path="Endwalker Aether Currents.xml" />
+			<LLoadProfile Path="Aether Currents\6.0 - Endwalker - Aether Currents.xml" />
 		</If>
 		<!-- Labyrinthos Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(956)">
-			<LLoadProfile Path="Endwalker Aether Currents.xml" />
+			<LLoadProfile Path="Aether Currents\6.0 - Endwalker - Aether Currents.xml" />
 		</If>
 		<!-- Mare Lamentorum Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(959)">
-			<LLoadProfile Path="Endwalker Aether Currents.xml" />
+			<LLoadProfile Path="Aether Currents\6.0 - Endwalker - Aether Currents.xml" />
 		</If>
 		<!-- Elpis Flying -->
 		<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(961)">
-			<LLoadProfile Path="Endwalker Aether Currents.xml" />
+			<LLoadProfile Path="Aether Currents\6.0 - Endwalker - Aether Currents.xml" />
 		</If>
 
 		<!-- Hit 89 to accept next quest -->
@@ -4760,7 +4760,7 @@ Known Issues:
 
 			<!-- Ultima Thule Flying -->
 			<If condition="IsQuestCompleted(69984) and not AetherCurrentManager.IsZoneComplete(960)">
-				<LLoadProfile Path="Endwalker Aether Currents.xml" />
+				<LLoadProfile Path="Aether Currents\6.0 - Endwalker - Aether Currents.xml" />
 			</If>
 
 			<If Condition="GetQuestStep(70000) == 1">

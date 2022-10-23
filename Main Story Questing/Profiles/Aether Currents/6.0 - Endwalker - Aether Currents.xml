@@ -1239,7 +1239,7 @@ Author: Angles24, Manta
 			<TeleportTo AetheryteId="182"/>
 		</If>
 
-		<LLoadProfile Path="../Start.xml"/>
+		<LLoadProfile Path="../..Start.xml"/>
 	</Order>
 
 	<GrindAreas>

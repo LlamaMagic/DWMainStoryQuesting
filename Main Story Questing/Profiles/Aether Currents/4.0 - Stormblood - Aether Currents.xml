@@ -962,7 +962,7 @@ Profile and fixes by Angles
 			</If>
 		</If>
 
-		<ALoadProfile Path="../Start.xml"/>
+		<ALoadProfile Path="../../Start.xml"/>
 	</Order>
 
 	<GrindAreas>

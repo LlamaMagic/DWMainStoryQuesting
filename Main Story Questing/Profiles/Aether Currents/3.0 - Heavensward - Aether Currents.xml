@@ -254,7 +254,7 @@ Profile and fixes by Anges
 		</If>
 
 		<!-- The Dravanian Forelands -->
-		
+
 		<!-- Check to See if Mourn in Passing is completed. -->
 		<If Condition="IsQuestCompleted(67144) and not IsQuestCompleted(67153)">
 			<RunCode Name="MourninPassing"/>
@@ -503,7 +503,7 @@ Profile and fixes by Anges
 		<LogMessage Message="You've attuned to the Aether Currents in The Dravanian Forelands!"/>
 
 		<!-- The Churning Mists -->
-		
+
 		<!-- Check to See if Into the Aery is completed. -->
 		<If Condition="IsQuestCompleted(67153) and not IsQuestCompleted(67170)">
 			<RunCode Name="IntotheAery"/>
@@ -790,7 +790,7 @@ Profile and fixes by Anges
 		</If>
 
 		<!-- The Sea of Clouds -->
-		
+
 		<!-- Check to See if Bolt, Chain, and Island is completed. -->
 		<If Condition="IsQuestCompleted(67170) and not IsQuestCompleted(67183)">
 			<RunCode Name="BoltChainIsland"/>
@@ -1052,15 +1052,15 @@ Profile and fixes by Anges
 		<If Condition="IsQuestCompleted(67179)">
 			<If Condition="not IsOnMap(129)">-->
 			<!-- Limsa Lominsa Lower Decks -->
-				<!--<GetTo ZoneId="129" XYZ="-84.08636, 18.60033, -12.41393"/>
+			<!--<GetTo ZoneId="129" XYZ="-84.08636, 18.60033, -12.41393"/>
 			</If>
 			<If Condition="Managers.WorldManager.HasAetheryteId(73)">
 				<TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 			</If>
 			<If Condition="not Managers.WorldManager.HasAetheryteId(73)">
 				<If Condition="not IsOnMap(419)">-->
-					<!-- The Pillars -->
-					<!--<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
+			<!-- The Pillars -->
+			<!--<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
 				</If>
 				<If Condition="IsOnMap(419)">
 					<UseTransport Name="Blue Window" InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
@@ -1467,7 +1467,7 @@ Profile and fixes by Anges
 			<LogMessage Message="You've attuned to the Aether Currents in The Dravanian Hinterlands!"/>
 		</If>
 
-		<LLoadProfile Path="../Start.xml"/>
+		<LLoadProfile Path="../../Start.xml"/>
 	</Order>
 
 	<GrindAreas>
