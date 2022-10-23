@@ -152,6 +152,11 @@ Known Issues:
 			<LLDiscardItem ItemId="4552"/>
 		</If>
 
+		<!-- Grind to level 16 -->
+		<If Condition="IsQuestCompleted(66212) and Core.Player.ClassLevel &lt; 16">
+			<LLoadProfile Path="Dungeons/Sastasha.xml"/>
+		</If>
+
 		<!-- Fire in the Gloom (Level 16) -->
 		<If Condition="IsQuestCompleted(66212) and not HasQuest(66213) and not IsQuestCompleted(66213)">
 			<GetTo ZoneId="132" XYZ="25.30511, -8, 113.7628"/>
@@ -208,6 +213,11 @@ Known Issues:
 			<GetTo ZoneId="130" XYZ="21.73813, 6.999996, -80.83638"/>
 			<LLTurnIn QuestId="66214" NpcId="1001353" XYZ="21.07263, 7.45, -78.78235"/>
 			<LLSmallTalk/>
+		</If>
+
+		<!-- Grind to level 17 -->
+		<If Condition="IsQuestCompleted(66214) and Core.Player.ClassLevel &lt; 17">
+			<LLoadProfile Path="Dungeons/Tam Tara Deepcroft.xml"/>
 		</If>
 
 		<!-- Into a Copper Hell (Level 17) -->
@@ -414,6 +424,11 @@ Known Issues:
 			<TurnIn QuestId="66154" NpcId="1003929" ItemId="2000399" XYZ="-378.6526, -55.75492, 106.7979"/>
 		</If>
 
+		<!-- Grind to level 18 -->
+		<If Condition="IsQuestCompleted(66154) and Core.Player.ClassLevel &lt; 18">
+			<LLoadProfile Path="Dungeons/The Copperbell Mines.xml"/>
+		</If>
+
 		<!-- What Poor People Think (Level 18) -->
 		<If Condition="IsQuestCompleted(66154) and not HasQuest(66155) and not IsQuestCompleted(66155)">
 			<GetTo ZoneId="145" XYZ="-378.6526, -55.75492, 106.7979"/>
@@ -490,6 +505,11 @@ Known Issues:
 				<TurnIn QuestId="66156" NpcId="1003929" XYZ="-378.6526, -55.75492, 106.7979" RewardSlot="1"/>
 				<AutoInventoryEquip/>
 			</If>
+		</If>
+
+		<!-- Grind to level 19 -->
+		<If Condition="IsQuestCompleted(66156) and Core.Player.ClassLevel &lt; 19">
+			<LLoadProfile Path="Dungeons/The Copperbell Mines.xml"/>
 		</If>
 
 		<!-- For the Children (Level 19) -->
@@ -987,6 +1007,11 @@ Known Issues:
 			<UseInventoryItem ItemId="6001"/>
 		</If>
 
+		<!-- Grind to level 21 -->
+		<If Condition="IsQuestCompleted(66237) and Core.Player.ClassLevel &lt; 21">
+			<LLoadProfile Path="Dungeons/The Copperbell Mines.xml"/>
+		</If>
+
 		<!-- First Contact (Level 21) -->
 		<If Condition="IsQuestCompleted(66237) and not HasQuest(66251) and not IsQuestCompleted(66251)">
 			<CloseHowTos/>
@@ -1118,6 +1143,11 @@ Known Issues:
 			<LLDiscardItem ItemId="4552"/>
 		</If>
 
+		<!-- Grind to level 22 -->
+		<If Condition="IsQuestCompleted(66255) and Core.Player.ClassLevel &lt; 22">
+			<LLoadProfile Path="Dungeons/The Copperbell Mines.xml"/>
+		</If>
+
 		<!-- Brotherly Love (Level 22) -->
 		<If Condition="IsQuestCompleted(66255) and not HasQuest(66260) and not IsQuestCompleted(66260)">
 			<GetTo ZoneId="152" XYZ="25.65039, -3.708008, 209.9794"/>
@@ -1190,6 +1220,11 @@ Known Issues:
 			<TurnIn QuestId="69395" NpcId="1000590" XYZ="-165.9419, 9.869228, -81.34589"/>
 			<!-- Chicken Egg -->
 			<LLDiscardItem ItemId="4772"/>
+		</If>
+
+		<!-- Grind to level 23 -->
+		<If Condition="IsQuestCompleted(69395) and Core.Player.ClassLevel &lt; 23">
+			<LLoadProfile Path="Dungeons/The Copperbell Mines.xml"/>
 		</If>
 
 		<!-- Never Forget (Level 23) 5.3 -->
@@ -1356,6 +1391,11 @@ Known Issues:
 		<If Condition="HasQuest(69398) and not IsQuestCompleted(69398) and GetQuestStep(69398) == 255">
 			<GetTo ZoneId="153" XYZ="-167.4839, 9.869229, -80.15215"/>
 			<TurnIn QuestId="69398" NpcId="1000590" XYZ="-165.9419, 9.869228, -81.34589"/>
+		</If>
+
+		<!-- Grind to level 24 -->
+		<If Condition="IsQuestCompleted(69398) and Core.Player.ClassLevel &lt; 24">
+			<LLoadProfile Path="Dungeons/The Copperbell Mines.xml"/>
 		</If>
 
 		<!-- Into the Beast's Maw (Level 24) -->
@@ -1702,6 +1742,11 @@ Known Issues:
 			<LLDiscardItem ItemId="5795"/>
 		</If>
 
+		<!-- Grind to level 26 -->
+		<If Condition="IsQuestCompleted(66298) and Core.Player.ClassLevel &lt; 26">
+			<LLoadProfile Path="Dungeons/The Thousand Maws of Toto-Rak.xml"/>
+		</If>
+
 		<!-- Meeting with the Resistance (Level 26) -->
 		<If Condition="IsQuestCompleted(66298) and not HasQuest(66299) and not IsQuestCompleted(66299)">
 			<If Condition="not IsOnMap(212)">
@@ -1750,6 +1795,11 @@ Known Issues:
 		<If Condition="HasQuest(66301) and not IsQuestCompleted(66301) and GetQuestStep(66301) == 255">
 			<GetTo ZoneId="153" XYZ="207.7821, 6.103813, -39.53619"/>
 			<TurnIn QuestId="66301" NpcId="1000332" XYZ="207.7821, 6.103813, -39.53619"/>
+		</If>
+
+		<!-- Grind to level 27 -->
+		<If Condition="IsQuestCompleted(66301) and Core.Player.ClassLevel &lt; 27">
+			<LLoadProfile Path="Dungeons/The Thousand Maws of Toto-Rak.xml"/>
 		</If>
 
 		<!-- Helping Horn (Level 27) -->
@@ -2008,6 +2058,11 @@ Known Issues:
 			<TurnIn QuestId="69399" NpcId="1006240" XYZ="13.93146, -44.8656, 257.9537"/>
 		</If>
 
+		<!-- Grind to level 28 -->
+		<If Condition="IsQuestCompleted(69399) and Core.Player.ClassLevel &lt; 28">
+			<LLoadProfile Path="Dungeons/The Thousand Maws of Toto-Rak.xml"/>
+		</If>
+
 		<!-- Ziz Is So Ridiculous (Level 28) 5.3 -->
 		<If Condition="IsQuestCompleted(69399) and not HasQuest(69400) and not IsQuestCompleted(69400)">
 			<GetTo ZoneId="154" XYZ="15.3963, -44.8656, 259.327"/>
@@ -2164,6 +2219,11 @@ Known Issues:
 			<TurnIn QuestId="66337" NpcId="1006688" XYZ="39.29187, 1.214808, 0.8086548"/>
 			<RunCode name="Coffer"/>
 			<AutoInventoryEquip/>
+		</If>
+
+		<!-- Grind to level 29 -->
+		<If Condition="IsQuestCompleted(66337) and Core.Player.ClassLevel &lt; 29">
+			<LLoadProfile Path="Dungeons/Haukke Manor.xml"/>
 		</If>
 
 		<!-- Broadening Horizons (Level 29) -->
@@ -2435,6 +2495,11 @@ Known Issues:
 			<LLDiscardItem ItemId="5670"/>
 		</If>
 
+		<!-- Grind to level 31 -->
+		<If Condition="IsQuestCompleted(69401) and Core.Player.ClassLevel &lt; 31">
+			<LLoadProfile Path="Dungeons/Haukke Manor.xml"/>
+		</If>
+
 		<!-- The Perfect Prey (Level 31) -->
 		<If Condition="IsQuestCompleted(66356) and not HasQuest(66357) and not IsQuestCompleted(66357)">
 			<GetTo ZoneId="146" XYZ="-358.6328, 8.469424, 422.4154"/>
@@ -2523,6 +2588,11 @@ Known Issues:
 				<TurnIn QuestId="66367" NpcId="1006266" ItemId="2000649" XYZ="560.3571, 20.75329, 455.8937" RewardSlot="1"/>
 				<AutoInventoryEquip/>
 			</If>
+		</If>
+
+		<!-- Grind to level 32 -->
+		<If Condition="IsQuestCompleted(66367) and Core.Player.ClassLevel &lt; 32">
+			<LLoadProfile Path="Dungeons/Haukke Manor.xml"/>
 		</If>
 
 		<!-- The Things We Do for Cheese (Level 32) -->
@@ -2635,6 +2705,11 @@ Known Issues:
 			<TurnIn QuestId="66379" NpcId="1006305" XYZ="10.60498, 71.47817, -16.61713" RewardSlot="0"/>
 			<!-- Hi-Potion of Strength -->
 			<LLDiscardItem ItemId="4599"/>
+		</If>
+
+		<!-- Grind to level 32 -->
+		<If Condition="IsQuestCompleted(66379) and Core.Player.ClassLevel &lt; 32">
+			<LLoadProfile Path="Dungeons/Brayfloxs Longstop.xml"/>
 		</If>
 
 		<!-- Give a Man a Drink (Level 33) -->
@@ -2835,6 +2910,11 @@ Known Issues:
 		<If Condition="HasQuest(66392) and not IsQuestCompleted(66392) and GetQuestStep(66392) == 255">
 			<GetTo ZoneId="139" XYZ="479.3926, 16.2587, 128.3741"/>
 			<TurnIn QuestId="66392" NpcId="1006341" XYZ="479.3926, 16.2587, 128.3741"/>
+		</If>
+
+		<!-- Grind to level 34 -->
+		<If Condition="IsQuestCompleted(66392) and Core.Player.ClassLevel &lt; 34">
+			<LLoadProfile Path="Dungeons/Brayfloxs Longstop.xml"/>
 		</If>
 
 		<!-- Lord of Crags (Level 34) -->
@@ -3144,6 +3224,11 @@ Known Issues:
 			</If>
 		</If>
 
+		<!-- Grind to level 36 -->
+		<If Condition="IsQuestCompleted(66054) and Core.Player.ClassLevel &lt; 36">
+			<LLoadProfile Path="Dungeons/Brayfloxs Longstop.xml"/>
+		</If>
+
 		<!-- He Who Waited Behind (Level 36) -->
 		<If Condition="IsQuestCompleted(66054) and not HasQuest(66419) and not IsQuestCompleted(66419)">
 			<GetTo ZoneId="145" XYZ="-512.4742, -16.42, -7.522766"/>
@@ -3289,6 +3374,11 @@ Known Issues:
 			</If>
 		</If>
 
+		<!-- Grind to level 37 -->
+		<If Condition="IsQuestCompleted(66426) and Core.Player.ClassLevel &lt; 37">
+			<LLoadProfile Path="Dungeons/Brayfloxs Longstop.xml"/>
+		</If>
+
 		<!-- Feats of Strength (Level 37) -->
 		<If Condition="IsQuestCompleted(66426) and not HasQuest(66432) and not IsQuestCompleted(66432)">
 			<GetTo ZoneId="155" XYZ="260.2953, 303.1, -199.883"/>
@@ -3328,6 +3418,11 @@ Known Issues:
 		<If Condition="HasQuest(66433) and not IsQuestCompleted(66433) and GetQuestStep(66433) == 255">
 			<GetTo ZoneId="155" XYZ="260.2953, 303.1, -199.883"/>
 			<TurnIn QuestId="66433" NpcId="1006384" XYZ="263.5996, 303.1, -199.9695"/>
+		</If>
+
+		<!-- Grind to level 38 -->
+		<If Condition="IsQuestCompleted(66433) and Core.Player.ClassLevel &lt; 38">
+			<LLoadProfile Path="Dungeons/Brayfloxs Longstop.xml"/>
 		</If>
 
 		<!-- Road to Redemption (Level 38) -->
@@ -3464,6 +3559,11 @@ Known Issues:
 		<If Condition="HasQuest(69404) and not IsQuestCompleted(69404) and GetQuestStep(69404) == 255">
 			<GetTo ZoneId="155" XYZ="-478.2635, 211, -203.8148"/>
 			<TurnIn QuestId="69404" NpcId="1006435" ItemId="2003016,2003017" XYZ="-478.2635, 211, -203.8148"/>
+		</If>
+
+		<!-- Grind to level 39 -->
+		<If Condition="IsQuestCompleted(69404) and Core.Player.ClassLevel &lt; 39">
+			<LLoadProfile Path="Dungeons/Brayfloxs Longstop.xml"/>
 		</If>
 
 		<!-- Ye of Little Faith (Level 39) -->
@@ -3951,6 +4051,11 @@ Known Issues:
 			</If>
 		</If>
 
+		<!-- Grind to level 42 -->
+		<If Condition="IsQuestCompleted(66495) and Core.Player.ClassLevel &lt; 42">
+			<LLoadProfile Path="Dungeons/Stone Vigil.xml"/>
+		</If>
+
 		<!-- It's Probably Not Pirates (Level 42) -->
 		<If Condition="IsQuestCompleted(66495) and not HasQuest(66496) and not IsQuestCompleted(66496)">
 			<GetTo ZoneId="138" XYZ="321.1565, -18.1978, 276.5697"/>
@@ -4164,6 +4269,11 @@ Known Issues:
 			<TurnIn QuestId="66503" NpcId="1006497" ItemId="2000841" XYZ="321.1565, -18.1978, 276.5697"/>
 		</If>
 
+		<!-- Grind to level 43 -->
+		<If Condition="IsQuestCompleted(66503) and Core.Player.ClassLevel &lt; 43">
+			<LLoadProfile Path="Dungeons/Stone Vigil.xml"/>
+		</If>
+
 		<!-- The Curious Case of Giggity (Level 43) -->
 		<If Condition="IsQuestCompleted(66503) and not HasQuest(69406) and not IsQuestCompleted(69406)">
 			<GetTo ZoneId="138" XYZ="321.1565, -18.1978, 276.5697"/>
@@ -4263,6 +4373,11 @@ Known Issues:
 				<TurnIn QuestId="66511" NpcId="1006492" ItemId="2000753" XYZ="7.339539, -21.97097, 121.9348" RewardSlot="2"/>
 				<AutoInventoryEquip/>
 			</If>
+		</If>
+
+		<!-- Grind to level 44 -->
+		<If Condition="IsQuestCompleted(66511) and Core.Player.ClassLevel &lt; 44">
+			<LLoadProfile Path="Dungeons/Stone Vigil.xml"/>
 		</If>
 
 		<!-- Lady of the Vortex (Level 44) -->
