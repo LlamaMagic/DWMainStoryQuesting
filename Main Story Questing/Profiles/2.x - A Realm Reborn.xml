@@ -311,7 +311,7 @@ Known Issues:
 		</If>
 
 		<!-- If I Had a Glamour (Level 15) -->
-		<If Condition="not IsQuestCompleted(68553)">
+		<If Condition="not IsQuestCompleted(68553) and not IsQuestCompleted(66957)">
 			<If Condition="not HasQuest(68553)">
 				<If condition="not IsOnMap(140)">
 					<GetTo ZoneId="129" XYZ="-359.4701, 8.00002, 41.57403"/>
