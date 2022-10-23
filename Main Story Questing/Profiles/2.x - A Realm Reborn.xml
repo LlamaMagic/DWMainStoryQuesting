@@ -4361,6 +4361,10 @@ Known Issues:
 			<TurnIn QuestId="66522" NpcId="1006535" XYZ="26.90161, 20.54392, -687.4037"/>
 		</If>
 
+		<If Condition="IsQuestCompleted(66522) and Core.Player.ClassLevel &lt; 46">
+			<LLoadProfile Path="Dungeons/Stone Vigil.xml"/>
+		</If>
+
 		<!-- Drowning Out the Voices (Level 46) -->
 		<If Condition="IsQuestCompleted(66522) and not HasQuest(66537) and not IsQuestCompleted(66537)">
 			<GetTo ZoneId="156" XYZ="26.90161, 20.54392, -687.4037"/>
