@@ -30,13 +30,13 @@ Known Issues:
 -->
 
 <!DOCTYPE Profile [
-	<!-- Profile Settings -->
-	<!-- Which fates should we blacklist? -->
-	<!ENTITY NorthernThanBlacklistFates "556,446,647">
-	<!-- Should we auto invite a carry to do dungeons? -->
-	<!ENTITY UseCarry "0">
-	<!-- What's the carry's name? -->
-	<!ENTITY CarryName "First Last">
+<!-- Profile Settings -->
+
+<!-- Should we auto invite a carry to do dungeons? -->
+<!ENTITY UseCarry "0">
+
+<!-- What's the carry's name? -->
+<!ENTITY CarryName "First Last">
 ]>
 
 <Profile>
@@ -4262,7 +4262,7 @@ Known Issues:
 			</If>
 		</If>
 
-		<!-- Unt the Heavens -->
+		<!-- Unto the Heavens -->
 		<If Condition="IsQuestCompleted(69987) and not IsQuestCompleted(69988)">
 			<If Condition="not HasQuest(69988)">
 				<GetTo ZoneId="962" XYZ="-101.238, 3.933468, 3.184379" />
@@ -4292,6 +4292,12 @@ Known Issues:
 				<LLTurnIn QuestId="69988" NpcId="1039852" XYZ="-376.1197, 80.7959, 607.6904" />
 				<LLSmallTalk />
 			</If>
+		</If>
+
+		<If Condition="not IsOnMap(960) and not HasAetheryte(179)">
+			<!-- Use Ultima Thule transport NPC get back before we can teleport to Reah Tahra-->
+			<GetTo ZoneId="956" XYZ="-334.8287, -224.1977, 312.1233" />
+			<UseTransport NpcId="1039552" XYZ="-334.8287, -224.1977, 312.1233" />
 		</If>
 
 		<!-- A Strange New World -->
@@ -4401,7 +4407,7 @@ Known Issues:
 			</If>
 			<If Condition="GetQuestStep(69991) == 255">
 				<If condition="not IsOnSubMap(3975)">
-					<GetTo ZoneId="960" XYZ="-613.6968, 92.12069, -206.1768" />
+					<GetTo ZoneId="960" XYZ="-608.7807, 92.12769, -208" />
 					<UseObject NpcId="2012544" InteractDistance="3.0" XYZ="-608.7807, 92.12769, -208" UseTimes="1" />
 					<WaitTimer WaitTime="10" />
 				</If>
@@ -4409,6 +4415,13 @@ Known Issues:
 				<LLTurnIn QuestId="69991" NpcId="2012429" XYZ="-471.275, 232.1964, -253.1014" />
 				<LLSmallTalk />
 			</If>
+		</If>
+
+		<If Condition="not IsOnMap(960) and not HasAetheryte(180)">
+			<!-- Use Wind Confluence to get back before we can teleport to Abode of the Ea -->
+			<GetTo ZoneId="960" XYZ="-608.7807, 92.12769, -208" />
+			<UseObject NpcId="2012544" InteractDistance="3.0" XYZ="-608.7807, 92.12769, -208" UseTimes="1" />
+			<WaitTimer WaitTime="10" />
 		</If>
 
 		<!-- Roads Paved In Sacrifice -->
@@ -4597,7 +4610,7 @@ Known Issues:
 				<LLTalkTo NpcId="1040349" XYZ="636.9266, 438.6497, 248.0658" QuestId="69996" StepId="5" />
 			</If>
 			<If Condition="GetQuestStep(69996) == 255">
-				<If condition="not IsOnSubMap(3985)or not IsOnSubMap(3981)">
+				<If condition="not IsOnSubMap(3985) or not IsOnSubMap(3981)">
 					<GetTo ZoneId="960" XYZ="639.1198, 438.6779, 244.8473" />
 					<UseTransport NpcId="2012796" InteractDistance="3.0" XYZ="639.2767, 439.7803, 241.7791" />
 				</If>
@@ -4605,6 +4618,12 @@ Known Issues:
 				<LLTurnIn QuestId="69996" NpcId="1041157" XYZ="801.6326, 478.9742, 196.7955" />
 				<LLSmallTalk />
 			</If>
+		</If>
+
+		<If Condition="not IsOnMap(960) and not HasAetheryte(181)">
+			<!-- Use Passage to Ostrakon Deka-hexi to get back before we can teleport to Base Omicron -->
+			<GetTo ZoneId="960" XYZ="-608.7807, 92.12769, -208" />
+			<UseTransport NpcId="2012796" InteractDistance="3.0" XYZ="639.2767, 439.7803, 241.7791" />
 		</If>
 
 		<!-- Hello, World -->
