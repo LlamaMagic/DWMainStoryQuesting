@@ -478,8 +478,7 @@ Authors: DomesticWarlord86
 
 		<!-- Class quest time -->
 		<If Condition="ClassName == ClassJobType.Archer">
-			<!-- A Matter of Perspective -->
-
+			<!-- A Matter of Perspective (Level 5)-->
 			<If Condition="not IsQuestCompleted(65582)">
 				<If Condition="Core.Player.ClassLevel &gt; 4">
 					<If Condition="not HasQuest(65582)">
@@ -544,8 +543,7 @@ Authors: DomesticWarlord86
 				</If>
 			</If>
 
-			<!-- School of Hard Nocks (Primary) -->
-
+			<!-- School of Hard Nocks (Primary) (Level 10) -->
 			<If Condition="not IsQuestCompleted(65603) and IsQuestCompleted(65557)">
 				<If Condition="Core.Player.ClassLevel &gt; 9">
 					<If Condition="not HasQuest(65603)">
@@ -629,8 +627,7 @@ Authors: DomesticWarlord86
 		</If>
 
 		<If Condition="ClassName == ClassJobType.Conjurer">
-			<!-- Trial by Earth -->
-
+			<!-- Trial by Earth (Level 5) -->
 			<If Condition="not IsQuestCompleted(65584)">
 				<If Condition="Core.Player.ClassLevel &gt; 4">
 					<If Condition="not HasQuest(65584)">
@@ -665,8 +662,7 @@ Authors: DomesticWarlord86
 				</If>
 			</If>
 
-			<!-- Trial by Wind (Primary) -->
-
+			<!-- Trial by Wind (Primary) (Level 10) -->
 			<If Condition="not IsQuestCompleted(65627) and not IsQuestCompleted(65747)">
 				<If Condition="Core.Player.ClassLevel &gt; 9">
 					<If Condition="not HasQuest(65627)">
@@ -725,9 +721,7 @@ Authors: DomesticWarlord86
 		</If>
 
 		<If Condition="ClassName == ClassJobType.Lancer">
-
-			<!-- Spear of the Fearless -->
-
+			<!-- Spear of the Fearless (Level 5) -->
 			<If Condition="not IsQuestCompleted(65583)">
 				<If Condition="Core.Player.ClassLevel &gt; 4">
 					<If Condition="not HasQuest(65583)">
@@ -780,8 +774,7 @@ Authors: DomesticWarlord86
 				</If>
 			</If>
 
-			<!-- Courage of Stone (Primary) -->
-
+			<!-- Courage of Stone (Primary) (Level 10) -->
 			<If Condition="not IsQuestCompleted(65571) and not IsQuestCompleted(65754)">
 				<If Condition="Core.Player.ClassLevel &gt; 9">
 					<If Condition="not HasQuest(65571)">
@@ -1096,8 +1089,7 @@ Authors: DomesticWarlord86
 		<!-- Class Quest Time -->
 
 		<If Condition="ClassName == ClassJobType.Archer">
-			<!-- Violators Will Be Shot -->
-
+			<!-- Violators Will Be Shot (Level 15) -->
 			<If Condition="not IsQuestCompleted(65604)">
 				<If Condition="Core.Player.ClassLevel &gt; 14">
 					<If Condition="not HasQuest(65604)">
@@ -1194,8 +1186,7 @@ Authors: DomesticWarlord86
 		</If>
 
 		<If Condition="ClassName == ClassJobType.Conjurer">
-			<!-- Trial by Water -->
-
+			<!-- Trial by Water (Level 15) -->
 			<If Condition="not IsQuestCompleted(65628)">
 				<If Condition="Core.Player.ClassLevel &gt; 14">
 					<If Condition="not HasQuest(65628)">
@@ -1265,8 +1256,7 @@ Authors: DomesticWarlord86
 		</If>
 
 		<If Condition="ClassName == ClassJobType.Lancer">
-			<!-- A Dangerous Proposition -->
-
+			<!-- A Dangerous Proposition (Level 15) -->
 			<If Condition="not IsQuestCompleted(65591)">
 				<If Condition="Core.Player.ClassLevel &gt; 14">
 					<If Condition="not HasQuest(65591)">
