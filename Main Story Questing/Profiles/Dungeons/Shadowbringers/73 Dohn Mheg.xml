@@ -24,6 +24,7 @@ Authors: DomesticWarlord86
 			<!-- Arrive at Teag Gye: 0/1 -->
 			<If Condition="GetInstanceTodo(0) == 0">
 				<Log Message="Arrive at Teag Gye: 0/1"/>
+				<MoveTo XYZ="-52.28711, 7.973111, 134.5153" />
 				<MoveTo XYZ="-0.3553915, 6.851144, 45.50544"/>
 			</If>
 
