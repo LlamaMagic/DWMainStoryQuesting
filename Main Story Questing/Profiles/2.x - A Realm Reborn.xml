@@ -7854,7 +7854,7 @@ Known Issues:
 			<TurnIn QuestId="65625" NpcId="1008969" XYZ="0.9917603, -1.995725, -45.70081"/>
 		</If>
 
-		<!-- A Recurring Problem -->
+		<!-- A Recurring Problem (Level 50) -->
 		<If Condition="IsQuestCompleted(65625) and not IsQuestCompleted(66583)">
 			<If Condition="not HasQuest(66583)">
 				<If Condition="not IsOnMap(212)">
@@ -7865,7 +7865,7 @@ Known Issues:
 				<If Condition="IsOnMap(212)">
 					<UseTransport InteractDistance="3.0" NpcId="2001715" XYZ="23.23944,2.090454,-0.01531982"/>
 				</If>
-				<MoveTo ZoneId="212" XYZ="35.97706, 1.214808, 0.6506084"/>
+				<GetTo ZoneId="212" XYZ="35.97706, 1.214808, 0.6506084"/>
 				<If Condition="IsQuestAcceptQualified(66583)">
 					<LLPickupQuest QuestId="66583" NpcId="1006693"/>
 					<LLSmallTalk/>
@@ -7877,7 +7877,10 @@ Known Issues:
 					<GetTo ZoneId="140" XYZ="-480.9186, 17.99036, -386.862"/>
 					<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186,17.99036,-386.862"/>
 				</If>
-				<MoveTo ZoneId="212" XYZ="-0.3742037, -3.000001, -56.65307"/>
+				<If Condition="IsOnSubMap(356)">
+					<UseTransport NpcId="2001717" InteractDistance="3.0" XYZ="25.4978, 2.090454, -0.01531982"/>
+				</If>
+				<GetTo ZoneId="212" XYZ="-0.3742037, -3.000001, -56.65307"/>
 				<LLTurnIn QuestId="66583" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
 				<LLSmallTalk/>
 			</If>
