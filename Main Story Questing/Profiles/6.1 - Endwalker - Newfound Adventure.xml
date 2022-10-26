@@ -317,5 +317,7 @@ Authors: DomesticWarlord86
 				<TurnIn QuestId="70071" NpcId="1039645" XYZ="-338.3383, 55, -68.40625"/>
 			</If>
 		</If>
+
+		<LLoadProfile Path="../Start.xml"/>
 	</Order>
 </Profile>
