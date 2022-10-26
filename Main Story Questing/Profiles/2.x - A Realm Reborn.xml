@@ -8680,29 +8680,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(70127) and not IsQuestCompleted(70127) and GetQuestStep(70127) == 1">
-			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="70127" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith.\n\nFight Vishap on the bridge."/>
-			</If>
-			<If condition="&UseCarry; == 1">
-				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
-					<!-- Aleport -->
-					<TeleportTo AetheryteId="14" Force="True"/>
-					<InviteToParty Name="&CarryName;"/>
-					<WaitWhile condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader"/>
-				</If>
-				<If condition="PartyManager.IsInParty or PartyManager.IsPartyLeader">
-					<If condition="not IsOnMap(143)">
-						<LLJoinDuty DutyId="83"/>
-					</If>
-					<If condition="IsOnMap(143)">
-						<WaitWhile condition="not IsDutyEnded()"/>
-						<If condition="IsDutyEnded">
-							<WaitTimer WaitTime="5"/>
-							<LLLeaveDuty/>
-						</If>
-					</If>
-				</If>
-			</If>
+			<UserDialog QuestId="70127" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the solo duty The Steps of Faith.\n\nFight Vishap on the bridge."/>
 		</If>
 		<If Condition="HasQuest(70127) and not IsQuestCompleted(70127) and GetQuestStep(70127) == 2">
 			<WaitWhile condition="GetQuestStep(70127) == 2"/>
