@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Profile [
+<!ENTITY ZoneId "1068">
+
+<!ENTITY Vishap "3330">
+
+<!ENTITY InEventAura "1268">
+<!ENTITY DownForTheCountAura "774">
+]>
+<Profile>
+	<Name>50: The Steps of Faith</Name>
+	<Order>
+		<CheckPlugins/>
+		<WaitForLoading/>
+		<SetPlugins PluginNames="SideStep,回避" IsEnabled="true"/>
+
+		<WaitWhile Condition="not IsOnMap(&ZoneId;)"/>
+
+		<If Condition="IsOnMap(&ZoneId;)">
+			<!-- Wait for opening not-cutscene -->
+			<WaitWhile Condition="Core.Player.HasAura(&InEventAura;)"/>
+
+			<!-- Fight trash until Vishap scream-stuns and burninates -->
+			<MoveTo XYZ="0.1334939, 0, 265.842"/>
+			<Grind GrindRef="Start" While="not Core.Player.HasAura(&DownForTheCountAura;)"/>
+			<WaitWhile Condition="Core.Player.HasAura(&DownForTheCountAura;)"/>
+
+			<!-- Move to First Ward and fight Vishap -->
+			<MoveTo XYZ="0.09732722, 0.06472659, 151.2207"/>
+			<WaitWhile Condition="not IsTargetableNPC(&Vishap;)"/>
+			<Grind GrindRef="FirstWard" While="IsTargetableNPC(&Vishap;)"/>
+
+			<MoveTo XYZ="0.4425049, 8.138756E-10, -8.621399"/>
+			<Grind GrindRef="SecondWardA" While="not IsTargetableNPC(&Vishap;)"/>
+			<WaitWhile Condition="not IsTargetableNPC(&Vishap;)"/>
+			<Grind GrindRef="SecondWardB" While="IsTargetableNPC(&Vishap;)"/>
+
+			<MoveTo XYZ="-0.08328567, 0.06610262, -179.6852"/>
+			<Grind GrindRef="FinalWard" While="not IsDutyEnded()"/>
+		</If>
+	</Order>
+	<GrindAreas>
+		<GrindArea Name="Start">
+			<Hotspots>
+				<Hotspot Radius="60" XYZ="0.1334939, 0, 265.842"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3321" Name="Horde Wyvern" Weight="1"/>
+				<TargetMob Id="3323" Name="Horde Dragonfly" Weight="1"/>
+				<TargetMob Id="3329" Name="Horde Biast" Weight="1"/>
+				<TargetMob Id="3326" Name="Horde Aevis" Weight="1"/>
+				<TargetMob Id="3324" Name="Horde Armored Dragon" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="FirstWard">
+			<Hotspots>
+				<Hotspot Radius="60" XYZ="-0.07521187, 0.06422257, 151.2652"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3330" Name="Vishap" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="SecondWardA">
+			<Hotspots>
+				<Hotspot Radius="60" XYZ="0.1182255, 0, -9.506146"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3323" Name="Horde Dragonfly" Weight="1"/>
+				<TargetMob Id="3329" Name="Horde Biast" Weight="1"/>
+				<TargetMob Id="3321" Name="Horde Wyvern" Weight="1"/>
+				<TargetMob Id="3326" Name="Horde Aevis" Weight="1"/>
+				<TargetMob Id="3327" Name="Horde Transcendent" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="SecondWardB">
+			<Hotspots>
+				<Hotspot Radius="60" XYZ="-0.1834365, 0, -13.87298"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3330" Name="Vishap" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="FinalWard">
+			<Hotspots>
+				<Hotspot Radius="60" XYZ="0.05560392, 0.06611621, -179.7817"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3321" Name="Horde Wyvern" Weight="1"/>
+				<TargetMob Id="3326" Name="Horde Aevis" Weight="1"/>
+				<TargetMob Id="3329" Name="Horde Biast" Weight="1"/>
+				<TargetMob Id="3323" Name="Horde Dragonfly" Weight="1"/>
+				<TargetMob Id="3329" Name="Horde Biast" Weight="1"/>
+				<TargetMob Id="3330" Name="Vishap" Weight="1"/>
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+</Profile>
