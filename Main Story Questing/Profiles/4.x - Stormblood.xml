@@ -3569,7 +3569,7 @@ Known Issues:
 
 		<!-- The Ruby Sea, The Azim Steppe, Yanxia, The Fringes, The Peaks, The Lochs -->
 		<If condition="not AetherCurrentManager.IsZoneComplete(613) and not AetherCurrentManager.IsZoneComplete(622) and not AetherCurrentManager.IsZoneComplete(614) and not AetherCurrentManager.IsZoneComplete(612) and not AetherCurrentManager.IsZoneComplete(620) and not AetherCurrentManager.IsZoneComplete(621)">
-			<LLoadProfile Path="Stormblood Aether Currents.xml"/>
+			<LLoadProfile Path="Aether Currents\4.0 - Stormblood - Aether Currents.xml"/>
 		</If>
 
 		<!-- Do class quests -->
