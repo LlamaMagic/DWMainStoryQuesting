@@ -122,12 +122,9 @@ Some steps need to be completed manually -- a popup will appear with a "ding" so
 
 -   Quest `Lv. 53: You Have Selected Regicide` involves escorting an NPC moogle. Return to East Shroud (11, 22) and complete manually if standing in the Bramble Patch with no apparent way forward.
 
-### 3.x: Heavensward Issues
-
--   Quest `Lv. 53: Lord of the Hive` sometimes gets stuck moving to the inner chamber. Move through the door manually if stuck.
-
 ### Fixed Issues
 
 -   ~~Gets stuck on interacting with the Gravesite during MSQ quest `A Proper Burial`~~
 -   ~~Same issue as above, quest Level 38 `Following the Evidence`~~
 -   ~~The Archer quest `School of Hard Nocks` has the same issue.~~
+-   ~~Quest `Lv. 53: Lord of the Hive` sometimes gets stuck moving to the inner chamber. Move through the door manually if stuck.~~

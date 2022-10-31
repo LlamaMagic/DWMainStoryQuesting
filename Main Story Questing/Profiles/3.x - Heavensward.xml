@@ -1296,7 +1296,7 @@ Known Issues:
 				<GetTo ZoneId="398" XYZ="527.918, -51.27571, 41.3532"/>
 				<UseTransport InteractDistance="3.0" NpcId="2005446" XYZ="-9.079163, -127.7333, 734.0046"/>
 			</If>
-			<MoveTo UseMesh="False" XYZ="5.850327, -2.384186E-07, -0.7740318"/>
+			<MoveTo UseMesh="False" XYZ="-8.594555, -1.192093E-07, 29.83694"/>
 			<WaitWhile Condition="HasQuest(67152) and not IsQuestCompleted(67152) and not GetQuestStep(67152) == 3"/>
 		</If>
 		<If Condition="HasQuest(67152) and GetQuestStep(67152) == 3">
