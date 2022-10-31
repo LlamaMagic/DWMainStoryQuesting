@@ -2284,7 +2284,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 6">
 			<GetTo ZoneId="419" XYZ="15.85205, 16.00967, -10.20725"/>
-			<!-- <TalkTo NpcId="1013101" InteractDistance="3.0" XYZ="17.99036, 16.00967, -9.567444"/>		-->
+			<TalkTo NpcId="1013101" InteractDistance="3.0" XYZ="17.99036, 16.00967, -9.567444"/>
 			<WaitWhile Condition="HasQuest(67176) and not IsQuestCompleted(67176) and not GetQuestStep(67176) == 255"/>
 		</If>
 		<If Condition="GetQuestStep(67176) == 255">
