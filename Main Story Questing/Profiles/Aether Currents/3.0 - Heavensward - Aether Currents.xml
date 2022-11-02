@@ -1122,6 +1122,8 @@ Profile and fixes by Anges
 			<!-- Can't put it off any longer; pause here to finish unlocking flying before 3.1 -->
 			<UserDialog QuestId="67647" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Dusk Vigil."/>
 		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
 	</Order>
 
 	<GrindAreas>
