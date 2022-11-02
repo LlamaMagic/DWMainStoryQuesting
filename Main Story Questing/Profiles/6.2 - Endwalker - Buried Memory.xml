@@ -12,6 +12,19 @@ Authors: DomesticWarlord86
 			<LLoadProfile Path="../Start.xml"/>
 		</If>
 
+		<!-- Get back to MSQ copy of Troia to resume -->
+		<If Condition="GetQuestStep(70128) &gt;= 5 or any(not IsQuestCompleted(x) for x in [70129, 70130, 70131, 70132])">
+			<If Condition="not IsOnMap(1089)">
+				<If Condition="not IsOnMap(1050)">
+					<GetTo ZoneId="957" XYZ="-270.3442, 0.07904778, 605.7985"/>
+					<UseTransport NpcId="1044157" InteractDistance="3.0" XYZ="-270.3442, 0.07904778, 605.7985"/>
+				</If>
+
+				<MoveTo XYZ="110.0328, -348.5618, -92.33234"/>
+				<UseTransport NpcId="2013039" InteractDistance="3.0" XYZ="110.0328, -348.5618, -92.33234"/>
+			</If>
+		</If>
+
 		<!-- In Search of Azdaja -->
 		<If Condition="not IsQuestCompleted(70128)">
 			<If Condition="not HasQuest(70128)">
@@ -39,12 +52,35 @@ Authors: DomesticWarlord86
 				<WaitWhile condition="GetQuestStep(70128) == 5"/>
 			</If>
 			<If Condition="GetQuestStep(70128) == 255">
+				<!-- Get to the Hydromantic Terraces -->
+				<If Condition="not IsOnSubMap(4190)">
+					<!-- From Cercere IV / Penitence -->
+					<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+						<UseTransport NpcId="1044018" InteractDistance="3.0" XYZ="-24.5213, -718.0016, 137.1938"/>
+					</If>
+					<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+					<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+						<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.01519775, -692.6528, -232.4102"/>
+					</If>
+				</If>
+				<MoveTo XYZ="-88.51758, 376.4496, -158.3124"/>
 				<TurnIn QuestId="70128" NpcId="1042063" XYZ="-88.51758, 376.4496, -158.3124"/>
 			</If>
 		</If>
 
 		<!-- Shadowed Remnants -->
 		<If Condition="IsQuestCompleted(70128) and not IsQuestCompleted(70129)">
+			<!-- Get to the Hydromantic Terraces -->
+			<If Condition="not IsOnSubMap(4190)">
+				<!-- From Cercere IV / Penitence -->
+				<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+					<UseTransport NpcId="1044018" InteractDistance="3.0" XYZ="-24.5213, -718.0016, 137.1938"/>
+				</If>
+				<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+				<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.01519775, -692.6528, -232.4102"/>
+				</If>
+			</If>
 			<If Condition="not HasQuest(70129)">
 				<MoveTo ZoneId="1089" XYZ="-86.0939, 376.3865, -157.2264"/>
 				<If Condition="IsQuestAcceptQualified(70129)">
@@ -68,22 +104,23 @@ Authors: DomesticWarlord86
 				<TalkTo NpcId="1043792" XYZ="4.043579, 350.5726, -49.45453" QuestId="70129" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(70129) == 2">
-				<MoveTo XYZ="38.32941, 347.9996, 2.244695"/>
+				<MoveTo ZoneId="1089" XYZ="38.32941, 347.9996, 2.244695"/>
 				<UseObject NpcId="2013042" XYZ="38.07117, 348.043, 4.379272" QuestId="70129" StepId="2"/>
 			</If>
+			<!-- Get to Cercere IV -->
+			<If Condition="not any(IsOnSubMap(x) for x in [4188, 4184]) and GetQuestStep(70129) &gt;= 3">
+				<!-- From the Hydromantic Terraces -->
+				<If Condition="IsOnSubMap(4190)">
+					<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922"/>
+				</If>
+				<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+				<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<UseTransport NpcId="2013113" InteractDistance="3.0" XYZ="-280.0794, -716.7621, 133.9589"/>
+				</If>
+			</If>
 			<If Condition="GetQuestStep(70129) == 3">
-				<If condition="IsOnSubMap(4190)">
-					<MoveTo XYZ="16.56278, 350.0006, 11.51959"/>
-					<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922" QuestId="70129"/>
-				</If>
-				<If condition="IsOnSubMap(4185) or IsOnSubMap(4187) or IsOnSubMap(4189)">
-					<MoveTo XYZ="-277.1759, -717.9501, 133.6617"/>
-					<UseTransport NpcId="2013113" InteractDistance="3.0" XYZ="-280.0794, -716.7621, 133.9589" QuestId="70129"/>
-				</If>
-				<If condition="IsOnSubMap(4184) or IsOnSubMap(4188)">
-					<MoveTo XYZ="98.48396, -718.3379, 207.0686"/>
-					<MoveTo XYZ="74.44031, -718.0002, 206.7122" usemesh="false"/>
-				</If>
+				<MoveTo XYZ="98.48396, -718.3379, 207.0686"/>
+				<MoveTo XYZ="74.44031, -718.0002, 206.7122" usemesh="false"/>
 			</If>
 			<If Condition="GetQuestStep(70129) == 255">
 				<MoveTo XYZ="99.17933, -718.6274, 205.145" usemesh="false"/>
@@ -93,6 +130,17 @@ Authors: DomesticWarlord86
 
 		<!-- Where Everything Begins -->
 		<If Condition="IsQuestCompleted(70129) and not IsQuestCompleted(70130)">
+			<!-- Get to Cercere IV -->
+			<If Condition="not any(IsOnSubMap(x) for x in [4188, 4184])">
+				<!-- From the Hydromantic Terraces -->
+				<If Condition="IsOnSubMap(4190)">
+					<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922"/>
+				</If>
+				<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+				<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<UseTransport NpcId="2013113" InteractDistance="3.0" XYZ="-280.0794, -716.7621, 133.9589"/>
+				</If>
+			</If>
 			<If Condition="not HasQuest(70130)">
 				<MoveTo XYZ="100.869, -718.5288, 206.3945"/>
 				<If Condition="IsQuestAcceptQualified(70130)">
@@ -107,9 +155,16 @@ Authors: DomesticWarlord86
 				<TalkTo NpcId="1043806" XYZ="217.3953, -699.9557, 91.17261" QuestId="70130" StepId="2"/>
 			</If>
 			<If Condition="GetQuestStep(70130) == 3">
-				<If condition="IsOnSubMap(4188)">
-					<MoveTo XYZ="258.5255, -707.9906, 89.73161"/>
-					<UseTransport NpcId="2013112" InteractDistance="3.0" XYZ="259.9318, -706.408, 90.01325" QuestId="70130"/>
+				<!-- Get to Troia Keep -->
+				<If Condition="not any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<!-- From Cercere IV / Penitence -->
+					<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+						<UseTransport NpcId="2013112" InteractDistance="3.0" XYZ="259.9069, -706.4164, 90.01294"/>
+					</If>
+					<!-- From the Hydromantic Terraces -->
+					<If Condition="IsOnSubMap(4190)">
+						<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922"/>
+					</If>
 				</If>
 				<MoveTo XYZ="-0.195353, -698.0104, -149.0991"/>
 				<SimpleDuty InteractNpcId="1043808" XYZ="-0.195353, -698.0104, -149.0991" QuestId="70130" StepId="3">
@@ -117,16 +172,24 @@ Authors: DomesticWarlord86
 						<Hotspot Radius="90" XYZ="0, -698.0104, -162" name="Name"/>
 					</HotSpots>
 					<TargetMobs>
-						<!-- Plundered Pawn -->
-						<TargetMob Id="11408" Weight="1"/>
-						<!-- Plundered Steward -->
-						<TargetMob Id="11410" Weight="1"/>
-						<!-- Plundered Butler -->
-						<TargetMob Id="11409" Weight="1"/>
-						<!-- Scarmiglione -->
-						<TargetMob Id="11407" Weight="1"/>
+						<TargetMob Id="11408" Name="Plundered Pawn" Weight="1"/>
+						<TargetMob Id="11410" Name="Plundered Steward" Weight="1"/>
+						<TargetMob Id="11409" Name="Plundered Butler" Weight="1"/>
+						<TargetMob Id="11407" Name="Scarmiglione" Weight="1"/>
+						<TargetMob Id="11414" Name="Filthy Shackle" Weight="1000"/>
 					</TargetMobs>
 				</SimpleDuty>
+			</If>
+			<!-- Get to Troia Keep -->
+			<If Condition="not any(IsOnSubMap(x) for x in [4189, 4185, 4187]) and GetQuestStep(70130) &gt;= 4">
+				<!-- From Cercere IV / Penitence -->
+				<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+					<UseTransport NpcId="2013112" InteractDistance="3.0" XYZ="259.9069, -706.4164, 90.01294"/>
+				</If>
+				<!-- From the Hydromantic Terraces -->
+				<If Condition="IsOnSubMap(4190)">
+					<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922"/>
+				</If>
 			</If>
 			<If Condition="GetQuestStep(70130) == 4">
 				<WaitWhile condition="GetQuestStep(70130) == 4"/>
@@ -140,15 +203,33 @@ Authors: DomesticWarlord86
 		<!-- Groping in the Dark -->
 		<If Condition="IsQuestCompleted(70130) and not IsQuestCompleted(70131)">
 			<If Condition="not HasQuest(70131)">
+				<!-- Get to Troia Keep -->
+				<If Condition="not any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<!-- From Cercere IV / Penitence -->
+					<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+						<UseTransport NpcId="2013112" InteractDistance="3.0" XYZ="259.9069, -706.4164, 90.01294"/>
+					</If>
+					<!-- From the Hydromantic Terraces -->
+					<If Condition="IsOnSubMap(4190)">
+						<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922"/>
+					</If>
+				</If>
 				<MoveTo XYZ="-1.645096, -698.0104, -139.2485"/>
 				<If Condition="IsQuestAcceptQualified(70131)">
 					<PickupQuest QuestId="70131" NpcId="1043815"/>
 				</If>
 			</If>
 			<If Condition="GetQuestStep(70131) == 1">
-				<If condition="IsOnSubMap(4185)">
-					<MoveTo XYZ="0.1068184, -694.0022, -230.9227"/>
-					<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.02930583, -692.6403, -232.4083" QuestId="70131"/>
+				<!-- Get to the Hydromantic Terraces -->
+				<If Condition="not IsOnSubMap(4190)">
+					<!-- From Cercere IV / Penitence -->
+					<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+						<UseTransport NpcId="1044018" InteractDistance="3.0" XYZ="-24.5213, -718.0016, 137.1938"/>
+					</If>
+					<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+					<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+						<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.01519775, -692.6528, -232.4102"/>
+					</If>
 				</If>
 				<If Condition="GetQuestStep(70131) == 1 and GetQuestById(70131).QuestI8A == 0">
 					<MoveTo XYZ="3.007817, 350.7502, -44.68196"/>
@@ -164,21 +245,55 @@ Authors: DomesticWarlord86
 				</If>
 			</If>
 			<If Condition="GetQuestStep(70131) == 2">
-				<If condition="IsOnSubMap(4190)">
-					<MoveTo XYZ="16.1412, 350.0006, 11.36786"/>
-					<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922" QuestId="70131"/>
+				<!-- Get to Troia Keep -->
+				<If Condition="not any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<!-- From Cercere IV / Penitence -->
+					<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+						<UseTransport NpcId="2013112" InteractDistance="3.0" XYZ="259.9069, -706.4164, 90.01294"/>
+					</If>
+					<!-- From the Hydromantic Terraces -->
+					<If Condition="IsOnSubMap(4190)">
+						<UseTransport NpcId="2013115" InteractDistance="3.0" XYZ="14.23663, 351.278, 14.38922"/>
+					</If>
 				</If>
 				<TalkTo NpcId="1043814" XYZ="0.6866455, -698.0104, -139.7574" QuestId="70131" StepId="2"/>
 			</If>
-			<If Condition="GetQuestStep(70131) == 3">
-				<If condition="IsOnSubMap(4185)">
-					<MoveTo XYZ="-0.3209899, -694.0022, -228.8804"/>
-					<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.01519775, -692.6528, -232.4102" QuestId="70131"/>
+			<!-- Get to the Hydromantic Terraces -->
+			<If Condition="not IsOnSubMap(4190) and GetQuestStep(70131) &gt;= 3">
+				<!-- From Cercere IV / Penitence -->
+				<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+					<UseTransport NpcId="1044018" InteractDistance="3.0" XYZ="-24.5213, -718.0016, 137.1938"/>
 				</If>
+				<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+				<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+					<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.01519775, -692.6528, -232.4102"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70131) == 3">
 				<TalkTo NpcId="1043816" XYZ="13.59576, 359.1992, -110.1244" QuestId="70131" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(70131) == 255">
 				<TurnIn QuestId="70131" NpcId="1043822" XYZ="-30.04504, -0.5095379, 33.79871"/>
+			</If>
+		</If>
+
+		<!-- Get back to Zero's Domain to resume -->
+		<If Condition="any(not IsQuestCompleted(x) for x in [70132, 70133, 70134])">
+			<!-- Should already be in (1089) MSQ copy of Troia from previous resuming fix -->
+			<If Condition="not IsOnMap(1077)">
+				<!-- Get to the Hydromantic Terraces -->
+				<If Condition="not IsOnSubMap(4190)">
+					<!-- From Cercere IV / Penitence -->
+					<If Condition="any(IsOnSubMap(x) for x in [4188, 4184])">
+						<UseTransport NpcId="1044018" InteractDistance="3.0" XYZ="-24.5213, -718.0016, 137.1938"/>
+					</If>
+					<!-- From Troia Keep / Seat of the Foremost / Pilgrim's Ascent -->
+					<If Condition="any(IsOnSubMap(x) for x in [4189, 4185, 4187])">
+						<UseTransport NpcId="2013114" InteractDistance="3.0" XYZ="0.01519775, -692.6528, -232.4102"/>
+					</If>
+				</If>
+				<!-- Get to Zero's Domain from the Hydromantic Terraces -->
+				<UseTransport NpcId="2013044" InteractDistance="3.0" XYZ="15.54889, 360.3723, -114.58"/>
 			</If>
 		</If>
 
@@ -275,6 +390,11 @@ Authors: DomesticWarlord86
 		<!-- A World with Light and Life -->
 		<If Condition="IsQuestCompleted(70134) and not IsQuestCompleted(70135)">
 			<If Condition="not HasQuest(70135)">
+				<!-- Get to the Meghaduta-->
+				<If Condition="not IsOnMap(1078)">
+					<GetTo ZoneId="963" XYZ="-350.2404, 55, -81.31531"/>
+					<UseTransport NpcId="1043820" InteractDistance="3.0" XYZ="-350.2404, 55, -81.31531"/>
+				</If>
 				<If Condition="IsQuestAcceptQualified(70135)">
 					<PickupQuest QuestId="70135" NpcId="1043848"/>
 				</If>
@@ -296,7 +416,7 @@ Authors: DomesticWarlord86
 				<TalkTo NpcId="1037318" XYZ="-4.104736, 2.999994, -203.8758" QuestId="70135" StepId="4"/>
 			</If>
 			<If Condition="GetQuestStep(70135) == 5">
-				<GetTo ZoneId="963" XYZ="-32.99898, 0.5999405, -72.56114"/>
+				<GetTo ZoneId="963" XYZ="-33.70721, 1.327454, -74.54034"/>
 				<TalkTo NpcId="1043852" XYZ="-32.29533, 0.5999077, -74.66415" QuestId="70135" StepId="5"/>
 			</If>
 			<If Condition="GetQuestStep(70135) == 6">
