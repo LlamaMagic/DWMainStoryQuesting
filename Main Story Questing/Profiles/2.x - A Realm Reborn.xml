@@ -2415,6 +2415,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(66347) and not IsQuestCompleted(66347) and GetQuestStep(66347) == 1">
 			<GetTo ZoneId="135" XYZ="703.5171, 65.78333, -288.777"/>
+			<LLToast message="This duty will fail if you're on a class that has an AOE ability. Turn off AOEs for this fight."/>
 			<SimpleDuty InteractNpcId="1006265" XYZ="703.5171, 65.78333, -288.777" QuestId="66347" StepId="1">
 				<HotSpots>
 					<HotSpot XYZ="704.4213, 65.78333, -290.6796" Radius="30"/>
