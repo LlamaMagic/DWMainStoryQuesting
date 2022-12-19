@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Profile: Baelsar's Wall
+Authors: DomesticWarlord
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- Dungeon Constants -->
+	<!ENTITY DungeonDrops "">
+	<!ENTITY Plugins "Trust,SideStep">
+	<!ENTITY ZoneId "615">
+	<!ENTITY DutyId "219">
+
+	<!ENTITY Shortcut "2000700">
+
+	<!ENTITY FirstBoss "5560"> <!-- Magitek Predator -->
+	<!ENTITY Boss1SubZone "1862">
+	<!ENTITY SecondBoss "5562"> <!-- Armored Weapon -->
+	<!ENTITY Boss2SubZone "1863">
+	<!ENTITY ThirdBoss "5564"> <!-- The Griffin -->
+	<!ENTITY Boss3SubZone "1864">
+]>
+
+<Profile>
+	<Name>Baelsar's Wall</Name>
+	<Order>
+
+		<EnablePlugin name="&Plugins;" />
+
+		<If condition="not IsOnMap(&ZoneId;)">
+			<JoinDuty DutyId="&DutyId;" />
+		</If>
+
+		<If condition="IsOnMap(&ZoneId;)">
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(&Shortcut;)">
+				<UseShortcut NpcId="2000700" Distance="20" />
+			</If>
+
+			<!-- Clear all barricades 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0">
+				<Log Message="Clear all barricades: 0/1" />
+				<MoveTo XYZ="-160.7265, -4.531163, -64.10361" />
+				<While Condition="GameObjectManager.GetObjectByNPCId(2007571).IsVisible">
+					<Grind GrindRef="IndentificationKey1" While="not GameObjectManager.GetObjectByNPCId(2007567)" />
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007567) and not GameObjectManager.GetObjectByNPCId(2007567).IsVisible" />
+					<UseObject NpcId="2007567" InteractDistance="3.0" XYZ="-206.0231, 2.815013, -48.89774" condition="GetInstanceTodo(0) == 0" />
+					<UseTransport NpcId="2007571" InteractDistance="5.0" XYZ="-206.0231, 2.815013, -48.89774" />
+				</While>
+				<While Condition="GameObjectManager.GetObjectByNPCId(2007572).IsVisible">
+					<Grind GrindRef="IndentificationKey2" While="not GameObjectManager.GetObjectByNPCId(2007568)" />
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007568) and not GameObjectManager.GetObjectByNPCId(2007568).IsVisible" />
+					<UseObject NpcId="2007568" XYZ="-176.6354, 1.949923, 9.043024" condition="GetInstanceTodo(0) == 0" />
+					<UseTransport NpcId="2007572" InteractDistance="5.0" XYZ="-187.0832, 2.707914, 19.03147" />
+				</While>
+				<WaitWhile condition="GetInstanceTodo(1) == 0" />
+			</If>
+
+			<!-- Defeat the magitek predator: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat the magitek predator: 0/1" />
+				<If condition="not IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-174.0305, 2.926746, 73.21541" InCombat="True" />
+				</If>
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(2) == 0" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-158.9838,2.914429,72.98389" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Slay all the imperial defenders: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Slay all the imperial defenders: 0/1" />
+				<If condition="IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-137.1831, 2.320596, 72.99578" />
+					<LLChangeZone Heading="1.621482" />
+				</If>
+				<If condition="IsOnSubMap(1866)">
+					<While Condition="GameObjectManager.GetObjectByNPCId(2007580).IsVisible and GameObjectManager.GetObjectByNPCId(2007580).IsVisible">
+						<UseTransport NpcId="2007580" InteractDistance="3.0" XYZ="-0.003808878, -299.7603, 0.024599" />
+					</While>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-13.3822,-300.0077,13.29053" />
+						<LLOpenChest />
+					</If>
+					<MoveTo XYZ="99.56846, -299.9657, -0.1087802" UseMesh="False" />
+				</If>
+			</If>
+
+			<!-- Defeat the armored weapon: 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Defeat the armored weapon: 0/1" />
+				<If condition="IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-137.1831, 2.320596, 72.99578" />
+					<LLChangeZone Heading="1.621482" />
+				</If>
+				<If condition="IsOnSubMap(1866)">
+					<MoveTo XYZ="99.56846, -299.9657, -0.1087802" UseMesh="False" />
+				</If>
+				<MoveTo XYZ="115.1491, -299.9743, 0.2807393" InCombat="True" />
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(4) == 0" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="130.6019,-299.9771,0.01519775" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Clear the parapet: 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Clear the parapet: 0/1" />
+				<If condition="IsOnSubMap(&Boss2SubZone;)">
+					<MoveTo XYZ="173.3254, -299.1754, 0.02358761" />
+					<LLChangeZone Heading="1.596307" />
+				</If>
+				<While Condition="GameObjectManager.GetObjectByNPCId(2007573).IsVisible and GameObjectManager.GetObjectByNPCId(2007573).IsVisible">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="312.0012,168.9631,216.5103" />
+						<LLOpenChest />
+					</If>
+					<Grind GrindRef="IndentificationKey1" While="not GameObjectManager.GetObjectByNPCId(2007569) and GetInstanceTodo(0) == 0" />
+					<UseObject NpcId="2007569" XYZ="326.3751,168.8526,230.6707" condition="GetInstanceTodo(0) == 0" />
+					<UseTransport NpcId="2007573" InteractDistance="3.0" XYZ="320.9216, 169.868, 243.9768" />
+				</While>
+				<MoveTo XYZ="366.8174, 212, 392.1252" />
+			</If>
+
+			<!-- Defeat the Griffin: 0/1 -->
+			<If Condition="GetInstanceTodo(6) == 0 and GetInstanceTodo(5) == 1">
+				<Log Message="Defeat the Griffin: 0/1" />
+				<If condition="not IsOnSubMap(&Boss3SubZone;)">
+					<MoveTo XYZ="351.8701, 212, 391.9962" />
+				</If>
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="342.6107,211.9935,392.0195" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+		</If>
+
+	</Order>
+
+	<GrindAreas>
+		<GrindArea name="IndentificationKey1">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-204.1512, -0.9419165, -63.20399" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5547" Weight="1" /> <!-- 3rd Cohort Hoplomachus -->
+				<TargetMob Id="5550" Weight="1" /> <!-- 3rd Cohort Secutor -->
+				<TargetMob Id="5548" Weight="1" /> <!-- 3rd Cohort Laquearius -->
+				<TargetMob Id="5553" Weight="1" /> <!-- Magitek Sky Armor -->
+				<TargetMob Id="5546" Weight="1" /> <!-- 3rd Cohort Canis Pugnax -->
+				<TargetMob Id="5552" Weight="1" /> <!-- 3rd Cohort Sagittarius -->
+				<TargetMob Id="5551" Weight="1" /> <!-- 3rd Cohort Signifer -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="IndentificationKey2">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-176.6354, 1.949923, 9.043024" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5547" Weight="1" /> <!-- 3rd Cohort Hoplomachus -->
+				<TargetMob Id="5550" Weight="1" /> <!-- 3rd Cohort Secutor -->
+				<TargetMob Id="5553" Weight="1" /> <!-- Magitek Sky Armor -->
+				<TargetMob Id="5551" Weight="1" /> <!-- 3rd Cohort Signifer -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-174.0305, 2.926746, 73.21541" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5560" Weight="1" /> <!-- Magitek Predator -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="115.9632, -299.9743, 0.05996444" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5562" Weight="1" /> <!-- Armored Weapon -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="IndentificationKey3">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="323.3837, 169.0553, 232.5653" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5550" Weight="1" /> <!-- 3rd Cohort Secutor -->
+				<TargetMob Id="5549" Weight="1" /> <!-- 3rd Cohort Eques -->
+				<TargetMob Id="5592" Weight="1" /> <!-- Lance-wielding Loyalist -->
+				<TargetMob Id="5590" Weight="1" /> <!-- Sword-wielding Loyalist -->
+				<TargetMob Id="5591" Weight="1" /> <!-- Axe-wielding Loyalist -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="351.8701, 212, 391.9962" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5564" Weight="1" /> <!-- The Griffin -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks> </CodeChunks>
+</Profile>
