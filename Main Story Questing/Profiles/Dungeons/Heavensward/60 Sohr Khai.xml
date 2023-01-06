@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sohr Khai
+  Authors: DomesticWarlord86
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- Dungeon Constants -->
+	<!ENTITY DungeonDrops "15359,15360,15361,15362,15363,15364,15401,15402,15403,15404,15395,15396,15397,15398,15399,15400,15417,15418,15419,15420,15371,15372,15373,15374,15375,15376,15389,15390,15391,15392,15393,15394,15413,15414,15415,15416,15383,15384,15385,15386,15387,15388,15365,15366,15367,15368,15369,15370,15405,15406,15407,15408,15377,15378,15379,15380,15381,15382,15409,15410,15411,15412">
+	<!ENTITY HraesvelgrCard "15872">
+	<!ENTITY Plugins "Trust,SideStep">
+	<!ENTITY ZoneId "555">
+	<!ENTITY DutyId "171">
+
+	<!ENTITY Shortcut "2000700">
+
+	<!ENTITY FirstBoss "4805"> <!-- Chieftain Moglin -->
+	<!ENTITY Boss1SubZone "1767">
+	<!ENTITY SecondBoss "4952"> <!-- Poqhiraj -->
+	<!ENTITY Boss2SubZone "1768">
+	<!ENTITY ThirdBoss1 "4954"> <!-- Hraesvelgr -->
+	<!ENTITY Boss3SubZone "1769">
+]>
+
+<Profile>
+	<Name>Sohr Khai</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
+			<UserDialog IsBotContinueAllowed="True" DialogText="The final boss in Sohr Khai requires you to jump between pillars during the boss fight\nUnfortunatly RB can't do this.\nThus we can't support the final fight.\nWe'll pop up another message when we get there."/>
+			<StopBusy />
+			<LLJoinDuty DutyId="&DutyId;" />
+		</While>
+
+		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(&Shortcut;)">
+				<UseShortcut NpcId="&Shortcut;" Distance="20" />
+			</If>
+
+			<!-- Overcome Unsevered Despair 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Overcome Unsevered Despair 0/1" />
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-399.8932,7.980469,-170.428" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Overcome Unstifled Prayer 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+				<Log Message="Overcome Unstifled Prayer 0/1" />
+				<If condition="IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-399.9006, 9.299995, -183.2653" />
+					<LLChangeZone Heading="3.12037" />
+				</If>
+				<If condition="IsOnSubMap(1771) or IsOnSubMap(1706)">
+					<Grind GrindRef="ClearToSecondBoss" while="DistanceSqrTo('399.8265, 8.446574, 209.5932') &gt; 5" />
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="412.0698,8.407715,173.9375" />
+						<LLOpenChest />
+					</If>
+					<MoveTo XYZ="399.9844, 9.619997, 156.812" />
+					<RunCode name="Fly" />
+				</If>
+				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(1) == 0" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="400.0151,24.94836,88.12085" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Defeat Hraesvelgr 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 1  and GetInstanceTodo(2) == 0">
+				<Log Message="Defeat Hraesvelgr 0/1" />
+				<If condition="IsOnSubMap(&Boss2SubZone;)">
+					<MoveTo XYZ="400.0151,24.94836,88.12085" />
+					<LLChangeZone Heading="3.126039" />
+				</If>
+				<UserDialog IsBotContinueAllowed="False" DialogText="You're on your own from here.\nPlease manually complete the rest of the dungeon."/>
+			</If>
+
+			<While condition="IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+
+		</While>
+
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-399.6258,8,-166.724" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4943" Weight="1" /> <!-- Chieftain Moglin -->
+				<TargetMob Id="4928" Weight="1" /> <!-- Cloud Gardener -->
+				<TargetMob Id="4933" Weight="1" /> <!-- Garden Cloudtrap -->
+				<TargetMob Id="4930" Weight="1" /> <!-- Sanctuary Skipper -->
+				<TargetMob Id="4932" Weight="1" /> <!-- Garden Melia -->
+				<TargetMob Id="4931" Weight="1" /> <!-- Garden Sankchinni -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ClearToSecondBoss">
+			<Hotspots>
+				<Hotspot Radius="300" XYZ="399.8265, 8.446574, 209.5932" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4937" Weight="1" /> <!-- Sohr Khai Anzu -->
+				<TargetMob Id="4936" Weight="1" /> <!-- Sohr Khai Cockerel -->
+				<TargetMob Id="4938" Weight="1" /> <!-- Sanctuary Tsanahale -->
+				<TargetMob Id="4939" Weight="1" /> <!-- Kargas -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="400.2289, 24.94836, 121.3855" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4952" Weight="1" /> <!-- Poqhiraj -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SubZone1707">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="400.3213, -60, -90.76403" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4940" Weight="1" /> <!-- Hraesvelgr Broodling -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SubZone1707_2">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="443.7477,-40,-205.0092" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4941" Weight="1" /> <!-- Holy Wyvern -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="400.6256, -60.01379, -399.3439" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4954" Weight="1" /> <!-- Hraesvelgr -->
+				<TargetMob Id="4955" Weight="1" /> <!-- Holy Sprite -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="Fly">
+			<![CDATA[
+			MovementManager.SetFacing(3.088997f);
+			MovementManager.MoveForwardStart();
+			await Coroutine.Wait(-1, () => WorldManager.SubZoneId != 1771);
+			MovementManager.MoveStop();
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+</Profile>
