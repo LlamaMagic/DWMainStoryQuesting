@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Great Gubal Library
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- Dungeon Constants -->
+	<!ENTITY DungeonDrops "">
+	<!ENTITY Plugins "Trust,SideStep">
+	<!ENTITY ZoneId "416">
+	<!ENTITY DutyId "31">
+
+	<!ENTITY Shortcut "2000700">
+
+	<!ENTITY FirstBoss "3923"> <!-- Demon Tome -->
+	<!ENTITY Boss1SubZone "1623">
+	<!ENTITY SecondBoss "3925"> <!-- Byblos -->
+	<!ENTITY Boss2SubZone "1624">
+	<!ENTITY ThirdBoss "3930"> <!-- The Everliving Bibliotaph -->
+	<!ENTITY Boss3SubZone "1625">
+]>
+<Profile>
+	<Name>The Great Gubal Library</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
+			<StopBusy />
+			<LLJoinDuty DutyId="&DutyId;" />
+		</While>
+
+		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(&Shortcut;)">
+				<UseShortcut NpcId="&Shortcut;" Distance="20" />
+			</If>
+
+			<!-- Defeat the demon tome: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Defeat the demon tome: 0/1" />
+				<If condition="not IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-17.95066, 0, 0.00487784" />
+				</If>
+				<Grind grindRef="Firstboss" While="GetInstanceTodo(0) == 0" /> <!-- Fight Demon Tome -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="12.19196,-0.01531982,0.04577637" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Defeat Byblos: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat Byblos: 0/1" />
+				<If condition="not IsOnSubMap(&Boss2SubZone;)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="49.88171,-9.018127,75.82202" />
+						<LLOpenChest />
+					</If>
+					<MoveTo XYZ="177.4971, -8, 50.52936" />
+				</If>
+				<Grind grindRef="SecondBoss" While="GetInstanceTodo(1) == 0" /> <!-- Fight Byblos -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="177.9659,-8.011047,9.567322" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Defeat the Everliving Bibliotaph: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat the Everliving Bibliotaph: 0/1" />
+				<If condition="not IsOnSubMap(&Boss3SubZone;)">
+					<MoveTo XYZ="356.933, -39, -59.91407" />
+				</If>
+				<Grind grindRef="ThirdBoss" While="not IsDutyEnded()" /> <!-- Fight the Everliving Bibliotaph -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="385.7328,-39.04791,-59.73907" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+
+		</While>
+
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="Firstboss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-17.95066, 0, 0.00487784" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3923" Weight="1" /> <!-- Demon Tome -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="177.8666, -8, 50.0713" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3915" Weight="100" /> <!-- Page 64 -->
+				<TargetMob Id="3925" Weight="1" /> <!-- Byblos -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ThirdBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="356.933, -39, -59.91407" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3930" Weight="1" /> <!-- The Everliving Bibliotaph -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks> </CodeChunks>
+</Profile>
