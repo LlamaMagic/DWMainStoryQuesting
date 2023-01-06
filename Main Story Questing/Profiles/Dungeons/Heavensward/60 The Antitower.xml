@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Antitower
+  Authors: DomesticWarlord86
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- Dungeon Constants -->
+	<!ENTITY DungeonDrops "14650,14651,14652,14653,14654,14655,14656,14657,14658,14659,14660,14661,14662,14663,14664,14665,14666,14667,14668,14669,14670,14671,14672,14673,14674,14675,14676,14677,14678,14679,14680,14681,14682,14683,14684,14685,14686,14687,14688,14689,14690,14691,14692,14693,14694,14695,14696,14697,14698,14699,14700,14701,14702,14703,14704,14705,14706,14707,14708,14709,14710,14711">
+	<!ENTITY Plugins "Trust,SideStep">
+	<!ENTITY ZoneId "516">
+	<!ENTITY DutyId "141">
+
+	<!ENTITY Shortcut "2000700">
+
+	<!ENTITY FirstBoss "4805"> <!-- Zuro Roggo -->
+	<!ENTITY Boss1SubZone "1696">
+	<!ENTITY SecondBoss "4808"> <!-- Ziggy -->
+	<!ENTITY Boss2SubZone "1697">
+	<!ENTITY ThirdBoss2 "4811"> <!-- Calca -->
+	<!ENTITY ThirdBoss1 "4812"> <!-- Brina -->
+	<!ENTITY ThirdBoss3 "4813"> <!-- Calcabrina -->
+	<!ENTITY Boss3SubZone "1698">
+]>
+
+<Profile>
+	<Name>The Antitower</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
+			<StopBusy />
+			<LLJoinDuty DutyId="&DutyId;" />
+		</While>
+
+		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(&Shortcut;)">
+				<UseShortcut NpcId="&Shortcut;" Distance="20" />
+			</If>
+
+			<!-- Clear the Manifest 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Clear the Manifest 0/1" />
+				<If condition="not IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-315.4307, 220.0002, 130.6754" />
+					<MoveTo XYZ="-354.2007, 255.0002, -1.831028" />
+					<MoveTo XYZ="-365.3401, 290.0002, -136.002" />
+					<MoveTo XYZ="-364.9688, 325, -235.9763" />
+				</If>
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0" />
+				<StopBot/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-364.9501,324.9714,-262.2874" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Clear Where Hearts Leap 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) == 0">
+				<Log Message="Clear Where Hearts Leap 0/1" />
+				<If condition="IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-365.0623, 325.0002, -273.4866" />
+					<LLChangeZone Heading="3.138006" />
+				</If>
+				<If condition="not IsOnSubMap(&Boss2SubZone;)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="191.4243,7.980469,230.9757" />
+						<LLOpenChest />
+					</If>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="151.2626,-4.013123,168.1697" />
+						<LLOpenChest />
+					</If>
+					<MoveTo XYZ="170.7069, -21.99403, 137.3373" />
+				</If>
+				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(1) == 0" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="199.7253,-22.01886,137.4685" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Clear Where All Witness 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 1  and GetInstanceTodo(2) == 0">
+				<Log Message="Clear Where All Witness 0/1" />
+				<If condition="IsOnSubMap(&Boss2SubZone;)">
+					<MoveTo XYZ="213.4265, -22.1, 137.339" />
+					<LLChangeZone Heading="1.596207" />
+				</If>
+				<If condition="not IsOnSubMap(&Boss3SubZone;)">
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="280.2014,0.07623291,-148.8518" />
+						<LLOpenChest />
+					</If>
+					<MoveTo XYZ="245.9878, -9.458686, -184.0491" />
+				</If>
+				<Grind GrindRef="FinalBoss" while="not IsDutyEnded()" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="220.7522,-9.506409,-181.384" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<While condition="IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+
+		</While>
+
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-365.0302, 325, -233.1836" name="FirstBoss" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4805" Weight="1" /> <!-- Zuro Roggo -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="167.8555, -21.99403, 137.5162" name="SecondBoss" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4808" Weight="1" /> <!-- Ziggy -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="232.0115, -9.453531, -182.0346" name="FinalBoss" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4811" Weight="1" /> <!-- Calca -->
+				<TargetMob Id="4812" Weight="1" /> <!-- Brina -->
+				<TargetMob Id="4813" Weight="1"/> <!-- Calcabrina -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks> </CodeChunks>
+</Profile>
