@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Xelphatol
+  Authors: DomesticWarlord86
+
+	Zone Name: Xelphatol | Zone Id: 572
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- Dungeon Constants -->
+	<!ENTITY DungeonDrops "16189,16190,16191,16192,16193,16194,16195,16196,16197,16198,16199,16200,16201,16202,16203,16204,16205,16206,16207,16208,16209,16210,16211,16212,16213,16214,16215,16216,16217,16218,16219,16220,16221,16222,16223,16224,16225,16226,16227,16228,16229,16230,16231,16232,16233,16234,16235,16236,16237,16238,16239,16240,16241,16242,16243,16244,16245,16246,16247,16248,16249,16250">
+	<!ENTITY Plugins "Trust,SideStep">
+	<!ENTITY ZoneId "572">
+	<!ENTITY DutyId "182">
+
+	<!ENTITY Shortcut "2000700">
+
+	<!ENTITY FirstBoss "5265"> <!-- Nuzal Hueloc -->
+	<!ENTITY Boss1SubZone "1789">
+	<!ENTITY SecondBoss "5269"> <!-- Dotoli Ciloc -->
+	<!ENTITY Boss2SubZone "1790">
+	<!ENTITY ThirdBoss "5272"> <!-- Tozol Huatotl -->
+	<!ENTITY Boss3SubZone "1791">
+]>
+
+<Profile>
+	<Name>Xelphatol</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
+			<UserDialog IsBotContinueAllowed="True" DialogText="The final are in Xelphatol with all the airstones and airpads is horribly meshed and RB can't navigate properly there.\nUntil this is fixed the last area will be manual." />
+			<StopBusy />
+			<LLJoinDuty DutyId="&DutyId;" />
+		</While>
+
+		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
+
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(&Shortcut;)">
+				<UseShortcut NpcId="&Shortcut;" Distance="20" />
+			</If>
+
+			<!-- Arrive at the Cage: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the Cage: 0/1" />
+				<MoveTo XYZ="-82.96986, 27.99595, -55.02642" />
+			</If>
+
+			<!-- Defeat Nuzal Hueloc: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat Nuzal Hueloc: 0/1" />
+				<If condition="not IsOnSubMap(&Boss1SubZone;)">
+					<MoveTo XYZ="-82.96986, 27.99595, -55.02642" />
+				</If>
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(1) == 0" /> <!-- Nuzal Hueloc -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-62.66882,27.96973,-79.6369" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Arrive in the Tlachtli: 0/1 Subzone Id: 1787-->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive in the Tlachtli: 0/1" />
+				<MoveTo XYZ="73.60809,25.125,-54.02845" />
+				<MoveTo XYZ="92.65702, 25.3342, -33.30111" usemesh="false" />
+				<Grind GrindRef="BoneKey" while="not GameObjectManager.GetObjectByNPCId(2007397)" />
+				<If Condition="not HasAtLeast(2002008,1) and (GameObjectManager.GetObjectByNPCId(2007373) and GameObjectManager.GetObjectByNPCId(2007373).IsTargetable)">
+					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007397).IsTargetable"/>
+					<UseObject NpcId="2007397" XYZ="159.6897, 55.8125, -52.10928" condition="not HasAtLeast(2002008,1)" />
+				</If>
+				<If Condition="GameObjectManager.GetObjectByNPCId(2007373) and GameObjectManager.GetObjectByNPCId(2007373).IsTargetable and HasAtLeast(2002008,1)">
+					<UseTransport NpcId="2007373" InteractDistance="3.0" XYZ="168.6142, 55.75, -60.83301" condition="HasAtLeast(2002008,1)" />
+				</If>
+				<MoveTo XYZ="170.5027, 55.625, -73.06308" />
+				<MoveTo XYZ="179.9621, 56.75, -80.55515" usemesh="false" />
+				<UseTransport NpcId="2007388" InteractDistance="1.0" XYZ="180.2297, 56.74998, -76.58331" condition="GameObjectManager.GetObjectByNPCId(2007388).IsTargetable" />
+				<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007389).IsTargetable" />
+				<MoveTo XYZ="188.4682, 85.62499, -88.79993" usemesh="false" />
+				<MoveTo XYZ="178.0467, 99.50001, 5.074453" />
+				<MoveTo XYZ="177.8199, 99.5, 28.70321" usemesh="false" />
+				<MoveTo XYZ="227.101, 113.2, 31.63203" />
+			</If>
+
+			<!-- Defeat Dotoli Ciloc: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Defeat Dotoli Ciloc: 0/1" />
+				<If condition="not IsOnSubMap(&Boss2SubZone;)">
+					<MoveTo XYZ="73.60809,25.125,-54.02845" />
+					<MoveTo XYZ="92.65702, 25.3342, -33.30111" usemesh="false" />
+					<MoveTo XYZ="174.0289, 55.875, -65.91994" />
+					<If Condition="GameObjectManager.GetObjectByNPCId(2007388) and GameObjectManager.GetObjectByNPCId(2007388).IsTargetable">
+						<MoveTo XYZ="170.5027, 55.625, -73.06308" />
+						<MoveTo XYZ="179.9621, 56.75, -80.55515" usemesh="false" />
+						<UseTransport NpcId="2007388" InteractDistance="1.0" XYZ="180.2297, 56.74998, -76.58331" condition="GameObjectManager.GetObjectByNPCId(2007388).IsTargetable" />
+						<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007389).IsTargetable" />
+						<MoveTo XYZ="188.4682, 85.62499, -88.79993" usemesh="false" />
+					</If>
+					<If Condition="GameObjectManager.GetObjectByNPCId(2007390 ) and GameObjectManager.GetObjectByNPCId(2007390).IsTargetable">
+						<MoveTo XYZ="180.3826, 55.625, -61.78646" />
+						<MoveTo XYZ="187.8795, 56.75, -72.7291" usemesh="false" Distance="1" />
+						<UseTransport NpcId="2007390 " InteractDistance="1.0" XYZ="188.72,56.74998,-68.09849" condition="GameObjectManager.GetObjectByNPCId(2007390).IsTargetable" />
+						<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007391).IsTargetable" />
+						<MoveTo XYZ="197.3129, 85.625, -80.66755" usemesh="false" />
+					</If>
+					<MoveTo XYZ="178.0467, 99.50001, 5.074453" />
+					<MoveTo XYZ="177.8199, 99.5, 28.70321" usemesh="false" />
+					<MoveTo XYZ="227.101, 113.2, 31.63203" />
+				</If>
+				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(3) == 0" /> <!-- Nuzal Hueloc -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="257.2517,113.4813,1.327454" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Eliminate impeding enemies: 0/1 Subzone Id: 1787-->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Eliminate impeding enemies: 0/1" />
+				<UserDialog IsBotContinueAllowed="True" DialogText="Get the bot to the final boss arena and press continue." condition="not IsOnSubMap(&Boss3SubZone;)"/>
+				<!--
+				<If condition="IsOnSubMap(1790)">
+					<MoveTo XYZ="307.5828, 143.0686, -128.7449" />
+				</If>
+				<If condition="IsOnSubMap(1788)">
+					<If condition="GameObjectManager.GetObjectByNPCId(2007524) and not GameObjectManager.GetObjectByNPCId(2007524).IsTargetable">
+						<Grind GrindRef="Warballoon1" while="not GameObjectManager.GetObjectByNPCId(2007398)" />
+						<If Condition="GameObjectManager.GetObjectByNPCId(2007398)">
+							<UseObject NpcId="2007398" XYZ="159.6897, 55.8125, -52.10928" condition="not HasAtLeast(2002006,1)" />
+						</If>
+						<If Condition="GameObjectManager.GetObjectByNPCId(2007400).IsTargetable and HasAtLeast(2002006,1)">
+							<UseTransport NpcId="2007400 " InteractDistance="3.0" XYZ="168.6142, 55.75, -60.83301" condition="HasAtLeast(2002006,1)" />
+						</If>
+						<MoveTo XYZ="341.7869, 144.8538, -164.3549" Distance="1" />
+						<RunCode Name="AirPad" />
+						<WaitTimer WaitTime="7" />
+					</If>
+					<If
+				condition="DistanceSqrTo('412.8537, 152.1104, -297.9744') &lt; 200">
+						<MoveTo XYZ="420.9049, 150.2004, -264.7406" />
+						<Grind GrindRef="Warballoon2" while="not GameObjectManager.GetObjectByNPCId(2007399)" />
+						<If Condition="GameObjectManager.GetObjectByNPCId(2007399) and GameObjectManager.GetObjectByNPCId(2007399).IsTargetable">
+							<UseObject NpcId="2007399" XYZ="420.9049, 150.2004, -264.7406" condition="not HasAtLeast(2002007,1)" />
+						</If>
+						<If Condition="GameObjectManager.GetObjectByNPCId(2007401).IsTargetable and HasAtLeast(2002007,1)">
+							<UseTransport NpcId="2007401 " InteractDistance="3.0" XYZ="414.55,152.4575,-298.5084" condition="HasAtLeast(2002007,1)" />
+						</If>
+						<MoveTo XYZ="412.8537, 152.1104, -297.9744" Distance="1" />
+						<RunCode Name="AirPad2" />
+						<WaitTimer WaitTime="7" />
+					</If>
+					<MoveTo XYZ="333.8414, 166.8233, -410.4396" />
+				</If>
+				-->
+			</If>
+
+			<!-- Defeat Tozol Huatotl: 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat Tozol Huatotl: 0/1" />
+				<If condition="not IsOnSubMap(&Boss3SubZone;)">
+					<UserDialog IsBotContinueAllowed="False" DialogText="You're on your own from here.\nPlease manually complete the rest of the dungeon." condition="not IsOnSubMap(&Boss3SubZone;)"/>
+				</If>
+				<Grind GrindRef="FinalBoss" while="not IsDutyEnded()" /> <!-- Tozol Huatotl -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="310.2006,166.6437,-418.5397" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+
+		</While>
+
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-73.53333,27.99594,-81.86469" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5265" Weight="1" /> <!-- Nuzal Hueloc -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="BoneKey">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="160.2377, 55.8125, -50.99849" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5256" Weight="1" /> <!-- Xelphatol Strongbeak -->
+				<TargetMob Id="5254" Weight="1" /> <!-- Siege Goobbue -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="245.6336,113.43,13.10691" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5269" Weight="1" /> <!-- Dotoli Ciloc -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Warballoon1">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="307.6328, 142.9995, -148.192" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5260" Weight="1" /> <!-- Xelphatol Watchwolf -->
+				<TargetMob Id="5262" Weight="1" /> <!-- Xelphatol Windtalon -->
+				<TargetMob Id="5261" Weight="1" /> <!-- Xelphatol Swiftbeak -->
+				<TargetMob Id="5255" Weight="1" /> <!-- Xelphatol Bravewing -->
+				<TargetMob Id="5263" Weight="1" /> <!-- Xelphatol Fogcaller -->
+				<TargetMob Id="5274" Weight="1" /> <!-- Warballoon -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Warballoon2">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="420.9049, 150.2004, -264.7406" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5256" Weight="1" /> <!-- Xelphatol Strongbeak -->
+				<TargetMob Id="5259" Weight="1" /> <!-- Abalathian Hornbill -->
+				<TargetMob Id="5274" Weight="1" /> <!-- Warballoon -->
+				<TargetMob Id="5261" Weight="1" /> <!-- Xelphatol Swiftbeak -->
+				<TargetMob Id="5262" Weight="1" /> <!-- Xelphatol Windtalon -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="316.3354,166.664,-416.5758" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5272" Weight="1" /> <!-- Tozol Huatotl -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="AirPad">
+			<![CDATA[
+				Core.Me.SetFacing(2.270736f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(1500);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="AirPad2">
+			<![CDATA[
+				Core.Me.SetFacing(3.349272f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(1500);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+</Profile>
