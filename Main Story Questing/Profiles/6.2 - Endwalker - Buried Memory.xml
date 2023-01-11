@@ -12,18 +12,6 @@ Authors: DomesticWarlord86
 			<LLoadProfile Path="../Start.xml"/>
 		</If>
 
-		<!-- Get back to MSQ copy of Troia to resume -->
-		<If Condition="GetQuestStep(70128) &gt;= 5 or any(not IsQuestCompleted(x) for x in [70129, 70130, 70131, 70132])">
-			<If Condition="not IsOnMap(1089)">
-				<If Condition="not IsOnMap(1050)">
-					<GetTo ZoneId="957" XYZ="-270.3442, 0.07904778, 605.7985"/>
-					<UseTransport NpcId="1044157" InteractDistance="3.0" XYZ="-270.3442, 0.07904778, 605.7985"/>
-				</If>
-
-				<MoveTo XYZ="110.0328, -348.5618, -92.33234"/>
-				<UseTransport NpcId="2013039" InteractDistance="3.0" XYZ="110.0328, -348.5618, -92.33234"/>
-			</If>
-		</If>
 
 		<!-- In Search of Azdaja -->
 		<If Condition="not IsQuestCompleted(70128)">
@@ -393,7 +381,7 @@ Authors: DomesticWarlord86
 				<!-- Get to the Meghaduta-->
 				<If Condition="not IsOnMap(1078)">
 					<GetTo ZoneId="963" XYZ="-350.2404, 55, -81.31531"/>
-					<UseTransport NpcId="1043820" InteractDistance="3.0" XYZ="-350.2404, 55, -81.31531"/>
+					<UseTransport NpcId="1043847" InteractDistance="3.0" XYZ="-350.2404, 55, -81.31531"/>
 				</If>
 				<If Condition="IsQuestAcceptQualified(70135)">
 					<PickupQuest QuestId="70135" NpcId="1043848"/>
