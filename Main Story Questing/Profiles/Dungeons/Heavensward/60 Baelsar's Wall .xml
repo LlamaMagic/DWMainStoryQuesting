@@ -13,7 +13,7 @@ Authors: DomesticWarlord
 	<!-- Dungeon Constants -->
 	<!ENTITY DungeonDrops "17385,17386,17387,17388,17389,17390,17391,17392,17393,17394,17395,17396,17397,17398,17399,17400,17401,17402,17403,17404,17405,17406,17407,17408,17409,17410,17411,17412,17413,17414,17415,17416,17417,17418,17419,17420,17421,17422,17423,17424,17425,17426,17427,17428,17429,17430,17431,17432,17433,17434,17435,17436,17437,17438,17439,17440,17441,17442,17443,17444,17445,17446">
 	<!ENTITY Plugins "Trust,SideStep">
-	<!ENTITY ZoneId "615">
+	<!ENTITY ZoneId "1114">
 	<!ENTITY DutyId "219">
 
 	<!ENTITY Shortcut "2000700">
@@ -32,11 +32,12 @@ Authors: DomesticWarlord
 
 		<EnablePlugin name="&Plugins;" />
 
-		<If condition="not IsOnMap(&ZoneId;)">
-			<JoinDuty DutyId="&DutyId;" />
-		</If>
+		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
+			<StopBusy />
+			<JoinSupportDuty DutyId="&DutyId;" />
+		</While>
 
-		<If condition="IsOnMap(&ZoneId;)">
+		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
 
 			<!-- Shortcut available -->
 			<If condition="IsNearShortcut(&Shortcut;)">
@@ -50,7 +51,9 @@ Authors: DomesticWarlord
 				<While Condition="GameObjectManager.GetObjectByNPCId(2007571).IsVisible">
 					<Grind GrindRef="IndentificationKey1" While="not GameObjectManager.GetObjectByNPCId(2007567)" />
 					<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2007567) and not GameObjectManager.GetObjectByNPCId(2007567).IsVisible" />
-					<UseObject NpcId="2007567" InteractDistance="3.0" XYZ="-206.0231, 2.815013, -48.89774" condition="GetInstanceTodo(0) == 0" />
+					<While condition="GetInstanceTodo(0) == 0">
+						<UseObject NpcId="2007567" InteractDistance="3.0" XYZ="-168.1634, -4.274246, -63.44976" condition="GetInstanceTodo(0) == 0" />
+					</While>
 					<UseTransport NpcId="2007571" InteractDistance="5.0" XYZ="-206.0231, 2.815013, -48.89774" />
 				</While>
 				<While Condition="GameObjectManager.GetObjectByNPCId(2007572).IsVisible">
@@ -135,7 +138,7 @@ Authors: DomesticWarlord
 			<If Condition="GetInstanceTodo(6) == 0 and GetInstanceTodo(5) == 1">
 				<Log Message="Defeat the Griffin: 0/1" />
 				<If condition="not IsOnSubMap(&Boss3SubZone;)">
-					<MoveTo XYZ="351.8701, 212, 391.9962" />
+					<MoveTo XYZ="351.8701, 212, 391.9962" InCombat="True"/>
 				</If>
 				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()" />
 				<If Condition="&openchest; == 1">
@@ -148,7 +151,7 @@ Authors: DomesticWarlord
 				<WaitTimer WaitTime="5" />
 				<LLLeaveDuty />
 			</While>
-		</If>
+		</While>
 
 	</Order>
 
@@ -184,6 +187,7 @@ Authors: DomesticWarlord
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="5560" Weight="1" /> <!-- Magitek Predator -->
+				<TargetMob Id="5561" Weight="10"/> <!-- Sky Armor Reinforcement -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="SecondBoss">
@@ -192,6 +196,7 @@ Authors: DomesticWarlord
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="5562" Weight="1" /> <!-- Armored Weapon -->
+				<TargetMob Id="5554" Weight="10"/> <!-- Magitek Slasher -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="IndentificationKey3">
@@ -212,6 +217,7 @@ Authors: DomesticWarlord
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="5564" Weight="1" /> <!-- The Griffin -->
+				<TargetMob Id="5566" Weight="10"/> <!-- Blade of the Griffin -->
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
