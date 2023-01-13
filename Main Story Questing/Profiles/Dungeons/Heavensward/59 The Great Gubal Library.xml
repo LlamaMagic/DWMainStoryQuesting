@@ -119,6 +119,9 @@
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="3930" Weight="1" /> <!-- The Everliving Bibliotaph -->
+				<TargetMob Id="3932" Weight="1"/> <!-- Bibliomancer -->
+        <TargetMob Id="3931" Weight="1"/> <!-- Biblioklept -->
+        <TargetMob Id="3933" Weight="1"/> <!-- Bibliophile -->
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
