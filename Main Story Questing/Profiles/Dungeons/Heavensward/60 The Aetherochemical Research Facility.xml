@@ -14,7 +14,7 @@
 	<!-- Dungeon Constants -->
 	<!ENTITY DungeonDrops "">
 	<!ENTITY Plugins "Trust,SideStep">
-	<!ENTITY ZoneId "438">
+	<!ENTITY ZoneId "1110">
 	<!ENTITY DutyId "38">
 
 	<!ENTITY Shortcut "2000700">
@@ -36,7 +36,7 @@
 
 		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
 			<StopBusy />
-			<LLJoinDuty DutyId="&DutyId;" />
+			<JoinSupportDuty DutyId="&DutyId;" />
 		</While>
 
 		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
@@ -144,6 +144,7 @@
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="3818" Weight="1" /> <!-- Regula van Hydrus -->
+				<TargetMob Id="3819" Weight="10"/> <!-- Magitek Turret I -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="ClearNodes">
