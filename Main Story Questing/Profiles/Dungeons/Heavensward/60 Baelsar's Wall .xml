@@ -153,6 +153,8 @@ Authors: DomesticWarlord
 			</While>
 		</While>
 
+		<LLoadProfile Path="../../../Start.xml"/>
+
 	</Order>
 
 	<GrindAreas>
