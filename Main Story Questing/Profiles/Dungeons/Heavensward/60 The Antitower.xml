@@ -118,7 +118,7 @@
 				</If>
 			</If>
 
-			<While condition="IsDutyEnded()">
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
 				<WaitTimer WaitTime="5" />
 				<LLLeaveDuty />
 			</While>
