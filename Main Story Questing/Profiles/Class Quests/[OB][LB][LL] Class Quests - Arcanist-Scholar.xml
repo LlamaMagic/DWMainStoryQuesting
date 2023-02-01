@@ -1745,6 +1745,12 @@
 	</Order>
 
 	<CodeChunks>
+		<CodeChunk Name="LeaveParty">
+			<![CDATA[
+				ChatManager.SendChat("/pcmd leave");
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+			]]>
+		</CodeChunk>
 		<CodeChunk Name="Coffer">
 			<![CDATA[
 				foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
