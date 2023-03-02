@@ -33,15 +33,9 @@ Some steps need to be completed manually -- a popup will appear with a "ding" so
 
 -   Quest `Lv. 53: Lord of the Hive` requires the 8-player trial `Lv. 53: Thok ast Thok (Hard)`.
 -   Quest `Lv. 57: Bolt, Chain, and Island` requires the 8-player trial `Lv. 57: The Limitless Blue (Hard)`.
--   ~~Quest `Lv. 59: Forbidden Knowledge` requires the 4-player dungeon `Lv. 59: The Great Gubal Library`.~~
--   ~~Quest `Lv. 60: Heavensward` requires the 4-player dungeon `Lv. 60: The Aetherochemical Research Facility`.~~
 -   Quest `Lv. 60: Heavensward` requires the 8-player trial `Lv. 60: The Singularity Reactor`.
--   ~~Quest `Lv. 60: The Word of the Mother` requires the 4-player dungeon `Lv. 60: The Antitower`.~~
--   ~~Quest `Lv. 60: Winning Over the Wyrm` requires the 4-player dungeon `Lv. 60: Sohr Khai`.~~
 -   Quest `Lv. 60: An End to the Song` requires the 8-player trial `Lv. 60: The Final Steps of Faith`.
--   ~~Quest `Lv. 60: Shadows of the First` requires the 4-player dungeon `Lv. 60: Xelphatol`.~~
 -   Quest `Lv. 60: The Beast That Mourned at the Heart of the Mountain` requires the 8-player trial `Lv. 50: The Navel (Hard)`.
--   ~~Quest `Lv. 60: Griffin, Griffin on the Wall` requires the 4-player dungeon `Lv. 60: Baelsar's Wall`.~~
 -   Quest `Lv. 60: Fly Free, My Pretty` requires a solo duty.
 
 ### 4.x: Stormblood Manual Steps
