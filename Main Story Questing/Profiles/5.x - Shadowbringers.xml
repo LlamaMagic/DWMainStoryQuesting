@@ -1459,7 +1459,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 					</While>
 					<RunCode Name="68441_Use_Bindings"/>
 				</If>
-				<Grind grindRef="68441_Fight_Ranjit" while="not QuestLogManager.InCutscene"/>
+				<Grind grindRef="68441_Fight_Ranjit" while="not ff14bot.Managers.QuestLogManager.InCutscene"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
 			</If>
 			<If Condition="GetQuestStep(68841) == 255">
@@ -3276,7 +3276,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<MoveTo XYZ="-490.4012, 11.55268, -230.2767"/>
 				<RunCode Name="69142_Move_1"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
-				<Grind grindRef="69142_Fight_8" while="not QuestLogManager.InCutscene"/>
+				<Grind grindRef="69142_Fight_8" while="not ff14bot.Managers.QuestLogManager.InCutscene"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
 			</If>
 			<If Condition="GetQuestStep(69142) == 255">
@@ -4062,7 +4062,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				</If>
 				<RunCode Name="69167_Move_1"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
-				<Grind grindRef="69167_Fight_Ranjit" while="Core.Me.IsAlive and DutyManager.InInstance and NumAttackableEnemies(60, Array[int]([8374,8652])) &gt; 0 and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+				<Grind grindRef="69167_Fight_Ranjit" while="Core.Me.IsAlive and DutyManager.InInstance and NumAttackableEnemies(60, Array[int]([8374,8652])) &gt; 0 and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
 			</If>
 			<If Condition="GetQuestStep(69167) == 255">
@@ -4380,10 +4380,10 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 					<RunCode Name="Wait_For_Enemies"/>
 				</If>
 				<Grind grindRef="69174_Fight_4" while="NumAttackableEnemies(40, Array[int]([8310,8308,8219,8264])) &gt; 0 and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
-				<WaitWhile Condition="not QuestLogManager.InCutscene"/>
+				<WaitWhile Condition="not ff14bot.Managers.QuestLogManager.InCutscene"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
 				<RunCode Name="69174_Move_1"/>
-				<Grind grindRef="69174_Fight_5" while="Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > 0)"/>
+				<Grind grindRef="69174_Fight_5" while="Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > 0)"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
 			</If>
 			<If Condition="GetQuestStep(69174) == 255">
@@ -5589,7 +5589,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			</If>
 			<If Condition="GetQuestStep(69299) == 255">
 				<TurnIn QuestId="69299" NpcId="1032502" XYZ="629.0836, 94.39156, -644.9836"/>
-				<WaitWhile Condition="QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading or GetQuestStep(69299) == 255 or HasQuest(69299) or not IsQuestCompleted(69299)"/>
+				<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading or GetQuestStep(69299) == 255 or HasQuest(69299) or not IsQuestCompleted(69299)"/>
 			</If>
 		</If>
 		<!-- Facing the Truth (Level 80) -->
@@ -5639,7 +5639,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			<If Condition="GetQuestStep(69300) == 255">
 				<GetTo ZoneId="819" XYZ="27.93359, 0, -3.469031"/>
 				<TurnIn QuestId="69300" NpcId="1032503" XYZ="29.70923, 0, -0.869812" RewardSlot="3"/>
-				<WaitWhile Condition="not IsOnMap(844) and (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and not IsQuestCompleted(69300)"/>
+				<WaitWhile Condition="not IsOnMap(844) and (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and not IsQuestCompleted(69300)"/>
 			</If>
 		</If>
 		<!-- A Sleep Disturbed (Level 80) -->
@@ -5668,13 +5668,13 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<RunCode Name="69301_Statue_2"/>
 				<RunCode Name="69301_Statue_3"/>
 				<RunCode Name="69301_Cards"/>
-				<WaitWhile Condition="not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
+				<WaitWhile Condition="not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
-				<Grind grindRef="69301_Fight" while="NumAttackableEnemies(90, Array[int]([9296])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+				<Grind grindRef="69301_Fight" while="NumAttackableEnemies(90, Array[int]([9296])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 				<If Condition="Core.Me.IsAlive and DutyManager.InInstance">
 					<NoCombatMoveTo XYZ="100.013, 0, 109.9853" Distance="1" UseMesh="False"/>
 				</If>
-				<WaitWhile Condition="DutyManager.InInstance or not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
+				<WaitWhile Condition="DutyManager.InInstance or not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
 				<RunCode Name="Handle_Cutscene_Talking"/>
 			</If>
 			<If Condition="GetQuestStep(69301) == 255">
@@ -5819,7 +5819,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			</If>
 			<If Condition="GetQuestStep(69305) == 255">
 				<TurnIn QuestId="69305" NpcId="1032549" XYZ="-1.907471, -200, -425.1011"/>
-				<WaitWhile Condition="not IsOnMap(814) or QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+				<WaitWhile Condition="not IsOnMap(814) or ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
 			</If>
 		</If>
 		<!-- Echoes of the Fallen Star (Level 80) -->
@@ -5830,7 +5830,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			</If>
 			<If Condition="IsQuestAcceptQualified(69306)">
 				<PickupQuest QuestId="69306" NpcId="1032539"/>
-				<WaitWhile Condition="not IsOnMap(819) or QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+				<WaitWhile Condition="not IsOnMap(819) or ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
 			</If>
 		</If>
 		<If Condition="GetQuestStep(69306) &gt; 0">
@@ -6020,7 +6020,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			<If Condition="HasQuest(69310) and GetQuestStep(69310) == 255">
 				<TurnIn QuestId="69310" NpcId="1033822" XYZ="39.6886, 7.450581E-09, -0.8392944" RewardSlot="4"/>
 			</If>
-			<WaitWhile Condition="not IsQuestCompleted(69310) and (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
+			<WaitWhile Condition="not IsQuestCompleted(69310) and (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
 			<WaitTimer WaitTime="5"/>
 		</If>
 		<!-- Faded Memories (Level 80) -->
@@ -6041,7 +6041,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			</If>
 			<FlyTo XYZ="-495.079, 8.986954, 604.2725"/>
 			<LLTalkTo InteractDistance="3.0" QuestId="69311" StepId="1" NpcId="1033827" XYZ="-495.079, 8.986954, 604.2725"/>
-			<WaitWhile Condition="(GetQuestStep(69311) == 2 or GetQuestStep(69311) == 1) and (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
+			<WaitWhile Condition="(GetQuestStep(69311) == 2 or GetQuestStep(69311) == 1) and (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
 		</If>
 		<If Condition="GetQuestStep(69311) == 3">
 			<RunCode Name="Enable_SideStep"/>
@@ -6056,26 +6056,26 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			</If>
 			<MoveTo XYZ="-110.1903, -283.1755, 229.2498"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Scion_Fight" while="NumAttackableEnemies(90, Array[int]([5573,9666,8378,9348])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Scion_Fight" while="NumAttackableEnemies(90, Array[int]([5573,9666,8378,9348])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<RunCode Name="69311_TalkTo_Elidibus"/>
 			<MoveTo XYZ="-125.848, -281.1093, 175.7643" Distance="1"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Garlean_Fight" while="NumAttackableEnemies(90, Array[int]([2135,2160,2118,2136])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Garlean_Fight" while="NumAttackableEnemies(90, Array[int]([2135,2160,2118,2136])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-183.7623, -281.1093, 201.4892" Distance="1"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Braves_Fight" while="NumAttackableEnemies(90, Array[int]([9671,9672,9674])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Braves_Fight" while="NumAttackableEnemies(90, Array[int]([9671,9672,9674])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-185.8141, -281.1093, 254.3868"/>
 			<RunCode Name="69311_TalkTo_Elidibus"/>
 			<WaitTimer WaitTime="15"/>
 			<MoveTo XYZ="-251.1172, -266.0001, 309.76"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Thordan_Fight" while="NumAttackableEnemies(90, Array[int]([3633,3639,3632,3642])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Thordan_Fight" while="NumAttackableEnemies(90, Array[int]([3633,3639,3632,3642])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-143.0925, -266.0001, 357.7344"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_GrandMelee_Fight" while="NumAttackableEnemies(90, Array[int]([9675,7869,4739])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_GrandMelee_Fight" while="NumAttackableEnemies(90, Array[int]([9675,7869,4739])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-238.3472, -266.0001, 438.203"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Nidhogg_Fight" while="Core.Me.InCombat and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Nidhogg_Fight" while="Core.Me.InCombat and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-270.2758, -266.0001, 448.6875"/>
 			<MoveTo XYZ="-298.0247, -244.7374, 514.3093"/>
 			<RunCode Name="69311_TalkTo_Elidibus"/>
@@ -6083,18 +6083,18 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			<MoveTo XYZ="-328.4694, -229.1866, 583.8859"/>
 			<MoveTo XYZ="-333.2404, -229.1863, 602.3821"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Steppe_Fight" while="NumAttackableEnemies(90, Array[int]([9676,5576,9677])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Steppe_Fight" while="NumAttackableEnemies(90, Array[int]([9676,5576,9677])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-296.544, -229.1864, 615.466"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Doma_Fight" while="NumAttackableEnemies(90, Array[int]([6148,9678])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Doma_Fight" while="NumAttackableEnemies(90, Array[int]([6148,9678])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<MoveTo XYZ="-317.2593, -229.1862, 611.8515"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Zenos_Fight" while="NumAttackableEnemies(90, Array[int]([6042,6041,6040])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Zenos_Fight" while="NumAttackableEnemies(90, Array[int]([6042,6041,6040])) &gt; 0 and Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<RunCode Name="69311_TalkTo_Elidibus"/>
-			<WaitWhile Condition="not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
+			<WaitWhile Condition="not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading)"/>
 			<RunCode Name="Handle_Cutscene_Talking"/>
 			<RunCode Name="Wait_For_Enemies"/>
-			<Grind grindRef="69311_Ardbert_Fight" while="Core.Me.IsAlive and DutyManager.InInstance and not (QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
+			<Grind grindRef="69311_Ardbert_Fight" while="Core.Me.IsAlive and DutyManager.InInstance and not (ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading) and (Core.Player.CurrentHealth > (Core.Player.CurrentHealth * 0.15))"/>
 			<RunCode Name="Handle_Cutscene_Talking"/>
 		</If>
 		<If Condition="GetQuestStep(69311) == 255">
@@ -6206,7 +6206,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			<If Condition="not IsOnMap(820)">
 				<TeleportTo Name="Eulmore" AetheryteId="134"/>
 			</If>
-			<WaitWhile Condition="not GetQuestStep(69315) == 255 or QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<WaitWhile Condition="not GetQuestStep(69315) == 255 or ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
 		</If>
 		<If Condition="GetQuestStep(69315) == 255">
 			<FlyTo XYZ="19.3978, 82.78207, 46.4575" Land="True"/>
@@ -6275,7 +6275,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<UseTransport NpcId="1030533" InteractDistance="3.0" XYZ="117.9979, 14.64903, 7.156433"/>
 			</If>
 			<LLTalkTo InteractDistance="3.0" QuestId="69318" StepId="1" NpcId="1033888" XYZ="1.358032, 1.490116E-08, -5.081299"/>
-			<WaitWhile Condition="not GetQuestStep(69318) == 255 or QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+			<WaitWhile Condition="not GetQuestStep(69318) == 255 or ff14bot.Managers.QuestLogManager.InCutscene or ff14bot.Behavior.CommonBehaviors.IsLoading"/>
 		</If>
 		<If Condition="GetQuestStep(69318) == 255">
 			<If Condition="not IsOnMap(351)">
@@ -7500,7 +7500,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 		</CodeChunk>
 		<CodeChunk Name="Use_And_Open_Items">
 			<![CDATA[
-				await Coroutine.Wait(15000, () => !QuestLogManager.InCutscene && !ff14bot.Behavior.CommonBehaviors.IsLoading && !DutyManager.InInstance);
+				await Coroutine.Wait(15000, () => !ff14bot.Managers.QuestLogManager.InCutscene && !ff14bot.Behavior.CommonBehaviors.IsLoading && !DutyManager.InInstance);
 				await Coroutine.Sleep(3000);
 
 				string[] itemNames =
@@ -7569,7 +7569,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 		<CodeChunk Name="68815">
 			<![CDATA[
 				Navigator.PlayerMover.MoveTowards(new Vector3("541.802, 8.618705, 330.2815"));
-				while (!QuestLogManager.InCutscene)
+				while (!ff14bot.Managers.QuestLogManager.InCutscene)
 				{
 					await Coroutine.Yield();
 				}
@@ -8356,7 +8356,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				}
 				await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
 				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-				while (QuestLogManager.InCutscene)
+				while (ff14bot.Managers.QuestLogManager.InCutscene)
 				{
 					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
 					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
@@ -8372,9 +8372,9 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 		</CodeChunk>
 		<CodeChunk Name="Handle_Cutscene_Talking">
 			<![CDATA[
-				await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
+				await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || ff14bot.Managers.QuestLogManager.InCutscene);
 				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-				while (QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
+				while (ff14bot.Managers.QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
 				{
 					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
 					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
@@ -8504,8 +8504,8 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				bindings.Interact();
 				await Coroutine.Wait(1000, () => Core.Me.IsCasting);
 				await Coroutine.Wait(-1, () => !Core.Me.IsCasting);
-				await Coroutine.Wait(10000, () => QuestLogManager.InCutscene);
-				while (QuestLogManager.InCutscene)
+				await Coroutine.Wait(10000, () => ff14bot.Managers.QuestLogManager.InCutscene);
+				while (ff14bot.Managers.QuestLogManager.InCutscene)
 				{
 					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
 					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
@@ -8523,9 +8523,9 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 					}
 				}
 				Navigator.PlayerMover.MoveTowards(finalFight);
-				await Coroutine.Wait(30000, () => QuestLogManager.InCutscene);
+				await Coroutine.Wait(30000, () => ff14bot.Managers.QuestLogManager.InCutscene);
 				Navigator.PlayerMover.MoveStop();
-				while (QuestLogManager.InCutscene)
+				while (ff14bot.Managers.QuestLogManager.InCutscene)
 				{
 					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
 					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
@@ -8893,7 +8893,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				var pos = new Vector3(-698.8723f, 51.39332f, -235.7107f);
 
 				Navigator.PlayerMover.MoveTowards(pos);
-				while (Core.Me.Location.Distance2D(pos) > 1.5f && !CommonBehaviors.IsLoading && !QuestLogManager.InCutscene)
+				while (Core.Me.Location.Distance2D(pos) > 1.5f && !CommonBehaviors.IsLoading && !ff14bot.Managers.QuestLogManager.InCutscene)
 				{
 					await Coroutine.Yield();
 					Navigator.PlayerMover.MoveTowards(pos);
@@ -8938,7 +8938,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				Navigator.PlayerMover.MoveStop();
 				MovementManager.SetFacing(1.862758f);
 				MovementManager.MoveForwardStart();
-				await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
+				await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading || ff14bot.Managers.QuestLogManager.InCutscene);
 				MovementManager.MoveStop();
 			]]>
 		</CodeChunk>
@@ -9154,9 +9154,9 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				await Coroutine.Wait(-1, () => JournalAccept.IsOpen);
 				JournalAccept.Accept();
 
-				await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
+				await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || ff14bot.Managers.QuestLogManager.InCutscene);
 				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-				while (QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
+				while (ff14bot.Managers.QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
 				{
 					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
 					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }

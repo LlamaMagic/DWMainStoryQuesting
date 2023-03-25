@@ -953,7 +953,7 @@
 								<!-- Lalai -->
 								<GetTo ZoneId="131" XYZ="87.5105, 18, 113.7255"/>
 								<LLTurnIn QuestId="67217" NpcId="1006752" XYZ="87.5105, 18, 113.7255"/>
-								<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+								<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
 								<LLSmallTalk/>
 								<AutoInventoryEquip/>
 							</If>

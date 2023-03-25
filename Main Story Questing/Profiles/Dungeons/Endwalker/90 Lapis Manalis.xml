@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Lapis Manalis
+  Authors: DomesticWarlord86
+
+	Zone Name: Lapis Manalis | Zone Id: 1097
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<!-- Dungeon Constants -->
+	<!ENTITY DungeonDrops "38957,38958,38959,38960,38961,38962,38963,38964,38965,38966,38967,38968,38969,38970,38971,38972,38973,38974,38975,38976,38977,38978,38979,38980,38981,38982,38983,38984,38985,38986,38987,38988,38989,38990,38991,38992,38993,38994,38995,38996,38997,38998,38999,39000,39001,39002,39003,39004,39005,39006,39007,39008,39009,39010,39011">
+	<!ENTITY Plugins "Trust,SideStep">
+	<!ENTITY ZoneId "1097">
+	<!ENTITY DutyId "896">
+
+	<!ENTITY Shortcut "2000700">
+
+	<!ENTITY FirstBoss "11992"> <!-- Albion -->
+	<!ENTITY Boss1SubZone "4274">
+	<!ENTITY SecondBoss "10308"> <!-- Galatea Magna -->
+	<!ENTITY Boss2SubZone "4275">
+	<!ENTITY ThirdBoss "11995"> <!-- Cagnazzo -->
+	<!ENTITY Boss3SubZone "4276">
+]>
+
+<Profile>
+	<Name>Lapis Manalis</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<While condition="not DutyManager.InInstance and not IsOnMap(&ZoneId;)">
+			<StopBusy />
+			<JoinSupportDuty DutyId="&DutyId;" />
+		</While>
+
+		<While condition="DutyManager.InInstance and IsOnMap(&ZoneId;)">
+
+
+			<!-- Shortcut available -->
+			<If condition="IsNearShortcut(&Shortcut;)">
+				<UseShortcut NpcId="&Shortcut;" Distance="20" />
+			</If>
+
+			<!-- Arrive at the Silvan Throne: 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive at the Silvan Throne: 0/1" />
+				<If condition="IsOnSubMap(4294)">
+					<MoveTo XYZ="46.74765, 365.4072, -591.7311" usemesh="false" />
+				</If>
+				<MoveTo XYZ="24.59036, 386.0592, -727.6709" />
+			</If>
+
+			<!-- Clear the Silvan Throne: 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear the Silvan Throne: 0/1" />
+				<If condition="not IsOnSubMap(&Boss1SubZone;)">
+					<If condition="IsOnSubMap(4294)">
+						<MoveTo XYZ="46.74765, 365.4072, -591.7311" usemesh="false" />
+					</If>
+					<MoveTo XYZ="24.59036, 386.0592, -727.6709" />
+				</If>
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(1) == 0" /> <!-- Albion -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="23.75824,386.038,-759.7925" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Arrive at the forum messorum: 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive at the forum messorum: 0/1" />
+				<If condition="not IsOnSubMap(4279) and not IsOnSubMap(4277)">
+					<MoveTo XYZ="-20.02434, 398.2682, -821.4402" />
+					<LLChangeZone Heading="3.172102" />
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="344.7469,42.37427,-291.5847" />
+					<LLOpenChest />
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="340.9324,34.28699,-336.4157" />
+					<LLOpenChest />
+				</If>
+				<MoveTo XYZ="349.9083, 33.99946, -379.7383" />
+			</If>
+
+			<!-- Clear the forum messorum: 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear the forum messorum: 0/1" />
+				<If condition="not IsOnSubMap(&Boss2SubZone;)">
+					<If condition="not IsOnSubMap(4279) and not IsOnSubMap(4277)">
+						<MoveTo XYZ="-20.02434, 398.2682, -821.4402" />
+						<LLChangeZone Heading="3.172102" />
+					</If>
+				</If>
+				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(3) == 0" /> <!-- Galatea Magna -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="349.9045,33.98181,-418.2956" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<!-- Arrive at Deepspine: 0/1-->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive at Deepspine: 0/1" />
+				<If condition="not IsOnSubMap(4280)">
+					<MoveTo XYZ="343.5374, 30.64407, -458.5907" />
+					<LLChangeZone Heading="3.278626" />
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-341.9395,-142.6871,255.1765" />
+					<LLOpenChest />
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-257.7402,-165.6367,208.2092" />
+					<LLOpenChest />
+				</If>
+				<MoveTo XYZ="-249.6451, -173.5, 153.9868" />
+				<MoveTo XYZ="-249.6304, -173, 132.9068" InCombat="True"/>
+			</If>
+
+			<!-- Defeat Cagnazzo: 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat Cagnazzo: 0/1" />
+				<If condition="not IsOnSubMap(&Boss3SubZone;)">
+					<If condition="not IsOnSubMap(4280)">
+						<MoveTo XYZ="343.5374, 30.64407, -458.5907" />
+						<LLChangeZone Heading="3.278626" />
+					</If>
+					<MoveTo XYZ="-249.6304, -173, 132.9068" InCombat="True"/>
+				</If>
+				<Grind GrindRef="FinalBoss" while="not IsDutyEnded()" /> <!-- Cagnazzo -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-249.7804,-173,116.9175" />
+					<LLOpenChest />
+				</If>
+			</If>
+
+			<While condition="DutyManager.InInstance and IsDutyEnded()">
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty />
+			</While>
+
+		</While>
+
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="24.12214, 386.0484, -741.9313" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="11992" Weight="1" /> <!-- Albion -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SecondBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="350.0217, 33.99946, -394.1172" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10308" Weight="1" /> <!-- Galatea Magna -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-249.6944, -173, 131.7773" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="11995" Weight="1" /> <!-- Cagnazzo -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+	</CodeChunks>
+</Profile>

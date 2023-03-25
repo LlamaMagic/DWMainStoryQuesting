@@ -1005,7 +1005,7 @@
 				await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
 				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
 
-				while (QuestLogManager.InCutscene)
+				while (ff14bot.Managers.QuestLogManager.InCutscene)
 				{
 					ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
 					if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }

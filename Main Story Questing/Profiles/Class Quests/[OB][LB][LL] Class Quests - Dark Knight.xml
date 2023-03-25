@@ -334,7 +334,7 @@
 							<LisbethTravel ZoneId="155" XYZ="-94.95697, 298.6343, -212.665"/>
 							<Dismount/>
 							<LLSendChat Say="Fray!" QuestId="67594" StepId="1"/>
-							<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+							<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
 						</If>
 						<If Condition="GetQuestStep(67594) == 2">
 							<LisbethTravel ZoneId="155" XYZ="-313.5271, 244.5048, 33.31042"/>

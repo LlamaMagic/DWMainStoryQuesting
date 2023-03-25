@@ -232,7 +232,7 @@ namespace AutoParty
                     await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
                 }
 
-                if (QuestLogManager.InCutscene)
+                if (ff14bot.Managers.QuestLogManager.InCutscene)
                 {
                     TreeRoot.StatusText = "InCutscene";
                     if (ff14bot.RemoteAgents.AgentCutScene.Instance != null)

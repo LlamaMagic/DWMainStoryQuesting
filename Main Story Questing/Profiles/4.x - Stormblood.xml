@@ -1817,7 +1817,7 @@ Known Issues:
 		<If Condition="HasQuest(68035) and not IsQuestCompleted(68035) and GetQuestStep(68035) == 255">
 			<GetTo ZoneId="614" XYZ="446.7554, 68.02853, -74.61173"/>
 			<TurnIn QuestId="68035" InteractDistance="3.0" NpcId="1020067" XYZ="446.7554, 68.02853, -74.61173"/>
-			<WaitWhile Condition="QuestLogManager.InCutscene"/>
+			<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene"/>
 		</If>
 		<!-- Here There Be Xaela (Level 65) -->
 		<If Condition="IsQuestCompleted(68035) and not HasQuest(68166) and not IsQuestCompleted(68166)">
@@ -3564,7 +3564,7 @@ Known Issues:
 			<GetTo ZoneId="635" XYZ="66.73691, -0.1209006, -78.55817"/>
 			<TurnIn QuestId="68089" InteractDistance="3.0" NpcId="1021728" XYZ="66.73691, -0.1209006, -78.55817"/>
 			<WaitWhile Condition="HasQuest(68089) and not IsQuestCompleted(68089)"/>
-			<WaitWhile Condition="QuestLogManager.InCutscene"/>
+			<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene"/>
 		</If>
 
 		<!-- The Ruby Sea, The Azim Steppe, Yanxia, The Fringes, The Peaks, The Lochs -->

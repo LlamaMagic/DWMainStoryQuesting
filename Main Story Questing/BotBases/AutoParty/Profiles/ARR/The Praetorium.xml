@@ -25,7 +25,7 @@ Authors: DomesticWarlord86
 				</If>
 				<MoveTo XYZ="208.194, 76, -0.002082722"/>
 				<MoveTo XYZ="203.6622, 76, -0.07334683" usemesh="false" Distance="1"/>
-				<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+				<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
 			</If>
 
 			<!-- Clear the command chamber: 0/1 -->
@@ -63,9 +63,9 @@ Authors: DomesticWarlord86
 				</If>
 				<!-- Clear to the Cermet Blast Door -->
 				<Grind GrindRef="ClearCermetBlastDoor" While="DistanceSqrTo('-66.64082,-103.8117,-0.008813663') &gt; 3"/>
-				<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+				<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
 				<MoveTo XYZ="-138.597, -104.0126, 0.03212219" UseMesh="False"/>
-				<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+				<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
 			</If>
 
 			<!-- Clear the Laboratorium Primum: 0/1 -->

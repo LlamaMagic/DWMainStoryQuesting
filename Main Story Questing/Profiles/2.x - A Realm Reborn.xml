@@ -4392,7 +4392,7 @@ Known Issues:
 			<If Condition="IsQuestAcceptQualified(66055)">
 				<PickupQuest NpcId="1006492" QuestId="66055" XYZ="7.339539, -21.97097, 121.9348"/>
 			</If>
-			<WaitWhile Condition="Managers.QuestLogManager.InCutscene"/>
+			<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
 			<WaitTimer WaitTime="10"/>
 			<WaitWhile Condition="not IsOnMap(331)"/>
 		</If>
@@ -7731,7 +7731,7 @@ Known Issues:
 			<WaitWhile condition="not GetQuestStep(65620) == 255"/>
 		</If>
 		<If Condition="HasQuest(65620) and not IsQuestCompleted(65620) and GetQuestStep(65620) == 255">
-			<WaitWhile Condition="QuestLogManager.InCutscene"/>
+			<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene"/>
 			<LisbethTravel ZoneId="155" XYZ="-905.7603, 229.2982, -10.14728"/>
 			<TurnIn QuestId="65620" NpcId="1010042" XYZ="-905.7603, 229.2982, -10.14728"/>
 		</If>
