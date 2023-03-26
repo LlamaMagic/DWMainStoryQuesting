@@ -561,7 +561,7 @@
 										<TargetMob Id="1937" Weight="1000"/>
 									</TargetMobs>
 								</LLSimpleDuty>
-								<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
+								<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene"/>
 							</If>
 							<If Condition="GetQuestStep(66585) == 3">
 								<GetTo ZoneId="137" XYZ="494.1635, 12.30589, 337.2701"/>

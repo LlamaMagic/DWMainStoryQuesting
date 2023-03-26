@@ -4392,7 +4392,7 @@ Known Issues:
 			<If Condition="IsQuestAcceptQualified(66055)">
 				<PickupQuest NpcId="1006492" QuestId="66055" XYZ="7.339539, -21.97097, 121.9348"/>
 			</If>
-			<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene"/>
+			<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene"/>
 			<WaitTimer WaitTime="10"/>
 			<WaitWhile Condition="not IsOnMap(331)"/>
 		</If>

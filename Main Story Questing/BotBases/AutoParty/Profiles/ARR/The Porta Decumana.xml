@@ -25,8 +25,8 @@ Authors: DomesticWarlord86
 	<Order>
 		<If condition="DutyManager.InInstance">
 			<!-- Kill The Ultima Weapon -->
-			<Grind GrindRef="TheUltimaWeapon" While="not Managers.ff14bot.Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
-			<WaitWhile Condition="Managers.ff14bot.Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
+			<Grind GrindRef="TheUltimaWeapon" While="not ff14bot.Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
+			<WaitWhile Condition="ff14bot.Managers.QuestLogManager.InCutscene and not IsDutyEnded()"/>
 			<!-- Kill The Ultima Weapon -->
 			<Grind GrindRef="TheUltimaWeapon2" While="not IsDutyEnded()"/>
 
