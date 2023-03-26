@@ -895,89 +895,33 @@
 								<LLTalkTo QuestId="66132" StepId="1" NpcId="1013282" XYZ="304.1886, -36.40591, 332.6923"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 2">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="2"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-297.6883, -41.69223, 408.5603"/>
 								<LLTalkTo QuestId="66132" StepId="2" NpcId="1013287" XYZ="-297.6883, -41.69223, 408.5603"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 3">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="3"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-229.8772, -37.62879, 545.1591"/>
 								<LLTalkTo QuestId="66132" StepId="3" NpcId="1013292" XYZ="-229.8772, -37.62879, 545.1591"/>
 								<Grind grindRef="Pirates_of_Shallow_Water" while="HasQuest(66132) and GetQuestStep(66132) == 3"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 4">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="4"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-229.8772, -37.62879, 545.1591"/>
 								<LLTalkTo QuestId="66132" StepId="4" NpcId="1013292" XYZ="-229.8772, -37.62879, 545.1591"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 5">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="5"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-276.6003, -37.4717, 586.9688"/>
 								<LLTalkTo QuestId="66132" StepId="5" NpcId="1013334" XYZ="-276.6003, -37.4717, 586.9688"/>
 								<Grind grindRef="Pirates_of_Shallow_Water2" while="HasQuest(66132) and GetQuestStep(66132) == 5"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 6">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="6"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-276.6003, -37.4717, 586.9688"/>
 								<LLTalkTo QuestId="66132" StepId="6" NpcId="1013334" XYZ="-276.6003, -37.4717, 586.9688"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 7">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="7"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-253.254, -39.46558, 661.2192"/>
 								<LLTalkTo QuestId="66132" StepId="7" NpcId="1013338" XYZ="-253.254, -39.46558, 661.2192"/>
 								<Grind grindRef="Pirates_of_Shallow_Water3" while="HasQuest(66132) and GetQuestStep(66132) == 7"/>
 							</If>
 							<If Condition="GetQuestStep(66132) == 8">
-								<If Condition="not IsQuestCompleted(66060)">
-									<If Condition="not IsOnMap(138)">
-										<LisbethTravel ZoneId="138" XYZ="317.9521, -40.425, 374.1055"/>
-									</If>
-									<If Condition="IsOnMap(138) and not (IsOnSubMap(461) or IsOnSubMap(173) or IsOnSubMap(228) or IsOnSubMap(230))">
-										<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.5" XYZ="317.4333, -36.325, 352.8649" QuestId="66132" StepId="8"/>
-									</If>
-								</If>
 								<LisbethTravel ZoneId="138" XYZ="-254.1085, -39.31588, 658.8082"/>
 								<LLTalkTo QuestId="66132" StepId="8" NpcId="1013337" XYZ="-254.1085, -39.31588, 658.8082"/>
 							</If>
