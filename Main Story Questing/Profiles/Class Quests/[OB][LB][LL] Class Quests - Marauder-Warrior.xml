@@ -285,18 +285,6 @@
 								<If Condition="IsQuestCompleted(66060)">
 									<GetTo ZoneId="134" XYZ="-206.8055, 41.75788, -39.62775"/>
 								</If>
-								<If Condition="not IsQuestCompleted(66060">
-									<If Condition="not IsOnMap(134)">
-										<!-- Jump Spot -->
-										<GetTo ZoneId="134" XYZ="-185.4939, 39.66003, -46.66972"/>
-									</If>
-									<If Condition="IsOnMap(134) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-206.8055, 41.75788, -39.62775)) &gt; 19">
-										<MoveTo Name="Jump Spot" XYZ="-185.4939, 39.66003, -46.66972"/>
-										<RunCode Name="Agelyss_River_Jump"/>
-									</If>
-									<!-- Skapfghim -->
-									<MoveTo ZoneId="134" XYZ="-206.8055, 41.75788, -39.62775"/>
-								</If>
 								<LLTalkTo NpcId="1002111" XYZ="-206.8055, 41.75788, -39.62775" QuestId="65852" StepId="6"/>
 							</If>
 							<If Condition="GetQuestStep(65852) == 255">
