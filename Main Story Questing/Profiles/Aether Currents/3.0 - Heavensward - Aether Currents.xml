@@ -711,7 +711,7 @@ Profile and fixes by Anges
 				<If Condition="HasQuest(67410)">
 					<If Condition="GetQuestStep(67410) == 1">
 						<If Condition="not IsOnMap(401)">
-							<If Condition="Managers.WorldManager.HasAetheryteId(72)">
+							<If Condition="ff14bot.Managers.WorldManager.HasAetheryteId(72)">
 								<TeleportTo Name="Camp Cloudtop" AetheryteId="72"/>
 							</If>
 						</If>
@@ -745,10 +745,10 @@ Profile and fixes by Anges
 				<If Condition="HasQuest(67445)">
 					<If Condition="GetQuestStep(67445) == 1">
 						<If Condition="not IsOnMap(401)">
-							<If Condition="Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 							</If>
-							<If Condition="not Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<If Condition="not IsOnMap(419)">
 									<!-- The Pillars -->
 									<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
@@ -769,10 +769,10 @@ Profile and fixes by Anges
 					</If>
 					<If Condition="GetQuestStep(67445) == 255">
 						<If Condition="not IsOnMap(401)">
-							<If Condition="Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 							</If>
-							<If Condition="not Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<If Condition="not IsOnMap(419)">
 									<!-- The Pillars -->
 									<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
@@ -793,10 +793,10 @@ Profile and fixes by Anges
 			<If Condition="not IsQuestCompleted(67446)">
 				<If Condition="not HasQuest(67446)">
 					<If Condition="not IsOnMap(401)">
-						<If Condition="Managers.WorldManager.HasAetheryteId(73)">
+						<If Condition="ff14bot.WorldManager.HasAetheryteId(73)">
 							<TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 						</If>
-						<If Condition="not Managers.WorldManager.HasAetheryteId(73)">
+						<If Condition="not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 							<If Condition="not IsOnMap(419)">
 								<!-- The Pillars -->
 								<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
@@ -815,10 +815,10 @@ Profile and fixes by Anges
 				<If Condition="HasQuest(67446)">
 					<If Condition="GetQuestStep(67446) == 1">
 						<If Condition="not IsOnMap(401)">
-							<If Condition="Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 							</If>
-							<If Condition="not Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<If Condition="not IsOnMap(419)">
 									<!-- The Pillars -->
 									<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
@@ -840,10 +840,10 @@ Profile and fixes by Anges
 					</If>
 					<If Condition="GetQuestStep(67446) == 255">
 						<If Condition="not IsOnMap(401)">
-							<If Condition="Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
 							</If>
-							<If Condition="not Managers.WorldManager.HasAetheryteId(73)">
+							<If Condition="not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 								<If Condition="not IsOnMap(419)">
 									<!-- The Pillars -->
 									<GetTo ZoneId="419" XYZ="-48.65455, -8.234923, -59.07746"/>
