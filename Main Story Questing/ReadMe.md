@@ -114,6 +114,7 @@ Some steps need to be completed manually -- a popup will appear with a "ding" so
 
 ### 2.x: A Realm Reborn Issues
 
+-   Quest `The Lominsan Way` involves attacking a bolder and avoiding the other two mobs in the duty. This will fail if your class has any kind of AOE ability as Magitek will automatically attaack all tagerts. Either do this one manually, or turn off all non-single target abilities.
 -   Quest `Lv. 53: You Have Selected Regicide` involves escorting an NPC moogle. Return to East Shroud (11, 22) and complete manually if standing in the Bramble Patch with no apparent way forward.
 
 ### Fixed Issues
