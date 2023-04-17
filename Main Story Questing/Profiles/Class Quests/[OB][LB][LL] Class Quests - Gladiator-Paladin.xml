@@ -21,10 +21,10 @@
 <Profile>
 	<Name>[OB][LB][LL] Class Quests - Gladiator-Paladin</Name>
 	<Order>
-		<If Condition="ClassName != ClassJobType.Gladiator and not IsQuestCompleted(65801)">
+		<If Condition="ClassName != ClassJobType.Gladiator and not IsQuestCompleted(66591)">
 			<ChangeClass Job="Gladiator" Force="True"/>
 		</If>
-		<If Condition="ClassName != ClassJobType.Paladin and IsQuestCompleted(65801)">
+		<If Condition="ClassName != ClassJobType.Paladin and IsQuestCompleted(66591)">
 			<ChangeClass Job="Paladin" Force="True"/>
 		</If>
 
