@@ -5686,6 +5686,7 @@ Known Issues:
 			<TalkTo NpcId="1008276" XYZ="-542.9313, 11.20175, 62.24158" QuestId="66726" StepId="3"/>
 		</If>
 		<While Condition="HasQuest(66726) and not IsQuestCompleted(66726) and GetQuestStep(66726) == 4">
+			<LLToast Message="This quest step kinda sucks. If you see if failing, just complete it manually"/>
 			<MoveTo XYZ="-483.7456, 6.760449, 80.92095"/>
 			<WaitWhile Condition="Core.Player.InCombat"/>
 			<MoveTo XYZ="-373.9252, 1.538172, 64.90609"/>
