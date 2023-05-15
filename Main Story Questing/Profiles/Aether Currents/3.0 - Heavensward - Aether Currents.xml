@@ -85,7 +85,7 @@ Profile and fixes by Anges
 					</If>
 					<If Condition="GetQuestStep(67647) == 2">
 						<If condition="&UseCarry; == 0">
-							<LogMessage Message="Please complete the 4-player dungeon Dusk Vigil. Moving on for now, but required before Patch 3.1 begins."/>
+							<UserDialog QuestId="67647" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Dusk Vigil."/>
 						</If>
 						<If condition="&UseCarry; == 1">
 							<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
