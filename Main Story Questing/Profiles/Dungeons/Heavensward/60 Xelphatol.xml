@@ -171,7 +171,6 @@
 					</If>
 					<MoveTo XYZ="332.9188, 166.7148, -410.6754" />
 				</If>
-				<StopBot/>
 				<Grind GrindRef="FinalBoss" while="not IsDutyEnded()" /> <!-- Tozol Huatotl -->
 				<If Condition="&openchest; == 1">
 					<MoveTo XYZ="310.2006,166.6437,-418.5397" />
