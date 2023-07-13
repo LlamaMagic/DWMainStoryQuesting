@@ -704,7 +704,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(68005) and not IsQuestCompleted(68005) and GetQuestStep(68005) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="68005" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Sirensong Sea."/>
+				<LoadPandaProfile ProfileName="The Sirensong Sea" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2629,7 +2629,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(68060) and not IsQuestCompleted(68060) and GetQuestStep(68060) == 4">
 			<If condition="&UseCarry; == 0">
-				<UserDialog QuestId="68060" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Doma Castle."/>
+				<LoadPandaProfile ProfileName="Doma Castle" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -3241,7 +3241,7 @@ Known Issues:
 			<UseObject UseDistance="3.0" NpcId="2008212" XYZ="431.113, 335.6526, 487.1747" QuestId="68080" StepId="5"/>
 		</If>
 		<If Condition="HasQuest(68080) and not IsQuestCompleted(68080) and GetQuestStep(68080) == 6">
-			<UserDialog QuestId="68080" StepId="6" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Castrum Abania."/>
+			<LoadPandaProfile ProfileName="Castrum Abania" QueueType="2" />
 		</If>
 		<If Condition="HasQuest(68080) and not IsQuestCompleted(68080) and GetQuestStep(68080) == 6">
 			<WaitWhile condition="GetQuestStep(68080) == 7"/>
@@ -3525,7 +3525,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 1">
-			<UserDialog QuestId="68089" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Ala Mhigo."/>
+			<LoadPandaProfile ProfileName="Ala Mhigo" QueueType="2" />
 		</If>
 		<If Condition="HasQuest(68089) and not IsQuestCompleted(68089) and GetQuestStep(68089) == 2">
 			<WaitWhile condition="GetQuestStep(68089) == 2"/>
