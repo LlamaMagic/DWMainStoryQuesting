@@ -32,8 +32,13 @@ Known Issues:
 			<BuyItem ItemIds="4650" DialogOption="0" ItemCount="99" NpcId="1003253" XYZ="-149.9504,18.2,36.94202"/>
 		</If>
 
+		<!-- Grind to level 50 -->
+		<If Condition="Core.Player.ClassLevel &lt; 50">
+			<LLoadProfile Path="Dungeons/Stone Vigil.xml"/>
+		</If>
+
 		<!-- Do level 50 class quests -->
-		<If Condition="Core.Player.ClassLevel &gt;= 50">
+		<If Condition="Core.Player.ClassLevel &gt; 49">
 			<!-- Gladiator / Paladin -->
 			<If condition="not IsQuestCompleted(67568) and ClassName in [ClassJobType.Gladiator, ClassJobType.Paladin]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>
@@ -89,7 +94,7 @@ Known Issues:
 		</If>
 
 		<!-- Coming to Ishgard (Level 50) -->
-		<If Condition="IsQuestCompleted(65964) and not HasQuest(67116) and not IsQuestCompleted(67116)">
+		<If Condition="IsQuestCompleted(65964) and not HasQuest(67116) and not IsQuestCompleted(67116) and Core.Player.ClassLevel &gt; 49">
 			<If Condition="not IsOnMap(155) and not IsOnMap(395)">
 				<GetTo ZoneId="155" XYZ="264.9119, 302.2624, -223.7126"/>
 			</If>
