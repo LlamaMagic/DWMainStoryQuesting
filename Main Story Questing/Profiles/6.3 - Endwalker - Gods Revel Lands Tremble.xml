@@ -169,7 +169,7 @@
 				<TalkTo NpcId="1044263" XYZ="466.0563, -18.12358, 718.8982" QuestId="70210" StepId="2" />
 			</If>
 			<If Condition="GetQuestStep(70210) == 3">
-				<UserDialog QuestId="70210" StepId="3" IsBotContinueAllowed="True" DialogText="Please manually complete Lapis Manalis duty." />
+        <LoadPandaProfile ProfileName="Lapis Manalis" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(70210) == 4">
 				<WaitWhile condition="GetQuestStep(70210) == 4" />

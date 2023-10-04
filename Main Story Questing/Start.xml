@@ -78,5 +78,17 @@ Authors: DomesticWarlord86
 			<Log Message="Loading 6.3 - Endwalker - Gods Revel Lands Tremble" />
 			<LLoadProfile Path="Profiles/6.3 - Endwalker - Gods Revel Lands Tremble.xml" />
 		</If>
+
+		<!-- Endwalker 6.4 -->
+		<If Condition="IsQuestCompleted(70214) and not IsQuestCompleted(70271)">
+			<Log Message="Loading 6.4 - Endwalker - Gods Revel Lands Tremble" />
+			<LLoadProfile Path="Profiles/6.4 - Endwalker - Gods Revel Lands Tremble.xml" />
+		</If>
+
+		<!-- Endwalker 6.5 -->
+		<If Condition="IsQuestCompleted(70271) and not IsQuestCompleted(70286)">
+			<Log Message="Loading 6.5 - Endwalker - Growing Light" />
+			<LLoadProfile Path="Profiles/6.5 - Endwalker - Growing Light.xml" />
+		</If>
 	</Order>
 </Profile>
