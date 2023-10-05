@@ -32,7 +32,7 @@
 			<!-- Marauder -->
 			<If Condition="ClassName == ClassJobType.Marauder">
 				<!-- My First Axe -->
-				<If Condition="not IsQuestCompleted(65848) and IsQuestCompleted(65846)">
+				<If Condition="not IsQuestCompleted(65848)">
 					<If Condition="not HasQuest(65848)">
 						<!-- Wyrnzoen -->
 						<GetTo ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" />
@@ -444,7 +444,7 @@
 						</If>
 					</If>
 				</If>
-				<If Condition="ClassName == ClassJobType.Marauder and Core.Me.Levels[ClassJobType.Marauder] &gt; 29">
+				<If Condition="IsQuestCompleted(66585) aand ClassName == ClassJobType.Marauder and Core.Me.Levels[ClassJobType.Marauder] &gt; 29">
 					<LogMessage Message="[Job Check] Equipping your Warrior Soul Crystal now..." />
 					<RunCode Name="EquipWARCrystal" />
 					<AutoInventoryEquip UpdateGearSet="True" />
