@@ -444,7 +444,7 @@
 						</If>
 					</If>
 				</If>
-				<If Condition="IsQuestCompleted(66585) aand ClassName == ClassJobType.Marauder and Core.Me.Levels[ClassJobType.Marauder] &gt; 29">
+				<If Condition="IsQuestCompleted(66585) and ClassName == ClassJobType.Marauder and Core.Me.Levels[ClassJobType.Marauder] &gt; 29">
 					<LogMessage Message="[Job Check] Equipping your Warrior Soul Crystal now..." />
 					<RunCode Name="EquipWARCrystal" />
 					<AutoInventoryEquip UpdateGearSet="True" />
