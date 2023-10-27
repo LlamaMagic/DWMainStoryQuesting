@@ -1098,55 +1098,55 @@ Known Issues:
 		<!-- Do level 52 class quests -->
 		<If Condition="Core.Player.ClassLevel &gt;= 52">
 			<!-- Gladiator / Paladin -->
-			<If condition="not IsQuestCompleted(67569) and ClassName in [ClassJobType.Gladiator, ClassJobType.Paladin]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67569) and ClassName in [ClassJobType.Gladiator, ClassJobType.Paladin]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Gladiator-Paladin.xml"/>
 			</If>
 			<!-- Marauder / Warrior -->
-			<If condition="not IsQuestCompleted(66122) and ClassName in [ClassJobType.Marauder, ClassJobType.Warrior]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(66122) and ClassName in [ClassJobType.Marauder, ClassJobType.Warrior]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Marauder-Warrior.xml"/>
 			</If>
 			<!-- Dark Knight -->
-			<If condition="not IsQuestCompleted(67596) and ClassName == ClassJobType.DarkKnight">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67596) and ClassName == ClassJobType.DarkKnight">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Dark Knight.xml"/>
 			</If>
 
 			<!-- Conjurer / White Mage -->
-			<If condition="not IsQuestCompleted(67256) and ClassName in [ClassJobType.Conjurer, ClassJobType.WhiteMage]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67256) and ClassName in [ClassJobType.Conjurer, ClassJobType.WhiteMage]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Conjurer-White Mage.xml"/>
 			</If>
 			<!-- Arcanist / Scholar-->
-			<If condition="not IsQuestCompleted(67208) and ClassName in [ClassJobType.Arcanist, ClassJobType.Scholar]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67208) and ClassName in [ClassJobType.Arcanist, ClassJobType.Scholar]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Scholar.xml"/>
 			</If>
 			<!-- Astrologian -->
-			<If condition="not IsQuestCompleted(67557) and ClassName == ClassJobType.Astrologian">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67557) and ClassName == ClassJobType.Astrologian">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Astrologian.xml"/>
 			</If>
 
 			<!-- Pugilist / Monk -->
-			<If condition="not IsQuestCompleted(67563) and ClassName in [ClassJobType.Pugilist, ClassJobType.Monk]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67563) and ClassName in [ClassJobType.Pugilist, ClassJobType.Monk]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Pugilist-Monk.xml"/>
 			</If>
 			<!-- Lancer / Dragoon -->
-			<If condition="not IsQuestCompleted(67227) and ClassName in [ClassJobType.Lancer, ClassJobType.Dragoon]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67227) and ClassName in [ClassJobType.Lancer, ClassJobType.Dragoon]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Lancer-Dragoon.xml"/>
 			</If>
 			<!-- Rogue / Ninja -->
-			<If condition="not IsQuestCompleted(67220) and ClassName in [ClassJobType.Rogue, ClassJobType.Ninja]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67220) and ClassName in [ClassJobType.Rogue, ClassJobType.Ninja]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Rogue-Ninja.xml"/>
 			</If>
 
 			<!-- Archer / Bard -->
-			<If condition="not IsQuestCompleted(67250) and ClassName in [ClassJobType.Archer, ClassJobType.Bard]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67250) and ClassName in [ClassJobType.Archer, ClassJobType.Bard]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Archer-Bard.xml"/>
 			</If>
 
 			<!-- Thaumaturge / Black Mage -->
-			<If condition="not IsQuestCompleted(67215) and ClassName in [ClassJobType.Thaumaturge, ClassJobType.BlackMage]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67215) and ClassName in [ClassJobType.Thaumaturge, ClassJobType.BlackMage]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Thaumaturge-Black Mage.xml"/>
 			</If>
 			<!-- Arcanist / Summoner -->
-			<If condition="not IsQuestCompleted(67637) and ClassName in [ClassJobType.Arcanist, ClassJobType.Summoner]">
+			<If condition="IsQuestCompleted(67119) and not IsQuestCompleted(67637) and ClassName in [ClassJobType.Arcanist, ClassJobType.Summoner]">
 				<LLoadProfile Path="Class Quests/[OB][LB][LL] Class Quests - Arcanist-Summoner.xml"/>
 			</If>
 		</If>
