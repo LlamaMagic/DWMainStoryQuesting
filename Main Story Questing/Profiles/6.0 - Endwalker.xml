@@ -941,7 +941,7 @@ Known Issues:
 				<UseObject NpcId="2011956" XYZ="-632.0439, -0.01531982, -659.6018" QuestId="69913" StepId="2" />
 			</If>
 			<If Condition="GetQuestStep(69913) == 3">
-				<LLoadProfile Path="Dungeons/Endwalker/81 The Tower of Zot.xml" />
+				<LoadPandaProfile ProfileName="The Tower of Zot" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(69913) == 4">
 				<WaitWhile condition="GetQuestStep(69913) == 4" />
@@ -1771,7 +1771,7 @@ Known Issues:
 				<UseObject NpcId="2012112" XYZ="-516.7163, -190.0206, -675.288" QuestId="69931" StepId="3" />
 			</If>
 			<If Condition="GetQuestStep(69931) == 4">
-				<LLoadProfile Path="Dungeons/Endwalker/83 The Tower of Babil.xml" />
+				<LoadPandaProfile ProfileName="The Tower of Babil" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(69931) == 5">
 				<WaitWhile condition="GetQuestStep(69931) == 5" />
@@ -3666,7 +3666,7 @@ Known Issues:
 				<LLTalkTo NpcId="1040154" XYZ="-401.236, 329.783, -760.3418" QuestId="69973" StepId="1" />
 			</If>
 			<If Condition="GetQuestStep(69973) == 2">
-				<LLoadProfile Path="Dungeons/Endwalker/87 Ktisis Hyperboreia.xml" />
+				<LoadPandaProfile ProfileName="Ktisis Hyperboreia" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(69973) == 3">
 				<WaitWhile condition="GetQuestStep(69973) == 3" />
@@ -4764,7 +4764,7 @@ Known Issues:
 			</If>
 
 			<If Condition="GetQuestStep(70000) == 1">
-				<UserDialog QuestId="70000" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Dead Ends." />
+				<LoadPandaProfile ProfileName="The Dead Ends" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(70000) == 2">
 				<WaitWhile condition="GetQuestStep(70000) == 2" />

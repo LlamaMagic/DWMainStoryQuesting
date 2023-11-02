@@ -1034,7 +1034,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<TalkTo NpcId="1029846" XYZ="682.3376, 101.7017, -710.3533" QuestId="68836" StepId="3"/>
 			</If>
 			<If Condition="GetQuestStep(68836) == 4">
-				<LLoadProfile Path="Dungeons/Shadowbringers/71 Holminster Switch.xml"/>
+				<LoadPandaProfile ProfileName="Holminster Switch" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(68836) == 5">
 				<WaitWhile condition="GetQuestStep(68836) == 5"/>
@@ -1788,7 +1788,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<UseObject NpcId="2009828" XYZ="133.4095, -0.01531982, 455.9242" QuestId="68848" StepId="1"/>
 			</If>
 			<If Condition="GetQuestStep(68848) == 2">
-				<LLoadProfile Path="Dungeons/Shadowbringers/73 Dohn Mheg.xml"/>
+				<LoadPandaProfile ProfileName="Dohn Mheg" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(68848) == 3">
 				<WaitWhile condition="GetQuestStep(68848) == 3"/>
@@ -3122,7 +3122,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<If Condition="not IsOnMap(817)">
 					<GetTo ZoneId="817" XYZ="852.7293, -65.42493, -393.7355"/>
 				</If>
-				<LLoadProfile Path="Dungeons/Shadowbringers/75 The Qitana Ravel.xml"/>
+				<LoadPandaProfile ProfileName="The Qitana Ravel" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(68876) == 3">
 				<WaitWhile condition="GetQuestStep(68876) == 3"/>
@@ -3947,7 +3947,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<If Condition="not IsOnMap(815)">
 					<GetTo ZoneId="815" XYZ="-506.8639, -95.96886, 490.0764"/>
 				</If>
-				<LLoadProfile Path="Dungeons/Shadowbringers/77 Malikah's Well.xml"/>
+				<LoadPandaProfile ProfileName="Malikah's Well" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(69157) == 3">
 				<WaitWhile condition="GetQuestStep(69157) == 3"/>
@@ -4587,7 +4587,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<If Condition="not IsOnMap(814)">
 					<GetTo ZoneId="814" XYZ="-173.4306, 460.431, -796.9117"/>
 				</If>
-				<LLoadProfile Path="Dungeons/Shadowbringers/79 Mt Gulg.xml"/>
+				<LoadPandaProfile ProfileName="Mt. Gulg" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(69179) == 5">
 				<If Condition="not IsOnMap(880)">
@@ -5815,7 +5815,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 					<FlyTo XYZ="-538.424, 63.73028, 737.2299" Land="True"/>
 					<NoCombatMoveTo XYZ="-538.424, 63.73028, 737.2299" UseMesh="False"/>
 				</If>
-				<LLoadProfile Path="Dungeons/Shadowbringers/80 Anamnesis Anyder.xml"/>
+				<LoadPandaProfile ProfileName="Anamnesis Anyder" QueueType="2" />
 			</If>
 			<If Condition="GetQuestStep(69305) == 255">
 				<TurnIn QuestId="69305" NpcId="1032549" XYZ="-1.907471, -200, -425.1011"/>
@@ -6151,7 +6151,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			<TalkTo NpcId="1033830" XYZ="23.81927, 82.05, 16.34241" QuestId="69313" StepId="2"/>
 		</If>
 		<If Condition="GetQuestStep(69313) == 3">
-			<UserDialog QuestId="69313" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Heroes' Gauntlet."/>
+			<LoadPandaProfile ProfileName="The Heroes Gauntlet" QueueType="2" />
 		</If>
 		<If Condition="GetQuestStep(69313) == 5">
 			<FlyTo ZoneId="813" XYZ="289.5783, 10.08115, 151.0817"/>
@@ -6696,7 +6696,7 @@ Authors: Sodimm, TuckMeIntoBread, DomesticWarlord86
 			<LLTalkTo NpcId="1036374" XYZ="-25.0401, 83.19998, 10.45239" QuestId="69598" StepId="2"/>
 		</If>
 		<While Condition="GetQuestStep(69598) == 3">
-			<UserDialog QuestId="69598" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Paglth'an."/>
+			<LoadPandaProfile ProfileName="Paglthan" QueueType="2" />
 		</While>
 		<If Condition="GetQuestStep(69598) == 255">
 			<LisbethTravel Zone="130" Subzone="654" Position="-22.70683, 83.19999, 10.58135"/>

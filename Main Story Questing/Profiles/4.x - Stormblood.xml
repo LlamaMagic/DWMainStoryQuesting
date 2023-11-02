@@ -3744,7 +3744,7 @@ Known Issues:
 			<UseObject NpcId="2009054" XYZ="258.2283, -274.2809, -12.8634" UseDistance="5.0" QuestId="68500" StepId="3"/>
 		</If>
 		<If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) == 4">
-			<UserDialog QuestId="68500" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Drowned City of Skalla."/>
+			<LoadPandaProfile ProfileName="The Drowned City of Skalla" QueueType="2" />
 		</If>
 		<If Condition="HasQuest(68500) and not IsQuestCompleted(68500) and GetQuestStep(68500) &gt;= 5">
 			<!-- Quest Step => 5 during cutscene, possibly 6 for a moment before hitting 255 -->
@@ -4843,7 +4843,7 @@ Known Issues:
 			<TalkTo NpcId="1026261" XYZ="337.7888, 54.86068, -531.2734" QuestId="68680" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(68680) and not IsQuestCompleted(68680) and GetQuestStep(68680) == 2">
-			<UserDialog QuestId="68680" StepId="2" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Burn."/>
+			<LoadPandaProfile ProfileName="The Burn" QueueType="2" />
 		</If>
 		<If Condition="HasQuest(68680) and not IsQuestCompleted(68680) and GetQuestStep(68680) == 3">
 			<WaitWhile condition="GetQuestStep(68680) == 3"/>
@@ -5256,7 +5256,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(68719) and not IsQuestCompleted(68719) and GetQuestStep(68719) == 1">
-			<UserDialog QuestId="68719" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon The Ghimlyt Dark."/>
+			<LoadPandaProfile ProfileName="The Ghimlyt Dark" QueueType="2" />
 		</If>
 		<If Condition="HasQuest(68719) and not IsQuestCompleted(68719) and GetQuestStep(68719) == 2">
 			<WaitWhile condition="GetQuestStep(68719) == 2"/>

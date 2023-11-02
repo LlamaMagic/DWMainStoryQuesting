@@ -34,7 +34,7 @@ Known Issues:
 
 		<!-- Grind to level 50 -->
 		<If Condition="Core.Player.ClassLevel &lt; 50">
-			<LLoadProfile Path="Dungeons/Stone Vigil.xml"/>
+			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Do level 50 class quests -->
@@ -1475,7 +1475,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67153) and not IsQuestCompleted(67153) and GetQuestStep(67153) == 3">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/53 Sohm Al.xml"/>
+				<LoadPandaProfile ProfileName="Sohm Al" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2135,7 +2135,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67170) and not IsQuestCompleted(67170) and GetQuestStep(67170) == 2">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/55 The Aery.xml"/>
+				<LoadPandaProfile ProfileName="The Aery" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2496,7 +2496,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67176) and not IsQuestCompleted(67176) and GetQuestStep(67176) == 3">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/57 The Vault.xml"/>
+				<LoadPandaProfile ProfileName="The Vault" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -3229,7 +3229,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67196) and not IsQuestCompleted(67196) and GetQuestStep(67196) == 4">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons\Heavensward\59 The Great Gubal Library.xml"/>
+				<LoadPandaProfile ProfileName="The Great Gubal Library" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4225,7 +4225,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67768) and not IsQuestCompleted(67768) and GetQuestStep(67768) == 3">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons\Heavensward\60 The Antitower.xml"/>
+				<LoadPandaProfile ProfileName="The Great Gubal Library" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4670,9 +4670,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67780) and not IsQuestCompleted(67780) and GetQuestStep(67780) == 5">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons\Heavensward\60 Sohr Khai.xml"/>
-
-				<UserDialog QuestId="67780" StepId="5" IsBotContinueAllowed="True" DialogText="Please complete the 4-player dungeon Sohr Khai."/>
+				<LoadPandaProfile ProfileName="Sohr Khai" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4842,7 +4840,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67878) and not IsQuestCompleted(67878) and GetQuestStep(67878) == 3">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons/Heavensward/60 Xelphatol.xml"/>
+				<LoadPandaProfile ProfileName="Xelphatol" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -5274,7 +5272,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(67890) and not IsQuestCompleted(67890) and GetQuestStep(67890) == 6">
 			<If condition="&UseCarry; == 0">
-				<LLoadProfile Path="Dungeons\Heavensward\60 Baelsar's Wall.xml"/>
+				<LoadPandaProfile ProfileName="Baelsar's Wall" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
