@@ -107,7 +107,7 @@ Known Issues:
 		<If Condition="HasQuest(65781) and not IsQuestCompleted(65781) and GetQuestStep(65781) == 4">
 			<CloseHowTos />
 			<If condition="&UseCarry; == 0">
-				<LoadPandaProfile ProfileName="Saastasha" QueueType="2" />
+				<LoadPandaProfile ProfileName="Sastasha" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
