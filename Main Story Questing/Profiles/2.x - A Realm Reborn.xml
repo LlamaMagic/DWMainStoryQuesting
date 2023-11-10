@@ -2615,7 +2615,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(66368) and not IsQuestCompleted(66368) and GetQuestStep(66368) == 3">
 			<If condition="&UseCarry; == 0">
-				<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+				<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -2710,7 +2710,7 @@ Known Issues:
 
 		<!-- Grind to level 32 -->
 		<If Condition="IsQuestCompleted(66379) and Core.Player.ClassLevel &lt; 32">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Give a Man a Drink (Level 33) -->
@@ -2915,7 +2915,7 @@ Known Issues:
 
 		<!-- Grind to level 34 -->
 		<If Condition="IsQuestCompleted(66392) and Core.Player.ClassLevel &lt; 34">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Lord of Crags (Level 34) -->
@@ -2999,7 +2999,7 @@ Known Issues:
 
 		<!-- Grind to level 35 -->
 		<If Condition="IsQuestCompleted(66053) and Core.Player.ClassLevel &lt; 35">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Do level 35 class quests -->
@@ -3227,7 +3227,7 @@ Known Issues:
 
 		<!-- Grind to level 36 -->
 		<If Condition="IsQuestCompleted(66054) and Core.Player.ClassLevel &lt; 36">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- He Who Waited Behind (Level 36) -->
@@ -3377,7 +3377,7 @@ Known Issues:
 
 		<!-- Grind to level 37 -->
 		<If Condition="IsQuestCompleted(66426) and Core.Player.ClassLevel &lt; 37">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Feats of Strength (Level 37) -->
@@ -3423,7 +3423,7 @@ Known Issues:
 
 		<!-- Grind to level 38 -->
 		<If Condition="IsQuestCompleted(66433) and Core.Player.ClassLevel &lt; 38">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Road to Redemption (Level 38) -->
@@ -3564,7 +3564,7 @@ Known Issues:
 
 		<!-- Grind to level 39 -->
 		<If Condition="IsQuestCompleted(69404) and Core.Player.ClassLevel &lt; 39">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Ye of Little Faith (Level 39) -->
@@ -3694,7 +3694,7 @@ Known Issues:
 
 		<!-- Grind to level 40 -->
 		<If Condition="IsQuestCompleted(69405) and Core.Player.ClassLevel &lt; 40">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- Do level 40 class quests -->
@@ -3871,7 +3871,7 @@ Known Issues:
 
 		<!-- Grind to level 41 -->
 		<If Condition="IsQuestCompleted(66477) and Core.Player.ClassLevel &lt; 41">
-			<LoadPandaProfile ProfileName="Brayfloxs Longstop" QueueType="2" />
+			<LoadPandaProfile ProfileName="Brayflox's Longstop" QueueType="2" />
 		</If>
 
 		<!-- In Pursuit of the Past (Level 41) -->
