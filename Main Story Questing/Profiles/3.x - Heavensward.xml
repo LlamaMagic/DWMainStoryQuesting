@@ -34,7 +34,7 @@ Known Issues:
 
 		<!-- Grind to level 50 -->
 		<If Condition="Core.Player.ClassLevel &lt; 50">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Do level 50 class quests -->

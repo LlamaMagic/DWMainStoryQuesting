@@ -3891,7 +3891,7 @@ Known Issues:
 		</If>
 		<If Condition="HasQuest(66488) and not IsQuestCompleted(66488) and GetQuestStep(66488) == 3">
 			<If condition="&UseCarry; == 0">
-				<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+				<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 			</If>
 			<If condition="&UseCarry; == 1">
 				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
@@ -4054,7 +4054,7 @@ Known Issues:
 
 		<!-- Grind to level 42 -->
 		<If Condition="IsQuestCompleted(66495) and Core.Player.ClassLevel &lt; 42">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- It's Probably Not Pirates (Level 42) -->
@@ -4272,7 +4272,7 @@ Known Issues:
 
 		<!-- Grind to level 43 -->
 		<If Condition="IsQuestCompleted(66503) and Core.Player.ClassLevel &lt; 43">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- The Curious Case of Giggity (Level 43) -->
@@ -4378,7 +4378,7 @@ Known Issues:
 
 		<!-- Grind to level 44 -->
 		<If Condition="IsQuestCompleted(66511) and Core.Player.ClassLevel &lt; 44">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Lady of the Vortex (Level 44) -->
@@ -4690,7 +4690,7 @@ Known Issues:
 
 		<!-- Grind to level 45 -->
 		<If Condition="IsQuestCompleted(66522) and Core.Player.ClassLevel &lt; 45">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Do level 45 class quests -->
@@ -4743,7 +4743,7 @@ Known Issues:
 
 		<!-- Grind to level 46 -->
 		<If Condition="IsQuestCompleted(66522) and Core.Player.ClassLevel &lt; 46">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Drowning Out the Voices (Level 46) -->
@@ -5098,7 +5098,7 @@ Known Issues:
 
 		<!-- Grind to level 49 -->
 		<If Condition="IsQuestCompleted(66058) and Core.Player.ClassLevel &lt; 49">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Operation Archon (Level 49) -->
@@ -5226,7 +5226,7 @@ Known Issues:
 
 		<!-- Grind to level 50 -->
 		<If Condition="IsQuestCompleted(69408) and Core.Player.ClassLevel &lt; 50">
-			<LoadPandaProfile ProfileName="The Stone Vigil" QueueType="2" />
+			<LoadPandaProfile ProfileName="Stone Vigil" QueueType="2" />
 		</If>
 
 		<!-- Do level 50 class quests -->
