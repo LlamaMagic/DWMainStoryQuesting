@@ -2581,7 +2581,7 @@ Known Issues:
 			<WaitWhile Condition="HasQuest(67179) and not IsQuestCompleted(67179) and not GetQuestStep(67179) == 255"/>
 		</If>
 		<If Condition="HasQuest(67179) and not IsQuestCompleted(67179) and GetQuestStep(67179) == 255">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2591,7 +2591,7 @@ Known Issues:
 
 		<!-- Familiar Faces (Level 57) -->
 		<If Condition="IsQuestCompleted(67179) and not HasQuest(67180) and not IsQuestCompleted(67180)">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2601,7 +2601,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(67180) and not IsQuestCompleted(67180) and GetQuestStep(67180) == 1">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2609,7 +2609,7 @@ Known Issues:
 			<SoSendChat Emote="lookout" XYZ="-702.7697, -62.06715, 112.6331" QuestId="67180" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(67180) and not IsQuestCompleted(67180) and GetQuestStep(67180) == 2">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2637,7 +2637,7 @@ Known Issues:
 
 		<!-- Devourer of Worlds (Level 57) -->
 		<If Condition="IsQuestCompleted(67180) and not HasQuest(67181) and not IsQuestCompleted(67181)">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2647,7 +2647,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(67181) and not IsQuestCompleted(67181) and GetQuestStep(67181) == 1">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2655,7 +2655,7 @@ Known Issues:
 			<TalkTo NpcId="1013093" XYZ="-749.1112, -35.95642, 22.04926" QuestId="67181" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(67181) and not IsQuestCompleted(67181) and GetQuestStep(67181) == 2">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2663,7 +2663,7 @@ Known Issues:
 			<LLTalkTo NpcId="1013090" XYZ="-650.9346, -58.6966, -337.2397" QuestId="67181" StepId="2"/>
 		</If>
 		<If Condition="HasQuest(67181) and not IsQuestCompleted(67181) and GetQuestStep(67181) == 255">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2673,7 +2673,7 @@ Known Issues:
 
 		<!-- Black and the White (Level 57) -->
 		<If Condition="IsQuestCompleted(67181) and not HasQuest(67182) and not IsQuestCompleted(67182)">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2683,7 +2683,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(67182) and not IsQuestCompleted(67182) and GetQuestStep(67182) == 1">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2691,7 +2691,7 @@ Known Issues:
 			<TalkTo NpcId="1013123" XYZ="-538.0178, -37.04666, -392.0501" QuestId="67182" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(67182) and not IsQuestCompleted(67182) and GetQuestStep(67182) == 2">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2699,7 +2699,7 @@ Known Issues:
 			<SoEmoteNpc NpcId="1012070" Emote="bow" XYZ="-554.0704, -57.62821, -547.4174" QuestId="67182" StepId="2"/>
 		</If>
 		<If Condition="HasQuest(67182) and not IsQuestCompleted(67182) and GetQuestStep(67182) == 255">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2709,7 +2709,7 @@ Known Issues:
 
 		<!-- Bolt, Chain, and Island (Level 57) -->
 		<If Condition="IsQuestCompleted(67182) and not HasQuest(67183) and not IsQuestCompleted(67183)">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2719,7 +2719,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 1">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2727,7 +2727,7 @@ Known Issues:
 			<TalkTo NpcId="1012064" XYZ="-542.7787, -37.11544, -386.7094" QuestId="67183" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 2">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2735,7 +2735,7 @@ Known Issues:
 			<TalkTo NpcId="1013386" XYZ="-155.6268, -14.15378, -541.558" QuestId="67183" StepId="2"/>
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 3">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2771,7 +2771,7 @@ Known Issues:
 			<WaitWhile condition="GetQuestStep(67183) == 5"/>
 		</If>
 		<If Condition="HasQuest(67183) and not IsQuestCompleted(67183) and GetQuestStep(67183) == 255">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2786,7 +2786,7 @@ Known Issues:
 
 		<!-- A Difference of Opinion (Level 57) -->
 		<If Condition="IsQuestCompleted(67183) and not HasQuest(67184) and not IsQuestCompleted(67184)">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2796,7 +2796,7 @@ Known Issues:
 			</If>
 		</If>
 		<If Condition="HasQuest(67184) and not IsQuestCompleted(67184) and GetQuestStep(67184) == 1">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2804,7 +2804,7 @@ Known Issues:
 			<TalkTo NpcId="1013100" XYZ="-582.6353, -52.0946, -447.1351" QuestId="67184" StepId="1"/>
 		</If>
 		<If Condition="HasQuest(67184) and not IsQuestCompleted(67184) and GetQuestStep(67184) == 255">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
@@ -2815,7 +2815,7 @@ Known Issues:
 
 		<!-- One Good Turn (Level 57) -->
 		<If Condition="IsQuestCompleted(67184) and not HasQuest(67185) and not IsQuestCompleted(67185)">
-			<If Condition="not IsOnMap(401) and not Managers.WorldManager.HasAetheryteId(73)">
+			<If Condition="not IsOnMap(401) and not ff14bot.Managers.WorldManager.HasAetheryteId(73)">
 				<GetTo ZoneId="419" XYZ="147.3258, -12.63491, -12.40564"/>
 				<UseTransport InteractDistance="3.0" NpcId="1011212" XYZ="147.3258, -12.63491, -12.40564"/>
 			</If>
