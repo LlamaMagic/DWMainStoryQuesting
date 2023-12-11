@@ -7,8 +7,6 @@ Authors: DomesticWarlord86
 	<Name>Main Story Questing Start Profile</Name>
 	<Order>
 		<!-- Profile starts here -->
-		<!-- Lisbeth check -->
-		<LisbethCheck />
 
 		<!-- Required plugin checks -->
 		<EnablePlugin Name="Trust" />
