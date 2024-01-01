@@ -56,7 +56,7 @@ Some steps need to be completed manually -- a popup will appear with a "ding" so
 -   Quest `Lv. 70: Stormblood` requires the 8-player trial `Lv. 70: The Royal Menagerie`.
 -   Quest `Lv. 70: The Mad King's Trove` requires swimming underwater to unlock the dungeon.
 -   Quest `Lv. 70: The Mad King's Trove` requires the 4-player dungeon `Lv. 70: The Drowned City of Skalla`.
--   ~~Quest `Lv. 70: Securing the Saltery` requires two zoomie-zooms.~~
+-   Quest `Lv. 70: Securing the Saltery` requires two zoomie-zooms.
 -   Quest `Lv. 70: Return of the Bull` requires a solo duty.
 -   Quest `Lv. 70: Hope on the Waves` requires a solo duty.
 -   Quest `Lv. 70: The Primary Agreement` requires the 8-player trial `Lv. 70: Castrum Fluminis`.
