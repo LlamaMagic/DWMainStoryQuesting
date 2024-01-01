@@ -43,7 +43,7 @@ Some steps need to be completed manually -- a popup will appear with a "ding" so
 -   Quest `Lv. 61: Not Without Incident` requires the 4-player dungeon `Lv. 61: The Sirensong Sea`.
 -   Quest `Lv. 61: It's Probably a Trap` requires a solo duty.
 -   Quest `Lv. 63: The Lord of the Revel` requires the 8-player trial `Lv. 63: The Pool of Tribute`.
--   Quest `Lv. 64: A New Ruby Tithe` requires three zoomie-zooms.
+-   ~~Quest `Lv. 64: A New Ruby Tithe` requires three zoomie-zooms.~~
 -   Quest `Lv. 65: In the Footsteps of Bardam the Brave` requires the 4-player dungeon `Lv. 65: Bardam's Mettle`.
 -   Quest `Lv. 66: The Labors of Magnai` requires manually gathering underwater Swordgrass.
 -   Quest `Lv. 66: Naadam` requires a solo duty.
